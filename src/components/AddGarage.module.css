@@ -1,0 +1,252 @@
+.container {
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  background-color: rgba(250, 251, 252, 1);
+  display: flex;
+  width: 100%;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.formContainer {
+  display: flex;
+  width: 800px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: -37px;
+}
+
+.title {
+  color: rgba(9, 44, 76, 1);
+  font-size: 22px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0 0 32px 0;
+}
+
+.inputField {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 27px 24px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.logoUpload {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  padding: 24px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.logoLabel {
+  color: rgba(44, 62, 80, 1);
+  font-size: 15px;
+}
+
+.uploadLabel {
+  display: flex;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.uploadText {
+  color: rgba(148, 163, 184, 1);
+  font-size: 13px;
+  margin: auto 0;
+}
+
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.rowFields {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 16px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  white-space: nowrap;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.selectField {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.selectField select {
+  width: 100%;
+  padding: 27px 24px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  outline: none;
+  background: transparent;
+  appearance: none;
+}
+
+.currencySelect {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  padding: 27px 28px;
+  align-items: center;
+  gap: 40px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  position: relative;
+}
+
+.currencySelect select {
+  width: 100%;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  outline: none;
+  background: transparent;
+  appearance: none;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  margin: auto 0;
+  flex-shrink: 0;
+  position: absolute;
+  right: 28px;
+}
+
+.textareaField {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 48px;
+  height: 122px;
+  overflow: hidden;
+}
+
+.textareaField textarea {
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 14px;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  color: rgba(100, 116, 139, 1);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.saveButton {
+  border-radius: 6px;
+  background-color: rgba(35, 113, 226, 1);
+  padding: 8px 24px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    padding: 32px 20px 100px;
+  }
+
+  .formContainer {
+    margin-bottom: 10px;
+  }
+
+  .inputField,
+  .logoUpload,
+  .textareaField {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .rowFields {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .selectField {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+
+  .currencySelect {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+
+  .actionButtons {
+    margin-top: 40px;
+  }
+
+  .saveButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

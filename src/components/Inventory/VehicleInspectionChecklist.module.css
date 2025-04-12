@@ -1,0 +1,191 @@
+.container {
+  padding: 35px;
+  font-family: "Poppins", sans-serif;
+  background-color: #f6fafd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.saveButton {
+  padding: 8px 24px;
+  border-radius: 2px;
+  border: 1px solid rgba(151, 150, 153, 0.24);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #2371e2;
+}
+
+.cancelButton {
+  padding: 8px 24px;
+  border-radius: 2px;
+  border: 1px solid rgba(151, 150, 153, 0.24);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #cf2129;
+}
+
+.sectionCard {
+  border-radius: 22px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 60px rgba(226, 236, 249, 0.5);
+  background-color: #fff;
+}
+
+.sectionHeader {
+  border-radius: 3px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  background-color: #e3edfb;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  color: #000;
+}
+
+.selectAllControls {
+  user-select: all;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #000;
+}
+
+.checkButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #2371e2;
+}
+
+.uncheckButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #cf2129;
+}
+.verifyDiv{
+  display: flex;
+  width: 100%;
+}
+.checklistGrid {
+  width: 60%;
+  display: grid;
+  gap: 16px;
+}
+.gridImg{
+  width: 40%;
+  display: grid;
+  align-self: center;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #000;
+}
+
+
+.itemLabel {
+  width: 200px;
+}
+
+.optionsGroup {
+  display: flex;
+  gap: 64px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radioInput {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.optionText {
+  font-size: 14px;
+  color: #000;
+}
+
+.sectionImage {
+  max-width: 100%;
+  height: auto;
+  margin-top: 24px;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .container {
+    padding: 20px;
+  }
+
+  .sectionCard {
+    padding: 16px;
+  }
+
+  .checklistItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .optionsGroup {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .optionsGroup {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}

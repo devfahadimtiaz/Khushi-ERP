@@ -1,0 +1,190 @@
+.container {
+  width: 100%;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+}
+
+.formCard {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.formGrid:first-child {
+  margin-top: 0;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterLabel {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectField {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  padding: 0 12px;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1H1L5 9L9 1Z' stroke='black'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+}
+
+.selectField:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 24, 209, 0.2);
+}
+
+.selectField option {
+  color: #000;
+  background-color: #fff;
+}
+
+.selectField:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.rangeInputs {
+  display: flex;
+  gap: 12px;
+}
+
+.rangeInput {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 0 12px;
+  color: #000;
+  font-size: 16px;
+}
+
+.rangeInput::placeholder {
+  color: #999;
+}
+
+.rangeInput:focus {
+  outline: none;
+  border-color: #4318d1;
+}
+
+.featuresSection {
+  margin-top: 24px;
+}
+
+.featuresLabel {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxInput {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #666;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.featureText {
+  color: #4a4a4a;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.applyButton {
+  width: 142px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #4318d1;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.applyButton:hover {
+  background-color: #3612b0;
+}
+
+.applyButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 24, 209, 0.4);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991px) {
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .applyButton {
+    width: 100%;
+  }
+}

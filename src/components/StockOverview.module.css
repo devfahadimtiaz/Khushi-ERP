@@ -1,0 +1,80 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.gridContainer {
+  width: 100%;
+  padding: 45px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.stockItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconContainer {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainer {
+  flex: 1;
+}
+
+.label {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  color: #4e4b66;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 6px;
+}
+
+.progressBar {
+  height: 100%;
+  width: 18px;
+  border-radius: 5px;
+}
+
+.value {
+  font-size: 14px;
+  color: #a0a3bd;
+  font-family: "Outfit", sans-serif;
+}
+
+.brandLogo {
+  width: 28px;
+  height: 28px;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .gridContainer {
+    padding: 30px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gridContainer {
+    padding: 20px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

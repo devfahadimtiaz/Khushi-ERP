@@ -1,0 +1,168 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  width: 500px;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.popupTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #14142a;
+}
+
+.closeIconWrapper {
+  cursor: pointer;
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.popupContainer {
+  padding: 32px;
+}
+
+.vehicleInfoContainer {
+  border-radius: 8px;
+  padding: 18px 16px;
+  margin-bottom: 24px;
+  background-color: #f6fafd;
+}
+
+.infoRow {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.infoLabel {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  min-width: 80px;
+}
+
+.infoValue {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #14142a;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #4e4b66;
+  min-width: 80px;
+  margin-bottom: 8px;
+}
+
+.inputField {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.textareaField {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #333;
+  resize: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.cancelButton {
+  width: 88px;
+  height: 43px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  background: transparent;
+  color: #4e4b66;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.confirmButton {
+  width: 162px;
+  height: 43px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2371e2;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .popupContainer {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .popupContainer {
+    width: 95%;
+    margin: 10px auto;
+    padding: 20px;
+  }
+
+  .vehicleInfoContainer {
+    padding: 15px 12px;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}

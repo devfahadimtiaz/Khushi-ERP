@@ -1,0 +1,226 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  width: 600px;
+  border-radius: 12px;
+  padding: 28px 32px 36px;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.popupTitle {
+  color: #14142a;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.vehicleInfoContainer {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  background-color: #f6fafd;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.infoColumn {
+  flex: 1;
+}
+
+.infoLabel {
+  color: #4e4b66;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 4px;
+}
+
+.infoValue {
+  color: #14142a;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  color: #4e4b66;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 4px;
+}
+
+.selectContainer {
+  border-radius: 8px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  justify-content: space-between;
+  margin-top: 8px;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+.selectValue {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dropdownIcon {
+  width: 8px;
+  height: 8px;
+}
+
+.inputField {
+  height: 47px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 0 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.textareaField {
+  height: 100px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  resize: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.cancelButton {
+  width: 88px;
+  height: 43px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  color: #4e4b66;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.confirmButton {
+  width: 152px;
+  height: 43px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2371e2;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  .popupContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .popupContainer {
+    padding: 20px;
+  }
+
+  .infoRow {
+    flex-direction: column;
+  }
+
+  .infoColumn {
+    margin-bottom: 16px;
+  }
+
+  .buttonContainer {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}
+/* Works in Chrome, Edge, Safari */
+.popupContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.popupContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.popupContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.popupContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

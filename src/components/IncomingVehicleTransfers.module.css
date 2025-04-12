@@ -1,0 +1,149 @@
+/* Main container */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f6fafd;
+}
+.inner{
+  width: 1240px;
+  margin: auto;
+  padding-top: 100px;
+
+}
+/* Header */
+.header {
+  color: #092c4c;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  height: 63px;
+  border-bottom: 1px solid #eaeef4;
+  padding: 16px 24px;
+  background-color: #fff;
+}
+
+/* Table container */
+.tableContainer {
+  margin: 24px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(9, 161, 218, 0.1);
+  background-color: #fff;
+}
+
+/* Table header */
+.tableHeader {
+  display: flex;
+  padding: 24px;
+  border-radius: 8px 8px 0 0;
+  background-color: #e3edfb;
+}
+
+/* Header cells */
+.headerCell {
+  color: #14142a;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  width: 161px;
+}
+
+/* Adjust width for vehicle column */
+.headerCell:nth-child(2) {
+  width: 172px;
+}
+
+/* Adjust width for status column */
+.headerCell:nth-child(6) {
+  width: 172px;
+}
+
+/* Actions cell takes remaining space */
+.actionsCell {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Table rows */
+.tableRow {
+  display: flex;
+  padding: 24px;
+  border-bottom: 1px solid #eaeef4;
+}
+
+/* Regular cells */
+.cell {
+  color: #4e4b66;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  width: 161px;
+}
+
+/* Adjust width for vehicle column */
+.cell:nth-child(2) {
+  width: 172px;
+}
+
+/* Adjust width for status column */
+.cell:nth-child(6) {
+  width: 172px;
+}
+
+/* Vehicle name */
+.vehicleName {
+  color: #4e4b66;
+  margin-bottom: 2px;
+}
+
+/* Vehicle details */
+.vehicleDetails {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* Confirm button */
+.confirmButton {
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 25px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #2371e2;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991px) {
+  .tableHeader,
+  .tableRow {
+    min-width: 1000px;
+  }
+
+  .tableContainer {
+    margin: 12px;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .tableContainer {
+    margin: 8px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    padding: 16px;
+  }
+}

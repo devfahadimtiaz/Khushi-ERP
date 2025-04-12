@@ -1,0 +1,144 @@
+.stockCard {
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  align-items: flex-start;
+  gap: 25px 51px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.logoContainer {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 7px 23px 18px;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 194px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  aspect-ratio: 6.02;
+  object-fit: contain;
+  object-position: center;
+  width: 250px;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.flag {
+  
+  object-fit: contain;
+  object-position: center;
+  width: 29px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.statColumn {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 14px;
+  line-height: 27px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-self: center;
+
+}
+
+.statColumn:nth-child(2) {
+  width: 86px;
+}
+
+.statColumn:nth-child(3) {
+  width: 90px;
+}
+
+.statColumn:nth-child(4) {
+  width: 80px;
+}
+
+.statColumn:nth-child(5) {
+  width: 110px;
+}
+
+.statColumn:nth-child(6) {
+  width: 100px;
+}
+
+
+.statTitle {
+  color: rgba(0, 0, 0, 1);
+  font-family:
+    "SF Pro Display",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+}
+
+.statValue {
+  color: #000;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+.ctaContainer {
+  border-radius: 29px;
+  display: flex;
+  padding: 4px 0;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  line-height: 30px;
+  justify-content: center;
+  alignItems: 'center';
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 60px;
+  margin-top: 23px;
+}
+
+.ctaButton {
+  z-index: 10;
+  border-radius: 29px;
+  background-color: rgba(35, 113, 226, 1);
+  padding: 4px 5px;
+  text-align: center;
+  alignItems: 'center';
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .stockCard {
+    max-width: 100%;
+  }
+
+  .logoContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

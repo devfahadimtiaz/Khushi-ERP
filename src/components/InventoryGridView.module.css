@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f6fafd;
+  padding: 24px;
+  padding-top: 100px;
+  font-family: "Poppins", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1340px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btnsold{
+  height: 41px;
+  padding: 0 16px;
+  background-color: #1AD598;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btnGray {
+  height: 41px;
+  padding: 0 16px;
+  background-color: #d9e1e7;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnGray:hover {
+  opacity: 0.9;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+  overflow: hidden;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  height: 40px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 36px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1ad598;
+  border: none;
+}
+
+.filterBtn:hover {
+  opacity: 0.9;
+}
+
+.showroomFilters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.checkboxLabel {
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.carGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.carCard {
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
+.carMainImage {
+  width: 100%;
+  height: 274px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.carName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stockInfo {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.stockLabel,
+.stockValue {
+  color: #000;
+  font-size: 16px;
+}
+
+.priceTag {
+  width: 123px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailGrid {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.thumbnail {
+  width: 102px;
+  height: 102px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.updateButton {
+  height: 59px;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #1ad598;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updateButton:hover {
+  opacity: 0.9;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .filterButtons {
+    flex-wrap: wrap;
+  }
+
+  .carGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .showroomFilters {
+    flex-direction: column;
+  }
+
+  .carGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnailGrid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
