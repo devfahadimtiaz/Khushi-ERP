@@ -1,0 +1,215 @@
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 80%;
+  margin: auto;
+  padding: 100px 60px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.pageTitle {
+  color: rgba(17, 17, 17, 1);
+  font-size: 24px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.makeGrid {
+  display: flex;
+  margin-top: 32px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.makeRow {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.makeCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  padding: 16px 80px 16px 16px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  cursor: pointer;
+}
+.makeCard:hover{
+  border: 1px solid;
+  border-color: #2371e2;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 12px;
+}
+.backButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  cursor: pointer;
+}
+.makeCardSelected {
+  border-color: rgba(35, 113, 226, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.iconContainer {
+  border-radius: 8px;
+  display: flex;
+  margin: auto 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.iconGray {
+  background-color: rgba(197, 197, 198, 1);
+}
+
+.iconBlue {
+  background-color: rgba(76, 164, 253, 1);
+}
+
+.iconBlack {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.iconDarkGray {
+  background-color: rgba(115, 115, 115, 1);
+}
+
+.iconTransparent {
+  background-color: transparent;
+}
+
+.iconLightGray {
+  background-color: rgba(232, 234, 236, 1);
+}
+
+.iconYellow {
+  background-color: rgba(243, 212, 141, 1);
+}
+
+.iconNavyBlue {
+  background-color: rgba(15, 20, 120, 0.6);
+}
+
+.iconLightestGray {
+  background-color: rgba(250, 250, 250, 1);
+}
+
+.iconRedLight {
+  background-color: rgba(231, 0, 19, 0.12);
+}
+
+.makeIcon {
+  object-fit: contain;
+  object-position: center;
+}
+
+.makeDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.makeName {
+  color: rgba(17, 17, 17, 1);
+  font-size: 16px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.makeAction {
+  color: rgba(102, 102, 102, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.continueButton {
+  border-radius: 4px;
+  background-color: rgba(35, 113, 226, 1);
+  align-self: center;
+  margin-top: 107px;
+  width: 293px;
+  max-width: 100%;
+  padding: 12px 43px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.continueButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .mainWrapper {
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  .makeCard {
+    padding-right: 20px;
+  }
+
+  .continueButton {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;
+  }
+}

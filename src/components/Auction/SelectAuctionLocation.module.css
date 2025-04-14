@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.container {
+  min-height: 100vh;
+  padding: 24px 36px;
+  background-color: #f6fafd;
+}
+
+.mainWrapper {
+  width: 80%;
+  margin-top: 100px;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.titleWithBackButton {
+  display: flex;
+  align-items: center;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  color: #092c4c;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+}
+
+.searchInput {
+  color: #999;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  width: 300px;
+  height: 41px;
+  border-radius: 4px;
+  border: 1px solid #eaeef4;
+  padding: 0 16px;
+  background-color: #fff;
+}
+
+.locationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.locationCard {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #eaeef4;
+  padding: 24px;
+  background-color: #fff;
+}
+.locationCard:hover{
+  border: 1px solid;
+  border-color: #2371e2;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.locationName {
+  color: #092c4c;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.vehicleCount {
+  color: #7e92a2;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-top: 4px;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #eaeef4;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.checkbox.checked {
+  background-color: #2371e2;
+  border-color: #2371e2;
+  position: relative;
+}
+
+.checkbox.checked::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.auctionSchedule {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 24px;
+  background-color: #f8fafc;
+}
+
+.iconWrapper {
+  margin-right: 8px;
+}
+
+.scheduleDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.scheduleLabel {
+  color: #7e92a2;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.scheduleDate {
+  color: #092c4c;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-top: 2px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 24px 0;
+}
+
+.continueButton {
+  border-radius: 4px;
+  padding: 12px 24px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+  width: 293px;
+  background-color: #2371e2;
+}
+
+.continueButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 16px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+  }
+
+  .searchInput {
+    width: 250px;
+  }
+
+  .locationCard {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .pageTitle {
+    font-size: 18px;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .locationCard {
+    padding: 12px;
+  }
+
+  .auctionSchedule {
+    padding: 12px;
+  }
+
+  .continueButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+.container {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  flex-direction: column;
+}
+.wrapper{
+  width: 80%;
+  margin:  auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 12px;
+}
+
+.backButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  cursor: pointer;
+}
+
+.makeTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.popularVehicles {
+  height: 40px;
+  color: #64748b;
+  font-size: 12px;
+  padding: 16px 116px;
+  border-bottom: 1px solid #ecf0f2;
+  background-color: #f7f8fa;
+  display: flex;
+  align-items: center;
+}
+
+.selectAllContainer {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 12px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #f1f5f9;
+}
+
+.selectAllText {
+  font-size: 14px;
+  color: #000;
+}
+
+.modelsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.modelItem {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 16px;
+  border-bottom: 1px solid #ecf0f2;
+}
+
+.modelImage {
+  width: 160px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modelImage img {
+  max-width: 100%;
+  height: auto;
+}
+
+.modelDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modelName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.modelPrice {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.premiumBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.modelStats {
+  margin-left: auto;
+  text-align: right;
+}
+
+.bidCount {
+  font-size: 14px;
+  color: #000;
+  gap: 8px;
+}
+
+.arrowIcon {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.endTime {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid #ecf0f2;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.selectedCount {
+  font-size: 14px;
+  color: #000;
+}
+
+.selectButton {
+  width: 117px;
+  height: 48px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(122, 90, 248, 0.3);
+  background-color: #2371e2;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .modelItem {
+    flex-wrap: wrap;
+  }
+
+  .modelStats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .modelImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .modelDetails {
+    width: 100%;
+  }
+
+  .modelStats {
+    margin-top: 16px;
+  }
+
+  .selectButton {
+    width: 100%;
+  }
+}

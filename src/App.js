@@ -14,6 +14,10 @@ import AddStock from "./components/Inventory/InventoryManagement/AddStock";
 import VehicleTransferManagement from "./components/Inventory/TransferManagement/VehicleTransferManagement";
 import IncomingVehicleTransfers from "./components/Inventory/TransferManagement/IncomingVehicleTransfers";
 import ParkingZoneManagement from "./components/Inventory/ParkingZonesManagement/ParkingZoneManagement";
+import AuctionHouse from "./components/Auction/SelectAuctionHouse";
+import AuctionGridView from "./components/Auction/JapanCarAuctions";
+import AuctionPriceChecker from "./components/Auction/AuctionChecker";
+import DutyCalculator from "./components/Auction/DutyCalculator";
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);
@@ -41,20 +45,32 @@ function App() {
     setCurrentView("inventory-grid");
   };
 
-  const navigateToInventoryAddStock = ()=>{
+  const navigateToInventoryAddStock = () => {
     setCurrentView("add-stock");
-  }
-  const navigateToAddGarage = ()=>{
+  };
+  const navigateToAddGarage = () => {
     setCurrentView("add-garage");
-  }
-  const navigateToVehicleTransfer=()=>{
+  };
+  const navigateToVehicleTransfer = () => {
     setCurrentView("vehicle-transfer");
-  }
-  const navigateToIncomingVehicleTransfers=()=>{
+  };
+  const navigateToIncomingVehicleTransfers = () => {
     setCurrentView("incoming-vehicle-transfers");
-  }
-  const navigatetoParkingZoneManagement=()=>{
+  };
+  const navigatetoParkingZoneManagement = () => {
     setCurrentView("parking-zone-management");
+  };
+  const navigateToActionHouse = () => {
+    setCurrentView("auction-house");
+  };
+  const navigateToAuctionGridView=()=>{
+    setCurrentView("auction-grid")
+  }
+  const navigateToAuctionListView=()=>{
+    setCurrentView("price-checker")
+  }
+  const navigateToDutyCalculator=()=>{
+    setCurrentView("duty-calculator")
   }
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -64,18 +80,27 @@ function App() {
     setCurrentView(viewId);
     setNavOpen(false);
   };
-  
 
   const renderView = () => {
     switch (currentView) {
       case "add-garage":
         return <AddGarage onBack={navigateToDashboard} />;
       case "garage":
-        return <GarageList onBack={navigateToDashboard} onAddGarage={navigateToAddGarage} />;
+        return (
+          <GarageList
+            onBack={navigateToDashboard}
+            onAddGarage={navigateToAddGarage}
+          />
+        );
       case "dashboard":
         return <Dashboard onBack={navigateToSignIn} />;
       case "inventory-dashboard":
-        return <Inventory onBack={navigateToDashboard} onNavigateToAddStock={navigateToInventoryAddStock} />;
+        return (
+          <Inventory
+            onBack={navigateToDashboard}
+            onNavigateToAddStock={navigateToInventoryAddStock}
+          />
+        );
       case "stock":
         return (
           <InventoryListView
@@ -84,7 +109,12 @@ function App() {
           />
         );
       case "inventory-grid":
-        return <InventoryGridView onBack={navigateToDashboard} onNaigateToListView={navigateToInventoryListVies}/>;
+        return (
+          <InventoryGridView
+            onBack={navigateToDashboard}
+            onNaigateToListView={navigateToInventoryListVies}
+          />
+        );
       case "signIn":
         return (
           <SignIn
@@ -92,16 +122,30 @@ function App() {
             onSignIn={navigateToDashboard}
           />
         );
-      case "add-stock":  
-      return <AddStock onBack={navigateToDashboard} />;
+      case "add-stock":
+        return <AddStock onBack={navigateToDashboard} />;
       case "vehicle-transfer":
-      return <VehicleTransferManagement onBack={navigateToDashboard} />;
+        return <VehicleTransferManagement onBack={navigateToDashboard} />;
       case "moduleSelection":
         return <ModuleSelection onContinue={navigateToSignIn} />;
       case "incoming-vehicle-transfers":
-        return<IncomingVehicleTransfers onBack={navigateToDashboard}/>
+        return <IncomingVehicleTransfers onBack={navigateToDashboard} />;
       case "parking-zone-management":
         return <ParkingZoneManagement onBack={navigateToDashboard} />;
+      case "auction-grid":
+        return (
+        <AuctionGridView 
+        onBack={navigateToDashboard} 
+        onListView={navigateToAuctionListView} 
+        onDutyCalculator={navigateToDutyCalculator}
+        />
+      );
+      case "auction-house":
+        return <AuctionHouse onBack={navigateToDashboard} />;
+      case "price-checker":
+        return <AuctionPriceChecker onBack={navigateToDashboard} />;
+      case "duty-calculator":
+        return <DutyCalculator onBack={navigateToDashboard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

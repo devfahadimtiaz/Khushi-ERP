@@ -1,0 +1,280 @@
+.container {
+  background-color: #f6fafd;
+  overflow: hidden;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+.wrapper{
+  width: 80%;
+  margin: auto;
+  padding-top: 70px;
+}
+
+.headerContainer {
+  background-color: #f6fafd;
+  width: 100%;
+  padding: 24px;
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.listViewButton {
+  border-radius: 4px;
+  background-color: #d9e1e7;
+  display: flex;
+  padding: 10px 21px;
+  align-items: center;
+  gap: 10px;
+  color: #092c4c;
+  border: none;
+  cursor: pointer;
+}
+
+.dutyButton {
+  border-radius: 4px;
+  background-color: #2371e2;
+  display: flex;
+  padding: 10px 17px;
+  align-items: center;
+  gap: 1px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.carCard {
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #eaeef4;
+  margin-top: 24px;
+  width: 100%;
+  padding: 1px 1px 25px;
+  font-size: 14px;
+}
+
+.carCard:first-of-type {
+  margin-top: 32px;
+}
+
+.carImage {
+  aspect-ratio: 6.1;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+}
+
+.carDetails {
+  display: flex;
+  margin: 24px 24px 0;
+  width: 100%;
+  max-width: 1173px;
+  align-items: stretch;
+  gap: 20px;
+  color: #092c4c;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.detailsLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.carName {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.carYear {
+  color: #7e92a2;
+}
+
+.bidLabel {
+  margin-top: 18px;
+}
+
+.bidAmount {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.specItem {
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+  gap: 8px;
+}
+
+.specItem:first-of-type {
+  margin-top: 24px;
+}
+
+.specIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.specText {
+  flex-grow: 1;
+}
+
+.detailsRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gradeContainer {
+  align-self: flex-end;
+  display: flex;
+  width: 91px;
+  flex-direction: column;
+  align-items: stretch;
+  color: #7e92a2;
+}
+
+.gradeLabel {
+  border-radius: 100px;
+  background-color: #ececfe;
+  padding: 4px 9px;
+  color: #514ef3;
+  text-align: center;
+}
+
+.auctionEndLabel {
+  margin-top: 41px;
+  color: #7e92a2;
+}
+
+.auctionEndDate {
+  align-self: flex-start;
+  color: #7e92a2;
+}
+
+.cardActions {
+  display: flex;
+  margin: 24px 23px 0 24px;
+  align-items: stretch;
+  gap: 12px;
+  font-weight: 500;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.viewDetailsButton {
+  border-radius: 4px;
+  border: 1px solid #eaeef4;
+  padding: 9px 70px;
+  color: #092c4c;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.cposButton {
+  border-radius: 4px;
+  background-color: #2371e2;
+  padding: 9px 70px;
+  color: #ffffff;
+  white-space: nowrap;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .headerContainer {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .contentWrapper {
+    max-width: 100%;
+  }
+
+  .carCard {
+    max-width: 100%;
+  }
+
+  .carImage {
+    max-width: 100%;
+  }
+
+  .carDetails {
+    max-width: 100%;
+    margin-right: 10px;
+  }
+
+  .auctionEndLabel {
+    margin-top: 40px;
+  }
+
+  .cardActions {
+    max-width: 100%;
+    margin-right: 10px;
+  }
+
+  .viewDetailsButton {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cposButton {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+
+  .specItem {
+    white-space: initial;
+  }
+}

@@ -129,10 +129,10 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Auction Access",
       subItems: [
-        { id: "bidding", label: "Bidding" },
-        { id: "listings", label: "Listings" },
-        { id: "history", label: "Auction History" },
-        { id: "schedule", label: "Schedule" },
+        { id: "auction-house", label: "Auction House" },
+        { id: "auction-grid", label: "Auction Grid View"},
+        { id: "price-checker", label: "Price Checker" },
+        { id: "duty-calculator", label: "Duty Calculator" },
       ],
     },
     {

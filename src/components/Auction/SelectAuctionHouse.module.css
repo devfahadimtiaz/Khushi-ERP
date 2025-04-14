@@ -1,0 +1,282 @@
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  overflow: hidden;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.mainWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 80%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.headerContainer {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.selectionButton {
+  border-radius: 4px;
+  background-color: #2371E2;
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.selectionButton:hover{
+  opacity: 80%;
+}
+
+
+.selectionText {
+  flex-grow: 1;
+}
+
+.selectionIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  align-self: start;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.auctionCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  padding: 25px;
+  flex-direction: column;
+  align-items: stretch;
+}
+.auctionCard:hover{
+  border: 1px solid;
+  border-color: #2371E2;
+}
+
+.auctionCard:first-of-type {
+  margin-top: 32px;
+}
+
+.cardHeader {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.companyInfo {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.companyLogo {
+  aspect-ratio: 2;
+  object-fit: contain;
+  object-position: center;
+  width: 80px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.companyDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.companyName {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: start;
+  margin: 0;
+}
+
+.locationCount {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.checkbox {
+  border-radius: 4px;
+  border: 1px solid rgba(234, 238, 244, 1);
+  align-self: start;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkbox.checked {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 1);
+}
+
+.companyDescription {
+  color: rgba(9, 44, 76, 1);
+  font-size: 14px;
+  font-weight: 400;
+  align-self: start;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.statsContainer {
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statBox {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  padding: 16px 76px 16px 16px;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
+}
+
+.statLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.statValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.auctionSchedule {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  margin-top: 24px;
+  padding: 17px 80px 17px 16px;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.calendarIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.scheduleDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.scheduleLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 12px;
+  font-weight: 400;
+  align-self: start;
+}
+
+.scheduleDate {
+  color: rgba(9, 44, 76, 1);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.continueButton {
+  border-radius: 4px;
+  background-color: #2371E2;
+  align-self: center;
+  margin-top: 32px;
+  width: 293px;
+  max-width: 100%;
+  padding: 12px 30px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continueButton:hover {
+  opacity: 80%;
+}
+
+@media (max-width: 991px) {
+  .mainWrapper {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .headerContainer {
+    max-width: 100%;
+  }
+
+  .auctionCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .statBox {
+    padding-right: 20px;
+  }
+
+  .auctionSchedule {
+    padding-right: 20px;
+  }
+
+  .continueButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

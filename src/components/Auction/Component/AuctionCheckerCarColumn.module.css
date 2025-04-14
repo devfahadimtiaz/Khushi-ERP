@@ -1,0 +1,42 @@
+.tableRow {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 16px 0;
+    border-bottom: 1px solid #eaeef4;
+  }
+  
+  .checkboxCell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headerCell {
+    color: #7e92a2;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  
+  .dataCell {
+    color: #092c4c;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  
+  .colorSwatch {
+    width: 47px;
+    height: 40px;
+    border-radius: 100px;
+  }
+  
+  .scoreTag {
+    color: #514ef3;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background-color: #ececfe;
+    display: inline-block;
+  }
