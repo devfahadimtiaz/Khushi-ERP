@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './LogoSlider.module.css';
-import logo from "../uploads/KM-LOGO.png";
-import oceanlogo from "../uploads/ocean.png";
+import logo from "../../../uploads/KM-LOGO.png";
+import oceanlogo from "../../../uploads/ocean.png";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const logos = [

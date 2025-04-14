@@ -4,12 +4,14 @@ import AddParkingPopup from "./AddParkingPopup";
 import EditParkingPopup from "./EditParkingPopup";
 import CarTransferPopup from "./CarTransferPopup";
 import RemoveCarPopup from "./RemoveCarPopup";
+import EditZonePopup from "./EditZonePopup";
 
 const ParkingZoneManagement = ({ onBack }) => {
   const [showAddPopup, setShowAddPopup] = useState(false);
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [showTransferPopup, setShowTransferPopup] = useState(false);
   const [showRemovePopup, setShowRemovePopup] = useState(false);
+  const [showEditZonePopup, setShowEditZonePopup] = useState(false);
   const [activeZone, setActiveZone] = useState("A");
   const [searchStockNo, setSearchStockNo] = useState("");
   const [searchName, setSearchName] = useState("");
@@ -98,6 +100,7 @@ const ParkingZoneManagement = ({ onBack }) => {
     setShowEditPopup(false);
     setShowTransferPopup(false);
     setShowRemovePopup(false);
+    setShowEditZonePopup(false);
   };
 
   const handleSaveParking = (parkingData) => {
@@ -195,10 +198,19 @@ const ParkingZoneManagement = ({ onBack }) => {
           selectedCar={selectedParkingSpace?.car}
         />
       )}
+      {showEditZonePopup && (
+        <EditZonePopup isOpen={showEditZonePopup} onClose={handleClosePopup} />
+      )}
       <div className={styles.marginContainer}>
         <div className={styles.header}>
           <div className={styles.title}>Khushi Motors Mombasa</div>
           <div className={styles.actionButtons}>
+            <button
+              className={styles.editZoneButton}
+              onClick={() => setShowEditZonePopup(true)}
+            >
+              Edit Zones
+            </button>
             <button className={styles.addButton} onClick={handleAddCar}>
               Add
             </button>
@@ -236,7 +248,14 @@ const ParkingZoneManagement = ({ onBack }) => {
             A2-12
           </div>
         </div>
-
+        <div className={styles.searchActions}>
+          <button className={styles.searchButton} onClick={handleSearch}>
+            Search
+          </button>
+          <button className={styles.clearButton} onClick={handleClear}>
+            Clear
+          </button>
+        </div>
         <div className={styles.zoneButtons}>
           <button
             className={`${styles.zoneButton} ${activeZone === "A" ? styles.activeZone : ""}`}
@@ -269,6 +288,7 @@ const ParkingZoneManagement = ({ onBack }) => {
             Zone (E)
           </button>
         </div>
+        
 
         <div className={styles.parkingGrid}>
           {currentParkingData && (
@@ -317,14 +337,7 @@ const ParkingZoneManagement = ({ onBack }) => {
           </div>
         </div>
 
-        <div className={styles.searchActions}>
-          <button className={styles.searchButton} onClick={handleSearch}>
-            Search
-          </button>
-          <button className={styles.clearButton} onClick={handleClear}>
-            Clear
-          </button>
-        </div>
+        
       </div>
     </div>
   );

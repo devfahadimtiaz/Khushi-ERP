@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./DesignerTask.module.css";
-import main from "../../uploads/Stock Photos/main.png"
+import styles from "./CameraMenTask.module.css";
+import main from "../../../uploads/Stock Photos/main.png"
 
-const DesignerTask = () => {
+const MediaUploadNew = () => {
   const [videoFiles, setVideoFiles] = useState([]);
   const [photoFiles, setPhotoFiles] = useState([]);
 
@@ -229,4 +229,4 @@ const DesignerTask = () => {
   );
 };
 
-export default DesignerTask;
+export default MediaUploadNew;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./MediaUpload.module.css";
-import main from "../../uploads/Stock Photos/main.png"
+import main from "../../../uploads/Stock Photos/main.png"
 
 const MediaUploadNew = () => {
   const [videoFiles, setVideoFiles] = useState([]);

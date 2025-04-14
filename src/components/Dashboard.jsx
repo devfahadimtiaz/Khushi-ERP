@@ -7,17 +7,17 @@ import khushiUganda from '../uploads/ug.png'
 import khushiTanzania from '../uploads/tz.png'
 import ocean from '../uploads/ocean.png'
 import ot from '../uploads/ot.png'
-import DoughnutChart from './Charts/DoughnutChart';
-import BarChart from './Charts/BarChart';
-import DoughnutChartWithLabel from './Charts/DoughnutChartWithLabel';
+import DoughnutChart from '../Resources/Charts/DoughnutChart';
+import BarChart from '../Resources/Charts/BarChart';
+import DoughnutChartWithLabel from '../Resources/Charts/DoughnutChartWithLabel';
 import { CanvasJSChart } from 'canvasjs-react-charts';
-import RevenueChart from './Charts/RevenueChart';
-import BasicBarChart from "./Charts/BasicBarChart";
-import ApexChart from "./Charts/ApexBarChart";
-import ApexColumnChart from "./Charts/ApexColumnChart";
-import ApexAreaChart from "./Charts/ApexAreaChart";
-import SixByFourTable from "./Tables/Tabel";
-import ProgressDonutChart from "./Charts/ProgressDonutChart"
+import RevenueChart from '../Resources/Charts/RevenueChart';
+import BasicBarChart from "../Resources/Charts/BasicBarChart";
+import ApexChart from "../Resources/Charts/ApexBarChart";
+import ApexColumnChart from "../Resources/Charts/ApexColumnChart";
+import ApexAreaChart from "../Resources/Charts/ApexAreaChart";
+import SixByFourTable from "../Resources/Tables/Tabel";
+import ProgressDonutChart from "../Resources/Charts/ProgressDonutChart"
 
 function Dashboard({ onBack }) {
   const [isOpen, setIsOpen] = useState(false);

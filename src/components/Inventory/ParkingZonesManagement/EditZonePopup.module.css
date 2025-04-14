@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: "Inter", sans-serif;
+}
+
+.popupContainer {
+  width: 800px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #f6fafd;
+  border-radius: 8px;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  padding: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+  overflow: hidden;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selectionRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.selectionItem {
+  flex: 1;
+  position: relative;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdownText {
+  color: #363565;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dropdownIcon {
+  display: flex;
+  align-items: center;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  z-index: 10;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  padding: 12px 16px;
+  color: #363565;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f6fafd;
+}
+
+.configurationContainer {
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  background-color: #fff;
+}
+
+.configurationTitle {
+  color: #363565;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.rowsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rowItem {
+  display: flex;
+  align-items: center;
+}
+
+.rowLabel {
+  width: 56px;
+  color: #363565;
+  font-size: 16px;
+}
+
+.slotContainer {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 4px;
+  margin-left: 16px;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  background-color: #fff;
+  border: none;
+}
+
+.slotLabel {
+  color: #7e92a2;
+  font-size: 14px;
+}
+
+.slotValue {
+  color: #363565;
+  font-size: 16px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.addButton {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #2dc8a8;
+}
+
+.backButton {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #cf2129;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 991px) {
+  .selectionRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .popupContainer {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .configurationContainer {
+    padding: 16px;
+  }
+
+  .rowItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rowLabel {
+    margin-bottom: 8px;
+  }
+
+  .slotContainer {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .addButton,
+  .backButton {
+    width: 100%;
+  }
+}
+
+/* Scrollbar styling */
+.popupContainer::-webkit-scrollbar,
+.dropdownMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.popupContainer::-webkit-scrollbar-track,
+.dropdownMenu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.popupContainer::-webkit-scrollbar-thumb,
+.dropdownMenu::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.popupContainer::-webkit-scrollbar-thumb:hover,
+.dropdownMenu::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

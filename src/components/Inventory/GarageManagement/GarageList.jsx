@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./GarageList.module.css"
-import KEFlag from "../uploads/ke.png"
+import KEFlag from "../../../uploads/ke.png"
 import { useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 function GarageList({onBack, onAddGarage}) {

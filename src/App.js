@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import NavToggle from "./components/NavToggle";
+import Navbar from "./components/Navbar/Navbar";
+import NavToggle from "./components/Navbar/NavToggle";
 import Dashboard from "./components/Dashboard";
-import AddGarage from "./components/AddGarage";
-import GarageList from "./components/GarageList";
+import AddGarage from "./components/Inventory/GarageManagement/AddGarage";
+import GarageList from "./components/Inventory/GarageManagement/GarageList";
 import ModuleSelection from "./components/ModuleSelection";
 import SignIn from "./components/SignIn";
-import Inventory from "./components/Inventory";
-import InventoryListView from "./components/InventoryListView";
-import InventoryGridView from "./components/InventoryGridView";
-import AddStock from "./components/Inventory/AddStock";
-import VehicleTransferManagement from "./components/VehicleTransferManagement";
-import IncomingVehicleTransfers from "./components/IncomingVehicleTransfers";
-import ParkingZoneManagement from "./components/ParkingZoneManagement";
+import Inventory from "./components/Inventory/Dashboard/Inventory";
+import InventoryListView from "./components/Inventory/ViewManagement/InventoryListView";
+import InventoryGridView from "./components/Inventory/ViewManagement/InventoryGridView";
+import AddStock from "./components/Inventory/InventoryManagement/AddStock";
+import VehicleTransferManagement from "./components/Inventory/TransferManagement/VehicleTransferManagement";
+import IncomingVehicleTransfers from "./components/Inventory/TransferManagement/IncomingVehicleTransfers";
+import ParkingZoneManagement from "./components/Inventory/ParkingZonesManagement/ParkingZoneManagement";
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);

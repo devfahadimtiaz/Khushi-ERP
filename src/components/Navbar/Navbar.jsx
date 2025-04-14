@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import logo from "../uploads/KM-LOGO.png";
-import pic from "../uploads/Pic.png";
+import logo from "../../uploads/KM-LOGO.png";
+import pic from "../../uploads/Pic.png";
 function Navbar({ isOpen, onClose, onNavigate }) {
   const [expandedMenus, setExpandedMenus] = useState({});
 

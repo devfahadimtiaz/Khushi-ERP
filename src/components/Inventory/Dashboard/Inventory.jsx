@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Inventory.module.css";
-import logo from "../uploads/KM-LOGO.png";
+import logo from "../../../uploads/KM-LOGO.png";
 import LogoSlider from "./LogoSlider";
-import StockOverview from "./StockOverview";
-import Tabels from "./Tables/Tabel";
+import StockOverview from "../../StockOverview";
+import Tabels from "../../../Resources/Tables/Tabel";
 import FilterSystem from "./FilterSystem";
-import AddStock from "./Inventory/AddStock";
+import AddStock from "../InventoryManagement/AddStock";
 
 
 

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import styles from "./DocumentUpload.module.css";
-import pdfIcon from "../../uploads/icons/pdf.svg";
-import view from "../../uploads/icons/view.svg";
-import download from "../../uploads/icons/download.svg";
+import pdfIcon from "../../../uploads/icons/pdf.svg";
+import view from "../../../uploads/icons/view.svg";
+import download from "../../../uploads/icons/download.svg";
 function DocumentUpload() {
   const [documents, setDocuments] = useState([
     { id: 1, name: "C24-0001 Export Certificate" },

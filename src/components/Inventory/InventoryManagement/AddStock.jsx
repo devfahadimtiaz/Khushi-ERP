@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styles from "./AddStock.module.css";
-import pic from "../../uploads/Pic.png"
+import pic from "../../../uploads/Pic.png"
 import General from "./General";
 import ExpenseTracker from "./ExpenseTracker";
 import MediaUpload from "./MediaUpload";

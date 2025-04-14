@@ -32,6 +32,7 @@
 }
 
 .addButton,
+.editZoneButton,
 .editButton,
 .transferButton,
 .removeButton {
@@ -43,7 +44,9 @@
   font-weight: 700;
   cursor: pointer;
 }
-
+.editZoneButton{
+  background-color: #4318D1;
+}
 .addButton,
 .editButton {
   background-color: #2371e2;
@@ -180,6 +183,7 @@
   display: flex;
   gap: 10px;
   justify-content: flex-end;
+  margin-bottom: 50px;
 }
 
 .searchButton,
