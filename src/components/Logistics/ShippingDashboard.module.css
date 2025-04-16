@@ -1,0 +1,794 @@
+.container {
+  background-color: rgba(248, 250, 252, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainContent {
+  background-color: rgba(248, 250, 252, 1);
+  width: 80%;
+  margin: auto;
+  padding: 80px;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    max-width: 100%;
+    padding: 10px 20px 60px;
+  }
+}
+
+.contentWrapper {
+  width: 100%;
+}
+
+.headerSection {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .headerSection {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.titleColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 69%;
+}
+
+@media (max-width: 991px) {
+  .titleColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+}
+
+.dashboardTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 24px;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.tabsContainer {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 11px;
+  width: 100%;
+  align-items: stretch;
+  gap: 9px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .tabsContainer {
+    max-width: 100%;
+  }
+}
+
+.tab {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .tab {
+    white-space: initial;
+  }
+}
+
+.tabActive {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .tabActive {
+    white-space: initial;
+  }
+}
+
+.searchColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 31%;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .searchColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+}
+
+.searchWrapper {
+  display: flex;
+  margin-top: 14px;
+  width: 100%;
+  flex-direction: column;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.searchInput {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  width: 300px;
+  max-width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: rgba(153, 153, 153, 1);
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (max-width: 991px) {
+  .searchInput {
+    padding-right: 20px;
+  }
+}
+
+.storageAlert {
+  border-radius: 8px;
+  background-color: rgba(254, 243, 199, 1);
+  align-self: flex-end;
+  display: flex;
+  margin-top: 19px;
+  padding: 12px;
+  align-items: stretch;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(30, 41, 59, 1);
+}
+
+.alertIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+.alertContent {
+  display: flex;
+  align-items: stretch;
+}
+
+.statusCardsContainer {
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 15px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .statusCardsContainer {
+    max-width: 100%;
+  }
+}
+
+.statusCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(0, 0, 0, 0);
+  display: flex;
+  padding: 18px 38px;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.statusCard:hover{
+  border: 1px solid rgba(67, 24, 209, 1);
+}
+
+@media (max-width: 991px) {
+  .statusCard {
+    padding: 18px 20px;
+  }
+}
+
+.statusCardActive {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(67, 24, 209, 1);
+  display: flex;
+  padding: 18px 38px;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  
+}
+
+@media (max-width: 991px) {
+  .statusCardActive {
+    padding: 18px 20px;
+  }
+}
+
+.statusNumber {
+  color: rgba(30, 41, 59, 1);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.statusLabel {
+  color: rgba(100, 116, 139, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.contentGrid {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .contentGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 75%;
+}
+
+@media (max-width: 991px) {
+  .mainColumn {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+.vehiclesTable {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 23px 18px 42px 18px;
+}
+
+@media (max-width: 991px) {
+  .vehiclesTable {
+    max-width: 100%;
+    margin-right: 3px;
+    padding-right: 20px;
+  }
+}
+
+.tableGrid {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .tableGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.tableColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 39%;
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .tableColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+}
+
+.tableHeader {
+  width: 100%;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.columnTitle {
+  font-weight: 700;
+  align-self: stretch;
+  font-size: 18px;
+  color: rgba(30, 41, 59, 1);
+}
+
+.makeModelYear {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  white-space: nowrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+@media (max-width: 991px) {
+  .makeModelYear {
+    white-space: initial;
+  }
+}
+
+.makeTitle {
+  font-weight: 600;
+  margin-top: 40px;
+  font-size: 18px;
+  color: rgba(30, 41, 59, 1);
+}
+
+.modelYearWrapper {
+  align-self: flex-end;
+  margin-top: 67px;
+}
+
+@media (max-width: 991px) {
+  .modelYearWrapper {
+    margin-top: 40px;
+    white-space: initial;
+  }
+}
+
+.modelTitle,
+.yearTitle {
+  font-size: 18px;
+  color: rgba(30, 41, 59, 1);
+  font-weight: 600;
+}
+
+.tableData {
+  margin-top: 33px;
+  width: 100%;
+  padding: 0 12px 0 5px;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.vehicleRow {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  white-space: nowrap;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.vehicleRow:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .vehicleRow {
+    white-space: initial;
+  }
+}
+
+.makeCell,
+.modelCell,
+.yearCell {
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.originTitle,
+.arrivedTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: stretch;
+}
+
+.originData,
+.arrivedData {
+  margin-top: 33px;
+}
+
+.originCell,
+.dateCell {
+  margin-top: 33px;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.originCell:first-child,
+.dateCell:first-child {
+  margin-top: 0;
+}
+
+.yardEtaHeader {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 18px;
+  color: rgba(30, 41, 59, 1);
+  font-weight: 600;
+  justify-content: space-between;
+}
+
+.yardEtaData {
+  margin-top: 33px;
+}
+
+.yardEtaRow {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 33px;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.yardEtaRow:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .yardEtaRow {
+    white-space: initial;
+  }
+}
+
+.daysInYardTable {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  margin-top: 17px;
+  width: 100%;
+  padding: 23px 18px 42px 18px;
+  align-items: flex-end;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .daysInYardTable {
+    padding-right: 20px;
+  }
+}
+
+.daysTableGrid {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.daysTableSection {
+  align-self: stretch;
+}
+
+.daysTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.yardAllocationSection {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  margin-top: 40px;
+}
+
+.yardColumn,
+.allocationColumn {
+  flex: 1;
+}
+
+.yardHeader,
+.allocationHeader {
+  color: rgba(30, 41, 59, 1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.yardItem,
+.allocationItem {
+  margin-top: 33px;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.daysRangeColumn {
+  display: flex;
+  margin-top: 67px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .daysRangeColumn {
+    margin-top: 40px;
+    white-space: initial;
+  }
+}
+
+.daysRangeHeader {
+  color: rgba(30, 41, 59, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+}
+
+.daysRangeData {
+  margin-top: 33px;
+}
+
+.daysRangeItem {
+  margin-top: 33px;
+  font-size: 14px;
+  color: rgba(71, 85, 105, 1);
+  font-weight: 400;
+}
+
+.daysRangeItem:first-child {
+  margin-top: 0;
+}
+
+.totalRow {
+  display: flex;
+  margin-top: 33px;
+  align-items: stretch;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.totalRow:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .totalRow {
+    white-space: initial;
+  }
+}
+
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 25%;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .sideColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
+
+.notificationsCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  width: 100%;
+  padding: 20px 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (max-width: 991px) {
+  .notificationsCard {
+    padding: 20px;
+  }
+}
+
+.sidebarCardTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.notificationItem {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  margin-top: 16px;
+  padding: 8px 16px;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.notificationIcon {
+  aspect-ratio: 0.81;
+  object-fit: contain;
+  object-position: center;
+  width: 26px;
+  border-radius: 8px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.notificationContent {
+  flex: 1;
+}
+
+.notificationTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notificationText {
+  color: rgba(100, 116, 139, 1);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.invoicesCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (max-width: 991px) {
+  .invoicesCard {
+    padding: 20px;
+  }
+}
+
+.invoiceItem {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  margin-top: 14px;
+  padding: 20px 16px 11px;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.invoiceIcon {
+  aspect-ratio: 0.81;
+  object-fit: contain;
+  object-position: center;
+  width: 26px;
+  border-radius: 8px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.invoiceContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.invoiceTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 16px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.invoiceAmount {
+  color: rgba(100, 116, 139, 1);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  align-self: flex-start;
+}
+
+.currencySymbol {
+  text-decoration: line-through;
+  font-size: 18px;
+  line-height: 27px;
+  color: rgba(30, 41, 59, 1);
+}
+
+.amountValue {
+  font-size: 18px;
+  line-height: 27px;
+  color: rgba(30, 41, 59, 1);
+}

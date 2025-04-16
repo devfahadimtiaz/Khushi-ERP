@@ -1,0 +1,333 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(248, 249, 251, 1);
+}
+
+.pageWrapper {
+  width: 80%;
+  padding-top: 80px;
+  margin: auto;
+
+  background-color: rgba(248, 249, 251, 1);
+  padding-bottom: 199px;
+}
+.headerTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2a3547;
+}
+.filterCard {
+  width: 97%;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.exportButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.exportPdfButton {
+  border-radius: 8px;
+  background-color: rgba(67, 24, 209, 1);
+  box-shadow: 0px 2px 4px rgba(42, 53, 71, 0.2);
+  padding: 12px 17px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.exportExcelButton {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(42, 53, 71, 1);
+  padding: 14px 19px;
+  color: rgba(42, 53, 71, 1);
+  cursor: pointer;
+}
+
+.filterLabels {
+  justify-content: space-between;
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
+  gap: 60px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(30, 41, 59, 1);
+  font-weight: 500;
+}
+
+.filterLabel {
+  flex: 1;
+}
+
+.filterInputs {
+  display: flex;
+  margin-top: 8px;
+  width: 95%;
+  align-items: stretch;
+  gap: 16px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.inputField {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  padding: 12px 16px 19px;
+  color: rgba(153, 153, 153, 1);
+}
+
+.selectField {
+  flex: 1;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid rgba(226, 232, 240, 1);
+  display: flex;
+  padding: 12px 7px 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter";
+  font-size: 16px;
+}
+.headerchild {
+  display: flex;
+  align-self: center;
+  align-content: center;
+  gap: 20px;
+}
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.selectText {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter";
+  font-size: 16px;
+}
+
+.dropdownIcon {
+  width: 10px;
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+}
+
+.dateField {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  display: flex;
+  padding: 15px 76px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.calendarIcon {
+  width: 20px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+}
+
+.searchButton {
+  border-radius: 8px;
+  background-color: rgba(67, 24, 209, 1);
+  align-self: flex-start;
+  margin-top: 24px;
+  padding: 12px 24px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.resultsCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 24px;
+  padding: 39px 80px 39px 80px;
+  flex-direction: column;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #e7eaf3;
+  border-bottom: none;
+  box-shadow: 0px 4px 6px rgba(42, 53, 71, 0.1);
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.headerCell {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-left: 1px solid #e7eaf3;
+  border-right: 1px solid #e7eaf3;
+  border-bottom: 1px solid #e7eaf3;
+  background-color: #fff;
+}
+
+.chassisCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(30, 41, 59, 1);
+  flex: 1;
+}
+
+.checkbox {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(217, 219, 233, 1);
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
+
+.dataCell {
+  font-size: 14px;
+  color: #2a3547;
+  flex: 1;
+  text-align: left;
+}
+
+.statusCell {
+  flex: 1;
+}
+
+.statusBadge {
+  display: inline-block;
+  border-radius: 16px;
+  padding: 2px 12px;
+  font-size: 14px;
+}
+
+.statusInStorage {
+  background-color: rgba(224, 231, 255, 1);
+  color: rgba(67, 56, 202, 1);
+}
+
+.statusProcessing {
+  background-color: rgba(254, 243, 199, 1);
+  color: rgba(146, 64, 14, 1);
+}
+
+.statusReady {
+  background-color: rgba(220, 252, 231, 1);
+  color: rgba(22, 101, 52, 1);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .pageWrapper {
+    max-width: 100%;
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+
+  .filterCard {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .filterLabels {
+    max-width: 100%;
+  }
+
+  .filterInputs {
+    max-width: 100%;
+  }
+
+  .dateField {
+    padding-left: 20px;
+  }
+
+  .searchButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .resultsCard {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding-right: 20px;
+  }
+
+  .chassisCell,
+  .dataCell,
+  .statusCell {
+    white-space: initial;
+  }
+
+  .statusBadge {
+    white-space: initial;
+  }
+}

@@ -1,0 +1,93 @@
+.container {
+  max-width: 1210px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.tableContainer {
+  display: table;
+  width: 100%;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.headerCell {
+  flex: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #1e293b;
+  text-align: center;
+  font-weight: 600;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #475569;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .headerCell {
+    font-size: 12px;
+  }
+
+  .tableCell {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .headerCell {
+    font-size: 10px;
+    flex: 1;
+  }
+
+  .tableCell {
+    font-size: 10px;
+    flex: 1;
+  }
+}

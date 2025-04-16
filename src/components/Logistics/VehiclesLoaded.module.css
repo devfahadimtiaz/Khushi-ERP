@@ -1,0 +1,235 @@
+.body{
+  background-color: #f8fafc;
+}
+.container {
+  max-width: 1271px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 32px;
+  font-family: "Inter", sans-serif;
+  margin-top:80px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 32px;
+}
+
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.formGroup {
+  flex: 1 1 calc(50% - 16px);
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 8px;
+}
+.headerchild {
+  display: flex;
+  align-self: center;
+  align-content: center;
+  gap: 20px;
+}
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.headerTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2a3547;
+}
+.inputContainer {
+  position: relative;
+  width: 95%;
+  height: 42px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #fff;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #1e293b;
+  background-color: transparent;
+}
+
+.selectContainer {
+  position: relative;
+  width: 100%;
+  height: 42px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  user-select: container;
+}
+
+.selectText {
+  font-size: 16px;
+  color: #1e293b;
+  user-select: text;
+}
+
+.dropdownIconContainer {
+  position: absolute;
+  right: 12px;
+}
+
+.dropdownIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.searchButton {
+  width: 101px;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4318d1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableContainer {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.tableHeader {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.tableRow {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tableCell {
+  flex: 1;
+  padding: 16px;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.exportContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.exportButton {
+  width: 114px;
+  height: 37px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  cursor: pointer;
+  color: #475569;
+  font-weight: 500;
+  width: fit-content;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .formGroup {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 16px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .searchForm {
+    gap: 8px;
+  }
+
+  .formGroup {
+    flex: 1 1 100%;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .exportContainer {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .exportButton {
+    width: 100%;
+  }
+}

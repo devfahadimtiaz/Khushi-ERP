@@ -18,7 +18,12 @@ import AuctionHouse from "./components/Auction/SelectAuctionHouse";
 import AuctionGridView from "./components/Auction/JapanCarAuctions";
 import AuctionPriceChecker from "./components/Auction/AuctionChecker";
 import DutyCalculator from "./components/Auction/DutyCalculator";
-
+import LogisticsDashboard from "./components/Logistics/ShippingDashboard";
+import OnWayToYard from "./components/Logistics/OnWayToYard";
+import VehiclesInYard from "./components/Logistics/VehiclesInYard";
+import LoadingPlanning from "./components/Logistics/LoadingPlanning";
+import Shipped from "./components/Logistics/Shipped";
+import VehiclesLoaded from "./components/Logistics/VehiclesLoaded";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -63,15 +68,34 @@ function App() {
   const navigateToActionHouse = () => {
     setCurrentView("auction-house");
   };
-  const navigateToAuctionGridView=()=>{
-    setCurrentView("auction-grid")
-  }
-  const navigateToAuctionListView=()=>{
-    setCurrentView("price-checker")
-  }
-  const navigateToDutyCalculator=()=>{
-    setCurrentView("duty-calculator")
-  }
+  const navigateToAuctionGridView = () => {
+    setCurrentView("auction-grid");
+  };
+  const navigateToAuctionListView = () => {
+    setCurrentView("price-checker");
+  };
+  const navigateToDutyCalculator = () => {
+    setCurrentView("duty-calculator");
+  };
+  const navigateToOnWayToYard = () => {
+    setCurrentView("on-way-to-yard");
+  };
+
+  const navigateToVehiclesInYard = () => {
+    setCurrentView("vehicles-in-yard");
+  };
+
+  const navigateToLoadingPlanning = () => {
+    setCurrentView("loading-planning");
+  };
+
+  const navigateToShipped = () => {
+    setCurrentView("shipped");
+  };
+
+  const navigateToVehiclesLoaded = () => {
+    setCurrentView("vehicles-loaded");
+  };
   const toggleNav = () => {
     setNavOpen(!navOpen);
   };
@@ -134,18 +158,30 @@ function App() {
         return <ParkingZoneManagement onBack={navigateToDashboard} />;
       case "auction-grid":
         return (
-        <AuctionGridView 
-        onBack={navigateToDashboard} 
-        onListView={navigateToAuctionListView} 
-        onDutyCalculator={navigateToDutyCalculator}
-        />
-      );
+          <AuctionGridView
+            onBack={navigateToDashboard}
+            onListView={navigateToAuctionListView}
+            onDutyCalculator={navigateToDutyCalculator}
+          />
+        );
       case "auction-house":
         return <AuctionHouse onBack={navigateToDashboard} />;
       case "price-checker":
         return <AuctionPriceChecker onBack={navigateToDashboard} />;
       case "duty-calculator":
         return <DutyCalculator onBack={navigateToDashboard} />;
+      case "shipping-dashboard":
+        return <LogisticsDashboard onBack={navigateToDashboard} />;
+      case "on-way-to-yard":
+        return <OnWayToYard onBack={navigateToDashboard} />;
+      case "vehicles-in-yard":
+        return <VehiclesInYard onBack={navigateToDashboard} />;
+      case "loading-planning":
+        return <LoadingPlanning onBack={navigateToDashboard} />;
+      case "shipped":
+        return <Shipped onBackTodashboard={navigateToDashboard} />;
+      case "vehicles-loaded":
+        return <VehiclesLoaded onBack={navigateToDashboard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }
