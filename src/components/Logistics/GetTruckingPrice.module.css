@@ -1,0 +1,487 @@
+body{
+  background-color: rgba(245, 247, 250, 1);
+}
+.container {
+  
+  width: 80%;
+  margin:auto;
+  margin-top: 80px;
+  padding-bottom: 17px;
+  overflow: hidden;
+}
+
+.mainContent {
+  background-color: rgba(245, 247, 250, 1);
+  display: flex;
+  width: 100%;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    max-width: 100%;
+    padding: 17px 20px 31px;
+  }
+}
+
+.headerSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleWrapper {
+  align-self: flex-start;
+  display: flex;
+  width: 100%;
+  max-width: 1087px;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .titleWrapper {
+    max-width: 100%;
+  }
+}
+
+.titleColumn {
+  align-self: flex-start;
+  
+  align-items: flex-end;
+  gap: 9px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .titleColumn {
+    max-width: 100%;
+  }
+}
+
+.title {
+  color: rgba(17, 24, 39, 1);
+  font-size: 24px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .title {
+    white-space: initial;
+  }
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 41px;
+}
+
+.tab {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  border:none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .tab {
+    margin-top: 40px;
+    white-space: initial;
+  }
+}
+
+.tabActive {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  min-height: 43px;
+  padding: 10px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .tabActive {
+    margin-top: 40px;
+    white-space: initial;
+  }
+}
+
+.downloadButton {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  text-align: center;
+  align-self: flex-end;
+  margin-top: 97px;
+}
+
+@media (max-width: 991px) {
+  .downloadButton {
+    margin-top: 40px;
+  }
+}
+
+.actionButtons {
+  align-self: flex-start;
+  display: flex;
+  margin-top: 28px;
+  width: 388px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 600;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.actionButton {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  color: #4318D1;
+  min-height: 44px;
+  padding: 11px 10px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+}
+
+.actionButtonActive {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  min-height: 44px;
+  padding: 11px 10px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+  flex: 1;
+}
+
+.estimateCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-top: 30px;
+  width: 800px;
+  max-width: 100%;
+  padding: 33px 32px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(74, 74, 74, 1);
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .estimateCard {
+    padding: 33px 20px;
+  }
+}
+
+.cardTitle {
+  color: rgba(26, 26, 26, 1);
+  font-size: 24px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.formGroup {
+  margin-top: 24px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.formInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  width: 97%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .formInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+}
+
+.selectInput {
+  border-radius: 4px;
+  background-color: #fff;
+  display: flex;
+  padding: 12px 0px 12px 20px;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid rgba(229, 231, 235, 1);
+}
+
+@media (max-width: 991px) {
+  .selectInput {
+    max-width: 100%;
+  }
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+.textareaInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  height: 122px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .textareaInput {
+    max-width: 100%;
+  }
+}
+
+.submitButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  margin-top: 24px;
+  padding: 13px 70px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .submitButton {
+    max-width: 100%;
+    padding: 13px 20px;
+  }
+}
+
+.recentEstimatesCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-top: 32px;
+  width: 800px;
+  max-width: 100%;
+  padding: 30px 32px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (max-width: 991px) {
+  .recentEstimatesCard {
+    padding: 30px 20px;
+  }
+}
+
+.recentEstimatesTitle {
+  color: rgba(26, 26, 26, 1);
+  font-size: 20px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.estimateItem {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 24px;
+  padding: 17px;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .estimateItem {
+    max-width: 100%;
+  }
+}
+
+.estimateItem:first-of-type {
+  margin-top: 32px;
+}
+
+.estimateDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.routeText {
+  color: rgba(26, 26, 26, 1);
+  font-size: 16px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.vehicleDetails {
+  color: rgba(74, 74, 74, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 14px;
+}
+
+.priceText {
+  color: rgba(67, 24, 209, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.tableContainer {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 78px;
+  width: 100%;
+  max-width: 1028px;
+
+  padding-bottom: 186px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: rgba(107, 114, 128, 1);
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .tableContainer {
+    max-width: 100%;
+    padding-bottom: 100px;
+    margin-top: 40px;
+  }
+}
+
+.tableHeader {
+  border-radius: 8px;
+  background-color: rgba(249, 250, 251, 1);
+  display: flex;
+  padding: 20px 20px;
+  align-items: stretch;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .tableHeader {
+    max-width: 100%;
+  }
+}
+
+.headerCell {
+  flex: 1;
+  text-align: center;
+}
+
+.tableContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+}
+
+.tableCell {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(55, 65, 81, 1);
+}
+
+
+
+.actionButton:hover {
+  background-color: rgba(55, 15, 185, 1);
+  color: white;
+}
+.tab:hover{
+  background-color: rgba(55, 15, 185, 1);
+  color: white;
+}

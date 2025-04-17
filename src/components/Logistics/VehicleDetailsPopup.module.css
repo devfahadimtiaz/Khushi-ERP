@@ -1,0 +1,268 @@
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+  
+}
+.popupContainer {
+  overflow: auto;
+}
+
+.popupContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.popupContainer {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+
+.popupContainer {
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+}
+
+.stockDetailsView {
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.rectangle {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  padding-bottom: 34px;
+}
+
+.headerContainer {
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  width: 95%;
+  padding: 25px 36px;
+  align-items: center;
+  justify-content: space-between;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+}
+
+.stockDetailsTitle {
+  color: rgba(51, 51, 51, 1);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.downloadButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  border: 1px solid rgba(151, 150, 153, 0.24);
+  padding: 13px 14px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgba(51, 51, 51, 1);
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.contentContainer {
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  margin: 32px 36px 0 36px;
+  padding: 32px;
+}
+
+.detailsGrid {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.column:nth-child(1) {
+  width: 22%;
+}
+
+.column:nth-child(2) {
+  width: 18%;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(102, 102, 102, 1);
+  font-weight: 400;
+}
+
+.detailLabel {
+  margin-bottom: 8px;
+}
+
+.detailLabel:not(:first-child) {
+  margin-top: 24px;
+}
+
+.detailValue {
+  color: rgba(51, 51, 51, 1);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.colorContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(51, 51, 51, 1);
+  margin-top: 8px;
+}
+
+.colorCircle {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  border-radius: 4px;
+  background-color: rgba(227, 237, 251, 1);
+  margin-top: 8px;
+  padding: 4px 12px;
+  color: rgba(35, 113, 226, 1);
+  font-size: 14px;
+}
+
+.imagesColumn {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.imagesContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.imagesTitle {
+  color: rgba(51, 51, 51, 1);
+  font-size: 18px;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.imagesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.imageRow {
+  display: flex;
+  gap: 20px;
+}
+
+.imageWrapper {
+  width: 50%;
+}
+
+.vehicleImage {
+  aspect-ratio: 1.33;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 991px) {
+  .headerContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contentContainer {
+    margin-right: 10px;
+    padding: 20px;
+  }
+
+  .detailsGrid {
+    flex-direction: column;
+  }
+
+  .column:nth-child(1),
+  .column:nth-child(2),
+  .imagesColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .column:nth-child(1) {
+    margin-top: 0;
+  }
+
+  .imageRow {
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    margin-top: 16px;
+  }
+}

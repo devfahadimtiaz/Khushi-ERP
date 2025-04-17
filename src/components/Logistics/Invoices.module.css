@@ -1,0 +1,290 @@
+body{
+  background-color: rgba(248, 250, 252, 1);
+}
+.container {
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 100%;
+}
+
+.mainContent {
+  background-color: rgba(248, 250, 252, 1);
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  padding: 24px;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pageTitle {
+  color: rgba(30, 41, 59, 1);
+  font-size: 32px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-bottom: 19px;
+}
+
+.tabsContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.tab {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  border:none;
+  cursor: pointer;
+}
+.tab:hover{
+  background-color: rgba(55, 15, 185, 1);
+  color: white;
+}
+
+@media (max-width: 991px) {
+  .tab {
+    white-space: initial;
+  }
+}
+
+.tabActive {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  color: white;
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+} color: rgba(255, 255, 255, 1);
+ 
+
+@media (max-width: 991px) {
+  .tabActive {
+    white-space: initial;
+  }
+}
+
+.tabsCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 19px;
+  width: 100%;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tabsRow {
+  display: flex;
+ 
+  
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tabsLeft {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  color: rgba(100, 116, 139, 1);
+  padding: 12px;
+  width: 33%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+.tabButton:hover{
+  background-color: rgba(67, 24, 209, 1);
+  color:#fff;
+}
+
+.tabButtonActive {
+  width: 34%;
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 12px 70px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .tabButtonActive {
+    padding: 12px 20px;
+    white-space: initial;
+  }
+}
+
+.invoiceCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 32px;
+  width: 100%;
+  padding-bottom: 17px;
+  font-size: 14px;
+  color: rgba(30, 41, 59, 1);
+}
+
+@media (max-width: 991px) {
+  .invoiceCard {
+    max-width: 100%;
+  }
+}
+
+.cardHeader {
+  background-color: rgba(241, 245, 249, 1);
+  padding: 16px 24px;
+}
+
+@media (max-width: 991px) {
+  .cardHeader {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #e7eaf3;
+  box-shadow: 0px 4px 6px rgba(42, 53, 71, 0.1);
+  background-color: #fff;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right:10px;
+}
+.tableHeaderCellCustomer{
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+}
+.tableHeaderCell {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-left: 1px solid #e7eaf3;
+  border-right: 1px solid #e7eaf3;
+  border-bottom: 1px solid #e7eaf3;
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.tableRow:last-child {
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 20px;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8fafc;
+}
+.tableCellCustomer{
+  margin-left: 20px;
+  font-size: 14px;
+  color: #2a3547;
+  flex: 1;
+  text-align: left;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+ 
+  
+}
+
+.tableCell {
+  font-size: 14px;
+  color: #2a3547;
+  flex: 1;
+  text-align: left;
+}
+.tableButton{
+  font-size: 14px;
+  color: #4318D1;
+  flex: 1;
+  text-align: left;
+  background-color: #ffffff;
+  border: none;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tableHeading{
+  margin-top: 30px;
+  margin-left: 20px;
+  font-family: "inter";
+  font-weight: 500;
+  color:#1E293B ;
+  font-size: 16px;
+
+}

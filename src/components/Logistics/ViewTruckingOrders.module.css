@@ -1,0 +1,255 @@
+body{
+  background-color: #f8fafc;
+}
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  
+  padding: 0 24px;
+  font-family: "Inter", sans-serif;
+  background-color: #f8fafc;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.headerSection {
+  width: 100%;
+}
+
+.titleWrapper {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 16px;
+  border-radius: 4px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+.tabActive {
+  padding: 10px 16px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #4318D1;
+  border: none;
+}
+.tab:hover{
+  background-color: #4318D1;
+  color:white;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  padding: 10px 16px;
+  border-radius: 4px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+
+.actionButtonActive {
+  padding: 10px 16px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #4318D1;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.actionButton:hover{
+  background-color: #4318D1;
+  color:#fff
+}
+
+.ordersCard {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.searchContainer {
+  width: 216px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0 12px;
+  color: #999;
+  font-size: 16px;
+}
+
+.tableContainer {
+  width: 100%;
+}
+
+.tableHeader {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tableBody {
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 0;
+}
+
+.tableCell {
+  flex: 1;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.statusPending {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #fef3c7;
+  color: #92400e;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.statusCompleted {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #d1fae5;
+  color: #065f46;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.statusInProgress {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.viewButton {
+  padding: 4px 8px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 4px;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 0 16px;
+  }
+
+  .tabsContainer,
+  .actionButtons {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .tableHeader,
+  .tableRow {
+    min-width: 900px;
+  }
+}

@@ -207,7 +207,7 @@ function Shipped({ onBack, onBackTodashboard }) {
               </div>
             </div>
           </div>
-
+          <h1>Freight Invoices</h1>
           <div className={styles.tableHeader}>
             <div className={styles.tableHeaderCell}>Sr No</div>
             <div className={styles.tableHeaderCell}>Bill No.</div>

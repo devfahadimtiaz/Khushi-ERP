@@ -154,11 +154,6 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Logistics",
       subItems: [
         { id: "shipping-dashboard", label: "Dashboard" },
-        { id: "on-way-to-yard", label: "On Way to Yard" },
-        { id: "vehicles-in-yard", label: "Vehicles In Yard" },
-        { id: "loading-planning", label: "Loading Planning" },
-        { id: "shipped", label: "Shipped" },
-        { id: "vehicles-loaded", label: "Vehicles Loaded" },
         { id: "warehouses", label: "Warehouses" },
       ],
     },

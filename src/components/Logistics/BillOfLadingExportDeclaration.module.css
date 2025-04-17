@@ -1,0 +1,536 @@
+.container {
+  width: 100%;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.mainContent {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.headerSection {
+  margin-bottom: 36px;
+}
+
+.pageTitle {
+  color: #1e293b;
+  font-size: 32px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  margin-left: 11px;
+  margin-bottom: 36px;
+}
+
+.tabsContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 9px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.tab {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  min-height: 43px;
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: rgba(55, 15, 185, 1);
+  color: white;
+}
+
+.tabActive {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #4318d1;
+  min-height: 43px;
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  color: #fff;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.contentCard {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 31px 24px;
+  margin-bottom: 32px;
+}
+
+.cardHeader {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cardTitle {
+  color: #1e293b;
+  font-size: 24px;
+  font-weight: 600;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  margin-bottom: 24px;
+}
+
+.dateFilterSection {
+  display: flex;
+  gap: 24px;
+}
+
+.dateLabel {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.dateInputsRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dateInputContainer {
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  padding: 10px 76px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 1;
+}
+
+.calendarIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+}
+
+.filterLabelsRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.filterInputsRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.textInput {
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 16px;
+  flex: 1;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+}
+
+.searchSection {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.searchButton {
+  border-radius: 4px;
+  background-color: #4318d1;
+  padding: 9px 16px;
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.resultsSection {
+  margin-top: 24px;
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.resultsTitle {
+  color: #1e293b;
+  font-size: 18px;
+  font-weight: 500;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.exportIcon {
+  aspect-ratio: 2.35;
+  object-fit: contain;
+  object-position: center;
+  width: 87px;
+  border-radius: 4px;
+}
+
+.tableContainer {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+}
+
+.tableLeftSection {
+  display: flex;
+  flex-direction: column;
+  width: 83px;
+}
+
+.columnHeaders {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.headerCell {
+  color: #475569;
+  font-weight: 500;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.dataCell {
+  color: #1e293b;
+  font-weight: 400;
+}
+
+.dataRow {
+  margin-bottom: 28px;
+}
+
+.linkCell {
+  color: #4318d1;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tableMiddleSection {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.tableRightSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.columnHeadersRight {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.headerWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sortIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+}
+
+.tableExtraSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.actionsIcon {
+  aspect-ratio: 2.57;
+  object-fit: contain;
+  object-position: center;
+  width: 95px;
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    width: 95%;
+    padding: 60px 20px;
+  }
+
+  .pageTitle {
+    margin-left: 0;
+  }
+
+  .tab,
+  .tabActive {
+    white-space: initial;
+  }
+
+  .contentCard {
+    padding: 20px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+  }
+
+  .dateFilterSection {
+    margin-top: 16px;
+  }
+
+  .dateInputContainer {
+    padding: 10px 20px;
+  }
+
+  .tableContainer {
+    flex-direction: column;
+  }
+
+  .tableLeftSection,
+  .tableMiddleSection,
+  .tableRightSection,
+  .tableExtraSection {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .columnHeadersRight {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mainContent {
+    padding: 40px 15px;
+  }
+
+  .tabsContainer {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dateInputsRow,
+  .filterInputsRow {
+    flex-direction: column;
+  }
+
+  .searchSection {
+    flex-direction: column;
+  }
+}
+.filterSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px 20px;
+  border-radius: 12px;
+  border: 1px solid #e7eaf3;
+  background-color: #fff;
+  margin-top: 30px;
+}
+
+.filterItem {
+  flex: 1;
+  min-width: 370px;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.filterInput {
+  width: 90%;
+  height: 53px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #e7eaf3;
+  color: #000;
+}
+
+.statusDropdown {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e7eaf3;
+  color: #000;
+  background-color: #fff;
+}
+
+.dropdownIcon {
+  margin-left: 8px;
+}
+
+.dateRangeContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.dateInput {
+  width: 90%;
+  flex: 1;
+  height: 53px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #e7eaf3;
+  color: #000;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #e7eaf3;
+  border-bottom: none;
+  box-shadow: 0px 4px 6px rgba(42, 53, 71, 0.1);
+  background-color: #fff;
+  margin-top: 20px;
+}
+.tableHeaderCellCustomer{
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+}
+.tableHeaderCell {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-left: 1px solid #e7eaf3;
+  border-right: 1px solid #e7eaf3;
+  border-bottom: 1px solid #e7eaf3;
+  background-color: #fff;
+}
+
+.tableRow:last-child {
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 20px;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8fafc;
+}
+.tableCellCustomer{
+  margin-left: 20px;
+  font-size: 14px;
+  color: #2a3547;
+  flex: 1;
+  text-align: left;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+ 
+  
+}
+
+.tableCell {
+  font-size: 14px;
+  color: #2a3547;
+  flex: 1;
+  text-align: left;
+}

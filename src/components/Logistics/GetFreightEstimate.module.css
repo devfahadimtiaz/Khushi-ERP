@@ -1,0 +1,259 @@
+body{
+  background-color: #F6FAFD;
+}
+.container {
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 80%;
+  margin:auto;
+  margin-top:80px
+}
+
+.mainContent {
+
+  padding-bottom: 137px;
+  overflow: hidden;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.titleWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+}
+
+.titleColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tab {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  border:none;
+  cursor: pointer;
+}
+.tab:hover{
+  background-color: rgba(55, 15, 185, 1);
+  color: white;
+}
+.tabActive {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 10px;
+  gap: 16px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.contentWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 100%;
+margin-top: 40px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.pageHeader {
+  color: rgba(30, 41, 59, 1);
+  font-size: 24px;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.formCard {
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectInput {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e7eaf3;
+  color: #000;
+  background-color: #fff;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.textInput {
+  width: 97%;
+  height: 53px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #e7eaf3;
+  color: #000;
+}
+
+.textInput::placeholder {
+  color: rgba(153, 153, 153, 1);
+}
+
+.submitButton {
+  background-color: rgba(35, 113, 226, 1);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 9px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 40px;
+  align-self: flex-end;
+  margin-left: auto;
+  display: block;
+}
+
+.estimateListCard {
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  padding: 32px;
+}
+
+.estimateListTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-bottom: 24px;
+}
+
+.estimateTable {
+  width: 100%;
+}
+
+.tableHeader {
+  display: flex;
+  background-color: rgba(227, 237, 251, 1);
+  padding: 16px;
+  gap: 40px;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.tableBody {
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  padding: 16px;
+  gap: 40px;
+  border-bottom: 1px solid rgba(227, 237, 251, 0.8);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  flex: 1;
+  font-size: 14px;
+  color: rgba(51, 51, 51, 1);
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    max-width: 100%;
+    padding-bottom: 100px;
+  }
+
+  .contentWrapper {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .formCard,
+  .estimateListCard {
+    max-width: 100%;
+    padding: 32px 20px;
+  }
+
+  .tableHeader {
+    flex-wrap: wrap;
+  }
+}

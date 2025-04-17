@@ -1,0 +1,288 @@
+body{
+  background-color: #f8fafc;
+}
+.container {
+  width: 80%;
+  margin:  auto;
+  margin-top: 80px;
+  padding: 32px;
+  font-family: "Inter", sans-serif;
+  
+}
+
+.mainContent {
+  width: 100%;
+}
+
+.headerSection {
+  margin-bottom: 32px;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.tab {
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+.tabActive {
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background-color: #4318d1;
+  border: none;
+}
+
+.tabsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.tabButton {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+
+.tabButtonActive {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  background-color: #4318d1;
+  border: none;
+}
+
+.filterSection {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  align-items: flex-end;
+}
+
+.filterGroup {
+  flex: 1;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.filterInput {
+  height: 39px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.dateInputWrapper {
+  position: relative;
+  height: 39px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.dateInput {
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.calendarIcon {
+  margin-left: auto;
+}
+
+.searchButton {
+  width: 101px;
+  height: 100px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #4318d1;
+  border: none;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.statTrend {
+  font-size: 14px;
+}
+
+.statTrend:global(.positive) {
+  color: #10b981;
+}
+
+.statTrend:global(.negative) {
+  color: #ef4444;
+}
+
+.tableContainer {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.tableRow {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.tableCellActions {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+}
+
+.actionIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filterSection {
+    flex-direction: column;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    text-align: left;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 16px;
+  }
+
+  .tabsContainer {
+    display: none;
+  }
+
+  .tabsRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
