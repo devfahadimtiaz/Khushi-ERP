@@ -5,6 +5,7 @@ function CreateTruckingOrder({
   onBackToDashboard,
   onGetEstimates,
   onViewOrders,
+  
 }) {
   const [formData, setFormData] = useState({
     pickupLocation: "",

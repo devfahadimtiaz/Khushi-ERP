@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import OverdueInvoices from "./OverdueInvoices";
 import Statements from "./Statements";
 import styles from "./Invoices.module.css";
+import NavigationTabs from "./Component/NavigationTabs"
 const freightInvoices = [
   {
     invoiceNo: "#1000",
@@ -104,7 +105,7 @@ const servicesInvoices = [
     balance: "10000",
   },
 ];
-function Invoices({ onBackTodashboard }) {
+function Invoices({ onBackTodashboard, navigateTo }) {
   const [activeTab, setActiveTab] = useState("receivables");
 
   if (activeTab === "overdue") {
@@ -122,15 +123,7 @@ function Invoices({ onBackTodashboard }) {
           <div className={styles.titleWrapper}>
             <h1 className={styles.pageTitle}>My Shipments</h1>
             <div className={styles.tabsContainer}>
-              <button className={styles.tab} onClick={onBackTodashboard}>
-                Dashboard
-              </button>
-              <button className={styles.tab}>All Vehicles</button>
-              <button className={styles.tab}>Trucking</button>
-              <button className={styles.tab}>Freight</button>
-              <button className={styles.tab}>All Shipments</button>
-              <button className={styles.tabActive}>Invoices</button>
-              <button className={styles.tab}>BL & ED</button>
+            <NavigationTabs active="Invoices" navigateTo={navigateTo} />
             </div>
           </div>
         </div>

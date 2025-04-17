@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./VehiclesLoaded.module.css";
 
-function VehiclesLoaded({ onBack, onBackTodashboard }) {
+function VehiclesLoaded({ onBack }) {
   return (
     <div className={styles.container}>
       <div className={styles.headerchild}>
-        <button className={styles.backButton} onClick={onBackTodashboard}>
+        <button className={styles.backButton} onClick={onBack}>
           <svg
             width="24"
             height="24"

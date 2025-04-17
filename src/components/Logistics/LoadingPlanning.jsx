@@ -39,7 +39,7 @@ const sampleData = [
 
 ];
 
-function LoadingPlanning({ onBack, onBackTodashboard }) {
+function LoadingPlanning({ onBack }) {
   return (
     <>
       <link
@@ -50,7 +50,7 @@ function LoadingPlanning({ onBack, onBackTodashboard }) {
         <div className={styles.wrapper}>
           <div className={styles.header}>
             <div className={styles.headerchild}>
-              <button className={styles.backButton} onClick={onBackTodashboard}>
+              <button className={styles.backButton} onClick={onBack}>
                 <svg
                   width="24"
                   height="24"

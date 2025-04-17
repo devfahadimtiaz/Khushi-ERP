@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;700&family=SF+Pro+Display:wght@400;700&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formCard {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 34px 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    "Roboto",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: #363565;
+  font-weight: 700;
+}
+
+.formHeader {
+  display: flex;
+  width: 100%;
+  max-width: 715px;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.formHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+.sectionTitle {
+  font-size: 20px;
+  font-family:
+    "Roboto",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: #363565;
+  font-weight: 700;
+}
+
+.label {
+  font-size: 16px;
+  margin-top: 24px;
+  font-family:
+    "Roboto",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: #363565;
+  font-weight: 700;
+  background-color: #fff;
+  border: none;
+}
+
+.formHeader .label:last-child {
+  align-self: flex-end;
+  margin-top: 54px;
+}
+
+.formRow {
+  display: flex;
+  width: 100%;
+  gap: 22px;
+  margin-top: 7px;
+  flex-wrap: wrap;
+}
+
+.inputField,
+.dropdownField {
+  border-radius: 8px;
+  border: 1px solid #eaeef4;
+  padding: 19px 17px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.dropdownField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  width: 10px;
+}
+
+.inputFieldFull {
+  border-radius: 8px;
+  border: 1px solid #eaeef4;
+  margin-top: 8px;
+  width: 560px;
+  max-width: 100%;
+  padding: 20px 16px;
+  font-size: 16px;
+  color: #999;
+  font-weight: 400;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.formRowLabels {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 733px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.formRowLabels .label {
+  margin-top: 0;
+}
+
+.dateField {
+  border-radius: 8px;
+  border: 1px solid #eaeef4;
+  margin-top: 8px;
+  width: 560px;
+  max-width: 100%;
+  padding: 18px 16px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.detailsSection {
+  display: flex;
+  margin-top: 64px;
+  margin-left: 32px;
+  width: 100%;
+  max-width: 1063px;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family:
+    "SF Pro Display",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+}
+
+.detailsSection .sectionTitle {
+  align-self: flex-start;
+}
+
+.detailsGrid {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1024px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.detailsGrid:first-of-type {
+  margin-top: 28px;
+}
+
+.detailCard {
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  padding: 15px 24px;
+  align-items: flex-start;
+  gap: 17px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.detailLabel {
+  color: #363565;
+  font-weight: 700;
+}
+
+.detailValue {
+  color: #999;
+  font-weight: 400;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: none;
+  font-size: 16px;
+}
+
+.photoCard {
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  padding: 15px 70px;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  text-align: center;
+  justify-content: center;
+  flex: 1;
+  color: #363565;
+}
+
+.photoUpload {
+  display: flex;
+  width: 129px;
+  max-width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.cameraIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 24px;
+}
+
+@media (max-width: 991px) {
+  .formCard {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formHeader .label:last-child {
+    margin-top: 40px;
+  }
+
+  .inputField,
+  .dropdownField,
+  .inputFieldFull,
+  .dateField {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .detailsSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .detailsGrid {
+    max-width: 100%;
+  }
+
+  .detailCard,
+  .photoCard {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .photoCard {
+    max-width: 100%;
+  }
+}

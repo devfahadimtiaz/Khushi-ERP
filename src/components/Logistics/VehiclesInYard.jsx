@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./VehiclesInYard.module.css";
 
-const VehiclesInYard = ({ onBack, onBackTodashboard }) => {
+const VehiclesInYard = ({ onBack }) => {
   // Sample data for the vehicles
   const vehicles = [
     {
@@ -93,7 +93,7 @@ const VehiclesInYard = ({ onBack, onBackTodashboard }) => {
         <div className={styles.filterCard}>
           <div className={styles.cardHeader}>
             <div className={styles.headerchild}>
-              <button className={styles.backButton} onClick={onBackTodashboard}>
+              <button className={styles.backButton} onClick={onBack}>
                 <svg
                   width="24"
                   height="24"

@@ -16,6 +16,10 @@ import GetFreightEstimate from "./GetFreightEstimate";
 import MyShipments from "./MyShipments";
 import Invoices from "./Invoices";
 import BillOfLadingExportDeclaration from "./BillOfLadingExportDeclaration";
+import NavigationTabs from "./Component/NavigationTabs"
+import VehicleArrived from "./VehicleArrived";
+import VehiclesLoaded from "./VehiclesLoaded";
+import CreateTruckingOrder from "./CreateTruckingOrder"
 
 const headers = [
   "Make",
@@ -107,164 +111,47 @@ const dataYard = [
 ];
 
 function ShippingDashboard() {
-  const [showOnWayToYard, setShowOnWayToYard] = useState(false);
-  const [showYard, setShowYard] = useState(false);
-  const [showLoadPlaning, setShowLoadPlaning] = useState(false);
-  const [showShipped, setShowShipped] = useState(false);
-  const [showVehicles, setShowVehicles] = useState(false);
-  const [showVehiclesArrived, setShowVehiclesArrived] = useState(false);
-  const [showAllVehicles, setShowAllVehicles] = useState(false);
-  const [showTruckingPrice, setShowTruckingPrice] = useState(false);
-  const [showFreightEstimate, setShowFreightEstimate] = useState(false);
-  const [showMyShipments, setShowMyShipments] = useState(false);
-  const [showInvoices, setShowInvoices] = useState(false);
-  const [showBillOfLading, setShowBillOfLading] = useState(false);
 
-  const [currentScreen, setCurrentScreen] = useState("dashboard");
+  const [activeScreen, setActiveScreen] = useState("Dashboard");
 
-  const navigateToScreen = (screen) => {
-    setCurrentScreen(screen);
+  const navigateTo = (screen) => {
+    setActiveScreen(screen);
   };
 
-  const screens = {
-    onWayToYard: <OnWayToYard navigateTo={navigateToScreen} />,
-    inYard: <InYard navigateTo={navigateToScreen} />,
-    loadingPlanning: <LoadingPlanning navigateTo={navigateToScreen} />,
-    shipped: <Shipped navigateTo={navigateToScreen} />,
-    vehiclesLoaded: <vehiclesLoaded navigateTo={navigateToScreen} />,
-    vehiclesArrived: <VehiclesArrived navigateTo={navigateToScreen} />,
-    allVehicles: <AllVehicles navigateTo={navigateToScreen} />,
-    truckingPrice: <GetTruckingPrice navigateTo={navigateToScreen} />,
-    freightEstimate: <GetFreightEstimate navigateTo={navigateToScreen} />,
-    myShipments: <MyShipments navigateTo={navigateToScreen} />,
-    invoices: <Invoices navigateTo={navigateToScreen} />,
-    billOfLading: <BillOfLadingExportDeclaration navigateTo={navigateToScreen} />,
-  };
-{/*
+  const sharedProps = { navigateTo };
 
-  const handleOnWay = () => {
-    setShowOnWayToYard(true);
-  };
-  const handelBackToDashBoard = () => {
-    setShowOnWayToYard(false);
-    setShowYard(false);
-    setShowLoadPlaning(false);
-    setShowShipped(false);
-    setShowVehicles(false);
-    setShowVehiclesArrived(false);
-    setShowAllVehicles(false);
-    setShowTruckingPrice(false);
-    setShowFreightEstimate(false);
-    setShowMyShipments(false);
-    setShowInvoices(false);
-  };
-
-  const handleInYard = () => {
-    setShowYard(true);
-  };
-  const handleLoadPlaning = () => {
-    setShowLoadPlaning(true);
-  };
-  const handleShipped = () => {
-    setShowShipped(true);
-  };
-  const handleVehicles = () => {
-    setShowVehicles(true);
-  };
-  const handleVehiclesArrived = () => {
-    setShowVehiclesArrived(true);
-  };
-  const handleAllVehicles = () => {
-    setShowAllVehicles(true);
-  };
-
-  const handleTruckingPrice = () => {
-    setShowTruckingPrice(true);
-  };
-
-  const handleFreightEstimate = () => {
-    setShowFreightEstimate(true);
-  };
-
-  const handleMyShipments = () => {
-    setShowMyShipments(true);
-  };
-
-  const handleInvoices = () => {
-    setShowInvoices(true);
-  };
-
-  const handleBillOfLading = () => {
-    setShowBillOfLading(true);
-  };
-
-  if (showOnWayToYard) {
-    return <OnWayToYard onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showYard) {
-    return <InYard onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showLoadPlaning) {
-    return <LoadingPlanning onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showShipped) {
-    return <Shipped onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showVehicles) {
-    return <Vehicles onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showVehiclesArrived) {
-    return <VehiclesArrived onBackTodashboard={handelBackToDashBoard} />;
-  }
-  if (showAllVehicles) {
-    return (
-      <AllVehicles
-        onBackTodashboard={handelBackToDashBoard}
-        onTrucking={handleTruckingPrice}
-        onFreight={handleFreightEstimate}
-        onMyShipment={handleMyShipments}
-        onInvoices={handleInvoices}
-        onBLED={handleBillOfLading}
-      />
-    );
-  }
-  if (showTruckingPrice) {
-    return (
-      <GetTruckingPrice
-        onBackTodashboard={handelBackToDashBoard}
-        onAllVehicles={handleAllVehicles}
-      />
-    );
-  }
-
-  if (showFreightEstimate) {
-    return (
-      <GetFreightEstimate
-        onBackTodashboard={handelBackToDashBoard}
-        onAllVehicles={handleAllVehicles}
-      />
-    );
-  }
-
-  if (showMyShipments) {
-    return <MyShipments onBackTodashboard={handelBackToDashBoard} />;
-  }
-
-  if (showInvoices) {
-    return <Invoices onBackTodashboard={handelBackToDashBoard} />;
-  }
-
-  if (showBillOfLading) {
-    return (
-      <BillOfLadingExportDeclaration
-        onBackTodashboard={handelBackToDashBoard}
-      />
-    );
-  }*/}
-  if (currentScreen !== "dashboard") {
-    return screens[currentScreen] || <div>Screen not found</div>;
-  }
+  switch (activeScreen) {
+    case "OnWayToYard": return <OnWayToYard {...sharedProps} />;
+    case "InYard": return <InYard {...sharedProps} />;
+    case "LoadingPlanning": return <LoadingPlanning {...sharedProps} />;
+    case "Shipped": return <Shipped {...sharedProps} />;
+    case "Vehicles": return <Vehicles {...sharedProps} />;
+    case "VehiclesArrived": return <VehiclesArrived {...sharedProps} />;
+    case "AllVehicles": return <AllVehicles {...sharedProps} />;
+    case "TruckingPrice": return <GetTruckingPrice navigateTo={setActiveScreen}/>;
+    case "FreightEstimate": return <GetFreightEstimate {...sharedProps} />;
+    case "MyShipments": return <MyShipments {...sharedProps} />;
+    case "Invoices": return <Invoices {...sharedProps} />;
+    case "BillOfLading": return <BillOfLadingExportDeclaration {...sharedProps} />;
+    case "WayToYard": return <OnWayToYard onBack={() => navigateTo("Dashboard")} />;
+    case "loadingPlanned": return <LoadingPlanning onBack={() => navigateTo("Dashboard")} />;
+    case "arriving": return <VehicleArrived onBack={() => navigateTo("Dashboard")} />;
+    case "shipped": return <Shipped onBack={() => navigateTo("Dashboard")} />;
+    case "VehicleLoaded": return <VehiclesLoaded onBack={() => navigateTo("Dashboard")} />;
+    case "inYard": return <InYard onBack={() => navigateTo("Dashboard")} />;
+    case "CreateTruckingOrder":
   return (
+    <CreateTruckingOrder
+      onBackToDashboard={() => setActiveScreen("Dashboard")}
+      onGetEstimates={() => setActiveScreen("TruckingPrice")}
+      onViewOrders={() => setActiveScreen("ViewTruckingOrders")}
+      onAllVehicles={()=> setActiveScreen("AllVehicles")}
+
+
+    />
+  );
+    default:
+      return (
     <div className={styles.container}>
       <div className={styles.mainContent}>
         <div className={styles.contentWrapper}>
@@ -273,28 +160,7 @@ function ShippingDashboard() {
               <div className={styles.titleWrapper}>
                 <h1 className={styles.dashboardTitle}>Shipping Dashboard</h1>
                 <div className={styles.tabsContainer}>
-                  <button className={styles.tabActive}>Dashboard</button>
-                  <button className={styles.tab} onClick={() => navigateToScreen("allVehicles")}>
-                    All Vehicles
-                  </button>
-                  <button className={styles.tab} onClick={() => navigateToScreen("truckingPrice")}>
-                    Trucking
-                  </button>
-                  <button
-                    className={styles.tab}
-                    onClick={() => navigateToScreen("freightEstimate")}
-                  >
-                    Freight
-                  </button>
-                  <button className={styles.tab} onClick={() => navigateToScreen("myShipments")}>
-                    All Shipments
-                  </button>
-                  <button className={styles.tab} onClick={() => navigateToScreen("invoices")}>
-                    Invoices
-                  </button>
-                  <button className={styles.tab} onClick={() => navigateToScreen("billOfLading")}>
-                    BL & ED
-                  </button>
+                <NavigationTabs active="Dashboard" navigateTo={navigateTo} />
                 </div>
               </div>
             </div>
@@ -322,27 +188,27 @@ function ShippingDashboard() {
         </div>
 
         <div className={styles.statusCardsContainer}>
-          <button className={styles.statusCard}  onClick={() => navigateToScreen("onWayToYard")}>
+          <button className={styles.statusCard}  onClick={() => navigateTo("WayToYard")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>Way to Yard</div>
           </button>
-          <button className={styles.statusCard} onClick={() => navigateToScreen("inYard")}>
+          <button className={styles.statusCard} onClick={() => navigateTo("inYard")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>In Yard</div>
           </button>
-          <button className={styles.statusCard} onClick={() => navigateToScreen("loadingPlanning")}>
+          <button className={styles.statusCard} onClick={() => navigateTo("loadingPlanned")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>Loading Planned</div>
           </button>
-          <button className={styles.statusCard} onClick={() => navigateToScreen("vehiclesArrived")}>
+          <button className={styles.statusCard} onClick={() => navigateTo("arriving")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>Arriving</div>
           </button>
-          <button className={styles.statusCard} onClick={() => navigateToScreen("shipped")}>
+          <button className={styles.statusCard} onClick={() => navigateTo("shipped")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>Shipped</div>
           </button>
-          <button className={styles.statusCard} onClick={() => navigateToScreen("vehiclesLoaded")}>
+          <button className={styles.statusCard} onClick={() => navigateTo("VehicleLoaded")}>
             <div className={styles.statusNumber}>1</div>
             <div className={styles.statusLabel}>Vehicles Loaded</div>
           </button>
@@ -449,4 +315,5 @@ function ShippingDashboard() {
   );
 }
 
+}
 export default ShippingDashboard;

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./GetFreightEstimate.module.css";
+import NavigationTabs from "./Component/NavigationTabs";
 
-function GetFreightEstimate({ onBackTodashboard, onAllVehicles }) {
+function GetFreightEstimate({ onBackTodashboard, onAllVehicles, navigateTo }) {
   const [formData, setFormData] = useState({
     portOfLoading: "",
     portOfDischarge: "",
@@ -64,17 +65,7 @@ function GetFreightEstimate({ onBackTodashboard, onAllVehicles }) {
             <div className={styles.titleColumn}>
             <div className={styles.pageHeader}>Get Freight Estimate</div>
               <div className={styles.tabsContainer}>
-                <button className={styles.tab} onClick={onBackTodashboard}>
-                  Dashboard
-                </button>
-                <button className={styles.tab} onClick={onAllVehicles}>
-                  All Vehicles
-                </button>
-                <button className={styles.tab}>Trucking</button>
-                <button className={styles.tabActive}>Freight</button>
-                <button className={styles.tab}>All Shipments</button>
-                <button className={styles.tab}>Invoices</button>
-                <button className={styles.tab}>BL & ED</button>
+              <NavigationTabs active="FreightEstimate" navigateTo={navigateTo} />
               </div>
             </div>
           </div>

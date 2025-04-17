@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./AllVehicles.module.css";
 import VehicleDetailsPopup from "./VehicleDetailsPopup";
+import NavigationTabs from "./Component/NavigationTabs";
 const sampleData = [
   {
     companyName: "Ocean Trading",
@@ -52,7 +53,7 @@ const sampleData = [
   },
 ];
 
-function AllVehicles({ onBackTodashboard, onTrucking, onFreight, onMyShipment, onInvoices, onBLED}) {
+function AllVehicles({ onBackTodashboard, onTrucking, onFreight, onMyShipment, onInvoices, onBLED,navigateTo }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState(null);
 
@@ -69,15 +70,7 @@ function AllVehicles({ onBackTodashboard, onTrucking, onFreight, onMyShipment, o
       <div className={styles.mainContent}>
         <div className={styles.pageTitle}>All Vehicles</div>
         <div className={styles.tabsContainer}>
-          <button className={styles.tab} onClick={onBackTodashboard}>
-            Dashboard
-          </button>
-          <button className={styles.tabActive}>All Vehicles</button>
-          <button className={styles.tab} onClick={onTrucking}>Trucking</button>
-          <button className={styles.tab} onCLick={onFreight}>Freight</button>
-          <button className={styles.tab} onClick={onMyShipment}>All Shipments</button>
-          <button className={styles.tab} onClick={onInvoices}>Invoices</button>
-          <button className={styles.tab} onClick={onBLED}>BL & ED</button>
+        <NavigationTabs active="AllVehicles" navigateTo={navigateTo} />
         </div>
 
         <div className={styles.filterSection}>

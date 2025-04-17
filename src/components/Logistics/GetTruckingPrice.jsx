@@ -3,6 +3,7 @@ import styles from "./GetTruckingPrice.module.css";
 import AllVehicles from "./AllVehicles";
 import CreateTruckingOrder from "./CreateTruckingOrder";
 import ViewTruckingOrders from "./ViewTruckingOrders";
+import NavigationTabs from "./Component/NavigationTabs";
 
 const sampleData = [
   {
@@ -39,7 +40,7 @@ const sampleData = [
     actions: "link",
   },
 ];
-function GetTruckingPrice({ onBackTodashboard, onAllVehicles }) {
+function GetTruckingPrice({ onBackTodashboard, onAllVehicles, navigateTo }) {
   const [activeView, setActiveView] = useState("estimates");
   if (activeView === "createOrder") {
     return (
@@ -69,17 +70,7 @@ function GetTruckingPrice({ onBackTodashboard, onAllVehicles }) {
             <div className={styles.titleColumn}>
               <h1 className={styles.title}>Trucking</h1>
               <div className={styles.tabsContainer}>
-                <button className={styles.tab} onClick={onBackTodashboard}>
-                  Dashboard
-                </button>
-                <button className={styles.tab} onClick={onAllVehicles}>
-                  All Vehicles
-                </button>
-                <button className={styles.tabActive}>Trucking</button>
-                <button className={styles.tab}>Freight</button>
-                <button className={styles.tab}>All Shipments</button>
-                <button className={styles.tab}>Invoices</button>
-                <button className={styles.tab}>BL & ED</button>
+              <NavigationTabs active="TruckingPrice"  navigateTo={navigateTo} />
               </div>
             </div>
             <div className={styles.downloadButton}>Download All</div>
@@ -101,7 +92,7 @@ function GetTruckingPrice({ onBackTodashboard, onAllVehicles }) {
                   ? styles.actionButtonActive
                   : styles.actionButton
               }
-              onClick={() => setActiveView("createOrder")}
+              onClick={() => navigateTo("CreateTruckingOrder")}
             >
               Create order
             </button>

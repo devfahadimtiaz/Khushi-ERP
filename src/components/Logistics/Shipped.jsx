@@ -48,7 +48,7 @@ const sampleData = [
 
 ];
 
-function Shipped({ onBack, onBackTodashboard }) {
+function Shipped({ onBack }) {
   return (
     <>
       <link
@@ -59,7 +59,7 @@ function Shipped({ onBack, onBackTodashboard }) {
         <div className={styles.wrapper}>
           <div className={styles.header}>
             <div className={styles.headerchild}>
-              <button className={styles.backButton} onClick={onBackTodashboard}>
+              <button className={styles.backButton} onClick={onBack}>
                 <svg
                   width="24"
                   height="24"

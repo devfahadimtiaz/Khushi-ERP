@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./MyShipments.module.css";
+import NavigationTabs from "./Component/NavigationTabs"
 const sampleData = [
   {
     details: "Toyota Camry 2023",
@@ -40,7 +41,7 @@ const sampleData = [
 
 
 ];
-function MyShipments({ onBackTodashboard }) {
+function MyShipments({ onBackTodashboard, navigateTo }) {
   // Sample shipment data
   const shipments = [
     {
@@ -78,15 +79,7 @@ function MyShipments({ onBackTodashboard }) {
           <div className={styles.titleWrapper}>
             <h1 className={styles.pageTitle}>My Shipments</h1>
             <div className={styles.tabsContainer}>
-              <button className={styles.tab} onClick={onBackTodashboard}>
-                Dashboard
-              </button>
-              <button className={styles.tab}>All Vehicles</button>
-              <button className={styles.tab}>Trucking</button>
-              <button className={styles.tab}>Freight</button>
-              <button className={styles.tabActive}>All Shipments</button>
-              <button className={styles.tab}>Invoices</button>
-              <button className={styles.tab}>BL & ED</button>
+            <NavigationTabs active="MyShipments" navigateTo={navigateTo} />
             </div>
           </div>
         </div>

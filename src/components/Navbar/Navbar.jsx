@@ -154,7 +154,6 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Logistics",
       subItems: [
         { id: "shipping-dashboard", label: "Dashboard" },
-        { id: "warehouses", label: "Warehouses" },
       ],
     },
     {
@@ -175,9 +174,9 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Sales",
       subItems: [
-        { id: "orders", label: "Orders" },
-        { id: "invoices", label: "Invoices" },
-        { id: "customers", label: "Customers" },
+        { id: "cashSaleList", label: "Cash Sale List" },
+        { id: "addSale", label: "Add Cash Sale" },
+        { id: "creditSale", label: "Add Credit Sale" },
         { id: "discounts", label: "Discounts" },
       ],
     },

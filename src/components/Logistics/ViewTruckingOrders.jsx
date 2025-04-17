@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./ViewTruckingOrders.module.css";
+import NavigationTabs from "./Component/NavigationTabs";
 
 function ViewTruckingOrders({
   onBackToDashboard,
   onGetEstimates,
   onCreateOrder,
+  navigateTo
 }) {
   return (
     <div className={styles.container}>
@@ -13,15 +15,7 @@ function ViewTruckingOrders({
           <div className={styles.titleWrapper}>
             <h1 className={styles.title}>Trucking</h1>
             <div className={styles.tabsContainer}>
-              <button className={styles.tab} onClick={onBackToDashboard}>
-                Dashboard
-              </button>
-              <button className={styles.tab}>All Vehicles</button>
-              <button className={styles.tabActive}>Trucking</button>
-              <button className={styles.tab}>Freight</button>
-              <button className={styles.tab}>All Shipments</button>
-              <button className={styles.tab}>Invoices</button>
-              <button className={styles.tab}>BL &amp; ED</button>
+            <NavigationTabs  navigateTo={navigateTo} />
             </div>
           </div>
           <div className={styles.actionButtons}>

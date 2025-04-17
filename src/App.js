@@ -20,6 +20,10 @@ import AuctionPriceChecker from "./components/Auction/AuctionChecker";
 import DutyCalculator from "./components/Auction/DutyCalculator";
 import LogisticsDashboard from "./components/Logistics/ShippingDashboard";
 import BillOfLadingExportDeclaration from "./components/Logistics/BillOfLadingExportDeclaration";
+import CashSale  from "./components/Sales/CashSale";
+import CashSaleList from "./components/Sales/CarSalesList";
+import CraditSale from "./components/Sales/CreditSale/CreditSale"
+import CreditSale from "./components/Sales/CreditSale/CreditSale";
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);
@@ -78,6 +82,10 @@ function App() {
   const navigateToBillOfLading = () => {
     setCurrentView("bill-of-lading");
   };
+
+  const navigateToCashSale = ()=>{
+    setCurrentView("addSale");
+  }
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -155,12 +163,18 @@ function App() {
         return <DutyCalculator onBack={navigateToDashboard} />;
       case "shipping-dashboard":
         return <LogisticsDashboard onBack={navigateToDashboard} />;
+      case "addSale":
+        return <CashSale onBack={navigateToDashboard} />;
       case "bill-of-lading":
         return (
           <BillOfLadingExportDeclaration
             onBackTodashboard={navigateToDashboard}
           />
         );
+      case "cashSaleList":
+        return <CashSaleList onBack={navigateToDashboard} />;
+      case "creditSale":
+        return <CreditSale onBack={navigateToDashboard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

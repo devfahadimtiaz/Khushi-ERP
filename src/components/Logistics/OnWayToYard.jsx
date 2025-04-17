@@ -65,7 +65,7 @@ const sampleData = [
   },
 ];
 
-function OnWayToYard({ onBack, onBackTodashboard }) {
+function OnWayToYard({ onBack }) {
   return (
     <>
       <link
@@ -76,7 +76,7 @@ function OnWayToYard({ onBack, onBackTodashboard }) {
         <div className={styles.wrapper}>
           <div className={styles.header}>
             <div className={styles.headerchild}>
-              <button className={styles.backButton} onClick={onBackTodashboard}>
+              <button className={styles.backButton} onClick={onBack}>
                 <svg
                   width="24"
                   height="24"

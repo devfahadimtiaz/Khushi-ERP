@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./BillOfLadingExportDeclaration.module.css";
 import alertIcon from "../../uploads/icons/alert-icon.svg";
+import NavigationTabs from "./Component/NavigationTabs"
 
 const sampleData = [
   {
@@ -38,22 +39,14 @@ const sampleData = [
   },
 ];
 
-function BillOfLadingExportDeclaration({ onBackTodashboard }) {
+function BillOfLadingExportDeclaration({ onBackTodashboard, navigateTo }) {
   return (
     <div className={styles.container}>
       <div className={styles.mainContent}>
         <div className={styles.headerSection}>
           <h1 className={styles.pageTitle}>My Shipments</h1>
           <div className={styles.tabsContainer}>
-            <button className={styles.tab} onClick={onBackTodashboard}>
-              Dashboard
-            </button>
-            <button className={styles.tab}>All Vehicles</button>
-            <button className={styles.tab}>Trucking</button>
-            <button className={styles.tab}>Freight</button>
-            <button className={styles.tab}>All Shipments</button>
-            <button className={styles.tab}>Invoices</button>
-            <button className={styles.tabActive}>BL & ED</button>
+          <NavigationTabs active="BillOfLading" navigateTo={navigateTo} />
           </div>
         </div>
         <div className={styles.filterSection}>
