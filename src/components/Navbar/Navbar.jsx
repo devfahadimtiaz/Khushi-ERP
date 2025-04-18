@@ -86,6 +86,12 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         { id: "vehicle-transfer", label: "Vehicle Transfer" },
         { id: "incoming-vehicle-transfers", label: "Incoming Vehicle" },
         { id: "parking-zone-management", label: "Parking Zone Management" },
+        { id: "vehicleRepairDetails", label: "Vehicle Repair Details" },
+        { id: "repairTaskManagement", label: "Repair Task Management" },
+        { id: "voucherManagement", label: "Repair Voucher Management" },
+        { id: "roadTestForm", label: "Road Test Form" },
+        { id: "roadTestRecord", label: "Road Test Record" },
+        
       ],
     },
     {
@@ -174,10 +180,15 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Sales",
       subItems: [
+        { id: "salesDashboard", label: "Sales Dashboard" },
         { id: "cashSaleList", label: "Cash Sale List" },
         { id: "addSale", label: "Add Cash Sale" },
+        { id: "creditSaleList", label: "Credit Sale List" },
         { id: "creditSale", label: "Add Credit Sale" },
-        { id: "discounts", label: "Discounts" },
+        { id: "gatePass", label: "Gate Pass" },
+        { id: "gatePassRecord", label: "Gate Pass Record" },
+        { id: "marketTrend", label: "Market Trend Analysis" },
+        
       ],
     },
   ];

@@ -1,0 +1,223 @@
+.container {
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 80px;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.statusFilter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  cursor: pointer;
+  border: 1px solid #d0d5dd;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #667085;
+}
+
+.tableContainer {
+  display: table;
+  border: 1px solid #f2f4f7;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  background-color: #fff;
+  width: 100%;
+}
+
+.tableHeader {
+  display: flex;
+  border-bottom: 1px solid #f2f4f7;
+  padding: 16px;
+  background-color: #f9fafb;
+}
+
+.headerCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #667085;
+  gap: 4px;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f2f4f7;
+  padding: 16px;
+}
+
+.cell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1d2939;
+}
+
+.driverCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1d2939;
+}
+
+.profileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.statusCell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inProgressStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 29px;
+  border-radius: 6px;
+  color: #93370d;
+  background-color: #fef0c7;
+}
+
+.completedStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 29px;
+  border-radius: 6px;
+  color: #4318d1;
+  background-color: #d1fadf;
+}
+
+.actionsCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1d2939;
+  gap: 8px;
+}
+
+.actionIcon {
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exportButton,
+  .statusFilter {
+    margin-top: 10px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .driverCell,
+  .actionsCell {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .exportButton,
+  .statusFilter {
+    font-size: 12px;
+  }
+
+  .tableContainer {
+    border-radius: 8px;
+  }
+
+  .headerCell,
+  .cell,
+  .driverCell,
+  .actionsCell {
+    font-size: 12px;
+  }
+
+  .inProgressStatus,
+  .completedStatus {
+    font-size: 12px;
+    width: 80px;
+    height: 25px;
+  }
+}

@@ -1,0 +1,349 @@
+.saleDashboard {
+  background-color: rgba(246, 250, 253, 1);
+  overflow: hidden;
+}
+
+.container {
+
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  padding-bottom: 205px;
+}
+
+.header {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: rgba(9, 44, 76, 1);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.periodSelector {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.periodButton {
+  border:none;
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.periodButtonActive {
+  border:none;
+  border-radius: 4px;
+  background-color: rgba(26, 213, 152, 1);
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.statsContainer {
+  margin-top: 24px;
+}
+
+.statsRow {
+  display: flex;
+  gap: 20px;
+}
+
+.statsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 30%;
+  margin-left: 0px;
+}
+
+.statsColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.statCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px;
+  padding-right: 77px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 100%;
+}
+
+.statLabel {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.statValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.chartsContainer {
+  margin-top: 24px;
+  margin-bottom: -41px;
+}
+
+.chartsRow {
+  display: flex;
+  gap: 20px;
+}
+
+.chartColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0px;
+}
+
+.chartColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.chartCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px;
+  padding-bottom: 89px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 600;
+  width: 100%;
+}
+
+.chartTitle {
+  align-self: flex-start;
+}
+
+.chartImage {
+  aspect-ratio: 2.67;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+.topSellingCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.topSellingTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.modelCard {
+  border-radius: 8px;
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-top: 16px;
+  width: 100%;
+  padding: 17px;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modelInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modelName {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modelSales {
+  color: rgba(107, 114, 128, 1);
+  font-size: 14px;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+.modelTrend {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: stretch;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(26, 213, 152, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.trendPositive {
+  color: rgba(26, 213, 152, 1);
+}
+
+.trendIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+
+  .header {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .periodSelector {
+    white-space: initial;
+  }
+
+  .periodButton {
+    padding: 12px 20px;
+    white-space: initial;
+  }
+
+  .periodButtonActive {
+    padding: 12px 20px;
+    white-space: initial;
+  }
+
+  .statsContainer {
+    max-width: 100%;
+  }
+
+  .statsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .statsColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .statCard {
+    margin-top: 23px;
+    padding: 20px;
+  }
+
+  .chartsContainer {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .chartsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .chartColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .chartCard {
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .chartImage {
+    max-width: 100%;
+  }
+
+  .topSellingCard {
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .modelCard {
+    max-width: 100%;
+  }
+
+  .modelTrend {
+    white-space: initial;
+  }
+}

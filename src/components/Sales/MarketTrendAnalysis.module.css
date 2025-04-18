@@ -1,0 +1,704 @@
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainWrapper {
+ 
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.headerContainer {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  align-items: stretch;
+  gap: 20px;
+  color: rgba(9, 44, 76, 1);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 24px;
+  font-family:
+    Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+}
+
+.filterOptions {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.makeSelector {
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  border:none;
+  display: flex;
+  padding: 11px 7px 11px 16px;
+  align-items: stretch;
+  gap: 22px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  align-self: start;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.periodFilter {
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 8px 24px;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.periodFilterActive {
+  border-radius: 4px;
+  background-color: rgba(26, 213, 152, 1);
+  padding: 8px 24px;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.contentContainer {
+  margin-top: 24px;
+}
+
+.contentRow {
+  gap: 20px;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  
+  width: 50%;
+}
+
+.column:first-child {
+  margin-left: 0;
+}
+
+.column:last-child {
+  margin-left: 10px;
+}
+
+.trendingModelsCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 95%;
+}
+
+.cardTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: start;
+}
+
+.modelCard {
+  border-radius: 8px;
+  border: 1px solid rgba(234, 238, 244, 1);
+  margin-top: 24px;
+  width: 100%;
+  padding: 21px;
+  display: flex;
+  width: 93%;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modelCard:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+.modelInfo {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modelName {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modelPrice {
+  color: rgba(107, 114, 128, 1);
+  font-size: 14px;
+  font-weight: 400;
+  align-self: start;
+}
+
+.modelStats {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.growthPercentage {
+  color: rgba(26, 213, 152, 1);
+  font-size: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+.popularityBadge {
+  border-radius: 16777200px;
+  border: 3px solid rgba(26, 213, 152, 1);
+  padding: 14px 11px;
+  font-size: 14px;
+  color: rgba(9, 44, 76, 1);
+}
+
+.statsRow {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statBox {
+  border-radius: 4px;
+  background-color: rgba(248, 249, 250, 1);
+  display: flex;
+  padding: 12px 49px 12px 12px;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
+}
+
+.statLabel {
+  color: rgba(107, 114, 128, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.statValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.marketDemandCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.demandStats {
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 40px 97px;
+  flex-wrap: wrap;
+}
+
+.regionNames {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.regionName {
+  margin-top: 16px;
+}
+
+.progressContainer {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.progressRow {
+  display: flex;
+  align-items: stretch;
+  gap: 40px 50px;
+}
+
+.progressRow:not(:first-child) {
+  margin-top: 16px;
+}
+
+.progressBar {
+  border-radius: 16777200px;
+  background-color: rgba(243, 244, 246, 1);
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-direction: column;
+  align-items: start;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.progressFill {
+  border-radius: 16777200px;
+  background-color: rgba(26, 213, 152, 1);
+  display: flex;
+  flex-shrink: 0;
+  height: 8px;
+}
+
+.progressValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 14px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  text-align: right;
+}
+
+.priceTrendCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 24px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 600;
+}
+
+.chartImage {
+  aspect-ratio: 3;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.bottomRow {
+  margin-top: 48px;
+  width: 100%;
+  gap: 20px;
+  display: flex;
+}
+
+.bottomColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 33%;
+}
+
+.bottomColumn:first-child {
+  margin-left: 0;
+}
+
+.bottomColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.featuresCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 27px 24px;
+  flex-direction: column;
+  align-items: start;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 400;
+}
+
+.featureTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.featureTags {
+  align-self: stretch;
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.featureTag {
+  border-radius: 16777200px;
+  background-color: rgba(243, 244, 246, 1);
+  padding: 6px 12px;
+}
+
+.featureTag:not(:first-child) {
+  margin-top: 8px;
+}
+
+.priceRangeCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px 24px 56px;
+  align-items: flex-start;
+  gap: 20px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.priceRangeInfo {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-weight: 600;
+}
+
+.priceLabel {
+  color: rgba(107, 114, 128, 1);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.priceValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  text-align: center;
+}
+
+.averagePriceInfo {
+  align-self: end;
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  align-items: stretch;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.sentimentCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Roboto,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sentimentInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sentimentBoxes {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 20px;
+  white-space: nowrap;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.sentimentBox {
+  border-radius: 8px;
+  background-color: rgba(243, 244, 246, 1);
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: stretch;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.sentimentBox:last-child {
+  align-self: end;
+  margin-top: 40px;
+}
+
+.sentimentLabel {
+  color: rgba(107, 114, 128, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.positiveValue {
+  color: rgba(26, 213, 152, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: center;
+}
+
+.neutralValue {
+  color: rgba(107, 114, 128, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: start;
+}
+
+.negativeValue {
+  color: rgba(239, 68, 68, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: center;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .mainWrapper {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .headerContainer {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .periodFilter {
+    padding: 8px 20px;
+    white-space: initial;
+  }
+
+  .periodFilterActive {
+    padding: 8px 20px;
+    white-space: initial;
+  }
+
+  .contentContainer {
+    max-width: 100%;
+  }
+
+  .contentRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .column:last-child {
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  .trendingModelsCard {
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .modelCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .modelStats {
+    white-space: initial;
+  }
+
+  .popularityBadge {
+    white-space: initial;
+  }
+
+  .statsRow {
+    max-width: 100%;
+  }
+
+  .statBox {
+    padding-right: 20px;
+  }
+
+  .marketDemandCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .regionNames {
+    white-space: initial;
+  }
+
+  .priceTrendCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .chartImage {
+    max-width: 100%;
+  }
+
+  .bottomRow {
+    max-width: 100%;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .bottomColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .featuresCard {
+    margin-top: 23px;
+    padding: 20px;
+  }
+
+  .featureTags {
+    white-space: initial;
+  }
+
+  .featureTag {
+    white-space: initial;
+  }
+
+  .priceRangeCard {
+    margin-top: 23px;
+    padding: 20px;
+  }
+
+  .averagePriceInfo {
+    white-space: initial;
+  }
+
+  .sentimentCard {
+    margin-top: 23px;
+    padding: 20px;
+  }
+
+  .sentimentBoxes {
+    white-space: initial;
+  }
+
+  .sentimentBox {
+    white-space: initial;
+  }
+}

@@ -1,0 +1,244 @@
+.gatePass {
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  background-color: #f6fafd;
+  display: flex;
+  width: 100%;
+  padding: 24px 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formCard {
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 620px;
+  max-width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.formTitle {
+  color: #092c4c;
+  font-size: 18px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.formRow {
+  display: flex;
+  margin-top: 20px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.formRow:first-of-type {
+  margin-top: 49px;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.fieldLabel {
+  color: #092c4c;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+.formRow .fieldLabel {
+  margin-top: 0;
+}
+
+.inputField {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  margin-top: 12px;
+  padding: 16px 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.contactField {
+  width: 276px;
+  max-width: 100%;
+  padding: 20px 20px 11px;
+}
+
+.carDetailsSection {
+  margin-top: 65px;
+}
+
+.twoColumnLayout {
+  display: flex;
+  gap: 20px;
+}
+
+.leftColumn,
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.leftColumn {
+  margin-left: 0;
+}
+
+.rightColumn {
+  margin-left: 20px;
+}
+
+.carDetailsTitle {
+  color: #092c4c;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rightColumn .fieldLabel:first-child {
+  margin-top: 48px;
+}
+
+.leftColumn .fieldLabel:nth-child(2) {
+  margin-top: 24px;
+}
+
+.termsBox {
+  border-radius: 6px;
+  background-color: #363565;
+  margin-top: 24px;
+  padding: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.submitButton {
+  border-radius: 8px;
+  background-color: #363565;
+  margin-top: 24px;
+  padding: 12px 62px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formCard {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formRow {
+    max-width: 100%;
+  }
+
+  .carDetailsSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .twoColumnLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .leftColumn .fieldLabel:first-child {
+    margin-top: 20px;
+  }
+
+  .rightColumn .fieldLabel:first-child {
+    margin-top: 40px;
+  }
+
+  .termsBox {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .submitButton {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

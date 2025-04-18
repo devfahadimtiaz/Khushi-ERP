@@ -1,0 +1,358 @@
+.container {
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.rectangle {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 32px;
+  padding-bottom: 64px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 800px;
+  max-width: 100%;
+  padding: 32px 28px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.headerSection {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.reference {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.amountSection {
+  text-align: right;
+}
+
+.amountLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.amountValue {
+  color: rgba(220, 38, 38, 1);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fieldLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  align-self: start;
+  margin-top: 57px;
+}
+
+.inputField {
+  border-radius: 4px;
+  background-color: rgba(248, 250, 252, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+  margin-top: 8px;
+  padding: 12px 32px 19px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+}
+
+.twoColumnLayout {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+}
+
+.columnRight {
+  margin-left: 20px;
+}
+
+.formGroup {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(126, 146, 162, 1);
+  font-weight: 600;
+}
+
+.selectField {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  margin-top: 8px;
+  padding: 15px 10px;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  justify-content: space-between;
+}
+
+.selectIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.dateField {
+  border-radius: 4px;
+  background-color: rgba(248, 250, 252, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  flex-shrink: 0;
+  height: 50px;
+}
+
+.refField {
+  border-radius: 4px;
+  background-color: rgba(248, 250, 252, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+}
+
+.notesLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  align-self: start;
+  margin-top: 24px;
+}
+
+.notesField {
+  border-radius: 4px;
+  background-color: rgba(248, 250, 252, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  flex-shrink: 0;
+  height: 100px;
+}
+
+.footerSection {
+  display: flex;
+  margin-top: 64px;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.vehicleDetails {
+  border-radius: 4px;
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: start;
+  color: rgba(126, 146, 162, 1);
+  font-weight: 400;
+}
+
+.vehicleName {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+  align-self: stretch;
+}
+
+.buttonGroup {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: stretch;
+  gap: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cancelButton {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  padding: 13px 25px;
+  color: rgba(126, 146, 162, 1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.submitButton {
+  border-radius: 4px;
+  background-color: rgba(26, 213, 152, 1);
+  padding: 13px 24px;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .rectangle {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .title {
+    margin-right: 8px;
+  }
+
+  .amountLabel {
+    margin-right: 7px;
+  }
+
+  .amountValue {
+    margin-left: 9px;
+  }
+
+  .fieldLabel {
+    margin-top: 40px;
+  }
+
+  .inputField {
+    max-width: 100%;
+    margin-right: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .twoColumnLayout {
+    max-width: 100%;
+    margin-right: 8px;
+  }
+
+  .column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .columnRight {
+    margin-left: 0;
+  }
+
+  .twoColumnLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .formGroup {
+    margin-top: 32px;
+  }
+
+  .refField {
+    padding-right: 20px;
+  }
+
+  .notesField {
+    margin-right: 8px;
+  }
+
+  .footerSection {
+    max-width: 100%;
+    margin-right: 8px;
+    margin-top: 40px;
+  }
+
+  .cancelButton {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+
+  .submitButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

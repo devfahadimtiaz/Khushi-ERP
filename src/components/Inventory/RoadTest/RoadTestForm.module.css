@@ -1,0 +1,271 @@
+.container {
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.formWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 127px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 620px;
+  max-width: 100%;
+  padding: 28px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.formTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.formRow {
+  display: flex;
+  margin-top: 20px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.formRow:first-of-type {
+  margin-top: 57px;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.inputLabel {
+  color: rgba(9, 44, 76, 1);
+  font-weight: 700;
+  align-self: flex-start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.inputField {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  margin-top: 12px;
+  padding: 15px 20px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carDetailsSection {
+  margin-top: 65px;
+}
+
+.twoColumnGrid {
+  display: flex;
+  gap: 20px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.sectionTitle {
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.modelSection {
+  display: flex;
+  margin-top: 44px;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+}
+
+.checkboxContainer {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-top: 12px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.disclaimer {
+  border-radius: 6px;
+  background-color: rgba(54, 53, 101, 1);
+  margin-top: 32px;
+  padding: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.submitButton {
+  border-radius: 8px;
+  background-color: rgba(54, 53, 101, 1);
+  margin-top: 24px;
+  padding: 12px 62px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: rgba(44, 43, 81, 1);
+}
+
+@media (max-width: 991px) {
+  .formWrapper {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+  }
+
+  .formCard {
+    padding: 20px;
+  }
+
+  .formRow {
+    max-width: 100%;
+  }
+
+  .formRow:first-of-type {
+    margin-top: 40px;
+  }
+
+  .carDetailsSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .twoColumnGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .leftColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .modelSection {
+    margin-top: 40px;
+  }
+
+  .disclaimer {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .submitButton {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

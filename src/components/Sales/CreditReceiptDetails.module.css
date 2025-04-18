@@ -1,0 +1,330 @@
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.rectangle {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+ margin-bottom: 80px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.card {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  padding: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.headerSection {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.reference {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.downloadButton {
+  border-radius: 4px;
+  background-color: rgba(26, 213, 152, 1);
+  align-self: start;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.vehicleDetailsSection {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  margin-top: 32px;
+  padding: 24px 80px 24px 24px;
+}
+
+.threeColumnLayout {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 33%;
+}
+
+.column:first-child {
+  margin-left: 0;
+}
+
+.column:not(:first-child) {
+  margin-left: 20px;
+}
+
+.sectionTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.fieldLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.fieldValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.paymentDetailsSection {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  margin-top: 24px;
+  width: 96%;
+  padding: 24px;
+}
+.buttonRow{
+  display: flex;
+  text-align: right;
+  gap: 20px;
+}
+.cancelButton{
+
+}
+.paymentHeader {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.paymentTitleSection {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-weight: 600;
+}
+
+.paymentTypeLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  align-self: start;
+  margin-top: 28px;
+  margin-left: 16px;
+}
+
+.amountLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 600;
+  align-self: end;
+  margin-top: 55px;
+}
+
+.dueDateLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 600;
+  align-self: end;
+  margin-top: 55px;
+}
+
+.totalSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.totalRow {
+  display: flex;
+  margin-left: 10px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.totalLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+.totalAmount {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.statusLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.pendingAmountRow {
+  background-color: rgba(248, 250, 252, 1);
+  display: flex;
+  margin-top: 13px;
+  padding: 17px 16px;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pendingAmountLabel {
+  color: rgba(9, 44, 76, 1);
+}
+
+.pendingAmount {
+  color: rgba(220, 38, 38, 1);
+}
+
+.customerSection {
+  border-radius: 8px;
+  background-color: rgba(248, 250, 252, 1);
+  margin-top: 24px;
+  padding: 24px 80px 24px 24px;
+}
+
+.payButton {
+  border-radius: 4px;
+  background-color: rgba(26, 213, 152, 1);
+  align-self: end;
+  margin-top: 14px;
+  padding: 8px 52px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.cancelButton{
+  border-radius: 4px;
+  background-color: ;
+  align-self: end;
+  margin-top: 14px;
+  padding: 8px 52px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .rectangle {
+    max-width: 100%;
+    padding: 32px 20px 13px;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .reference {
+    margin-right: 10px;
+  }
+
+  .vehicleDetailsSection {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .threeColumnLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .column {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 40px;
+  }
+
+  .paymentDetailsSection {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .amountLabel,
+  .dueDateLabel {
+    margin-top: 40px;
+  }
+
+  .pendingAmountRow {
+    max-width: 100%;
+    margin-right: 4px;
+  }
+
+  .customerSection {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .payButton {
+    margin-right: 3px;
+    padding: 8px 20px;
+    white-space: initial;
+  }
+}

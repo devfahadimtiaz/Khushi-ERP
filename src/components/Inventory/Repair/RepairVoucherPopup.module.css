@@ -1,0 +1,344 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.popupCard {
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.popupHeader {
+  display: flex;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  align-items: center;
+  justify-content: space-between;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.closeButton {
+  color: #666666;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+
+.formRow {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 32px;
+  padding-right: 32px;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+}
+
+.formRow:first-of-type {
+  margin-top: 53px;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.fieldLabel {
+  color: #092c4c;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.textInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.fullWidthField {
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-top: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.tableHeader {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #e6f4f9;
+  justify-content: space-between;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+  font-weight: 700;
+}
+
+.tableHeaderItem {
+  flex: 1;
+}
+
+.tableHeaderItem:nth-child(2) {
+  text-align: center;
+}
+
+.tableHeaderItem:last-child {
+  text-align: right;
+}
+
+.itemRow {
+  display: flex;
+  margin-top: 16px;
+  margin-left: 32px;
+  margin-right: 32px;
+  gap: 11px;
+}
+
+.itemInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+  width: 156px;
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.remarksInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+  width: 178px;
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.amountInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+  width: 110px;
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.addItemButton {
+  color: #4318d1;
+  font-size: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 16px;
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+.totalContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  margin-right: 32px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+  font-weight: 700;
+  gap: 2px;
+}
+
+.totalLabel {
+  margin-right: 4px;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 47px;
+  margin-right: 32px;
+  gap: 12px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cancelButton {
+  border-radius: 8px;
+  border: 1px solid #eaeef4;
+  padding: 13px 25px;
+  color: #666666;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.saveButton {
+  border-radius: 8px;
+  background-color: #4318d1;
+  padding: 13px 24px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .popupCard {
+    max-width: 100%;
+    margin: 20px;
+  }
+
+  .popupHeader {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formRow {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formRow:first-of-type {
+    margin-top: 40px;
+  }
+
+  .fullWidthField {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tableHeader {
+    margin-left: 20px;
+    margin-right: 20px;
+    white-space: initial;
+  }
+
+  .itemRow {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .itemInput,
+  .remarksInput,
+  .amountInput {
+    width: 100%;
+  }
+
+  .addItemButton {
+    margin-left: 20px;
+  }
+
+  .totalContainer {
+    margin-right: 20px;
+  }
+
+  .actionButtons {
+    margin-right: 20px;
+    margin-top: 40px;
+  }
+
+  .cancelButton,
+  .saveButton {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: nowrap;
+  }
+}

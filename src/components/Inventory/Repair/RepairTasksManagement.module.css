@@ -1,0 +1,233 @@
+.container {
+  max-width: 1272px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 24px;
+  padding-top: 80px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.buttonText {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.searchPlaceholder {
+  font-size: 16px;
+  width: 100%;
+  color: #999;
+  border: none;
+  padding: 8px 16px;
+}
+
+.tableContainer {
+  display: table;
+  width: 100%;
+  border: 1px solid #f2f4f7;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  background-color: #fff;
+}
+
+.tableHeader {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #f2f4f7;
+  background-color: #f9fafb;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #667085;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.tableCell {
+  flex: 1;
+  font-size: 14px;
+  color: #1d2939;
+}
+
+.staffCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1d2939;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.statusCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1d2939;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.statusInProgress {
+  color: #93370d;
+  background-color: #fef0c7;
+}
+
+.statusPending {
+  color: #344054;
+  background-color: #f2f4f7;
+}
+
+.statusCompleted {
+  color: #4318d1;
+  background-color: #d1fadf;
+}
+
+.actionsCell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1d2939;
+}
+
+.actionIcons {
+  display: flex;
+  gap: 8px;
+}
+
+.doneButton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #4318d1;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actionButtons {
+    margin-top: 10px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableHeaderCell,
+  .tableCell,
+  .staffCell,
+  .statusCell,
+  .actionsCell {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .actionButtons {
+    display: none;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableHeaderCell,
+  .tableCell,
+  .staffCell,
+  .statusCell,
+  .actionsCell {
+    width: 100%;
+  }
+}

@@ -1,0 +1,244 @@
+.container {
+  background-color: #f6fafd;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contentWrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  padding: 32px 36px 338px;
+}
+
+.formCard {
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  margin-bottom: -68px;
+  width: 100%;
+  padding: 32px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+.submitButton {
+  border-radius: 8px;
+  background-color: #514ef3;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.formLabels {
+  display: flex;
+  margin-top: 32px;
+  width: 778px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: #344054;
+  font-weight: 600;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.formContent {
+  margin-top: 8px;
+}
+
+.formRow {
+  gap: 20px;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0;
+}
+
+.column:last-child {
+  margin-left: 20px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #999999;
+  font-weight: 400;
+}
+
+.textInput {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  padding: 14px;
+  font-size: 16px;
+  color: #999999;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.fieldLabel {
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.rightColumnContent {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.descriptionTextarea {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  height: 120px;
+  resize: none;
+  padding: 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.selectWrapper {
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  margin-top: 8px;
+  padding: 13px 7px 13px 14px;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid #d0d5dd;
+}
+
+.selectText {
+  flex-grow: 1;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .contentWrapper {
+    max-width: 100%;
+    padding: 20px 20px 100px;
+  }
+
+  .formCard {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+
+  .headerContainer {
+    max-width: 100%;
+  }
+
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .column:last-child {
+    margin-left: 0;
+  }
+
+  .inputWrapper,
+  .rightColumnContent {
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .textInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .selectWrapper {
+    max-width: 100%;
+  }
+}

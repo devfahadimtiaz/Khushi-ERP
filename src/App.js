@@ -20,11 +20,20 @@ import AuctionPriceChecker from "./components/Auction/AuctionChecker";
 import DutyCalculator from "./components/Auction/DutyCalculator";
 import LogisticsDashboard from "./components/Logistics/ShippingDashboard";
 import BillOfLadingExportDeclaration from "./components/Logistics/BillOfLadingExportDeclaration";
-import CashSale  from "./components/Sales/CashSale";
+import CashSale from "./components/Sales/CashSale";
 import CashSaleList from "./components/Sales/CarSalesList";
-import CraditSale from "./components/Sales/CreditSale/CreditSale"
 import CreditSale from "./components/Sales/CreditSale/CreditSale";
-
+import CreditSaleList from "./components/Sales/CreditList";
+import AddPayment from "./components/Sales/AddPayment";
+import SaleDashboard from "./components/Sales/SaleDashboard";
+import MarketTrend from "./components/Sales/MarketTrendAnalysis";
+import VehicleRepairDetails from "./components/Inventory/Repair/VehicleRepairDetails";
+import RepairTasksManagement from "./components/Inventory/Repair/RepairTasksManagement";
+import VoucherManagement from "./components/Inventory/Repair/VoucherManagement";
+import RoadTestform from "./components/Inventory/RoadTest/RoadTestForm";
+import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
+import GatePass from "./components/Sales/GatePass/GatePass"
+import GatePassRecords from "./components/Sales/GatePass/GatePassRecord"
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -83,9 +92,13 @@ function App() {
     setCurrentView("bill-of-lading");
   };
 
-  const navigateToCashSale = ()=>{
-    setCurrentView("addSale");
-  }
+  const navigateToCreditSale = () => {
+    setCurrentView("creditSale");
+  };
+
+  const navigateToAddPayment = (receipt) => {
+    setCurrentView("addPayment");
+  };
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -175,6 +188,28 @@ function App() {
         return <CashSaleList onBack={navigateToDashboard} />;
       case "creditSale":
         return <CreditSale onBack={navigateToDashboard} />;
+      case "creditSaleList":
+        return <CreditSaleList onBack={navigateToDashboard} />;
+      case "addPayment":
+        return <AddPayment onCancel={navigateToDashboard} />;
+      case "salesDashboard":
+        return <SaleDashboard onBack={navigateToDashboard} />;
+      case "marketTrend":
+        return <MarketTrend onBack={navigateToDashboard} />;
+      case "vehicleRepairDetails":
+        return <VehicleRepairDetails onBack={navigateToDashboard} />;
+      case "repairTaskManagement":
+        return <RepairTasksManagement onBack={navigateToDashboard} />;
+      case "voucherManagement":
+        return <VoucherManagement onBack={navigateToDashboard} />;
+      case "roadTestForm":
+        return <RoadTestform onBack={navigateToDashboard} />;
+      case "roadTestRecord":
+        return <RoadTestRecords />;
+      case "gatePass":
+        return <GatePass onBack={navigateToDashboard} />;
+      case "gatePassRecord":
+        return  <GatePassRecords onBack={navigateToDashboard}/>;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }
