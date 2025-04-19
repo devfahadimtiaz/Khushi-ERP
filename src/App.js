@@ -34,6 +34,7 @@ import RoadTestform from "./components/Inventory/RoadTest/RoadTestForm";
 import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
 import GatePass from "./components/Sale/GatePass/GatePass"
 import GatePassRecords from "./components/Sale/GatePass/GatePassRecord"
+import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance"
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -210,6 +211,8 @@ function App() {
         return <GatePass onBack={navigateToDashboard} />;
       case "gatePassRecord":
         return  <GatePassRecords onBack={navigateToDashboard}/>;
+      case "createopeningbalance":
+        return <CreateOpeningBalance onBack={navigateToDashboard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

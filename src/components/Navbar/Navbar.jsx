@@ -55,7 +55,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Main Dashboard",
       subItems: [
-        { id: "analytics", label: "Analytics" },
+        { id: "createopeningbalance", label: "Create Opening Balance" },
         { id: "reports", label: "Reports" },
         { id: "metrics", label: "Key Metrics" },
       ],
