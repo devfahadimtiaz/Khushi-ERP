@@ -20,20 +20,20 @@ import AuctionPriceChecker from "./components/Auction/AuctionChecker";
 import DutyCalculator from "./components/Auction/DutyCalculator";
 import LogisticsDashboard from "./components/Logistics/ShippingDashboard";
 import BillOfLadingExportDeclaration from "./components/Logistics/BillOfLadingExportDeclaration";
-import CashSale from "./components/Sales/CashSale";
-import CashSaleList from "./components/Sales/CarSalesList";
-import CreditSale from "./components/Sales/CreditSale/CreditSale";
-import CreditSaleList from "./components/Sales/CreditList";
-import AddPayment from "./components/Sales/AddPayment";
-import SaleDashboard from "./components/Sales/SaleDashboard";
-import MarketTrend from "./components/Sales/MarketTrendAnalysis";
+import CashSale from "./components/Sale/CashSale/AddVehicleCashSale";
+import CashSaleList from "./components/Sale/CashSale/CarSalesList";
+import CreditSale from "./components/Sale/CreditSale/AddVehicleSale";
+import CreditSaleList from "./components/Sale/CreditSale/CreditList";
+import AddPayment from "./components/Sale/CreditSale/AddPayment";
+import SaleDashboard from "./components/Sale/SaleDashboard";
+import MarketTrend from "./components/Sale/MarketTrendAnalysis";
 import VehicleRepairDetails from "./components/Inventory/Repair/VehicleRepairDetails";
 import RepairTasksManagement from "./components/Inventory/Repair/RepairTasksManagement";
 import VoucherManagement from "./components/Inventory/Repair/VoucherManagement";
 import RoadTestform from "./components/Inventory/RoadTest/RoadTestForm";
 import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
-import GatePass from "./components/Sales/GatePass/GatePass"
-import GatePassRecords from "./components/Sales/GatePass/GatePassRecord"
+import GatePass from "./components/Sale/GatePass/GatePass"
+import GatePassRecords from "./components/Sale/GatePass/GatePassRecord"
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");

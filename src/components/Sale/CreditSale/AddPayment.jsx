@@ -70,24 +70,22 @@ function AddPayment({ receipt, onCancel }) {
             <div className={styles.column}>
               <div className={styles.formGroup}>
                 <label>Payment Type</label>
-                <div className={styles.selectField}>
-                  <div>Select payment type</div>
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/8f8dccfdecc122af481de197ec5bec0d29f7f7b5?placeholderIfAbsent=true"
-                    alt="dropdown icon"
-                    className={styles.selectIcon}
-                  />
-                </div>
+                <select className={styles.selectField}>
+                  <option>Select payment type</option>
+                  <option value="cash">Cash</option>
+                  <option value="bankTransfer">Bank Transfer</option>
+                  <option value="creditCard">Credit Card</option>
+                  
+                </select>
 
                 <label style={{ marginTop: "26px" }}>Payment Method</label>
-                <div className={styles.selectField}>
-                  <div>Select payment method</div>
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/8f8dccfdecc122af481de197ec5bec0d29f7f7b5?placeholderIfAbsent=true"
-                    alt="dropdown icon"
-                    className={styles.selectIcon}
-                  />
-                </div>
+                <select className={styles.selectField}>
+                  <option>Select payment type</option>
+                  <option value="cash">Cash</option>
+                  <option value="bankTransfer">Bank Transfer</option>
+                  <option value="creditCard">Credit Card</option>
+                  
+                </select>
               </div>
             </div>
 

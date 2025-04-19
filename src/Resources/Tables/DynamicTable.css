@@ -1,0 +1,118 @@
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 16px;
+    border-radius: 12px 12px 0 0;
+    border: 1px solid #e7eaf3;
+    border-bottom: none;
+    box-shadow: 0px 4px 6px rgba(42, 53, 71, 0.1);
+    background-color: #fff;
+    margin-top: 20px;
+  }
+  .tableHeaderCellCustomer{
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+  }
+  .tableHeaderCell {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .tableRow,
+  .tableRowAlt {
+    display: flex;
+    padding: 17px 24px;
+    align-items: stretch;
+    gap: 20px;
+    font-family:
+      Roboto,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 14px;
+    color: rgba(9, 44, 76, 1);
+    font-weight: 400;
+    justify-content: space-between;
+  }
+  
+  .tableRow {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  .tableRowAlt {
+    background-color: rgba(248, 249, 250, 1);
+  }
+  
+  .rowFirstGroup {
+    display: flex;
+    align-items: stretch;
+    gap: 40px 71px;
+  }
+  
+  .rowSecondGroup {
+    display: flex;
+    align-items: stretch;
+    gap: 40px 78px;
+    text-align: right;
+  }
+  
+  .textRight {
+    text-align: right;
+  }
+  
+  .profitText {
+    color: rgba(26, 213, 152, 1);
+  }
+  
+  .tableCell {
+    font-size: 14px;
+    color: #2a3547;
+    flex: 1;
+    text-align: left;
+  }
+  .tableCellProfit{
+    font-size: 14px;
+    color: #1AD598;
+    flex: 1;
+    text-align: left;
+  }
+  .tableContainer{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  .tableRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-left: 1px solid #e7eaf3;
+    border-right: 1px solid #e7eaf3;
+    border-bottom: 1px solid #e7eaf3;
+    background-color: #fff;
+  }
+  
+  .tableRow:last-child {
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 20px;
+  }
+  
+  .tableRow:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  .tableCellCustomer{
+    margin-left: 20px;
+    font-size: 14px;
+    color: #2a3547;
+    flex: 1;
+    text-align: left;
+  }

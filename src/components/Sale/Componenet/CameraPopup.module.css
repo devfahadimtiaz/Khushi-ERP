@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  max-width: 535px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.popupHeader {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.popupTitle {
+  color: rgba(17, 17, 17, 1);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.closeButton {
+  color: rgba(102, 102, 102, 1);
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cameraContainer {
+  border-radius: 4px;
+  background-color: rgba(243, 244, 246, 1);
+  display: flex;
+  margin-top: 16px;
+  flex-shrink: 0;
+  height: 274px;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.webcam {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loadingIndicator {
+  position: absolute;
+  color: #666;
+  font-size: 14px;
+}
+
+.actionButtons {
+  align-self: flex-end;
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 9px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.cancelButton {
+  border-radius: 4px;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px;
+  padding: 9px 17px;
+  color: rgba(102, 102, 102, 1);
+  white-space: nowrap;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.takePictureButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 9px 16px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.takePictureButton:disabled {
+  background-color: rgba(67, 24, 209, 0.5);
+  cursor: not-allowed;
+}
+
+@media (max-width: 991px) {
+  .popupContainer {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cancelButton {
+    white-space: initial;
+  }
+}

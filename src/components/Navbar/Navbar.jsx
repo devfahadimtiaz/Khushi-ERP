@@ -188,6 +188,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         { id: "gatePass", label: "Gate Pass" },
         { id: "gatePassRecord", label: "Gate Pass Record" },
         { id: "marketTrend", label: "Market Trend Analysis" },
+        { id: "openingBalance", label: "Opening Balance" },
         
       ],
     },

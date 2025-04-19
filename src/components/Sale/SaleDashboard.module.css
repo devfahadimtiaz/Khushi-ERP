@@ -161,7 +161,7 @@
   font-size: 16px;
   color: rgba(54, 53, 101, 1);
   font-weight: 600;
-  width: 100%;
+  width: 95%;
 }
 
 .chartTitle {
@@ -208,7 +208,7 @@
   border: 1px solid rgba(234, 238, 244, 1);
   display: flex;
   margin-top: 16px;
-  width: 100%;
+  width: 95%;
   padding: 17px;
   align-items: stretch;
   gap: 20px;
