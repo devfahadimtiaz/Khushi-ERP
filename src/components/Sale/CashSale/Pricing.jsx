@@ -107,6 +107,20 @@ const Pricing = () => {
             />
           </div>
           </div>
+          <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Commission</label>
+            <input
+              type="text"
+              name="enterCommission"
+              placeholder="Enter Commission"
+              className={styles.inputCommission}
+              value={formData.nationalId}
+              onChange={handleInputChange}
+            />
+          </div>
+          </div>
+          
       
           
         

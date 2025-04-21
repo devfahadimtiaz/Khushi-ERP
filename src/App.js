@@ -36,6 +36,9 @@ import GatePass from "./components/Sale/GatePass/GatePass"
 import GatePassRecords from "./components/Sale/GatePass/GatePassRecord"
 import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance"
 import SalesTransections from "./components/Sale/SalesTransections"
+import LogBookTransfer from "./components/VehicleLogBook/LogBookTransfers"
+import CommissionList from "./components/Sale/CashSale/CommissionList"
+import PurchaseDB  from "./components/Purchase/PurchaseDB";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -216,6 +219,12 @@ function App() {
         return <CreateOpeningBalance onBack={navigateToDashboard} />;
       case "salesTransections":
         return <SalesTransections onBack={navigateToDashboard} />;
+      case "vehicleLogBook":
+        return <LogBookTransfer onBack={navigateToDashboard}/>;
+      case "commission":
+        return <CommissionList onBack={navigateToDashboard}/>;
+      case "purchaseDashboard":
+        return <PurchaseDB onBack={navigateToDashboard}/>;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

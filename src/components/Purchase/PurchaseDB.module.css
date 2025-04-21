@@ -1,0 +1,561 @@
+.purchaseDB {
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dashboardTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.headerActions {
+  display: flex;
+  align-items: stretch;
+  gap: 17px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  text-align: center;
+}
+
+.exportButton {
+  border-radius: 8px;
+  background-color: rgba(58, 54, 219, 1);
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 8px 15px;
+}
+
+.profileAvatar {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statsRow {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.statsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 25%;
+}
+
+.statsColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.statsCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 25px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.statsContent {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.statsInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.statsLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.statsValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 30px;
+  font-weight: 600;
+  align-self: start;
+  margin-top: 8px;
+}
+
+.statsIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statsChange {
+  align-self: start;
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.statsPositive {
+  color: rgba(45, 200, 168, 1);
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.statsNegative {
+  color: rgba(218, 0, 26, 1);
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.statsCompare {
+  color: rgba(126, 146, 162, 1);
+  font-size: 12px;
+}
+
+.contentRow {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.wideColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 67%;
+}
+
+.narrowColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 33%;
+  margin-left: 20px;
+}
+
+.halfColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+}
+
+.halfColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.requisitionsCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 25px 25px 123px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.requisitionsHeader {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.requisitionsActions {
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.totalCount {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: stretch;
+  gap: 3px;
+  color: rgba(126, 146, 162, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.totalLabel {
+  flex-grow: 1;
+}
+
+.newRequisitionButton {
+  border-radius: 8px;
+  background-color: rgba(58, 54, 219, 1);
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  text-align: center;
+}
+
+.requisitionsStats {
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.requisitionStat {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  padding: 16px 48px 16px 16px;
+  flex-direction: column;
+  align-items: start;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.requisitionStatLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.requisitionStatValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.transferCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 25px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.transferStat {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  margin-top: 24px;
+  padding: 16px;
+  align-items: stretch;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.transferStat:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+.transferStatInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.transferStatLabel {
+  color: rgba(126, 146, 162, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.transferStatValue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 600;
+  align-self: start;
+  margin-top: 4px;
+}
+
+.transferIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.ordersCard,
+.paymentsCard {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 25px 25px 0;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.viewAllLink {
+  color: rgba(58, 54, 219, 1);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
+
+.orderItem,
+.paymentItem {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  padding: 16px;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.orderItem:not(:first-of-type),
+.paymentItem:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+.orderInfo,
+.paymentInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.orderNumber,
+.invoiceNumber {
+  color: rgba(9, 44, 76, 1);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.vendorName,
+.dueDate {
+  color: rgba(126, 146, 162, 1);
+  font-size: 12px;
+  font-weight: 400;
+  align-self: start;
+}
+
+.orderStatus,
+.paymentStatus {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: stretch;
+  gap: 24px;
+  white-space: nowrap;
+}
+
+.statusPending {
+  color: rgba(45, 200, 168, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.statusApproved {
+  color: rgba(218, 0, 26, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.statusPaid {
+  color: rgba(45, 200, 168, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.orderAmount,
+.paymentAmount {
+  color: rgba(9, 44, 76, 1);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.orderPlaceholder,
+.paymentPlaceholder {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  margin-top: 16px;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header {
+    max-width: 100%;
+  }
+
+  .statsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .statsColumn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .statsCard {
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .contentRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .wideColumn,
+  .narrowColumn,
+  .halfColumn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .requisitionsCard {
+    max-width: 100%;
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+  }
+
+  .totalCount {
+    white-space: initial;
+  }
+
+  .requisitionStat {
+    padding-right: 20px;
+    white-space: initial;
+  }
+
+  .transferCard,
+  .ordersCard,
+  .paymentsCard {
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .transferStat {
+    white-space: initial;
+  }
+
+  .transferStatInfo {
+    white-space: initial;
+  }
+
+  .orderStatus,
+  .paymentStatus {
+    white-space: initial;
+  }
+
+  .orderPlaceholder,
+  .paymentPlaceholder {
+    max-width: 100%;
+  }
+}

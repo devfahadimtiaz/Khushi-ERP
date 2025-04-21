@@ -203,6 +203,20 @@ const InstallmentCalculator = () => {
             />
           </div>
         </div>
+        <div className={styles.sectionTitle}> Brocker</div>
+        <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Commission</label>
+            <input
+              type="text"
+              name="commission"
+              placeholder="Commission"
+              className={styles.inputCommission}
+              value={formData.firstName}
+              onChange={handleInputChange}
+            />
+          </div>
+          </div>
         <div className={styles.sectionTitle}>Extra</div>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>

@@ -1,0 +1,174 @@
+body{
+  background-color: #f9fafb;
+}
+.container {
+
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 32px;
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 145px;
+  height: 48px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  background-color: #4318d1;
+  cursor: pointer;
+  border: none;
+}
+
+.icon {
+  margin-left:10px;
+  margin-top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  display: flex;
+  padding: 16px 0;
+  background-color: #f9fafb;
+}
+
+.headerCell {
+  flex: 1;
+  text-align: left;
+  padding-left: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #667085;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #eaeef4;
+  padding: 16px 0;
+}
+
+.cell {
+  flex: 1;
+  padding-left: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #092c4c;
+}
+
+.statusPending {
+  font-size: 12px;
+  font-weight: 400;
+  color: #b42318;
+  padding: 4px 12px 4px 12px;
+  border-radius: 100px;
+  background-color: #fef3f2;
+}
+
+.statusCompleted {
+  font-size: 12px;
+  font-weight: 400;
+  color: #027a48;
+  padding: 4px 12px 4px 12px;
+  border-radius: 100px;
+  background-color: #ecfdf3;
+}
+
+.actionsCell {
+  flex: 1;
+  padding-left: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #092c4c;
+  display: flex;
+  gap: 16px;
+}
+
+.actionIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actionButtons {
+    margin-top: 16px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .actionButtons {
+    display: none;
+  }
+
+  .tableHeader,
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actionsCell {
+    justify-content: flex-start;
+  }
+}

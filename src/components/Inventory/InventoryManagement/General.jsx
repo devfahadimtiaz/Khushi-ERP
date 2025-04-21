@@ -235,7 +235,14 @@ const General=()=>{
                   <input
                     type="text"
                     placeholder="Steering"
-                    className={styles.inputFieldSteering}
+                    className={styles.inputField}
+                  />
+                </div>
+                <div className={styles.inputColumn}>
+                  <input
+                    type="text"
+                    placeholder="Ground Clearance"
+                    className={styles.inputField}
                   />
                 </div>
               </div>

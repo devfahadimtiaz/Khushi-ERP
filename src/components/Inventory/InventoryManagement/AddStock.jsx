@@ -9,6 +9,7 @@ import DocumentUpload from "./DocumentUpload";
 import DesignerTask from "./DesignerTask";
 import VehicleInspectionChecklist from "./VehicleInspectionChecklist";
 import Report from "./Report";
+import StockDetail from "./StockDetail";
 
 
 
@@ -21,6 +22,7 @@ const ButtonComponents = [
   {label:'Verification',component: <VehicleInspectionChecklist/>},
   {label:'Expense',component: <ExpenseTracker/>},
   {label:'Reports',component: <Report/>},
+  {label:'Stock Detail',component: <StockDetail/>},
 
 ]
 

@@ -1,0 +1,192 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  background-color: rgba(246, 250, 253, 1);
+  overflow: hidden;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding:32px
+}
+
+.popupContent {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  width: 100%;
+ 
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.popupTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.uploadContainer {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  padding: 33px;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+}
+
+.dropZone {
+  border-radius: 8px;
+  border: 2px solid rgba(234, 238, 244, 1);
+  display: flex;
+  padding: 34px 80px;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  justify-content: center;
+}
+
+.dragging {
+  border-color: rgba(67, 24, 209, 1);
+  background-color: rgba(67, 24, 209, 0.05);
+}
+
+.dropZoneContent {
+  width: 100%;
+  max-width: 318px;
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  font-size: 16px;
+}
+
+.uploadIconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: rgba(9, 44, 76, 1);
+}
+
+.uploadIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 48px;
+  align-self: center;
+  margin-left: 31px;
+}
+
+.dropText {
+  margin-top: 16px;
+}
+
+.browseText {
+  color: rgba(67, 24, 209, 1);
+  align-self: end;
+  margin-top: 64px;
+  cursor: pointer;
+}
+
+.fileInput {
+  display: none;
+}
+
+.supportedFormats {
+  color: rgba(102, 112, 133, 1);
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.fileList {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.fileItem {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(246, 250, 253, 1);
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: rgba(9, 44, 76, 1);
+}
+
+.uploadButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  align-self: flex-end;
+  margin-top: 32px;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.uploadButton:hover {
+  background-color: rgba(57, 14, 199, 1);
+}
+
+@media (max-width: 991px) {
+  .popupContent {
+    padding: 20px;
+  }
+
+  .uploadContainer {
+    padding: 20px;
+  }
+
+  .dropZone {
+    padding: 34px 20px;
+  }
+
+  .dropZoneContent {
+    margin-right: 7px;
+    margin-left: 9px;
+  }
+
+  .browseText {
+    margin-top: 40px;
+  }
+
+  .uploadButton {
+    padding: 12px 20px;
+  }
+}

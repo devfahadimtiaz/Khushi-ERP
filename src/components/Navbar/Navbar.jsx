@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../uploads/KM-LOGO.png";
 import pic from "../../uploads/Pic.png";
+import { ReactComponent as BookIcon } from "../../uploads/icons/book.svg"
+import {ReactComponent as PurchaseIcon} from "../../uploads/icons/purchase.svg"
 function Navbar({ isOpen, onClose, onNavigate }) {
   const [expandedMenus, setExpandedMenus] = useState({});
 
@@ -14,29 +16,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
 
   // Menu data with submenus
   const menuItems = [
-    {
-      id: "userDetails",
-      icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 9.99998C11.8417 9.99998 13.3334 8.50831 13.3334 6.66665C13.3334 4.82498 11.8417 3.33331 10 3.33331C8.15837 3.33331 6.66671 4.82498 6.66671 6.66665C6.66671 8.50831 8.15837 9.99998 10 9.99998ZM10 11.6666C7.77504 11.6666 3.33337 12.7833 3.33337 15V16.6666H16.6667V15C16.6667 12.7833 12.225 11.6666 10 11.6666Z"
-            fill="#64748B"
-          ></path>
-        </svg>
-      ),
-      label: "User Details",
-      subItems: [
-        { id: "profile", label: "Profile" },
-        { id: "settings", label: "Settings" },
-        { id: "preferences", label: "Preferences" },
-      ],
-    },
+   
     {
       id: "dashboard",
       icon: (
@@ -95,7 +75,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ],
     },
     {
-      id: "branding",
+      id: "sales",
       icon: (
         <svg
           width="20"
@@ -105,16 +85,62 @@ function Navbar({ isOpen, onClose, onNavigate }) {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M6.24996 4.66666L8.33329 5.83332L7.33329 3.74999L8.33329 1.66666L6.24996 2.66666L4.16663 1.66666L5.16663 3.74999L4.16663 5.83332L6.24996 4.66666ZM16.25 12.8333L14.1666 11.6667L15.1666 13.75L14.1666 15.8333L16.25 14.8333L18.3333 15.8333L17.3333 13.75L18.3333 11.6667L16.25 12.8333ZM18.3333 1.66666L16.25 2.66666L14.1666 1.66666L15.1666 3.74999L14.1666 5.83332L16.25 4.83332L18.3333 5.83332L17.3333 3.74999L18.3333 1.66666ZM12.0833 8.83332L10.8333 6.66666L11.8333 8.74999L10.8333 10.8333L12.9166 9.83332L15 10.8333L14 8.74999L15 6.66666L12.0833 8.83332Z"
+            d="M15.8333 2.5H4.16667C3.25 2.5 2.5 3.25 2.5 4.16667V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H15.8333C16.75 17.5 17.5 16.75 17.5 15.8333V4.16667C17.5 3.25 16.75 2.5 15.8333 2.5ZM10 14.1667H5V12.5H10V14.1667ZM13.3333 10.8333H5V9.16667H13.3333V10.8333ZM13.3333 7.5H5V5.83333H13.3333V7.5Z"
             fill="#64748B"
           ></path>
         </svg>
       ),
-      label: "Branding",
+      label: "Sales",
       subItems: [
-        { id: "logos", label: "Logos" },
-        { id: "colors", label: "Colors" },
-        { id: "templates", label: "Templates" },
+        { id: "salesDashboard", label: "Sales Dashboard" },
+        { id: "cashSaleList", label: "Cash Sale List" },
+        { id: "addSale", label: "Add Cash Sale" },
+        { id: "creditSaleList", label: "Credit Sale List" },
+        { id: "creditSale", label: "Add Credit Sale" },
+        { id: "commission", label: "Commission" },
+        { id: "gatePass", label: "Gate Pass" },
+        { id: "gatePassRecord", label: "Gate Pass Record" },
+        { id: "marketTrend", label: "Market Trend Analysis" },
+        { id: "openingBalance", label: "Opening Balance" },
+        { id: "salesTransections", label: "Sales Transections" },
+        
+      ],
+    },
+    {
+      id: "purchases",
+      icon: <PurchaseIcon style={{ width: '22px', height: '22px' }}/>,
+      label: "Purchase",
+      subItems: [
+        { id: "purchaseDashboard", label: "Purchased Dashboard" },
+      ],
+    },
+    {
+      id: "logbook",
+      icon: <BookIcon style={{ width: '22px', height: '22px' }}/>,
+      label: "Log Book",
+      subItems: [
+        { id: "vehicleLogBook", label: "Vehicle Log Book" },
+      ],
+    },
+    {
+      id: "logistics",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.6667 6.66668H14.1667V3.33334H2.50004C1.58337 3.33334 0.833374 4.08334 0.833374 5.00001V14.1667H2.50004C2.50004 15.55 3.61671 16.6667 5.00004 16.6667C6.38337 16.6667 7.50004 15.55 7.50004 14.1667H12.5C12.5 15.55 13.6167 16.6667 15 16.6667C16.3834 16.6667 17.5 15.55 17.5 14.1667H19.1667V10L16.6667 6.66668ZM5.00004 15.4167C4.30837 15.4167 3.75004 14.8583 3.75004 14.1667C3.75004 13.475 4.30837 12.9167 5.00004 12.9167C5.69171 12.9167 6.25004 13.475 6.25004 14.1667C6.25004 14.8583 5.69171 15.4167 5.00004 15.4167ZM16.25 7.91668L17.8834 10H14.1667V7.91668H16.25ZM15 15.4167C14.3084 15.4167 13.75 14.8583 13.75 14.1667C13.75 13.475 14.3084 12.9167 15 12.9167C15.6917 12.9167 16.25 13.475 16.25 14.1667C16.25 14.8583 15.6917 15.4167 15 15.4167Z"
+            fill="#64748B"
+          ></path>
+        </svg>
+      ),
+      label: "Logistics",
+      subItems: [
+        { id: "shipping-dashboard", label: "Dashboard" },
       ],
     },
     {
@@ -142,7 +168,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ],
     },
     {
-      id: "logistics",
+      id: "branding",
       icon: (
         <svg
           width="20"
@@ -152,18 +178,20 @@ function Navbar({ isOpen, onClose, onNavigate }) {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M16.6667 6.66668H14.1667V3.33334H2.50004C1.58337 3.33334 0.833374 4.08334 0.833374 5.00001V14.1667H2.50004C2.50004 15.55 3.61671 16.6667 5.00004 16.6667C6.38337 16.6667 7.50004 15.55 7.50004 14.1667H12.5C12.5 15.55 13.6167 16.6667 15 16.6667C16.3834 16.6667 17.5 15.55 17.5 14.1667H19.1667V10L16.6667 6.66668ZM5.00004 15.4167C4.30837 15.4167 3.75004 14.8583 3.75004 14.1667C3.75004 13.475 4.30837 12.9167 5.00004 12.9167C5.69171 12.9167 6.25004 13.475 6.25004 14.1667C6.25004 14.8583 5.69171 15.4167 5.00004 15.4167ZM16.25 7.91668L17.8834 10H14.1667V7.91668H16.25ZM15 15.4167C14.3084 15.4167 13.75 14.8583 13.75 14.1667C13.75 13.475 14.3084 12.9167 15 12.9167C15.6917 12.9167 16.25 13.475 16.25 14.1667C16.25 14.8583 15.6917 15.4167 15 15.4167Z"
+            d="M6.24996 4.66666L8.33329 5.83332L7.33329 3.74999L8.33329 1.66666L6.24996 2.66666L4.16663 1.66666L5.16663 3.74999L4.16663 5.83332L6.24996 4.66666ZM16.25 12.8333L14.1666 11.6667L15.1666 13.75L14.1666 15.8333L16.25 14.8333L18.3333 15.8333L17.3333 13.75L18.3333 11.6667L16.25 12.8333ZM18.3333 1.66666L16.25 2.66666L14.1666 1.66666L15.1666 3.74999L14.1666 5.83332L16.25 4.83332L18.3333 5.83332L17.3333 3.74999L18.3333 1.66666ZM12.0833 8.83332L10.8333 6.66666L11.8333 8.74999L10.8333 10.8333L12.9166 9.83332L15 10.8333L14 8.74999L15 6.66666L12.0833 8.83332Z"
             fill="#64748B"
           ></path>
         </svg>
       ),
-      label: "Logistics",
+      label: "Branding",
       subItems: [
-        { id: "shipping-dashboard", label: "Dashboard" },
+        { id: "logos", label: "Logos" },
+        { id: "colors", label: "Colors" },
+        { id: "templates", label: "Templates" },
       ],
     },
     {
-      id: "sales",
+      id: "userDetails",
       icon: (
         <svg
           width="20"
@@ -173,24 +201,16 @@ function Navbar({ isOpen, onClose, onNavigate }) {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15.8333 2.5H4.16667C3.25 2.5 2.5 3.25 2.5 4.16667V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H15.8333C16.75 17.5 17.5 16.75 17.5 15.8333V4.16667C17.5 3.25 16.75 2.5 15.8333 2.5ZM10 14.1667H5V12.5H10V14.1667ZM13.3333 10.8333H5V9.16667H13.3333V10.8333ZM13.3333 7.5H5V5.83333H13.3333V7.5Z"
+            d="M10 9.99998C11.8417 9.99998 13.3334 8.50831 13.3334 6.66665C13.3334 4.82498 11.8417 3.33331 10 3.33331C8.15837 3.33331 6.66671 4.82498 6.66671 6.66665C6.66671 8.50831 8.15837 9.99998 10 9.99998ZM10 11.6666C7.77504 11.6666 3.33337 12.7833 3.33337 15V16.6666H16.6667V15C16.6667 12.7833 12.225 11.6666 10 11.6666Z"
             fill="#64748B"
           ></path>
         </svg>
       ),
-      label: "Sales",
+      label: "User Details",
       subItems: [
-        { id: "salesDashboard", label: "Sales Dashboard" },
-        { id: "cashSaleList", label: "Cash Sale List" },
-        { id: "addSale", label: "Add Cash Sale" },
-        { id: "creditSaleList", label: "Credit Sale List" },
-        { id: "creditSale", label: "Add Credit Sale" },
-        { id: "gatePass", label: "Gate Pass" },
-        { id: "gatePassRecord", label: "Gate Pass Record" },
-        { id: "marketTrend", label: "Market Trend Analysis" },
-        { id: "openingBalance", label: "Opening Balance" },
-        { id: "salesTransections", label: "Sales Transections" },
-        
+        { id: "profile", label: "Profile" },
+        { id: "settings", label: "Settings" },
+        { id: "preferences", label: "Preferences" },
       ],
     },
   ];

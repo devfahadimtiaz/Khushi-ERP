@@ -1,0 +1,328 @@
+.container {
+  width: 100%;
+}
+
+.stockDetailWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  width: 98%;
+  margin: auto;
+
+  padding-bottom: 105px;
+}
+
+.contentContainer {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  margin-bottom: -21px;
+  padding: 24px 80px 24px 80px;
+}
+
+.contentLayout {
+  display: flex;
+  gap: 20px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+  margin-left: 20px;
+}
+
+.infoContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.sectionTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.infoLabel {
+  color: rgba(20, 20, 42, 1);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.infoValue {
+  color: rgba(78, 75, 102, 1);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.vehicleInfoRow {
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.vehicleName {
+  color: rgba(78, 75, 102, 1);
+  font-size: 20px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.vehicleColor {
+  color: rgba(110, 113, 145, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.checkboxRow {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(78, 75, 102, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.checkbox {
+  border-radius: 4px;
+  border-color: rgba(227, 237, 251, 1);
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  width: 24px;
+  flex-shrink: 0;
+  height: 24px;
+}
+
+.checkboxLabel {
+  color: rgba(78, 75, 102, 1);
+}
+
+.socialAccountsContainer {
+  display: flex;
+  margin-top: 16px;
+  width: 238px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-weight: 400;
+  justify-content: space-between;
+}
+
+.socialAccountsList {
+  white-space: nowrap;
+}
+
+.socialAccountRow {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.socialAccountRow + .socialAccountRow {
+  margin-top: 12px;
+}
+
+.socialIcon {
+  border-radius: 9999px;
+  background-color: rgba(54, 53, 101, 1);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.socialHandle {
+  color: rgba(78, 75, 102, 1);
+  font-size: 14px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.viewProfileContainer {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 14px;
+  color: rgba(54, 53, 101, 1);
+}
+
+.viewProfileWrapper {
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.viewProfile {
+  margin-top: 21px;
+  color: rgba(54, 53, 101, 1);
+}
+
+.viewProfileWrapper .viewProfile:first-child {
+  margin-left: 11px;
+  margin-top: 0;
+}
+
+.urlLink {
+  color: rgba(54, 53, 101, 1);
+  font-size: 14px;
+  font-weight: 400;
+  align-self: stretch;
+  margin-top: 8px;
+}
+
+.imageGalleryContainer {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  align-self: stretch;
+}
+
+.mainImage {
+  aspect-ratio: 2.21;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.thumbnailsContainer {
+  margin-top: 10px;
+}
+
+.thumbnailsRow {
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnailColumn {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.thumbnailColumn + .thumbnailColumn {
+  margin-left: 20px;
+}
+
+.thumbnailImage {
+  aspect-ratio: 1.45;
+  object-fit: contain;
+  object-position: center;
+  width: 148px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  max-width: 100%;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .stockDetailWrapper {
+    max-width: 100%;
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+
+  .contentContainer {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+
+  .contentLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .leftColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .infoContainer {
+    margin-top: 40px;
+  }
+
+  .checkboxRow {
+    white-space: initial;
+  }
+
+  .socialAccountsList {
+    white-space: initial;
+  }
+
+  .socialAccountRow {
+    white-space: initial;
+  }
+
+  .socialIcon {
+    white-space: initial;
+  }
+
+  .viewProfileWrapper .viewProfile:first-child {
+    margin-left: 10px;
+  }
+
+  .imageGalleryContainer {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .mainImage {
+    max-width: 100%;
+  }
+
+  .thumbnailsContainer {
+    max-width: 100%;
+  }
+
+  .thumbnailsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .thumbnailColumn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .thumbnailImage {
+    margin-top: 4px;
+  }
+}

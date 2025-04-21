@@ -38,6 +38,15 @@
   font-size: 14px;
   color: #999;
 }
+.inputCommission {
+  width: 31%;
+  padding: 10px;
+  border: 1px solid #eaeef4;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #999;
+}
 .options {
   font-family: "Roboto", sans-serif;
   font-size: 14px;

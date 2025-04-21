@@ -261,6 +261,7 @@
   height: 374px;
   object-fit: cover;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .thumbnailRow {
@@ -275,12 +276,14 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
 }
 
 .thumbnailImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .actionButtons {
