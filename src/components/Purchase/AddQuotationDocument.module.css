@@ -1,0 +1,269 @@
+body{
+  background-color: #f6fafd;
+}
+.container {
+  max-width: 1271px;
+  margin: 0 auto;
+  padding: 40px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #092c4c;
+}
+.tableCard {
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(9, 161, 218, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+}
+.profileCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+}
+
+.formCard {
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(9, 161, 218, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color: #fff;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  width: 48%;
+}
+
+.label {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #14142a;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+.selectInput {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #14142a;
+  cursor: pointer;
+}
+
+.textInput {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #eaeef4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #14142a;
+}
+
+.productCard {
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(9, 161, 218, 0.1);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.productSelectionRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.productSelector,
+.categorySelector {
+  width: 48%;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-color: #e3edfb;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #14142a;
+  cursor: pointer;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #e3edfb;
+}
+
+.tableHeader span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #14142a;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeef4;
+}
+
+.tableRow span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxInner {
+  width: 12px;
+  height: 12px;
+  background-color: #2371e2;
+  border-radius: 1px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #2371e2;
+  background-color: #e3edfb;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #cf2129;
+  background-color: #ffe5e7;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.selectionInfo {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #7e92a2;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 10px;
+}
+
+.pageNumber,
+.pageNumberActive {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d9dbe9;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #a0a3bd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pageNumberActive {
+  background-color: #e3edfb;
+  color: #2371e2;
+  border-color: #2371e2;
+}

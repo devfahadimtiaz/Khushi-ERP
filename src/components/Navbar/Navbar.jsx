@@ -101,8 +101,6 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         { id: "gatePass", label: "Gate Pass" },
         { id: "gatePassRecord", label: "Gate Pass Record" },
         { id: "marketTrend", label: "Market Trend Analysis" },
-        { id: "openingBalance", label: "Opening Balance" },
-        { id: "salesTransections", label: "Sales Transections" },
         
       ],
     },
@@ -112,6 +110,15 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Purchase",
       subItems: [
         { id: "purchaseDashboard", label: "Purchased Dashboard" },
+        { id: "purchaseRequisition", label: "Purchase Requisition" },
+        { id: "quotationDocument", label: "Quotation Document" },
+        { id: "tenderDocument", label: "Tender Document" },
+        { id: "comparativeStatement", label: "Comparative Statement" },
+        { id: "purchasedOrder", label: "Purchased Order" },
+        { id: "generateGoodReceivedNote", label: "Generate Good Received Note" },
+        { id: "payment", label: "Payment" },
+        { id: "transportation", label: "Transportation" },
+        { id: "purchaseRetunRequest", label: "Purchase Retun Request" },
       ],
     },
     {

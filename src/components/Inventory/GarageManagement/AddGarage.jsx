@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./AddGarage.module.css";
 
-const AddGarage = () => {
+const AddGarage = ({onClose}) => {
   const [formData, setFormData] = useState({
     companyName: "",
     companyLogo: null,
@@ -140,7 +140,7 @@ const AddGarage = () => {
             <button
               type="button"
               className={styles.cancelButton}
-              onClick={handleCancel}
+              onClick={onClose}
             >
               Cancel
             </button>

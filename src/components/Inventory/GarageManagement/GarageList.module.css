@@ -3,12 +3,12 @@
   background-color: #f8f9fd;
 }
 .container {
-  width: 85%;
+  width: 98%;
   margin: auto;
   text-align: center;
   align-self: center;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 80px;
   min-height: 100vh;
   
   font-family: Inter, sans-serif;
@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #1AD598;
+  background-color: #3A36DB;
   
   border-radius: 4px;
   padding: 10px 20px;
@@ -64,7 +64,7 @@
   border-radius: 8px;
   padding: 16px;
   display: grid;
-  grid-template-columns: 60px 200px 120px 80px 120px 200px 100px;
+
   align-items: center;
   gap:40px
 }

@@ -1,0 +1,286 @@
+body{
+    background-color: #f6fafd;
+  }
+  .container {
+    max-width: 1271px;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 80px;
+    padding: 24px;
+    font-family: "Inter", sans-serif;
+    
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #092c4c;
+  }
+  .headerRight{
+    display: flex;
+    gap:20px;
+  }
+  .searchInput {
+    color: #999;
+    font-size: 16px;
+    width: 375px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #eaeef4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 16px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .addButton {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 10px 16px;
+    color: #fff;
+    background-color: #4318d1;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .addIconWrapper {
+    margin-right: 8px;
+  }
+  
+  .tableCard {
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px rgba(9, 161, 218, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .tableHeader {
+    display: flex;
+    padding: 16px 5px;
+    background-color: #e3edfb;
+  }
+  
+  .headerCell {
+    flex: 1;
+    color: #14142a;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .tableRow {
+    display: flex;
+    align-items: center;
+    padding:20px 10px;
+    border-bottom: 1px solid #eaeef4;
+  }
+  
+  .cell {
+    flex: 1;
+    color: #4e4b66;
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+
+  }
+  
+  .productImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+  }
+  
+  .statusDraft {
+    width: 65px;
+    height: 25px;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #ff8b00;
+    background-color: #fff5e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .statusActive {
+    width: 65px;
+    height: 25px;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #4318d1;
+    background-color: #e8fff3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .actionLink {
+    color: #4318d1;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+  }
+  
+  .tablePagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+  
+  .paginationInfo {
+    color: #4e4b66;
+    font-size: 14px;
+  }
+  
+  .paginationControls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .paginationArrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #d9dbe9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    cursor: pointer;
+  }
+  .paginationArrow:hover{
+    background-color: #4318D1;
+    color: #fff;
+  }
+  
+  .paginationActive {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #d9dbe9;
+    margin: 0 4px;
+    font-size: 16px;
+    background-color: #4318D1;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .paginationNumber {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #d9dbe9;
+    margin: 0 4px;
+    color: #a0a3bd;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .paginationNumber:hover{
+    background-color: #4318D1 ;
+    color:#fff;
+  }
+  
+  @media (max-width: 991px) {
+    .container {
+      max-width: 991px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .searchInput {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  
+    .addButton {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .tableHeader {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .headerCell {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  
+    .tableRow {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cell {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  
+    .tablePagination {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .paginationControls {
+      margin-top: 16px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .addButton {
+      padding: 8px 12px;
+    }
+  
+    .tableHeader {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .headerCell {
+      flex: 1;
+    }
+  
+    .tableRow {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .cell {
+      flex: 1;
+    }
+  
+    .tablePagination {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  

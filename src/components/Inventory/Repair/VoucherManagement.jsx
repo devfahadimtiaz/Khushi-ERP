@@ -80,32 +80,32 @@ const VoucherManagement = () => {
           </div>
           <span>Search vouchers...</span>
         </div>
-        <div className={styles.tableContainer}>
-          <div className={styles.tableHeader}>
-            <div className={styles.tableCell}>Date</div>
-            <div className={styles.tableCell}>Staff Name</div>
-            <div className={styles.tableCell}>Vendor Name</div>
-            <div className={styles.tableCell}>Car Name</div>
-            <div className={styles.tableCell}>Stock No</div>
-            <div className={styles.tableCell}>Voucher No</div>
-            <div className={styles.tableCell}>Payment</div>
-            <div className={styles.tableCell}>Actions</div>
-          </div>
-          <div className={styles.tableRow}>
-            <div className={styles.tableCell}>2024-01-15</div>
-            <div className={`${styles.tableCell} ${styles.staffCell}`}>
+        <table className={styles.tableContainer}>
+          <thead className={styles.tableHeader}>
+            <th className={styles.tableCell}>Date</th>
+            <th className={styles.tableCell}>Staff Name</th>
+            <th className={styles.tableCell}>Vendor Name</th>
+            <th className={styles.tableCell}>Car Name</th>
+            <th className={styles.tableCell}>Stock No</th>
+            <th className={styles.tableCell}>Voucher No</th>
+            <th className={styles.tableCell}>Payment</th>
+            <th className={styles.tableCell}>Actions</th>
+          </thead>
+          <tr className={styles.tableRow}>
+            <td className={styles.tableCell}>2024-01-15</td>
+            <td className={`${styles.tableCell} ${styles.staffCell}`}>
               <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.staffAvatar} />
               <span>Michael Chen</span>
-            </div>
-            <div className={styles.tableCell}>AutoPro Services</div>
-            <div className={styles.tableCell}>Toyota Camry</div>
-            <div className={styles.tableCell}>STK-2024-001</div>
-            <div className={styles.tableCell}>RPR-2401-001</div>
-            <div className={`${styles.tableCell} ${styles.paymentCell}`}>
-              <div className={styles.paidStatus}>Paid</div>
-            </div>
-            <div className={`${styles.tableCell} ${styles.actionsCell}`}>
-              <div>
+            </td>
+            <td className={styles.tableCell}>AutoPro Services</td>
+            <td className={styles.tableCell}>Toyota Camry</td>
+            <td className={styles.tableCell}>STK-2024-001</td>
+            <td className={styles.tableCell}>RPR-2401-001</td>
+            <td className={`${styles.tableCell} ${styles.paymentCell}`}>
+              <td className={styles.paidStatus}>Paid</td>
+            </td>
+            <td className={`${styles.tableCell} ${styles.actionsCell}`}>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -128,8 +128,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -145,8 +145,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -162,24 +162,24 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-            </div>
-          </div>
-          <div className={styles.tableRow}>
-            <div className={styles.tableCell}>2024-01-14</div>
-            <div className={`${styles.tableCell} ${styles.staffCell}`}>
+              </button>
+            </td>
+          </tr>
+          <tr className={styles.tableRow}>
+            <td className={styles.tableCell}>2024-01-14</td>
+            <td className={`${styles.tableCell} ${styles.staffCell}`}>
               <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.staffAvatar} />
               <span>Sarah Johnson</span>
-            </div>
-            <div className={styles.tableCell}>Elite Repairs</div>
-            <div className={styles.tableCell}>Honda Civic</div>
-            <div className={styles.tableCell}>STK-2024-002</div>
-            <div className={styles.tableCell}>RPR-2401-002</div>
-            <div className={`${styles.tableCell} ${styles.paymentCell}`}>
+            </td>
+            <td className={styles.tableCell}>Elite Repairs</td>
+            <td className={styles.tableCell}>Honda Civic</td>
+            <td className={styles.tableCell}>STK-2024-002</td>
+            <td className={styles.tableCell}>RPR-2401-002</td>
+            <td className={`${styles.tableCell} ${styles.paymentCell}`}>
               <div className={styles.unpaidStatus}>Unpaid</div>
-            </div>
-            <div className={`${styles.tableCell} ${styles.actionsCell}`}>
-              <div>
+            </td>
+            <td className={`${styles.tableCell} ${styles.actionsCell}`}>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -202,8 +202,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -219,8 +219,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -236,24 +236,24 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-            </div>
-          </div>
-          <div className={styles.tableRow}>
-            <div className={styles.tableCell}>2024-01-13</div>
-            <div className={`${styles.tableCell} ${styles.staffCell}`}>
+              </button>
+            </td>
+          </tr>
+          <tr className={styles.tableRow}>
+            <td className={styles.tableCell}>2024-01-13</td>
+            <td className={`${styles.tableCell} ${styles.staffCell}`}>
               <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.staffAvatar} />
               <span>David Miller</span>
-            </div>
-            <div className={styles.tableCell}>QuickFix Pro</div>
-            <div className={styles.tableCell}>Ford Mustang</div>
-            <div className={styles.tableCell}>STK-2024-003</div>
-            <div className={styles.tableCell}>RPR-2401-003</div>
-            <div className={`${styles.tableCell} ${styles.paymentCell}`}>
+            </td>
+            <td className={styles.tableCell}>QuickFix Pro</td>
+            <td className={styles.tableCell}>Ford Mustang</td>
+            <td className={styles.tableCell}>STK-2024-003</td>
+            <td className={styles.tableCell}>RPR-2401-003</td>
+            <td className={`${styles.tableCell} ${styles.paymentCell}`}>
               <div className={styles.paidStatus}>Paid</div>
-            </div>
-            <div className={`${styles.tableCell} ${styles.actionsCell}`}>
-              <div>
+            </td>
+            <td className={`${styles.tableCell} ${styles.actionsCell}`}>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -276,8 +276,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -293,8 +293,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -310,24 +310,24 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-            </div>
-          </div>
-          <div className={styles.tableRow}>
-            <div className={styles.tableCell}>2024-01-12</div>
-            <div className={`${styles.tableCell} ${styles.staffCell}`}>
+              </button>
+            </td>
+          </tr>
+          <tr className={styles.tableRow}>
+            <td className={styles.tableCell}>2024-01-12</td>
+            <td className={`${styles.tableCell} ${styles.staffCell}`}>
               <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.staffAvatar} />
               <span>Emma Wilson</span>
-            </div>
-            <div className={styles.tableCell}>Master Mechanics</div>
-            <div className={styles.tableCell}>BMW 3 Series</div>
-            <div className={styles.tableCell}>STK-2024-004</div>
-            <div className={styles.tableCell}>RPR-2401-004</div>
-            <div className={`${styles.tableCell} ${styles.paymentCell}`}>
+            </td>
+            <td className={styles.tableCell}>Master Mechanics</td>
+            <td className={styles.tableCell}>BMW 3 Series</td>
+            <td className={styles.tableCell}>STK-2024-004</td>
+            <td className={styles.tableCell}>RPR-2401-004</td>
+            <dtdiv className={`${styles.tableCell} ${styles.paymentCell}`}>
               <div className={styles.unpaidStatus}>Unpaid</div>
-            </div>
-            <div className={`${styles.tableCell} ${styles.actionsCell}`}>
-              <div>
+            </dtdiv>
+            <td className={`${styles.tableCell} ${styles.actionsCell}`}>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -350,8 +350,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -367,8 +367,8 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-              <div>
+              </button>
+              <button>
                 <svg
                   width="20"
                   height="20"
@@ -384,10 +384,10 @@ const VoucherManagement = () => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+              </button>
+            </td>
+          </tr>
+        </table>
       </div>
     </>
   );

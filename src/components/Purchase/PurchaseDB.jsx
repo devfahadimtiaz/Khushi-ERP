@@ -1,5 +1,11 @@
 import React from "react";
 import styles from "./PurchaseDB.module.css";
+import PurchaseIcon from "../../uploads/icons/purchasedOrder.png"
+import GrnStatus from "../../uploads/icons/GRNstatus.png"
+import InternalDemand from "../../uploads/icons/InternalDemand.png"
+import VendorPayments from "../../uploads/icons/VendorPayments.png"
+import Uparrow from "../../uploads/icons/uparrow.png"
+import tick from "../../uploads/icons/tick.png"
 
 const PurchaseDB = () => {
   return (
@@ -8,12 +14,7 @@ const PurchaseDB = () => {
         <div className={styles.header}>
           <div className={styles.dashboardTitle}>Purchase Dashboard</div>
           <div className={styles.headerActions}>
-            <div className={styles.exportButton}>Export Report</div>
-            <img
-              src="/assets/profile-avatar.png"
-              className={styles.profileAvatar}
-              alt="Profile"
-            />
+            <button className={styles.exportButton}>Export Report</button>
           </div>
         </div>
         <div className={styles.statsRow}>
@@ -25,7 +26,7 @@ const PurchaseDB = () => {
                   <div className={styles.statsValue}>173</div>
                 </div>
                 <img
-                  src="/assets/purchase-orders-icon.png"
+                  src={PurchaseIcon}
                   className={styles.statsIcon}
                   alt="Purchase Orders"
                 />
@@ -44,7 +45,7 @@ const PurchaseDB = () => {
                   <div className={styles.statsValue}>34</div>
                 </div>
                 <img
-                  src="/assets/grn-status-icon.png"
+                  src={GrnStatus}
                   className={styles.statsIcon}
                   alt="GRN Status"
                 />
@@ -63,7 +64,7 @@ const PurchaseDB = () => {
                   <div className={styles.statsValue}>67</div>
                 </div>
                 <img
-                  src="/assets/internal-demand-icon.png"
+                  src={InternalDemand}
                   className={styles.statsIcon}
                   alt="Internal Demand"
                 />
@@ -82,7 +83,7 @@ const PurchaseDB = () => {
                   <div className={styles.statsValue}>234.5</div>
                 </div>
                 <img
-                  src="/assets/vendor-payments-icon.png"
+                  src={VendorPayments}
                   className={styles.statsIcon}
                   alt="Vendor Payments"
                 />
@@ -104,9 +105,9 @@ const PurchaseDB = () => {
                     <div className={styles.totalLabel}>Total:</div>
                     <div className={styles.totalValue}>132</div>
                   </div>
-                  <div className={styles.newRequisitionButton}>
+                  <button className={styles.newRequisitionButton}>
                     New Requisition
-                  </div>
+                  </button>
                 </div>
               </div>
               <div className={styles.requisitionsStats}>
@@ -136,7 +137,7 @@ const PurchaseDB = () => {
                   <div className={styles.transferStatValue}>34</div>
                 </div>
                 <img
-                  src="/assets/in-progress-icon.png"
+                  src={Uparrow}
                   className={styles.transferIcon}
                   alt="In Progress"
                 />
@@ -147,7 +148,7 @@ const PurchaseDB = () => {
                   <div className={styles.transferStatValue}>156</div>
                 </div>
                 <img
-                  src="/assets/completed-icon.png"
+                  src={tick}
                   className={styles.transferIcon}
                   alt="Completed"
                 />
@@ -184,7 +185,6 @@ const PurchaseDB = () => {
                   <div className={styles.orderAmount}>6984.16</div>
                 </div>
               </div>
-              <div className={styles.orderPlaceholder}></div>
             </div>
           </div>
           <div className={styles.halfColumn}>
@@ -213,7 +213,6 @@ const PurchaseDB = () => {
                   <div className={styles.paymentAmount}>6599.86</div>
                 </div>
               </div>
-              <div className={styles.paymentPlaceholder}></div>
             </div>
           </div>
         </div>

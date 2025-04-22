@@ -32,13 +32,22 @@ import RepairTasksManagement from "./components/Inventory/Repair/RepairTasksMana
 import VoucherManagement from "./components/Inventory/Repair/VoucherManagement";
 import RoadTestform from "./components/Inventory/RoadTest/RoadTestForm";
 import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
-import GatePass from "./components/Sale/GatePass/GatePass"
-import GatePassRecords from "./components/Sale/GatePass/GatePassRecord"
-import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance"
-import SalesTransections from "./components/Sale/SalesTransections"
-import LogBookTransfer from "./components/VehicleLogBook/LogBookTransfers"
-import CommissionList from "./components/Sale/CashSale/CommissionList"
-import PurchaseDB  from "./components/Purchase/PurchaseDB";
+import GatePass from "./components/Sale/GatePass/GatePass";
+import GatePassRecords from "./components/Sale/GatePass/GatePassRecord";
+import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance";
+import SalesTransections from "./components/Sale/SalesTransections";
+import LogBookTransfer from "./components/VehicleLogBook/LogBookTransfers";
+import CommissionList from "./components/Sale/CashSale/CommissionList";
+import PurchaseDB from "./components/Purchase/PurchaseDB";
+import PurchaseRequisition from "./components/Purchase/PurchaseRequisition";
+import QoutationDocuments from "./components/Purchase/QuotationDocument"
+import TenderDocument  from "./components/Purchase/TenderDocument";
+import ComparativeStatement from "./components/Purchase/ComparativeStatement"
+import PurchaseOrder from "./components/Purchase/PurchasedOrder"
+import GenerateGoodRecieveNotes from "./components/Purchase/GenerateGoodRecieveNotes"
+import Payment from "./components/Purchase/Payment"
+import Transportation from "./components/Purchase/Transportation"
+import PurchaseRetunRequest from "./components/Purchase/PurchaseReturnRequest"
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -214,17 +223,35 @@ function App() {
       case "gatePass":
         return <GatePass onBack={navigateToDashboard} />;
       case "gatePassRecord":
-        return  <GatePassRecords onBack={navigateToDashboard}/>;
+        return <GatePassRecords onBack={navigateToDashboard} />;
       case "createopeningbalance":
         return <CreateOpeningBalance onBack={navigateToDashboard} />;
       case "salesTransections":
         return <SalesTransections onBack={navigateToDashboard} />;
       case "vehicleLogBook":
-        return <LogBookTransfer onBack={navigateToDashboard}/>;
+        return <LogBookTransfer onBack={navigateToDashboard} />;
       case "commission":
-        return <CommissionList onBack={navigateToDashboard}/>;
+        return <CommissionList onBack={navigateToDashboard} />;
       case "purchaseDashboard":
-        return <PurchaseDB onBack={navigateToDashboard}/>;
+        return <PurchaseDB onBack={navigateToDashboard} />;
+      case "purchaseRequisition":
+        return <PurchaseRequisition onBack={navigateToDashboard} />;
+      case "quotationDocument":
+        return <QoutationDocuments onBack={navigateToDashboard}/>
+      case "tenderDocument":
+        return <TenderDocument onBack={navigateToDashboard}/>
+      case "comparativeStatement":
+        return <ComparativeStatement onBack={navigateToDashboard}/>
+      case "purchasedOrder":
+        return <PurchaseOrder onBack={navigateToDashboard}/>
+      case "generateGoodReceivedNote":
+        return <GenerateGoodRecieveNotes onBack={navigateToDashboard}/>
+      case "payment":
+        return <Payment onBack={navigateToDashboard}/>
+      case "transportation":
+        return <Transportation onBack={navigateToDashboard}/>
+      case "purchaseRetunRequest":
+        return <PurchaseRetunRequest onBack={navigateToDashboard}/>
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }
