@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styles from "./Payment.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
 import AddPayment from "./AddPayment";
 
 const TableHeader = [

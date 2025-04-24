@@ -1,0 +1,196 @@
+
+.tableContainer {
+    display: table;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #f2f4f7;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    background-color: #fff;
+  }
+  .filterContainer {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+  }
+  .buttonArea{
+    width: 100%;
+    
+ 
+    text-align: right;
+    align-content: end;
+    margin-bottom: 20px;
+   
+   
+  }
+  .addButton {
+    display: flex;
+    text-align: right;
+    border-radius: 4px;
+    padding: 10px 16px;
+    color: #fff;
+    background-color: #CF2129;
+    cursor: pointer;
+    border: none;
+  }
+  .searchInput {
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #E3EDFB;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .tableHeader {
+    display: flex;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f2f4f7;
+    background-color: #E3EDFB;
+    border-radius: 10px;
+  }
+  .tableBody{
+    padding: 16px 24px;
+    border-bottom: 1px solid #f2f4f7;
+    gap: 30px;
+    border-radius: 10px;
+  }
+  
+  .tableRow {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f2f4f7;
+  }
+  .tableCellheading{
+    flex:1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+  }
+  .tableCell {
+    flex:1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+  }
+  
+  
+  .staffCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .staffAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  
+  .paymentCell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .paidStatus {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #4318d1;
+    background-color: #d1fadf;
+  }
+  
+  .unpaidStatus {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #93370d;
+    background-color: #fef0c7;
+  }
+  
+  .actionsCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .actionButton{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .iconSvg {
+    transition: stroke 0.3s ease, transform 0.2s ease;
+  }
+  .actionButton:hover .iconSvg path {
+    stroke: #3A36DB; /* Blue on hover */
+  }
+  
+  .actionButton:hover .iconSvg {
+    transform: scale(1.1); /* Slight zoom */
+  }
+  
+  .searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+  
+
+  .searchInput:focus {
+    border-color: #888;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+  }
+  .paginationContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .pageButton {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+  }
+  
+  .pageButton:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .activePage {
+    background-color: #3A36DB;
+    color: white;
+    border-color: #3A36DB;
+  }
+  .sortArrow {
+    margin-left: 6px;
+    font-size: 0.75rem;
+    color: #666;
+  }
+  .tableCellcheckbox  input[type="checkbox"] {
+    transform: scale;
+    cursor: pointer;
+    flex: 1;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    margin-right: 40px ;
+  }
+  

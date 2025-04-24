@@ -1,0 +1,204 @@
+body{
+  background-color: rgba(246, 250, 253, 1);
+}
+.container {
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+
+}
+
+
+@media (max-width: 991px) {
+  .mainWrapper {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+  }
+}
+
+.pageTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.contentPanel {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 38px;
+  margin-bottom: -112px;
+
+  padding: 24px 24px 41px;
+}
+
+@media (max-width: 991px) {
+  .contentPanel {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.searchRow {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  padding: 12px 16px;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.searchIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.searchField {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.searchField::placeholder {
+  color: rgba(153, 153, 153, 1);
+}
+
+.importButton {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  align-self: flex-start;
+  display: flex;
+  padding: 11px 24px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(67, 24, 209, 1);
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .importButton {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+}
+
+.importIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.tableHeader {
+  display: flex;
+  margin-top: 48px;
+  margin-left: 16px;
+  margin-right: 27px;
+  width: 100%;
+  max-width: 1084px;
+  align-items: stretch;
+  gap: 40px 95px;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .tableHeader {
+    max-width: 100%;
+    margin-right: 10px;
+    margin-top: 40px;
+  }
+}
+
+.leftColumns {
+  display: flex;
+  align-items: stretch;
+  gap: 40px 78px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media (max-width: 991px) {
+  .leftColumns {
+    max-width: 100%;
+  }
+}
+
+.rightColumns {
+  display: flex;
+  align-items: stretch;
+  gap: 40px 41px;
+  text-align: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media (max-width: 991px) {
+  .rightColumns {
+    max-width: 100%;
+  }
+}
+
+.columnHeader {
+  flex-basis: auto;
+}
+
+.rightColumns .columnHeader:first-child {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  color: rgba(102, 102, 102, 1);
+  font-size: 16px;
+}

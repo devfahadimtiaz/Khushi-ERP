@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styles from "./GenerateGoodRecieveNotes.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
 
 const TableHeader = [
     { label: "No", key: "no" },

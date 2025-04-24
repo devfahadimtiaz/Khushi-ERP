@@ -1,0 +1,150 @@
+.container {
+  background-color: #f6fafd;
+  width: 100%;
+  overflow: hidden;
+}
+
+.formWrapper {
+
+  display: flex;
+  margin: auto;
+  width: 80%;
+  padding-top: 80px;
+  padding-bottom: 88px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.formContent {
+  display: flex;
+  width: 100%;
+  padding-left: 36px;
+  padding-right: 36px;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.formCard {
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 16px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  color: #363565;
+  font-weight: 700;
+}
+
+.formCard:first-of-type {
+  margin-top: 24px;
+}
+
+.fieldLabel {
+  align-self: flex-start;
+}
+
+.inputField {
+  border-radius: 2px;
+  border: 1px solid #eaeef4;
+  display: flex;
+  margin-top: 8px;
+  flex-shrink: 0;
+  height: 50px;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+
+.selectField {
+  border-radius: 2px;
+  border: 1px solid #eaeef4;
+  display: flex;
+  margin-top: 8px;
+  height: 50px; padding-left: 20px;
+  align-items: center;
+  gap: 20px;
+  color: #000;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1.5;
+  object-fit: contain;
+  object-position: center;
+  width: 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.backButton {
+  border-radius: 2px;
+  background-color: #4318d1;
+  border: 1px solid rgba(151, 150, 153, 0.24);
+  align-self: flex-end;
+  margin-top: 15px;
+  margin-right: 34px;
+  width: 112px;
+  padding: 9px 39px;
+  font-family:
+    "SF Pro Display",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .formWrapper {
+    max-width: 100%;
+  }
+
+  .formContent {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formCard {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .inputField {
+    max-width: 100%;
+  }
+
+  .selectField {
+    max-width: 100%;
+  }
+
+  .backButton {
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+}

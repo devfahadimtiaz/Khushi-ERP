@@ -1,0 +1,555 @@
+body{
+  background-color: rgba(246, 250, 253, 1);
+}
+.container {
+  width: 80%;
+  background-color: rgba(246, 250, 253, 1);
+  margin: auto;
+  margin-top: 80px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .mainWrapper {
+    max-width: 100%;
+    padding: 59px 20px;
+  }
+}
+
+.pageTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.contentPanel {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 38px;
+  width: 100%;
+  padding: 24px 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .contentPanel {
+    max-width: 100%;
+  }
+}
+
+.contentInner {
+  display: flex;
+ 
+  padding: 0 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .contentInner {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.instructionsPanel {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  padding: 24px 80px 24px 24px;
+}
+
+@media (max-width: 991px) {
+  .instructionsPanel {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+}
+
+.instructionsRow {
+  gap: 20px;
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .instructionsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+}
+
+.instructionsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0px;
+}
+
+@media (max-width: 991px) {
+  .instructionsColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.instructionsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+@media (max-width: 991px) {
+  .instructionsContent {
+    margin-top: 40px;
+  }
+}
+
+.instructionsTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stepContainer {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.stepNumber {
+  border-radius: 16777200px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 0 9px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .stepNumber {
+    white-space: initial;
+  }
+}
+
+.stepTitle {
+  color: rgba(54, 53, 101, 1);
+  font-weight: 500;
+  flex-basis: auto;
+}
+
+.stepDescription {
+  color: rgba(102, 102, 102, 1);
+  font-size: 14px;
+  font-weight: 400;
+  align-self: flex-end;
+}
+
+.stepContainer2 {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.stepNumber2 {
+  border-radius: 16777200px;
+  background-color: rgba(67, 24, 209, 1);
+  align-self: flex-start;
+  padding: 0 7px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .stepNumber2 {
+    white-space: initial;
+  }
+}
+
+.stepContentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.stepTitle2 {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.stepDescription2 {
+  color: rgba(102, 102, 102, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.rightColumnContent {
+  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.formLabelsRow {
+  display: flex;
+  margin-top: 32px;
+  width: 663px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+}
+
+.labelText {
+  color: rgba(54, 53, 101, 1);
+  flex-grow: 1;
+}
+
+.requiredStar {
+  color: rgba(207, 33, 41, 1);
+}
+
+.labelContainerRight {
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .labelContainerRight {
+    white-space: initial;
+  }
+}
+
+.formInputsRow {
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.selectInput {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  padding: 16px 16px 9px;
+  width: 45%;
+  gap: 40px;
+  flex-wrap: wrap;
+ 
+}
+
+@media (max-width: 991px) {
+  .selectInput {
+    max-width: 100%;
+  }
+}
+
+.selectText {
+  color: rgba(0, 0, 0, 1);
+}
+
+.selectIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.selectInput2 {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  padding: 15px 16px;
+  align-items: stretch;
+  gap: 40px 100px;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media (max-width: 991px) {
+  .selectInput2 {
+    max-width: 100%;
+  }
+}
+
+.formLabelsRow2 {
+  display: flex;
+  margin-top: 24px;
+  width: 668px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.labelContainer2 {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.formInputsRow2 {
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .formInputsRow2 {
+    max-width: 100%;
+  }
+}
+
+.textInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  padding: 18px 16px 11px;
+  color: rgba(153, 153, 153, 1);
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+@media (max-width: 991px) {
+  .textInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+}
+
+.selectInput3 {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  padding: 10px 16px 16px;
+  align-items: stretch;
+  gap: 40px 100px;
+  color: rgba(0, 0, 0, 1);
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media (max-width: 991px) {
+  .selectInput3 {
+    max-width: 100%;
+  }
+}
+
+.selectIcon2 {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  align-self: flex-start;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.descriptionLabelContainer {
+  align-self: flex-start;
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 2px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.textareaInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  flex-shrink: 0;
+  height: 96px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .textareaInput {
+    max-width: 100%;
+  }
+}
+
+.buttonsContainer {
+  align-self: flex-end;
+  display: flex;
+  margin-top: 39px;
+  margin-right: 25px;
+  align-items: stretch;
+  gap: 16px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .buttonsContainer {
+    margin-right: 10px;
+  }
+}
+
+.cancelButton {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  padding: 11px 24px;
+  color: rgba(67, 24, 209, 1);
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  .cancelButton {
+    padding: 11px 20px;
+    white-space: initial;
+  }
+}
+
+.createButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 11px 24px;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  .createButton {
+    padding: 11px 20px;
+  }
+}

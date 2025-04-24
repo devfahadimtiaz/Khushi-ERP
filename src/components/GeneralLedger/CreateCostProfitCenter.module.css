@@ -1,0 +1,206 @@
+.container {
+  max-width: 1271px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 54px 48px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+  margin-bottom: 36px;
+}
+
+.formContainer {
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  background-color: #fff;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.formGroup {
+  flex: 1;
+  margin-right: 24px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #363565;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: #cf2129;
+}
+
+.inputField {
+  font-size: 16px;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0 16px;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.selectField {
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  color: #000;
+  background-color: #d9d9d9;
+}
+
+.activeStatus {
+  font-size: 16px;
+  color: #4318d1;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  margin-right: 8px;
+  background-color: #fff;
+}
+
+.checkboxLabel {
+  font-size: 16px;
+  color: #363565;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.cancelButton {
+  width: 94px;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #4318d1;
+  background-color: #eee7fe;
+  border: none;
+  margin-right: 16px;
+}
+
+.createButton {
+  width: 94px;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4318d1;
+  border: none;
+}
+
+.dropdownIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+
+  .formGroup {
+    margin-bottom: 24px;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .formContainer {
+    padding: 24px;
+  }
+
+  .cancelButton,
+  .createButton {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+.searchIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.searchField {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+.searchInput {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  padding: 12px 16px;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}

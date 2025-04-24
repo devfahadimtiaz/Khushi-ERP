@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from "./PurchasedOrder.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
-import AddPurchaseOrder from "./AddPurchaseOrder";
+import styles from "./PurchaseReturnRequest.module.css";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
+import AddPurchaseReturnRequest from "./AddPurchaseReturnRequest";
 
 const TableHeader = [
   { label: "No", key: "no" },
-  { label: "Purchased Order", key: "purchasedOrder" },
-  { label: "Vendor Name", key: "vendorName" },
-  { label: "Order Date", key: "orderDate" },
+  { label: "Purchase Invoice", key: "purchaseInvoice" },
+  { label: "Date", key: "date" },
+  { label: "PO#", key: "po" },
+  { label: "GRN#", key: "grn" },
   { label: "Gross Value", key: "grossValue" },
   { label: "Payable Value", key: "payableValue" },
   { label: "Status", key: "status" },
@@ -17,64 +18,35 @@ const sampleData = [
   {
     id: 1,
     no: "01",
-    purchasedOrder: "ABCC",
-    vendorName: "XYZ",
-    orderDate: "14/02/2025",
-    grossValue: "12345",
-    payableValue: "12345",
-    status: "Available",
-  },
-  {
-    id: 2,
-    no: "02",
-    purchasedOrder: "ABCC",
-    vendorName: "XYZ",
-    orderDate: "14/02/2025",
-    grossValue: "12345",
-    payableValue: "12345",
-    status: "Available",
-  },
-  {
-    id: 3,
-    no: "03",
-    purchasedOrder: "ABCC",
-    vendorName: "XYZ",
-    orderDate: "14/02/2025",
-    grossValue: "12345",
-    payableValue: "12345",
-    status: "Available",
-  },
-  {
-    id: 4,
-    no: "04",
-    purchasedOrder: "ABCC",
-    vendorName: "XYZ",
-    orderDate: "14/02/2025",
+    purchaseInvoice: "payment",
+    date: "date",
+    po: "14/02/2025",
+    grn: "12345",
     grossValue: "12345",
     payableValue: "12345",
     status: "Available",
   },
 ];
-const PurchasedOrder = ({ onBack }) => {
-  const [showAddPurchaseOrder, setShowAddPurchaseOrder] = useState(false);
+const PurchasedReturnRequest = ({ onBack }) => {
+  const [showAddForm, setShowAddForm] = useState(false);
 
   const handleAddNew = () => {
-    setShowAddPurchaseOrder(true);
+    setShowAddForm(true);
   };
 
   const handleBack = () => {
-    setShowAddPurchaseOrder(false);
+    setShowAddForm(false);
   };
 
-  if (showAddPurchaseOrder) {
-    return <AddPurchaseOrder onBack={handleBack} />;
+  if (showAddForm) {
+    return <AddPurchaseReturnRequest onBack={handleBack} />;
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.headerLeft}>
-          <span className={styles.title}>Purchased Order</span>
+          <span className={styles.title}>Purchase Return Request</span>
         </div>
         <div className={styles.headerRight}>
           <button className={styles.addButton} onClick={handleAddNew}>
@@ -106,4 +78,4 @@ const PurchasedOrder = ({ onBack }) => {
   );
 };
 
-export default PurchasedOrder;
+export default PurchasedReturnRequest;

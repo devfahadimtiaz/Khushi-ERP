@@ -33,23 +33,12 @@ function SalesOverview({ isOpen, onClose }) {
               </div>
             </div>
             <div className={styles.headerActions}>
-              <div className={styles.periodSelector}>
-                <span>This Month</span>
-                <div>
-                  <svg
-                    width="9"
-                    height="9"
-                    viewBox="0 0 9 9"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.625 3.75L4.5 5.625L6.375 3.75H2.625Z"
-                      fill="#979699"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+              <select className={styles.periodSelector}>
+                <option>This Month</option>
+                <option>Last Month</option>
+                <option>Quatarly</option>
+                <option>Yearly</option>
+              </select>
               <div className={styles.exportButton}>Export Report</div>
             </div>
           </div>
@@ -250,8 +239,9 @@ function SalesOverview({ isOpen, onClose }) {
                 <div className={styles.cardHeader}>
                   <div className={styles.cardTitle}>Sales Overview</div>
                   <div className={styles.viewToggle}>
-                    <div className={styles.toggleOption}>Monthly</div>
-                    <div className={styles.toggleOption}>Yearly</div>
+                    <button className={styles.toggleOption}>Monthly</button>
+                    <button className={styles.toggleOption}>Quatarly</button>
+                    <button className={styles.toggleOption}>Yearly</button>
                   </div>
                 </div>
 
@@ -316,7 +306,7 @@ function SalesOverview({ isOpen, onClose }) {
 
             <div className={styles.showroomSection}>
               <div className={styles.showroomTitle}>
-                Top Performing Showroom
+                Top Performing Salesmen
               </div>
               <div className={styles.showroomCard}>
                 <div className={styles.showroomHeader}>

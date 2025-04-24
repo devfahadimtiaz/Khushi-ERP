@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Transportation.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
 import AddPurchaseOrder from "./AddPurchaseOrder";
 
 const TableHeader = [

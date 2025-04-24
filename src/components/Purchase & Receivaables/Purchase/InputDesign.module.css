@@ -1,0 +1,333 @@
+.container {
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 400;
+}
+
+.purchaseOrderList {
+  background-color: rgba(255, 255, 255, 1);
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.backgroundRectangle {
+  background-color: rgba(246, 250, 253, 1);
+  align-self: stretch;
+  z-index: 0;
+  display: flex;
+  min-height: 874px;
+  width: 100%;
+}
+
+.headerRectangle {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 75px;
+  width: 1224px;
+  max-width: 100%;
+  right: 23px;
+  top: 24px;
+  height: 75px;
+}
+
+.pageTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  z-index: 0;
+  left: 24px;
+  top: 31px;
+  width: 221px;
+  height: 36px;
+}
+
+.profileCircle {
+  border-radius: 16777200px;
+  border-color: rgba(234, 238, 244, 1);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 50px;
+  width: 50px;
+  right: 23px;
+  top: 24px;
+  height: 50px;
+}
+
+.dateFromLabel {
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  z-index: 0;
+  left: 24px;
+  top: 123px;
+  width: 116px;
+  height: 36px;
+}
+
+.dateFromInput {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 50px;
+  width: 600px;
+  max-width: 100%;
+  left: 24px;
+  top: 171px;
+  height: 50px;
+}
+
+.dateFromIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  position: absolute;
+  z-index: 0;
+  left: 584px;
+  top: 184px;
+  height: 24px;
+}
+
+.dateToLabel {
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  z-index: 0;
+  right: 538px;
+  top: 123px;
+  width: 85px;
+  height: 36px;
+}
+
+.dateToInput {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 50px;
+  width: 600px;
+  max-width: 100%;
+  right: 23px;
+  top: 171px;
+  height: 50px;
+}
+
+.dateToIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  position: absolute;
+  z-index: 0;
+  right: 39px;
+  top: 184px;
+  height: 24px;
+}
+
+.itemLabel {
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  z-index: 0;
+  left: 24px;
+  top: 245px;
+  width: 53px;
+  height: 36px;
+}
+
+.itemInput {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 50px;
+  width: 600px;
+  max-width: 100%;
+  left: 24px;
+  top: 293px;
+  height: 50px;
+}
+
+.itemIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  position: absolute;
+  z-index: 0;
+  left: 584px;
+  top: 306px;
+  height: 24px;
+}
+
+.statusLabel {
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  z-index: 0;
+  right: 546px;
+  top: 245px;
+  width: 77px;
+  height: 36px;
+}
+
+.statusInput {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 50px;
+  width: 600px;
+  max-width: 100%;
+  right: 23px;
+  top: 293px;
+  height: 50px;
+}
+
+.statusIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  position: absolute;
+  z-index: 0;
+  right: 39px;
+  top: 306px;
+  height: 24px;
+}
+
+.resetButton {
+  border-radius: 4px;
+  background-color: rgba(207, 33, 41, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 42px;
+  width: 92px;
+  right: 149px;
+  top: 367px;
+  height: 42px;
+}
+
+.resetText {
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  z-index: 0;
+  right: 173px;
+  top: 376px;
+  width: 43px;
+  height: 24px;
+}
+
+.printButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  border-color: rgba(151, 150, 153, 0.24);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-height: 42px;
+  width: 109px;
+  max-width: 100%;
+  right: 23px;
+  top: 367px;
+  height: 42px;
+}
+
+.printText {
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  z-index: 0;
+  right: 61px;
+  top: 376px;
+  width: 36px;
+  height: 24px;
+}
+
+.dateFromPlaceholder {
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  z-index: 0;
+  left: 40px;
+  top: 182px;
+  width: 86px;
+  height: 29px;
+}
+
+.dateToPlaceholder {
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  z-index: 0;
+  right: 521px;
+  top: 182px;
+  width: 86px;
+  height: 29px;
+}
+
+.itemPlaceholder {
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  z-index: 0;
+  left: 40px;
+  top: 306px;
+  width: 85px;
+  height: 19px;
+}
+
+.statusPlaceholder {
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  z-index: 0;
+  right: 508px;
+  top: 306px;
+  width: 99px;
+  height: 19px;
+}
+
+@media (max-width: 991px) {
+  .purchaseOrderList {
+    max-width: 100%;
+  }
+
+  .backgroundRectangle {
+    max-width: 100%;
+  }
+}

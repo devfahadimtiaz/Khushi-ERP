@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CreateOpeningBalance.module.css";
 
-const CreateOpeningBalance = () => {
+const CreateOpeningBalance = (onBack) => {
   return (
     <div className={styles.box}>
       <div className={styles.group}>
@@ -53,7 +53,7 @@ const CreateOpeningBalance = () => {
               </div>
 
               <div className={styles["overlap-6"]}>
-                <div className={styles["text-wrapper-3"]}>Cancel</div>
+                <button className={styles["text-wrapper-3"]} onClick={onBack}>Cancel</button>
               </div>
             </div>
           </div>

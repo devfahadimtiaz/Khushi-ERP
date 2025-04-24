@@ -351,9 +351,13 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: #f8f8f8;
+  gap:5px;
 }
 
 .toggleOption {
+  background-color: #4318D1;
+  color:#fff;
+  border: none;
   padding: 8px 16px;
   font-size: 13px;
   cursor: pointer;

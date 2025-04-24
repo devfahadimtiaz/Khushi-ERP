@@ -1,0 +1,765 @@
+body{
+  background-color: rgba(246, 250, 253, 1);
+}
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  background-color: rgba(246, 250, 253, 1);
+}
+
+
+
+.content {
+
+ 
+}
+
+.header {
+  display: flex;
+
+ 
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+.periodSelector {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  display: flex;
+  padding: 9px 16px;
+  align-items: stretch;
+  gap: 8px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  text-align: center;
+}
+
+.periodText {
+  flex-grow: 1;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+.statsCards {
+  margin-top: 35px;
+  display: flex;
+  gap: 20px;
+  
+}
+
+.statsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 33%;
+  margin:auto;
+}
+
+.statsColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.statsCard {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+}
+
+.statTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+}
+
+.statValuePositive {
+  color: rgba(67, 24, 209, 1);
+  font-size: 32px;
+  margin-top: 16px;
+}
+
+.statValueNegative {
+  color: rgba(207, 33, 41, 1);
+  font-size: 32px;
+  margin-top: 16px;
+}
+
+.statValueSuccess {
+  color: rgba(76, 175, 80, 1);
+  font-size: 32px;
+  margin-top: 16px;
+}
+
+.statComparison {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 400;
+}
+
+.trendIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+.comparisonText {
+  flex-basis: auto;
+}
+
+.mainContent {
+  margin-top: 32px;
+  margin-bottom: -50px;
+  display: flex;
+  gap: 20px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+
+}
+
+.accountsPanel {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-left: auto;
+  margin-right: auto;
+  width: 93%;
+  padding: 24px 24px 56px;
+}
+
+.accountsHeader {
+  display: flex;
+  gap: 20px;
+}
+
+.accountsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+}
+
+.accountsColumn:first-child {
+  width: 56%;
+}
+
+.accountsColumn:last-child {
+  width: 44%;
+  margin-left: 20px;
+}
+
+.accountsTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+  font-weight: 700;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  margin-top: 5px;
+}
+
+.accountCategory {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 44px;
+  align-self: flex-start;
+}
+
+.categoryIndicatorPrimary {
+  border-radius: 2px;
+  background-color: rgba(67, 24, 209, 1);
+  display: flex;
+  margin: auto 0;
+  width: 4px;
+  flex-shrink: 0;
+  height: 24px;
+}
+
+.categoryIndicatorDanger {
+  border-radius: 2px;
+  background-color: rgba(207, 33, 41, 1);
+  display: flex;
+  margin: auto 0;
+  width: 4px;
+  flex-shrink: 0;
+  height: 24px;
+}
+
+.categoryIndicatorSuccess {
+  border-radius: 2px;
+  background-color: rgba(76, 175, 80, 1);
+  display: flex;
+  margin: auto 0;
+  width: 4px;
+  flex-shrink: 0;
+  height: 24px;
+}
+
+.categoryIndicatorWarning {
+  border-radius: 2px;
+  background-color: rgba(245, 166, 35, 1);
+  display: flex;
+  margin: auto 0;
+  width: 4px;
+  flex-shrink: 0;
+  height: 24px;
+}
+
+.categoryName {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 700;
+  align-self: flex-start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.accountCode {
+  color: rgba(102, 102, 102, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.addAccountBtn {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  padding: 8px 16px;
+  font-size: 14px;
+  color: rgba(67, 24, 209, 1);
+  font-weight: 400;
+  text-align: center;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+.totalAmount {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  margin-top: 49px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.accountItem {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  margin-top: 17px;
+  padding: 13px 24px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.accountItemFlex {
+  flex: 1;
+}
+
+.accountName {
+  color: rgba(54, 53, 101, 1);
+  font-size: 14px;
+}
+
+.transactionCount {
+  color: rgba(102, 102, 102, 1);
+  font-size: 12px;
+  align-self: flex-start;
+}
+
+.accountValue {
+  color: rgba(54, 53, 101, 1);
+  font-size: 14px;
+  text-align: right;
+  margin: auto 0;
+}
+
+.categoryTotal {
+  color: rgba(9, 44, 76, 1);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  margin: auto 0;
+  margin-left: auto;
+}
+
+.transactionsPanel {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  padding: 24px;
+}
+
+.transactionsHeader {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 40px 80px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+}
+
+.transactionsHeaderLeft {
+  align-self: flex-start;
+  display: flex;
+  margin-top: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 700;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.transactionsTitle {
+  color: rgba(9, 44, 76, 1);
+  font-size: 18px;
+}
+
+.transactionsColumnHeaders {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 12px;
+  align-items: stretch;
+  gap: 24px;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  white-space: nowrap;
+}
+
+.transactionsHeaderRight {
+  display: flex;
+  align-items: stretch;
+  gap: 37px;
+}
+
+.debitHeader {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  align-self: flex-end;
+  margin-top: 72px;
+}
+
+.viewAllBtn {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  padding: 8px 16px;
+  font-size: 14px;
+  color: rgba(67, 24, 209, 1);
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.creditHeader {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  align-self: flex-end;
+  margin-top: 36px;
+}
+
+.transactionRow {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 27px;
+  margin-left: 12px;
+}
+
+.transactionDetails {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.transactionDate {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  line-height: 24px;
+  align-self: stretch;
+  margin: auto 0;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.transactionRef {
+  color: rgba(67, 24, 209, 1);
+  font-size: 16px;
+  line-height: 24px;
+  align-self: stretch;
+  margin: auto 0;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.transactionDesc {
+  color: rgba(54, 53, 101, 1);
+  font-size: 16px;
+  line-height: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.transactionCategory {
+  color: rgba(102, 102, 102, 1);
+  font-size: 12px;
+  align-self: flex-start;
+  z-index: 10;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.transactionAmounts {
+  display: flex;
+  margin: auto 0;
+  align-items: stretch;
+  gap: 24px;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: right;
+  margin-left: auto;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+}
+
+.transactionDebit {
+  color: rgba(54, 53, 101, 1);
+}
+
+.transactionDebitNegative {
+  color: rgba(207, 33, 41, 1);
+}
+
+.transactionCredit {
+  color: rgba(76, 175, 80, 1);
+}
+
+.transactionGroup {
+  margin-top: 27px;
+  margin-left: 12px;
+  margin-right: 12px;
+  display: flex;
+  gap: 20px;
+}
+
+.transactionGroupLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 58%;
+}
+
+.transactionGroupRight {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 42%;
+  margin-left: 20px;
+}
+
+.transactionAmountRow {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 19px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.transactionAmountRow:not(:first-child) {
+  margin-top: 67px;
+}
+
+.transactionAmountRow:last-child {
+  margin-top: 76px;
+}
+
+@media (max-width: 991px) {
+  .content {
+    max-width: 100%;
+    padding: 51px 20px 100px;
+  }
+
+  .header {
+    max-width: 100%;
+  }
+
+  .statsCards {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .statsColumn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .statsCard {
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .accountsPanel {
+    max-width: 100%;
+    margin-top: 24px;
+    padding-left: 20px;
+  }
+
+  .accountsHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+  }
+
+  .accountsColumn {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .accountsColumn:first-child {
+    margin-top: 40px;
+  }
+
+  .accountsColumn:last-child {
+    margin-top: 40px;
+  }
+
+  .accountCategory {
+    margin-top: 40px;
+  }
+
+  .addAccountBtn {
+    margin-right: 9px;
+  }
+
+  .totalAmount {
+    margin-top: 40px;
+  }
+
+  .accountItem {
+    max-width: 100%;
+    margin-right: 9px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .transactionsPanel {
+    max-width: 100%;
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+  }
+
+  .transactionsHeader {
+    max-width: 100%;
+  }
+
+  .transactionsColumnHeaders {
+    margin-left: 10px;
+    white-space: initial;
+  }
+
+  .debitHeader {
+    margin-top: 40px;
+  }
+
+  .creditHeader {
+    margin-right: 9px;
+  }
+
+  .transactionRow {
+    max-width: 100%;
+    margin-right: 10px;
+  }
+
+  .transactionAmounts {
+    white-space: initial;
+  }
+
+  .transactionGroup {
+    max-width: 100%;
+    margin-right: 10px;
+    flex-direction: column;
+  }
+
+  .transactionGroupLeft {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .transactionGroupRight {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .transactionAmountRow {
+    white-space: initial;
+  }
+
+  .transactionAmountRow:not(:first-child) {
+    margin-top: 40px;
+  }
+
+  .transactionAmountRow:last-child {
+    margin-top: 40px;
+    margin-left: 7px;
+  }
+}

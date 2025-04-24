@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ComparativeStatement.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
 import AddComparativeStatement from "./AddComparativeStatement";
 
 const TableHeader = [

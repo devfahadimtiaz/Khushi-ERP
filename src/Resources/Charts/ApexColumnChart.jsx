@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-const ApexColumnChart = () => {
+const ApexColumnChart = ({name}) => {
   const [state] = useState({
     series: [
       {
@@ -60,7 +60,7 @@ const ApexColumnChart = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4 text-center">Sales Overview</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center" style={{fontFamily: 'SF Pro Display', fontWeight: '400'}}>{name}</h2>
       <ReactApexChart
         options={state.options}
         series={state.series}

@@ -35,19 +35,40 @@ import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
 import GatePass from "./components/Sale/GatePass/GatePass";
 import GatePassRecords from "./components/Sale/GatePass/GatePassRecord";
 import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance";
+import GeneralLedgerDashboard from "./components/GeneralLedger/GeneralLedgerDashboard";
+import ShowroomsManagement from "./components/GeneralLedger/ShowroomsManagement";
 import SalesTransections from "./components/Sale/SalesTransections";
 import LogBookTransfer from "./components/VehicleLogBook/LogBookTransfers";
 import CommissionList from "./components/Sale/CashSale/CommissionList";
-import PurchaseDB from "./components/Purchase/PurchaseDB";
-import PurchaseRequisition from "./components/Purchase/PurchaseRequisition";
-import QoutationDocuments from "./components/Purchase/QuotationDocument"
-import TenderDocument  from "./components/Purchase/TenderDocument";
-import ComparativeStatement from "./components/Purchase/ComparativeStatement"
-import PurchaseOrder from "./components/Purchase/PurchasedOrder"
-import GenerateGoodRecieveNotes from "./components/Purchase/GenerateGoodRecieveNotes"
-import Payment from "./components/Purchase/Payment"
-import Transportation from "./components/Purchase/Transportation"
-import PurchaseRetunRequest from "./components/Purchase/PurchaseReturnRequest"
+import PurchaseDB from "./components/Purchase & Receivaables/PurchaseDB";
+import PurchaseRequisition from "./components/Purchase & Receivaables/Purchase/PurchaseRequisition";
+import QoutationDocuments from "./components/Purchase & Receivaables/Purchase/QuotationDocument";
+import TenderDocument from "./components/Purchase & Receivaables/Purchase/TenderDocument";
+import ComparativeStatement from "./components/Purchase & Receivaables/Purchase/ComparativeStatement";
+import PurchaseOrder from "./components/Purchase & Receivaables/Purchase/PurchasedOrder";
+import GenerateGoodRecieveNotes from "./components/Purchase & Receivaables/Purchase/GenerateGoodRecieveNotes";
+import Payment from "./components/Purchase & Receivaables/Purchase/Payment";
+import Transportation from "./components/Purchase & Receivaables/Purchase/Transportation";
+import PurchaseRetunRequest from "./components/Purchase & Receivaables/PurchaseReturn/PurchaseReturnRequest";
+import PurchaseDispatchNote from "./components/Purchase & Receivaables/PurchaseReturn/PurchasedDispatchedNote";
+import PurchaseReturnNote from "./components/Purchase & Receivaables/PurchaseReturn/PurchaseReturnNote";
+import PayableConfiguration from "./components/Purchase & Receivaables/PurchaseIntegration/PayableConfiguration";
+import PurchasedReturnVoucher from "./components/Purchase & Receivaables/PurchaseVoucher/PurchaseReturnVouchers";
+import PurchasePayableReturnVoucher from "./components/Purchase & Receivaables/PurchaseVoucher/PurchasePayableReturnVoucher";
+import PaymentVouchers from "./components/Purchase & Receivaables/PurchaseVoucher/PaymentVouchers";
+import AdvanceReturnVoucher from "./components/Purchase & Receivaables/PurchaseVoucher/AdvanceRetrnVouchers";
+import PurchaseOrderList from "./components/Purchase & Receivaables/PurchaseReport/PurchaseOrderList";
+import PurchaseShowroomWise from "./components/Purchase & Receivaables/PurchaseReport/PurchaseShowroomWise";
+import PaymentRegisterReport from "./components/Purchase & Receivaables/PurchaseReport/PaymentRegister";
+import PayableAgingReport from "./components/Purchase & Receivaables/PurchaseReport/PayableAgingReport";
+import PendingPOReport from "./components/Purchase & Receivaables/PurchaseReport/PendingPOReport";
+import SupplierContactList from "./components/Purchase & Receivaables/PurchaseReport/SupplierContactList";
+import UnpaidSupplierBills from "./components/Purchase & Receivaables/PurchaseReport/UnpaidSupplierBills";
+import SupplierWiseBillReports from "./components/Purchase & Receivaables/PurchaseReport/SupplierWiseBillReports";
+import ShowRoomManager from "./components/GeneralLedger/ShowroomsManagement";
+import CostAndProfit from "./components/GeneralLedger/CostAndProfitCalculator";
+import ChartOfAccountsSetup from "./components/GeneralLedger/ChartOfAccountsSetup";
+import CurrencyManagement from "./components/GeneralLedger/CurrencyManagement";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -112,6 +133,18 @@ function App() {
 
   const navigateToAddPayment = (receipt) => {
     setCurrentView("addPayment");
+  };
+
+  const navigateToGeneralLedger = () => {
+    setCurrentView("generalLedger");
+  };
+
+  const navigateToShowroomsManagement = () => {
+    setCurrentView("showroomsManagement");
+  };
+
+  const navigateToCurrencyManagement = () => {
+    setCurrentView("currencyManagement");
   };
 
   const toggleNav = () => {
@@ -226,6 +259,10 @@ function App() {
         return <GatePassRecords onBack={navigateToDashboard} />;
       case "createopeningbalance":
         return <CreateOpeningBalance onBack={navigateToDashboard} />;
+      case "GLDashboard":
+        return <GeneralLedgerDashboard onBack={navigateToDashboard} />;
+      case "showroomsManagement":
+        return <ShowroomsManagement onBack={navigateToDashboard} />;
       case "salesTransections":
         return <SalesTransections onBack={navigateToDashboard} />;
       case "vehicleLogBook":
@@ -237,21 +274,59 @@ function App() {
       case "purchaseRequisition":
         return <PurchaseRequisition onBack={navigateToDashboard} />;
       case "quotationDocument":
-        return <QoutationDocuments onBack={navigateToDashboard}/>
+        return <QoutationDocuments onBack={navigateToDashboard} />;
       case "tenderDocument":
-        return <TenderDocument onBack={navigateToDashboard}/>
+        return <TenderDocument onBack={navigateToDashboard} />;
       case "comparativeStatement":
-        return <ComparativeStatement onBack={navigateToDashboard}/>
+        return <ComparativeStatement onBack={navigateToDashboard} />;
       case "purchasedOrder":
-        return <PurchaseOrder onBack={navigateToDashboard}/>
+        return <PurchaseOrder onBack={navigateToDashboard} />;
       case "generateGoodReceivedNote":
-        return <GenerateGoodRecieveNotes onBack={navigateToDashboard}/>
+        return <GenerateGoodRecieveNotes onBack={navigateToDashboard} />;
       case "payment":
-        return <Payment onBack={navigateToDashboard}/>
+        return <Payment onBack={navigateToDashboard} />;
       case "transportation":
-        return <Transportation onBack={navigateToDashboard}/>
+        return <Transportation onBack={navigateToDashboard} />;
       case "purchaseRetunRequest":
-        return <PurchaseRetunRequest onBack={navigateToDashboard}/>
+        return <PurchaseRetunRequest onBack={navigateToDashboard} />;
+      case "purchaseDispatched":
+        return <PurchaseDispatchNote onBack={navigateToDashboard} />;
+      case "purchaseReturn":
+        return <PurchaseReturnNote onBack={navigateToDashboard} />;
+      case "payableConfiguration":
+        return <PayableConfiguration onBack={navigateToDashboard} />;
+      case "purchaseReturnVoucher":
+        return <PurchasedReturnVoucher onBack={navigateToDashboard} />;
+      case "purchasePayableReturnVoucher":
+        return <PurchasePayableReturnVoucher onBack={navigateToDashboard} />;
+      case "paymentVouchers":
+        return <PaymentVouchers onBack={navigateToDashboard} />;
+      case "advanceReturnVoucher":
+        return <AdvanceReturnVoucher onBack={navigateToDashboard} />;
+      case "purchaseOrderReport":
+        return <PurchaseOrderList onBack={navigateToDashboard} />;
+      case "purchaseShowRoomWise":
+        return <PurchaseShowroomWise onBack={navigateToDashboard} />;
+      case "paymentRegister":
+        return <PaymentRegisterReport onBack={navigateToDashboard} />;
+      case "payableAgingReport":
+        return <PayableAgingReport onBack={navigateToDashboard} />;
+      case "pendingPOItem":
+        return <PendingPOReport onBack={navigateToDashboard} />;
+      case "supplierContactList":
+        return <SupplierContactList onBack={navigateToDashboard} />;
+      case "unpaidSupplierBills":
+        return <UnpaidSupplierBills onBack={navigateToDashboard} />;
+      case "supplierWiseBillReports":
+        return <SupplierWiseBillReports onBack={navigateToDashboard} />;
+      case "showRoomManager":
+        return <ShowRoomManager onBack={navigateToDashboard} />;
+      case "costAndProfit":
+        return <CostAndProfit onBack={navigateToDashboard} />;
+      case "chartOfAccounts":
+        return <ChartOfAccountsSetup onBack={navigateToDashboard} />;
+      case "currencyManagement":
+        return <CurrencyManagement onBack={navigateToDashboard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

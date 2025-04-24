@@ -1,0 +1,746 @@
+.supplierWiseBill {
+  background-color: rgba(246, 250, 253, 1);
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  background-color: rgba(246, 250, 253, 1);
+  width: 80%;
+  padding: 48px;
+  margin: auto;
+  margin-top:80px;
+}
+
+.header {
+  display: flex;
+
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.totalBalance {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  margin: auto 0;
+  padding: 8px 17px;
+  border: none;
+  color: #fff;
+}
+
+
+.contentBox {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 32px;
+
+  padding: 24px 24px 24px 24px;
+  flex-direction: column;
+
+}
+
+.filterSection {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap;
+}
+
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+}
+
+.filterLabel {
+  color: rgba(54, 53, 101, 1);
+  font-size: 14px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.selectBox {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  margin-top: 8px;
+  padding: 12px 16px;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  justify-content: space-between;
+}
+
+.dropdownIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.dateRangeBox {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  flex-shrink: 0;
+  height: 48px;
+}
+
+.statsSection {
+  margin-top: 32px;
+}
+
+.statsGrid {
+  gap: 20px;
+  display: flex;
+}
+
+.statsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 25%;
+  margin-left: 0;
+}
+
+.statsColumn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.statsCard {
+  border-radius: 8px;
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+  flex-grow: 1;
+  padding: 24px 53px 24px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  
+}
+
+.statsLabel {
+  color: rgba(54, 53, 101, 1);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.statsValueBlue {
+  color: rgba(9, 44, 76, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.statsValueGreen {
+  color: rgba(76, 175, 80, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.statsValuePurple {
+  color: rgba(67, 24, 209, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.statsValueRed {
+  color: rgba(207, 33, 41, 1);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.actionButtons {
+  align-self: flex-start;
+  display: flex;
+  margin-top: 32px;
+  align-items: stretch;
+  gap: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(67, 24, 209, 1);
+  font-weight: 400;
+  text-align: center;
+}
+
+.primaryButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 11px 24px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.secondaryButton {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  padding: 11px 24px;
+}
+
+.tableHeader {
+  display: flex;
+  margin-top: 60px;
+  margin-left: 16px;
+  margin-right: 22px;
+  align-items: stretch;
+  gap: 40px 49px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.tableHeaderLeft {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.billNoHeader {
+  flex-grow: 1;
+}
+
+.headerItem {
+  /* Default header item styles */
+}
+
+.headerItemCenter {
+  text-align: center;
+}
+
+.headerItemRight {
+  text-align: right;
+}
+
+.tableHeaderRight {
+  align-self: flex-start;
+  display: flex;
+  align-items: stretch;
+  gap: 40px 74px;
+  white-space: nowrap;
+  text-align: center;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.tableRow {
+  display: flex;
+  margin-top: 46px;
+  margin-left: 16px;
+  margin-right: 17px;
+  align-items: stretch;
+  gap: 40px 46px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.tableRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 40px 45px;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.billNo {
+  line-height: 24px;
+  align-self: stretch;
+}
+
+.supplier {
+  line-height: 24px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.billType {
+  line-height: 24px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.dateCenter {
+  line-height: 24px;
+  text-align: center;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.amountRight {
+  text-align: right;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.balanceRed {
+  color: rgba(207, 33, 41, 1);
+  font-weight: 500;
+  text-align: right;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.balanceGreen {
+  color: rgba(76, 175, 80, 1);
+  font-weight: 500;
+  text-align: right;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.statusPartiallyPaid {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  align-self: stretch;
+  margin: auto 0;
+  padding: 2px 16px;
+  color: rgba(67, 24, 209, 1);
+  text-align: center;
+  line-height: 24px;
+}
+
+.statusPaid {
+  border-radius: 4px;
+  background-color: rgba(232, 245, 233, 1);
+  align-self: stretch;
+  padding: 2px 12px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(76, 175, 80, 1);
+}
+
+.statusOverdue {
+  border-radius: 4px;
+  background-color: rgba(251, 228, 228, 1);
+  align-self: stretch;
+  padding: 2px 12px;
+  text-align: center;
+  color: rgba(207, 33, 41, 1);
+}
+
+.statusUnpaid {
+  border-radius: 4px;
+  background-color: rgba(255, 243, 224, 1);
+  align-self: stretch;
+  margin: auto 0;
+  padding: 2px 12px;
+  color: rgba(245, 166, 35, 1);
+}
+
+.actionButtonsRow {
+  display: flex;
+  margin: auto 0;
+  align-items: stretch;
+  gap: 7px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.payButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 4px 12px;
+}
+
+.actionIcon {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  display: flex;
+  width: 24px;
+  flex-shrink: 0;
+  height: 26px;
+}
+
+.actionIconSmall {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  align-self: stretch;
+  display: flex;
+  margin: auto 0;
+  width: 24px;
+  flex-shrink: 0;
+  height: 8px;
+}
+
+.tableRowAlt {
+  display: flex;
+  margin-top: 33px;
+  margin-left: 16px;
+  width: 100%;
+  max-width: 1069px;
+  align-items: stretch;
+  gap: 40px 71px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.tableRowLeftAlt {
+  display: flex;
+  align-items: center;
+  gap: 37px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 400;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.statusSection {
+  display: flex;
+  margin: auto 0;
+  align-items: center;
+  gap: 40px 50px;
+  color: rgba(76, 175, 80, 1);
+  white-space: nowrap;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.complexTableRow {
+  display: flex;
+  margin-top: 33px;
+  margin-left: 16px;
+  margin-right: 17px;
+  align-items: center;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.invoiceColumn {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  line-height: 24px;
+}
+
+.invoiceRow {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.invoiceRow:not(:first-child) {
+  align-self: flex-start;
+  display: flex;
+  margin-top: 33px;
+  align-items: stretch;
+  gap: 40px 56px;
+}
+
+.billTypeColumn {
+  align-self: stretch;
+  display: flex;
+  margin: auto 0;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  line-height: 24px;
+}
+
+.billTypeLower {
+  margin-top: 57px;
+}
+
+.detailsColumn {
+  align-self: stretch;
+  margin: auto 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.detailsRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  justify-content: space-between;
+}
+
+.datesSection {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  gap: 40px 41px;
+  color: rgba(54, 53, 101, 1);
+}
+
+.date {
+  line-height: 24px;
+}
+
+.balanceSection {
+  align-self: stretch;
+  display: flex;
+  margin: auto 0;
+  align-items: center;
+  gap: 33px;
+  color: rgba(207, 33, 41, 1);
+  text-align: right;
+}
+
+.detailsRowLower {
+  display: flex;
+  margin-top: 57px;
+  align-items: stretch;
+  gap: 40px 43px;
+  flex-wrap: wrap;
+}
+
+.datesRowLower {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 16px;
+  color: rgba(54, 53, 101, 1);
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media (max-width: 991px) {
+  .supplierWiseBill {
+    max-width: 100%;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .header {
+    max-width: 100%;
+  }
+
+  .headerRight {
+    white-space: initial;
+  }
+
+  .totalBalance {
+    white-space: initial;
+  }
+
+  .contentBox {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .filterSection {
+    max-width: 100%;
+  }
+
+  .statsSection {
+    max-width: 100%;
+  }
+
+  .statsGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .statsColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .statsCard {
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .primaryButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .secondaryButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tableHeader {
+    margin-right: 10px;
+    margin-top: 40px;
+  }
+
+  .tableHeaderLeft {
+    max-width: 100%;
+  }
+
+  .tableHeaderRight {
+    white-space: initial;
+  }
+
+  .tableRow {
+    margin-right: 10px;
+    margin-top: 40px;
+  }
+
+  .tableRowLeft {
+    max-width: 100%;
+  }
+
+  .actionButtonsRow {
+    white-space: initial;
+  }
+
+  .payButton {
+    white-space: initial;
+  }
+
+  .tableRowAlt {
+    max-width: 100%;
+  }
+
+  .tableRowLeftAlt {
+    max-width: 100%;
+  }
+
+  .statusSection {
+    white-space: initial;
+  }
+
+  .statusPaid {
+    white-space: initial;
+  }
+
+  .complexTableRow {
+    margin-right: 10px;
+  }
+
+  .detailsColumn {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .detailsRow {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .datesSection {
+    white-space: initial;
+  }
+
+  .balanceSection {
+    white-space: initial;
+  }
+
+  .statusOverdue {
+    white-space: initial;
+  }
+
+  .detailsRowLower {
+    margin-top: 40px;
+    white-space: initial;
+  }
+
+  .datesRowLower {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .statusUnpaid {
+    white-space: initial;
+  }
+
+  .billTypeLower {
+    margin-top: 40px;
+  }
+}

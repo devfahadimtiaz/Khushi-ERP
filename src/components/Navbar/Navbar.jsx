@@ -4,6 +4,7 @@ import logo from "../../uploads/KM-LOGO.png";
 import pic from "../../uploads/Pic.png";
 import { ReactComponent as BookIcon } from "../../uploads/icons/book.svg"
 import {ReactComponent as PurchaseIcon} from "../../uploads/icons/purchase.svg"
+import {ReactComponent as LedgerIcon} from "../../uploads/icons/ledger.svg"
 function Navbar({ isOpen, onClose, onNavigate }) {
   const [expandedMenus, setExpandedMenus] = useState({});
 
@@ -34,10 +35,17 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         </svg>
       ),
       label: "Main Dashboard",
+    },
+    {
+      id: "generalLedger",
+      icon: <LedgerIcon style={{ width: '22px', height: '22px' }}/>,
+      label: "General Ledger",
       subItems: [
-        { id: "createopeningbalance", label: "Create Opening Balance" },
-        { id: "reports", label: "Reports" },
-        { id: "metrics", label: "Key Metrics" },
+        { id: "GLDashboard", label: "Dashboard" },
+        { id: "showRoomManager", label: "Showromm Manager" },
+        { id: "costAndProfit", label: "Cost And Profit Center" },
+        { id: "chartOfAccounts", label: "Chart Of Accounts" },
+        { id: "currencyManagement", label: "Currency Management" },
       ],
     },
     {
@@ -100,25 +108,54 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         { id: "commission", label: "Commission" },
         { id: "gatePass", label: "Gate Pass" },
         { id: "gatePassRecord", label: "Gate Pass Record" },
-        { id: "marketTrend", label: "Market Trend Analysis" },
+        { id: "marketTrend", label: "Market Trend Analysis" }, 
         
       ],
     },
     {
       id: "purchases",
       icon: <PurchaseIcon style={{ width: '22px', height: '22px' }}/>,
-      label: "Purchase",
+      label: "Purchase & Receivables",
       subItems: [
-        { id: "purchaseDashboard", label: "Purchased Dashboard" },
-        { id: "purchaseRequisition", label: "Purchase Requisition" },
-        { id: "quotationDocument", label: "Quotation Document" },
-        { id: "tenderDocument", label: "Tender Document" },
-        { id: "comparativeStatement", label: "Comparative Statement" },
-        { id: "purchasedOrder", label: "Purchased Order" },
-        { id: "generateGoodReceivedNote", label: "Generate Good Received Note" },
-        { id: "payment", label: "Payment" },
-        { id: "transportation", label: "Transportation" },
-        { id: "purchaseRetunRequest", label: "Purchase Retun Request" },
+        { id: "purchaseDashboard", label: "Purchased Dashboard"},
+        { id: "purchase",   
+          label: "Purchase ", 
+          subItems:[
+          { id: "purchaseRequisition", label: "Purchase Requisition" },
+          { id: "quotationDocument", label: "Quotation Document" },
+          { id: "tenderDocument", label: "Tender Document" },
+          { id: "comparativeStatement", label: "Comparative Statement" },
+          { id: "purchasedOrder", label: "Purchased Order" },
+          { id: "generateGoodReceivedNote", label: "Generate Good Received Note" },
+          { id: "payment", label: "Payment" },
+          { id: "transportation", label: "Transportation" },
+          
+
+        ]},
+        { id: "purchaseReturn", label: "Purchase Return", subItems:[
+          { id: "purchaseRetunRequest", label: "Purchase Retun Request" },
+          { id: "purchaseDispatched", label: "Purchase Dispatched Note" },
+          { id: "purchaseReturn", label: "Purchase Return Note" },
+        ] },
+        { id: "purchaseIntegrartion", label:"Purchase Integration", subItems:[
+          {id: "payableConfiguration", label:"Payable Configuration"},
+        ]},
+        { id:"purchaseVoucher", label:"Purchase Vouchers", subItems:[
+          {id: "purchaseReturnVoucher", label:"Purchase Return Voucher"},
+          {id: "purchasePayableReturnVoucher", label:"Purchase & Payable Return Voucher"},
+          {id: "paymentVouchers", label:"Payment Vouchers"},
+          {id: "advanceReturnVoucher", label:"Advance Return Voucher"},
+        ]},
+        { id:"purchaseReport", label:"Purchase Report", subItems:[
+          {id: "purchaseOrderReport", label:"Purchase Order Report"},
+          {id: "purchaseShowRoomWise", label:"Purchase Showroom Wise Report"},
+          {id: "paymentRegister", label:"Payment Register Report"},
+          {id: "payableAgingReport", label:"Payable Aging Report"},
+          {id: "pendingPOItem", label:"Pending PO Items"},
+          {id: "supplierContactList", label:"Supplier Contact List"},
+          {id: "unpaidSupplierBills", label:"Unpaid Supplier Bill"},
+          {id: "supplierWiseBillReports", label:"Supplier Wise Bill Report"},
+        ]},
       ],
     },
     {
@@ -221,35 +258,24 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ],
     },
   ];
-
-  return (
-    <>
-      {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
-      <div className={`${styles.navbar} ${isOpen ? styles.open : ""}`}>
-        <div className={styles.logo}>
-          <img src={logo} className={styles.logo} />
-        </div>
-        <div className={styles.logoSection}>
-          <div className={styles.logoContainer}>
-            <img src={pic} />
-            <rect width="32" height="32" rx="8" fill="#3B82F6" />
-          </div>
-          <div className={styles.companyInfo}>
-            <div className={styles.companyName}>Mr Tamor</div>
-            <div className={styles.companyTagline}>Khushi Motors</div>
-          </div>
-        </div>
-
-        <div className={styles.menuDivider}></div>
-
-        {menuItems.map((item) => (
-          <div key={item.id} className={styles.menuGroup}>
-            <div
-              className={styles.navItem}
-              onClick={() => toggleSubmenu(item.id)}
-            >
-              <div className={styles.iconContainer}>{item.icon}</div>
-              <div className={styles.navText}>{item.label}</div>
+  const renderMenuItems = (items, parentId = null) => {
+    return items.map((item) => {
+      const hasSubItems = item.subItems && item.subItems.length > 0;
+      return (
+        <div key={item.id} className={styles.menuGroup}>
+          <div
+            className={styles.navItem}
+            onClick={() => {
+              if (!hasSubItems && onNavigate) {
+                onNavigate(item.id);
+              } else {
+                toggleSubmenu(item.id);
+              }
+            }}
+          >
+            <div className={styles.iconContainer}>{item.icon}</div>
+            <div className={styles.navText}>{item.label}</div>
+            {hasSubItems && (
               <div className={styles.expandIcon}>
                 <svg
                   width="16"
@@ -262,25 +288,40 @@ function Navbar({ isOpen, onClose, onNavigate }) {
                   <path d="M7 10L12 15L17 10H7Z" fill="#64748B" />
                 </svg>
               </div>
-            </div>
-
-            {item.subItems && (
-              <div
-                className={`${styles.submenu} ${expandedMenus[item.id] ? styles.expanded : ""}`}
-              >
-                {item.subItems.map((subItem) => (
-                  <div
-                    key={subItem.id}
-                    className={styles.submenuItem}
-                    onClick={() => onNavigate && onNavigate(subItem.id)}
-                  >
-                    {subItem.label}
-                  </div>
-                ))}
-              </div>
             )}
           </div>
-        ))}
+  
+          {hasSubItems && expandedMenus[item.id] && (
+            <div className={`${styles.submenu} ${styles.expanded}`}>
+              {renderMenuItems(item.subItems, item.id)}
+            </div>
+          )}
+        </div>
+      );
+    });
+  };
+  
+  return (
+    <>
+      {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
+      <div className={`${styles.navbar} ${isOpen ? styles.open : ""}`}>
+        <div className={styles.logo}>
+          <img src={logo} className={styles.logo} />
+        </div>
+        <div className={styles.logoSection}>
+          <div className={styles.logoContainer}>
+            <img src={pic} />
+            <rect width="32" height="32" rx="10" fill="#3B82F6" />
+          </div>
+          <div className={styles.companyInfo}>
+            <div className={styles.companyName}>Mr Tamor</div>
+            <div className={styles.companyTagline}>Khushi Motors</div>
+          </div>
+        </div>
+
+        <div className={styles.menuDivider}></div>
+
+        {renderMenuItems(menuItems)}
       </div>
     </>
   );

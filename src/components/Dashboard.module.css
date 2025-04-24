@@ -1,6 +1,6 @@
 .dashboardContainer {
   background-color: rgba(255, 255, 255, 1);
-  
+
   overflow-x: auto;
   display: flex;
   padding-top: 78px;
@@ -56,12 +56,7 @@
 .analyticsLink {
   color: rgba(0, 0, 0, 1);
   font-size: 9px;
-  font-family:
-    "SF Pro Display",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: 400;
   text-decoration: underline;
   align-self: flex-end;
@@ -116,12 +111,7 @@
   padding-bottom: 14px;
   flex-direction: column;
   align-items: stretch;
-  font-family:
-    "Montserrat",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Montserrat", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   color: rgba(51, 51, 51, 1);
   font-weight: 400;
@@ -130,6 +120,10 @@
 .filterLabel {
   font-weight: 500;
   align-self: flex-start;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .filterSelect {
@@ -143,6 +137,10 @@
   gap: 40px 65px;
   color: rgba(102, 102, 102, 1);
   justify-content: space-between;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  color: #000;
 }
 
 .filterPlaceholder {
@@ -150,6 +148,9 @@
   flex-shrink: 0;
   flex-basis: 0;
   width: fit-content;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #000;
 }
 
 .dropdownArrow {
@@ -192,12 +193,7 @@
   max-width: 100%;
   align-items: stretch;
   gap: 10px;
-  font-family:
-    "Poppins",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 9px;
   color: rgba(0, 0, 0, 1);
   font-weight: 400;
@@ -256,13 +252,8 @@
   width: 100%;
   padding: 20px;
   align-items: center;
-  gap: 40px ;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  gap: 20px;
+  font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
   flex-direction: column;
 }
 
@@ -378,12 +369,12 @@
 
 .periodButton {
   border-radius: 25px;
-  background-color: #0062EB;
+  background-color: #0062eb;
   border: none;
   padding: 6px 12px;
   color: white;
 }
-.periodButton:hover{
+.periodButton:hover {
   background-color: #1ad598;
 }
 
@@ -494,12 +485,7 @@
   padding: 22px 20px;
   flex-direction: column;
   align-items: stretch;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -507,7 +493,7 @@
   color: rgba(51, 51, 51, 1);
   font-size: 16px;
   font-weight: 600;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .tableHeader {
@@ -594,12 +580,7 @@
 
 .carDetails {
   min-width: 240px;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
   flex: 1;
   flex-shrink: 1;
   flex-basis: 0%;
@@ -633,12 +614,7 @@
   margin-bottom: auto;
   flex-direction: column;
   align-items: center;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 1);
   justify-content: flex-start;
   width: 113px;
@@ -671,7 +647,6 @@
 .financialSection {
   margin-top: 50px;
   width: 100%;
-
 }
 
 .financialRow {
@@ -700,7 +675,6 @@
 }
 
 .financialContent {
-
   display: flex;
   gap: 0px;
   justify-content: flex-start;
@@ -756,17 +730,11 @@
   object-fit: contain;
   object-position: center;
   width: 100%;
-  
 }
 
 .financialData {
   width: 100%;
-  font-family:
-    "SF Pro",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -786,12 +754,7 @@
   max-width: 100%;
   align-items: center;
   gap: 2px;
-  font-family:
-    "SF Pro",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
   color: rgba(128, 159, 184, 1);
   font-weight: 400;
   justify-content: flex-start;
@@ -816,15 +779,29 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 567px;
+
   margin-top: 80px;
   gap: 80px;
 
   width: 100%;
-  max-width: 1245px;
-  
+
   align-items: stretch;
   font-weight: 400;
+}
+.UnitSoldSection {
+  display: flex;
+  flex-direction: column;
+
+
+  margin-top: 80px;
+ 
+
+  width: 100%;
+  font-weight: 400;
+}
+.unitSoldHeader{
+  display: flex;
+  justify-content: space-between;
 }
 
 .customerBackground {
@@ -844,12 +821,7 @@
 .customerTitle {
   color: rgba(6, 21, 43, 1);
   font-size: 22px;
-  font-family:
-    "SF Pro",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
   align-self: flex-start;
   margin-left: 27px;
 }
@@ -859,12 +831,7 @@
   padding-left: 9px;
   padding-right: 9px;
   padding-bottom: 14px;
-  font-family:
-    "Montserrat",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Montserrat", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
 }
 
@@ -969,12 +936,7 @@
   position: relative;
   color: rgba(128, 159, 184, 1);
   font-size: 14px;
-  font-family:
-    "SF Pro",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
   margin-top: 30px;
   margin-left: 38px;
   margin-right: 60px;
@@ -999,12 +961,7 @@
   padding: 10px 50px;
   gap: 8px;
   overflow: hidden;
-  font-family:
-    "Open Sans",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: "Open Sans", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 14px;
   color: #fff;
   font-weight: 600;
@@ -1122,4 +1079,31 @@
   .customerChart {
     max-width: 100%;
   }
+}
+.horizental {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+.dropdown {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 400;
+}
+.dropDownOptions {
+  font-size: 14px;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 400;
+}
+.dropdownUnit {
+  
+  padding: 10px 80px 10px 80px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "SF Pro Display", -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 400;
 }
