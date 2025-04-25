@@ -1,0 +1,321 @@
+.container {
+  max-width: 1272px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+}
+
+.profileImg {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+}
+
+.contentCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.filterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterLabel {
+  font-size: 14px;
+  color: #363565;
+  margin-bottom: 8px;
+}
+
+.selectInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 264px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  padding: 0 12px;
+  background-color: #fff;
+}
+
+.selectText {
+  font-size: 14px;
+  color: #000;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+}
+
+.resetButton,
+.printButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 8px;
+  background-color: #eee7fe;
+  cursor: pointer;
+  margin-top: 20px;
+  border: none;
+}
+
+.buttonText {
+  font-size: 14px;
+  color: #4318d1;
+}
+
+.searchRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  padding: 0 12px;
+}
+
+.searchPlaceholder {
+  font-size: 14px;
+  color: #999;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #4318d1;
+  cursor: pointer;
+}
+
+.createButtonText {
+  font-size: 9px;
+}
+
+.tableHeader {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.tableHeaderRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #363565;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #363565;
+}
+
+.statusCell {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.statusPosted {
+  border-radius: 16px;
+  padding: 2px 8px;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #ecfdf5;
+}
+
+.statusDraft {
+  border-radius: 16px;
+  padding: 2px 8px;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #fef2f2;
+}
+
+.actionsCell {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.editButton,
+.deleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: #eee7fe;
+}
+
+.deleteButton {
+  background-color: #fee2e2;
+}
+
+.recordCount {
+  padding: 12px 0;
+  text-align: left;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    margin-bottom: 16px;
+  }
+
+  .actionButtons {
+    margin-top: 16px;
+  }
+
+  .searchRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchInput {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    margin-bottom: 16px;
+  }
+
+  .actionButtons {
+    margin-top: 16px;
+  }
+
+  .searchRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchInput {
+    margin-bottom: 16px;
+  }
+
+  .tableHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableHeaderCell {
+    width: 100%;
+    text-align: left;
+  }
+
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableCell {
+    width: 100%;
+    text-align: left;
+  }
+
+  .statusCell {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .actionsCell {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .recordCount {
+    text-align: left;
+  }
+}

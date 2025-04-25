@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./ShowroomsManagement.module.css";
-import TableComponent from "../../Resources/Tables/TableComponent";
-import { Tab } from "@mui/material";
+import React, { useState } from "react";
+import styles from "./CostAndProfitCalculator.module.css";
+import TableComponent from "../../../Resources/Tables/TableComponent";
+import CreateCostProfitCenter from "./CreateCostProfitCenter";
 
 
 const TableHeader=[
@@ -20,7 +20,7 @@ const TableData=[
     location: "Shibuya, Tokyo",
     createDate: "2024-01-01",
     status:"Active",
-    
+
   },
   {
     id:2,
@@ -29,7 +29,7 @@ const TableData=[
     location: "Shibuya, Tokyo",
     createDate: "2024-01-01",
     status:"Active",
-    
+
   },
   {
     id:3,
@@ -38,18 +38,31 @@ const TableData=[
     location: "Shibuya, Tokyo",
     createDate: "2024-01-01",
     status:"Active",
-    
+
   }
 ]
-const ShowroomsManagement = ({ onBack }) => {
+const CostAndProfitCalculator = ({ onBack }) => {
+  const [showCreateForm, setShowCreateForm] = useState(false);
+
+  const handleAddNew = () => {
+    setShowCreateForm(true);
+  };
+
+  const handleCancelCreate = () => {
+    setShowCreateForm(false);
+  };
+if(showCreateForm){
+    return(
+        <CreateCostProfitCenter onCancel={handleCancelCreate}/>
+    )
+}
   return (
     <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <div className={styles.header}>
-            <div className={styles.title}>Showrooms & Companies</div>
+            <div className={styles.title}>Cost & Profit</div>
             <div className={styles.headerActions}>
-              <button className={styles.addButton}>Add New Showroom</button>
-           
+              <button className={styles.addButton} onClick={handleAddNew}>Add New Showroom</button>
             </div>
           </div>
           <div className={styles.contentPanel}>
@@ -76,11 +89,14 @@ const ShowroomsManagement = ({ onBack }) => {
               </select>
             </div>
           </div>
-        
+
+       
+        <TableComponent data={TableData} HeadData={TableHeader}/>
         </div>
-<TableComponent data={TableData} HeadData={TableHeader}/>
     </div>
+
+
   );
 };
 
-export default ShowroomsManagement;
+export default CostAndProfitCalculator;

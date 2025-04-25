@@ -12,14 +12,14 @@ const CreateCostProfitCenter = ({ onCancel }) => {
               <span>Name</span>
               <span className={styles.required}>*</span>
             </div>
-            <div className={styles.inputField}>Enter full name</div>
+            <input type="text" placeholder="Enter full name" className={styles.inputField}/>
           </div>
           <div className={styles.formGroup}>
             <div className={styles.label}>
               <span>Short Name</span>
               <span className={styles.required}>*</span>
             </div>
-            <div className={styles.inputField}>Enter short name</div>
+            <input type="text" placeholder="Enter short name" className={styles.inputField}/>
           </div>
         </div>
         <div className={styles.formRow}>

@@ -34,9 +34,9 @@ import RoadTestform from "./components/Inventory/RoadTest/RoadTestForm";
 import RoadTestRecords from "./components/Inventory/RoadTest/RoadTestRecords";
 import GatePass from "./components/Sale/GatePass/GatePass";
 import GatePassRecords from "./components/Sale/GatePass/GatePassRecord";
-import CreateOpeningBalance from "./components/GeneralLedger/CreateOpeningBalance";
+import CreateOpeningBalance from "./components/GeneralLedger/GeneralLedgerSetup/CreateOpeningBalance";
 import GeneralLedgerDashboard from "./components/GeneralLedger/GeneralLedgerDashboard";
-import ShowroomsManagement from "./components/GeneralLedger/ShowroomsManagement";
+import ShowroomsManagement from "./components/GeneralLedger/GeneralLedgerSetup/ShowroomsManagement";
 import SalesTransections from "./components/Sale/SalesTransections";
 import LogBookTransfer from "./components/VehicleLogBook/LogBookTransfers";
 import CommissionList from "./components/Sale/CashSale/CommissionList";
@@ -65,10 +65,20 @@ import PendingPOReport from "./components/Purchase & Receivaables/PurchaseReport
 import SupplierContactList from "./components/Purchase & Receivaables/PurchaseReport/SupplierContactList";
 import UnpaidSupplierBills from "./components/Purchase & Receivaables/PurchaseReport/UnpaidSupplierBills";
 import SupplierWiseBillReports from "./components/Purchase & Receivaables/PurchaseReport/SupplierWiseBillReports";
-import ShowRoomManager from "./components/GeneralLedger/ShowroomsManagement";
-import CostAndProfit from "./components/GeneralLedger/CostAndProfitCalculator";
-import ChartOfAccountsSetup from "./components/GeneralLedger/ChartOfAccountsSetup";
-import CurrencyManagement from "./components/GeneralLedger/CurrencyManagement";
+import ShowRoomManager from "./components/GeneralLedger/GeneralLedgerSetup/ShowroomsManagement";
+import CostAndProfit from "./components/GeneralLedger/GeneralLedgerSetup/CostAndProfitCalculator";
+import ChartOfAccountsSetup from "./components/GeneralLedger/GeneralLedgerSetup/ChartOfAccountsSetup";
+import CurrencyManagement from "./components/GeneralLedger/GeneralLedgerSetup/CurrencyManagement";
+import SubsidiaryLedger from "./components/GeneralLedger/GeneralLedgerSetup/SubsidiaryLedger";
+import VoucherSetup from "./components/GeneralLedger/GeneralLedgerSetup/VoucherSetup";
+import SubsidiaryFileSetup from "./components/GeneralLedger/GeneralLedgerSetup/SubsidiaryFileSetup"
+import BankDetails from "./components/GeneralLedger/GeneralLedgerSetup/BankDetails";
+import CashAccountDetails from "./components/GeneralLedger/GeneralLedgerSetup/CashAccountDetails";
+import CreditAccountDetails from "./components/GeneralLedger/GeneralLedgerSetup/CreditAccountDetails";
+import FinancialYearList from "./components/GeneralLedger/GeneralLedgerTransection/FinancialYearList";
+import OpeningBalance from "./components/GeneralLedger/GeneralLedgerTransection/OpeningBalance";
+import OpeningBalanceVouchers from "./components/GeneralLedger/GeneralLedgerTransection/OpeningBalanceVouchers";
+import InternalCashTransfer from "./components/GeneralLedger/GeneralLedgerTransection/InternalCashTransfer";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -84,9 +94,6 @@ function App() {
   const navigateToDashboard = () => {
     setCurrentView("dashboard");
   };
-  const navigateToInventoryDashboard = () => {
-    setCurrentView("inventory-dashboard");
-  };
   const navigateToInventoryListVies = () => {
     setCurrentView("stock");
   };
@@ -101,21 +108,6 @@ function App() {
   const navigateToAddGarage = () => {
     setCurrentView("add-garage");
   };
-  const navigateToVehicleTransfer = () => {
-    setCurrentView("vehicle-transfer");
-  };
-  const navigateToIncomingVehicleTransfers = () => {
-    setCurrentView("incoming-vehicle-transfers");
-  };
-  const navigatetoParkingZoneManagement = () => {
-    setCurrentView("parking-zone-management");
-  };
-  const navigateToActionHouse = () => {
-    setCurrentView("auction-house");
-  };
-  const navigateToAuctionGridView = () => {
-    setCurrentView("auction-grid");
-  };
   const navigateToAuctionListView = () => {
     setCurrentView("price-checker");
   };
@@ -123,29 +115,12 @@ function App() {
     setCurrentView("duty-calculator");
   };
 
-  const navigateToBillOfLading = () => {
-    setCurrentView("bill-of-lading");
-  };
 
-  const navigateToCreditSale = () => {
-    setCurrentView("creditSale");
-  };
 
-  const navigateToAddPayment = (receipt) => {
-    setCurrentView("addPayment");
-  };
 
-  const navigateToGeneralLedger = () => {
-    setCurrentView("generalLedger");
-  };
 
-  const navigateToShowroomsManagement = () => {
-    setCurrentView("showroomsManagement");
-  };
 
-  const navigateToCurrencyManagement = () => {
-    setCurrentView("currencyManagement");
-  };
+
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -327,6 +302,26 @@ function App() {
         return <ChartOfAccountsSetup onBack={navigateToDashboard} />;
       case "currencyManagement":
         return <CurrencyManagement onBack={navigateToDashboard} />;
+      case "subsidiaryLedger":
+        return <SubsidiaryLedger onBack={navigateToDashboard}/>
+      case "voucherSetup":
+        return <VoucherSetup onBack={navigateToDashboard}/>
+      case "subsidiaryFileSetup":
+        return <SubsidiaryFileSetup onBack={navigateToDashboard}/>
+      case "bankDetails":
+        return <BankDetails onBack={navigateToDashboard}/>
+      case "cashAccountDetails":
+        return <CashAccountDetails onBack={navigateToDashboard}/>
+      case "creditAccountDetails":
+        return <CreditAccountDetails onBack={navigateToDashboard}/>
+      case "financialYearList":
+        return <FinancialYearList onBack={navigateToDashboard}/>
+      case "openingBalance":
+        return <OpeningBalance onBack={navigateToDashboard}/>
+      case "openingBalanceVouchers":
+        return <OpeningBalanceVouchers onBack={navigateToDashboard}/>
+      case "internalCashTransfer":
+        return <InternalCashTransfer onBack={navigateToDashboard}/>
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

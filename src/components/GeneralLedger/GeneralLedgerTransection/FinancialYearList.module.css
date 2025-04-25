@@ -1,0 +1,42 @@
+body {
+    background-color: rgba(246, 250, 253, 1);
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+  }
+  
+  .contentWrapper {
+    padding: 48px;
+  }
+  
+  .header {
+    display: flex;
+  
+    align-items: stretch;
+    gap: 20px;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .title {
+    color: rgba(9, 44, 76, 1);
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .addAccountBtn {
+    border-radius: 4px;
+    background-color: rgba(67, 24, 209, 1);
+    padding: 11px 24px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+  

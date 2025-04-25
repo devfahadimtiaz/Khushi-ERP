@@ -1,0 +1,169 @@
+.container {
+
+  
+  margin: 0 auto;
+  margin-top: 80px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+  margin-bottom: 74px;
+}
+
+.formContainer {
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.formGroup {
+  width: 49%;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #363565;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.required {
+  color: #cf2129;
+}
+
+.selectContainer {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #fff;
+}
+
+.select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #363565;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.input {
+  width: 94%;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #363565;
+  background-color: #fff;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cancelButton {
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+  color: #4318d1;
+  background-color: #eee7fe;
+  border: none;
+}
+
+.saveButton {
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4318d1;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+
+  .formGroup {
+    width: 100%;
+  }
+
+  .formGroup:first-child {
+    margin-bottom: 32px;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+  }
+
+  .cancelButton {
+    margin-bottom: 16px;
+  }
+}

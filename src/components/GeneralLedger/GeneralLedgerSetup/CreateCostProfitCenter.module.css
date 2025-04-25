@@ -52,6 +52,7 @@
   color: #999;
   display: flex;
   align-items: center;
+  width: 94%;
 }
 
 .selectField {

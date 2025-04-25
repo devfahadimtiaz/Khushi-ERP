@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ChartOfAccountsSetup.module.css";
-import TableComponenet from "../../Resources/Tables/TableComponent";
+import TableComponenet from "../../../Resources/Tables/TableComponent";
 import CreateNewAccount from "./CreateNewAccount";
 
 const TableHeader = [

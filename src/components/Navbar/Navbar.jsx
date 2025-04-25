@@ -42,10 +42,24 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "General Ledger",
       subItems: [
         { id: "GLDashboard", label: "Dashboard" },
-        { id: "showRoomManager", label: "Showromm Manager" },
+        { id: "GLSetup", label: "GL Setup", subItems: [
+          { id: "showRoomManager", label: "Showromm Manager" },
         { id: "costAndProfit", label: "Cost And Profit Center" },
         { id: "chartOfAccounts", label: "Chart Of Accounts" },
         { id: "currencyManagement", label: "Currency Management" },
+        { id: "subsidiaryLedger", label: "Subsidiary Ledger" },
+        { id: "voucherSetup", label: "Voucher Setup" },
+        { id: "subsidiaryFileSetup", label: "Subsidiary File Setup" },
+        { id: "bankDetails", label: "Bank Details" },
+        { id: "cashAccountDetails", label: "Cash Account Details" },
+        { id: "creditAccountDetails", label: "Credit Account Details" },
+        ]  },
+        { id: "GLTransection", label: "GL Transection", subItems: [
+          { id: "financialYearList", label: "Financial Year List" },
+          { id: "openingBalance", label: "Opening Balance" },
+          { id: "openingBalanceVouchers", label: "Opening Balance Vouchers" },
+          { id: "internalCashTransfer", label: "Internal Cash Transfer" },
+        ] },
       ],
     },
     {

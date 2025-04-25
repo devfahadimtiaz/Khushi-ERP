@@ -1,0 +1,275 @@
+.container {
+    max-width: 1272px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 48px;
+    font-family: "Inter", sans-serif;
+    background-color: #f6fafd;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #092c4c;
+  }
+  
+  .profileImg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #eaeef4;
+  }
+  
+  .formContainer {
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    background-color: #fff;
+  }
+  
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .formGroup {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .formGroup:last-child {
+    margin-right: 0;
+  }
+  
+  .label {
+    display: block;
+    font-size: 14px;
+    color: #363565;
+    margin-bottom: 8px;
+  }
+  
+  .required {
+    color: #cf2129;
+    margin-left: 2px;
+  }
+  
+  .input {
+    position: relative;
+    width: 93%;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+  }
+  
+  .selectContainer {
+   
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #d9d9d9;
+  }
+  
+  .selectText {
+    user-select: text;
+    font-size: 14px;
+    color: #000;
+  }
+  
+  .dropdownIconContainer {
+    position: absolute;
+    right: 12px;
+  }
+  
+  .dropdownIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .transferDetailsSection {
+    margin-top: 24px;
+  }
+  
+  .sectionTitle {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #363565;
+    margin-bottom: 16px;
+  }
+  
+  .addButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    margin-left: 16px;
+    background-color: #4318d1;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .addIcon {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+  }
+  
+  .tableContainer {
+    margin-top: 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+  }
+  
+  .tableHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #f9fafb;
+  }
+  
+  .tableHeaderCell {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: #363565;
+    font-weight: 500;
+  }
+  
+  .tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .tableCell {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: #363565;
+  }
+  
+  .tableFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .deleteButton {
+    background: none;
+    border: none;
+    color: #cf2129;
+    cursor: pointer;
+  }
+  
+  .actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+  
+  .draftButton {
+    width: 94px;
+    height: 42px;
+    border-radius: 4px;
+    margin-left: 16px;
+    background-color: #eee7fe;
+    border: none;
+    font-size: 14px;
+    color: #4318d1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .saveButton {
+    width: 94px;
+    height: 42px;
+    border-radius: 4px;
+    margin-left: 16px;
+    background-color: #4318d1;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 991px) {
+    .formRow {
+      flex-direction: column;
+    }
+  
+    .formGroup {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  
+    .actionButtons {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    .draftButton,
+    .saveButton {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profileImg {
+      margin-top: 16px;
+    }
+  
+    .actionButtons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .draftButton,
+    .saveButton {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 16px;
+    }
+  }
+  

@@ -1,0 +1,101 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1128px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #eaeef4;
+}
+
+.tableHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeef4;
+  background-color: #f9fafb;
+  font-weight: bold;
+}
+
+.headerCell {
+  flex: 1;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #363565;
+  font-size: 14px;
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeef4;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #363565;
+  font-size: 14px;
+}
+
+.codeTag {
+  padding: 5px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.signatureBox {
+  width: 100px;
+  height: 40px;
+  background-color: #e0e0e0;
+  margin: 0 auto;
+}
+
+.editIcon {
+  color: #7c3aed;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  color: #ef4444;
+  cursor: pointer;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991px) {
+  .headerCell,
+  .tableCell {
+    font-size: 12px;
+  }
+
+  .codeTag {
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableContainer {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .headerCell,
+  .tableCell {
+    font-size: 10px;
+  }
+
+  .codeTag {
+    padding: 3px 6px;
+  }
+
+  .editIcon,
+  .deleteIcon {
+    font-size: 12px;
+  }
+}

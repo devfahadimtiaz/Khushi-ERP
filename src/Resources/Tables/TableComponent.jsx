@@ -104,7 +104,7 @@ const TableComponenet = ({ HeadData, data, onView, onEdit, onDelete }) => {
     >
       <path
         d="M11.25 3.75L4.375 11.25V15H8.125L15.625 7.5M11.25 3.75L13.125 1.875L16.875 5.625L15 7.5L11.25 3.75Z"
-        stroke="#344054"
+        stroke="#4318D1"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -122,7 +122,7 @@ const TableComponenet = ({ HeadData, data, onView, onEdit, onDelete }) => {
     >
       <path
         d="M16.875 4.375H3.125M8.125 8.125V13.125M11.875 8.125V13.125M15.625 4.375V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H5C4.83424 16.875 4.67527 16.8092 4.55806 16.6919C4.44085 16.5747 4.375 16.4158 4.375 16.25V4.375"
-        stroke="#344054"
+        stroke="#CF2129"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

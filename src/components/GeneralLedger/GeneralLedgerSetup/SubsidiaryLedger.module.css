@@ -1,0 +1,505 @@
+body{
+    background-color: rgba(246, 250, 253, 1);
+  }
+  .container {
+    width: 80%;
+    margin:auto;
+    margin-top: 80px;
+  }
+  
+  .contentWrapper {
+   
+    padding: 48px;
+  }
+  
+  .header {
+    display: flex;
+   
+    align-items: stretch;
+    gap: 20px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .title {
+    color: rgba(9, 44, 76, 1);
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .headerActions {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .addButton {
+    border-radius: 4px;
+    background-color: rgba(67, 24, 209, 1);
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 11px 24px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .profileImage {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 48px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .contentPanel {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 32px;
+    margin-bottom: 26px;
+  
+    padding: 24px;
+    padding-bottom: 41px;
+  }
+  
+  .filterHeader {
+    display: flex;
+    width: 700px;
+    max-width: 100%;
+    align-items: stretch;
+    gap: 20px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 14px;
+    color: rgba(54, 53, 101, 1);
+    font-weight: 500;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .filterLabel {
+    color: rgba(54, 53, 101, 1);
+  }
+  
+  .filterControls {
+    display: flex;
+    margin-top: 8px;
+    width: 100%;
+    align-items: stretch;
+    gap: 24px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    flex-wrap: wrap;
+  }
+  
+  .searchInput {
+    border-radius: 4px;
+    border: 1px solid rgba(229, 231, 235, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15px;
+    color: rgba(153, 153, 153, 1);
+  
+    flex: 1;
+  }
+  
+  .searchPlaceholder {
+    color: rgba(153, 153, 153, 1);
+    padding:16px 12px 16px 12px;
+    border: none;
+   width: 100%;
+    padding-top: 12px;
+  }
+  
+  .searchIcon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    margin-top: 10px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  
+  .statusSelect {
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid rgba(229, 231, 235, 1);
+    display: flex;
+    padding: 12px 16px;
+    align-items: stretch;
+    gap: 40px 100px;
+    color: rgba(0, 0, 0, 1);
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  
+  .selectPlaceholder {
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .dropdownIcon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    flex-shrink: 0;
+  }
+  
+  .tableContainer {
+    display: flex;
+    margin-top: 48px;
+    margin-left: 16px;
+    margin-right: 31px;
+    width: 100%;
+    max-width: 1081px;
+    align-items: stretch;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .serialColumn {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    color: rgba(54, 53, 101, 1);
+    font-weight: 400;
+  }
+  
+  .columnHeader {
+    font-weight: 700;
+    align-self: stretch;
+    color: rgba(54, 53, 101, 1);
+  }
+  
+  .serialItem {
+    margin-top: 42px;
+  }
+  
+  .serialItem:not(:first-of-type) {
+    margin-top: 51px;
+  }
+  
+  .showroomColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    color: rgba(9, 44, 76, 1);
+    font-weight: 500;
+  }
+  
+  .showroomItem {
+    margin-top: 33px;
+    align-self: stretch;
+  }
+  
+  .showroomName {
+    color: rgba(9, 44, 76, 1);
+    font-weight: 500;
+  }
+  
+  .showroomType {
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .locationColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    color: rgba(54, 53, 101, 1);
+    font-weight: 400;
+  }
+  
+  .locationItem {
+    margin-top: 33px;
+    align-self: stretch;
+  }
+  
+  .locationName {
+    color: rgba(54, 53, 101, 1);
+  }
+  
+  .locationPhone {
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+  }
+  
+  .dateColumn {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    color: rgba(54, 53, 101, 1);
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .dateItem {
+    align-self: start;
+    margin-top: 42px;
+    white-space: nowrap;
+  }
+  
+  .dateItem:not(:first-of-type) {
+    margin-top: 51px;
+  }
+  
+  .statusActionsColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .statusActionsHeader {
+    align-self: end;
+    display: flex;
+    width: 276px;
+    max-width: 100%;
+    align-items: stretch;
+    gap: 40px 100px;
+  }
+  
+  .statusHeader {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: center;
+    flex: 1;
+  }
+  
+  .actionsHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+  }
+  
+  .statusBadgeActive {
+    border-radius: 4px;
+    background-color: rgba(238, 231, 254, 1);
+    margin-top: 40px;
+    padding: 2px 12px;
+    color: rgba(67, 24, 209, 1);
+    font-weight: 400;
+    white-space: nowrap;
+    width: 71px;
+    text-align: center;
+  }
+  
+  .statusBadgeMaintenance {
+    border-radius: 4px;
+    background-color: rgba(255, 243, 224, 1);
+    align-self: stretch;
+    margin-top: 47px;
+    padding: 2px 12px;
+    color: rgba(245, 166, 35, 1);
+    text-align: center;
+  }
+  
+  .statusBadgeInactive {
+    border-radius: 4px;
+    background-color: rgba(251, 228, 228, 1);
+    margin-top: 47px;
+    width: 83px;
+    padding: 2px 12px;
+    color: rgba(207, 33, 41, 1);
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  .actionButtons {
+    display: flex;
+    margin-top: 36px;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .actionButtons:not(:first-of-type) {
+    margin-top: 39px;
+  }
+  
+  .actionIcon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 36px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  
+  .statusActionsContent {
+    display: flex;
+    margin-top: 39px;
+    align-items: stretch;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .statusColumn {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-direction: column;
+    align-items: center;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .actionsColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 991px) {
+    .mainWrapper {
+      max-width: 100%;
+    }
+  
+    .contentWrapper {
+      max-width: 100%;
+      padding: 48px 20px 100px;
+    }
+  
+    .header {
+      max-width: 100%;
+    }
+  
+    .addButton {
+      padding: 11px 20px;
+    }
+  
+    .contentPanel {
+      max-width: 100%;
+      margin-bottom: 10px;
+      padding: 24px 20px 41px;
+    }
+  
+    .filterControls {
+      max-width: 100%;
+    }
+  
+    .searchInput {
+      max-width: 100%;
+    }
+  
+    .statusSelect {
+      max-width: 100%;
+    }
+  
+    .tableContainer {
+      max-width: 100%;
+      margin-right: 10px;
+      margin-top: 40px;
+    }
+  
+    .serialItem {
+      margin-top: 40px;
+    }
+  
+    .serialItem:not(:first-of-type) {
+      margin-top: 40px;
+    }
+  
+    .locationName {
+      margin-right: 10px;
+    }
+  
+    .dateItem {
+      margin-top: 40px;
+      white-space: initial;
+    }
+  
+    .dateItem:not(:first-of-type) {
+      margin-top: 40px;
+    }
+  
+    .statusHeader {
+      white-space: initial;
+    }
+  
+    .statusBadgeActive {
+      white-space: initial;
+    }
+  
+    .statusBadgeMaintenance {
+      margin-top: 40px;
+    }
+  
+    .statusBadgeInactive {
+      margin-top: 40px;
+      white-space: initial;
+    }
+  }
+  
