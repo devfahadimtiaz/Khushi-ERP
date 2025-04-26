@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import styles from "./LogBookTransfers.module.css";
 import LogBookReceiptNote from "./LogBookReceiptNote";
 import CreateLogBookTransfer from "./CreateLogBookTransfer";

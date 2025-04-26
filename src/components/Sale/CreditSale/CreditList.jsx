@@ -42,7 +42,7 @@ const CreditReceipts = () => {
   };
  
 
-  if (selectedReceipt=="viewReceipt") {
+  if (selectedReceipt==="viewReceipt") {
     return (
       <CreditReceiptDetails receipt={selectedReceipt} onBack={handleBack} />
     );

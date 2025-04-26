@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./BankDetails.module.css";
 import TableComponent from "../../../Resources/Tables/TableComponent";
-import CreateCostProfitCenter from "./CreateCostProfitCenter";
 import InputDesign from "./AddBankDetails";
 
 const TableHeader = [
@@ -41,9 +40,6 @@ const TableData = [
 const BankDetails = ({ onBack }) => {
   const [showInputDesign, setShowInputDesign] = useState(false);
 
-  const handleAddNew = () => {
-    setShowInputDesign(true);
-  };
 
   const handleCancelCreate = () => {
 

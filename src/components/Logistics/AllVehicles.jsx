@@ -153,14 +153,14 @@ function AllVehicles({ onBackTodashboard, onTrucking, onFreight, onMyShipment, o
         <div className={styles.resultsCard}>
           <div className={styles.exportActions}>
             <div className={styles.exportButton}>
-              <img
+              <img alt="export"
                 src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/1bcc0db5d6908515fd24466a3177d6117d5947e1?placeholderIfAbsent=true"
                 className={styles.exportIcon}
               />
               <div>Save as PDF</div>
             </div>
             <div className={styles.exportButton}>
-              <img
+              <img alt="export"
                 src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/1bcc0db5d6908515fd24466a3177d6117d5947e1?placeholderIfAbsent=true"
                 className={styles.exportIcon}
               />

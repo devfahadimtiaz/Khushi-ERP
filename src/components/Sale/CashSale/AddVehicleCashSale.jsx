@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./AddVehicleCashSale.module.css";
-import CameraPopup from "../Componenet/CameraPopup";
 import SaleSummary from "./SaleSummary";
 import CashBuyerDetails from "./CashBuyerDetails";
 import Pricing from "./Pricing";
@@ -48,8 +47,6 @@ const AddVehicleCashSale = () => {
     documents: "",
     capturedImage: "",
   });
-
-  const [showCameraPopup, setShowCameraPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

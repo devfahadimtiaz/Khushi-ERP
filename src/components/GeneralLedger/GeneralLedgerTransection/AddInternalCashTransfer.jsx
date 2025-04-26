@@ -64,17 +64,6 @@ const InternalCashTransfer = ({ onBack }) => {
       .toFixed(2);
   };
 
-  const handleSave = () => {
-    // Implement save functionality
-    console.log("Saving form data:", formData);
-    console.log("Transfer details:", transferDetails);
-  };
-
-  const handleDraft = () => {
-    // Implement draft functionality
-    console.log("Saving as draft");
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>

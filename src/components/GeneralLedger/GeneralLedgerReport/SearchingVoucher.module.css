@@ -1,0 +1,452 @@
+.container {
+  width: 100%;
+  background-color: rgba(246, 250, 253, 1);
+}
+
+.rectangle {
+
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  padding: 48px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 24px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  margin: auto 0;
+}
+
+.headerIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 48px;
+  border-radius: 16777200px;
+  flex-shrink: 0;
+}
+
+.contentBox {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.contentInner {
+  display: flex;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formContainer {
+  align-self: stretch;
+}
+
+.formLayout {
+  gap: 20px;
+  display: flex;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width:69%;
+  margin-left: 0;
+}
+
+.inputGroup {
+  width: 100%;
+}
+
+.inputRow {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.inputRow:first-child {
+  margin-top: 0;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  
+}
+
+.labelContainer {
+  align-self: flex-start;
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.label {
+  color: rgba(54, 53, 101, 1);
+  align-self: flex-start;
+}
+
+.required {
+  color: rgba(207, 33, 41, 1);
+}
+
+.selectField {
+  border-radius: 4px;
+  background-color: #fff;
+  display: flex;
+  margin-top: 8px;
+  padding: 8px 16px;
+
+
+  color: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+
+}
+
+.dateField {
+  border-radius: 4px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  display: flex;
+  margin-top: 8px;
+  padding: 8px 53px;
+  flex-direction: column;
+
+  
+}
+
+.dropdownIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.calendarIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 24%;
+  margin-left: 20px;
+}
+
+.viewSelectField {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  margin-top: 8px;
+  width: 264px;
+  max-width: 100%;
+  padding: 8px 16px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  justify-content: space-between;
+}
+
+.actionButtons {
+  align-self: flex-end;
+  display: flex;
+  margin-top: 24px;
+  margin-right: 25px;
+  align-items: stretch;
+  gap: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(67, 24, 209, 1);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.tableComponenet{
+  padding: 10px;
+}
+.tableFooter {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 16px 24px;
+}
+.resetButton,
+.exportButton {
+  border-radius: 4px;
+  background-color: rgba(238, 231, 254, 1);
+  display: flex;
+  padding: 10px 16px;
+  align-items: stretch;
+  gap: 8px;
+  white-space: nowrap;
+  border: none;
+}
+
+.buttonIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.viewReportButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+}
+
+.tableHeader {
+  background-color: rgba(249, 250, 251, 1);
+  display: flex;
+  margin-top: 25px;
+  width: 100%;
+  padding: 17px 16px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tableHeaderLeft {
+  display: flex;
+  align-items: stretch;
+  gap: 86px;
+}
+
+.tableHeaderRight {
+  display: flex;
+  align-items: stretch;
+  gap: 82px;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.tableContent {
+  display: flex;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 100%;
+  max-width: 1144px;
+  align-items: flex-start;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(54, 53, 101, 1);
+  font-weight: 400;
+  justify-content: space-between;
+}
+
+.tableContentLeft {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  gap: 35px;
+}
+
+.voucherColumn,
+.dateColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.voucherColumn > div,
+.dateColumn > div,
+.typeColumn > div,
+.descriptionColumn > div,
+.debitColumn > div,
+.creditColumn > div,
+.balanceColumn > div {
+  margin-top: 33px;
+}
+
+.voucherColumn > div:first-child,
+.dateColumn > div:first-child,
+.typeColumn > div:first-child,
+.descriptionColumn > div:first-child,
+.debitColumn > div:first-child,
+.creditColumn > div:first-child,
+.balanceColumn > div:first-child {
+  margin-top: 0;
+}
+
+.recordCount {
+  color: rgba(107, 114, 128, 1);
+  align-self: stretch;
+  margin-top: 42px !important;
+}
+
+.typeColumn,
+.descriptionColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableContentRight {
+  display: flex;
+  align-items: stretch;
+  gap: 67px;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.debitColumn,
+.creditColumn,
+.balanceColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 991px) {
+  .rectangle {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .headerContainer {
+    max-width: 100%;
+  }
+
+  .contentBox {
+    max-width: 100%;
+  }
+
+  .contentInner {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formContainer {
+    max-width: 100%;
+  }
+
+  .formLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .leftColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .inputGroup {
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .rightColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  .dateField {
+    padding-left: 20px;
+  }
+
+  .actionButtons {
+    margin-right: 10px;
+  }
+
+  .resetButton,
+  .exportButton {
+    white-space: initial;
+  }
+
+  .tableHeader {
+    max-width: 100%;
+  }
+
+  .tableContent {
+    max-width: 100%;
+    margin-right: 10px;
+  }
+
+  .tableContentRight {
+    white-space: initial;
+  }
+
+  .recordCount {
+    margin-left: 8px;
+    margin-top: 40px !important;
+  }
+}

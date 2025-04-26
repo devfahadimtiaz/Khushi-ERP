@@ -2,8 +2,6 @@ import React from "react";
 import "./SixByFourTable.css"; // Make sure to import the CSS
 
 const SixByFourTable = ({row, column, data, headers }) => {
-  const rows = {row};
-  const columns = {column};
 
   return (
     <div className="table-container">

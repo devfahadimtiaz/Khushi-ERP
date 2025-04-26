@@ -1,0 +1,263 @@
+body{
+  background-color: #f6fafd;
+}
+.reportContainer {
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 48px;
+  font-family: "Inter", sans-serif;
+ 
+}
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.reportTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+}
+
+.profileImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+}
+
+.filterSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  margin-right: 24px;
+  vertical-align: middle;
+}
+
+.filterLabel {
+  font-size: 14px;
+  color: #363565;
+  margin-bottom: 4px;
+}
+
+.dropdownField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 480px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.dropdownText {
+  font-size: 14px;
+  color: #000;
+}
+
+.dropdownIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.searchField {
+  display: flex;
+  align-items: center;
+  width: 264px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  margin-right: 24px;
+}
+
+.searchPlaceholder {
+  font-size: 14px;
+  color: #999;
+}
+
+.searchIcon {
+  width: 16px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.exportButtonsContainer {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-top: 20px;
+  background-color: #eee7fe;
+  cursor: pointer;
+  border: none;
+}
+
+.exportIcon {
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+}
+
+.exportText {
+  font-size: 10px;
+  color: #4318d1;
+}
+
+.tableContainer {
+  display: table;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #363565;
+  text-align: center;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableCell {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: #363565;
+}
+
+.statusBadge {
+  font-size: 12px;
+  color: #047857;
+  width: 59px;
+  height: 23px;
+  border-radius: 16px;
+  background-color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tableFooter {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 16px 24px;
+}
+
+@media (max-width: 991px) {
+  .reportContainer {
+    max-width: 991px;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    margin-bottom: 16px;
+  }
+
+  .exportButtonsContainer {
+    flex-direction: column;
+  }
+
+  .exportButton {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reportContainer {
+    max-width: 640px;
+  }
+
+  .headerSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    margin-bottom: 16px;
+  }
+
+  .exportButtonsContainer {
+    flex-direction: column;
+  }
+
+  .exportButton {
+    margin-bottom: 8px;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableHeaderCell {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableCell {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .tableFooter {
+    padding: 16px 0;
+  }
+}

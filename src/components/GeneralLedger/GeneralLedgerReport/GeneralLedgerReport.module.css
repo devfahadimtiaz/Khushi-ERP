@@ -1,0 +1,226 @@
+body{
+  background-color: #f6fafd;
+}
+.container {
+  margin: 0 auto;
+  padding: 48px;
+  font-family: "Inter", sans-serif;
+  width: 80%;
+  margin-top: 80px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+  margin: 0;
+}
+
+.filterSection {
+  margin-bottom: 24px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  
+}
+.inputGroupDate {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.inputLabel {
+  font-size: 14px;
+  color: #363565;
+}
+
+.requiredMark {
+  color: #cf2129;
+  margin-left: 2px;
+}
+
+.selectField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 360px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #000;
+  border: 1px solid #e5e7eb;
+
+
+}
+
+.dateGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.dateField {
+  display: flex;
+  align-items: center;
+  width: 264px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0 12px;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #eee7fe;
+  border: none;
+  font-size: 14px;
+  color: #4318d1;
+}
+
+.actionButton svg {
+  margin-right: 8px;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #eee7fe;
+  border: none;
+  font-size: 14px;
+  color: #4318d1;
+}
+
+.tableContainer {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  margin-bottom: 16px;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 16px;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #363565;
+}
+
+.tableBody {
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 16px;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #363565;
+}
+
+.tableSummary {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 16px;
+}
+
+.pagination {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 16px 0;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .filterGroup {
+    flex-direction: column;
+  }
+
+  .selectField,
+  .dateField,
+  .actionButton,
+  .searchButton {
+    width: 100%;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .tableHeader,
+  .tableRow,
+  .tableSummary {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 8px 16px;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    width: 100%;
+  }
+
+  .pagination {
+    padding: 8px 0;
+  }
+}

@@ -2,26 +2,6 @@ import React, { useState } from "react";
 import styles from "./AddQuotationDocument.module.css";
 
 const AddQuotationDocument = ({ onBack }) => {
-  const [requestNo, setRequestNo] = useState("");
-  const [requestDate, setRequestDate] = useState("");
-  const [financialYear, setFinancialYear] = useState("Select Year");
-  const [activeMonths, setActiveMonths] = useState("");
-  const [quotationNo, setQuotationNo] = useState("");
-  const [purchaseType, setPurchaseType] = useState("Select Type");
-  const [quotationDate, setQuotationDate] = useState("");
-  const [status, setStatus] = useState("Draft");
-  const [supplier, setSupplier] = useState("Select Supplier");
-  const [address, setAddress] = useState("");
-  const [performaInvoice, setPerformaInvoice] = useState("Select Supplier");
-  const [bank, setBank] = useState("");
-  const [store, setStore] = useState("Select Store");
-  const [securityFee, setSecurityFee] = useState("Security Fee");
-  const [freeDate, setFreeDate] = useState("Select Store");
-  const [checkDD, setCheckDD] = useState("Security Fee");
-  const [remarks, setRemarks] = useState("Remarks");
-
-  const [selectedProduct, setSelectedProduct] = useState("Select Product");
-  const [selectedCategory, setSelectedCategory] = useState("Select Category");
 
   const [selectedItems, setSelectedItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -81,8 +61,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="text"
               className={styles.input}
-              value={requestNo}
-              onChange={(e) => setRequestNo(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
@@ -90,8 +68,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="date"
               className={styles.input}
-              value={requestDate}
-              onChange={(e) => setRequestDate(e.target.value)}
             />
           </div>
         </div>
@@ -113,8 +89,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="text"
               className={styles.input}
-              value={activeMonths}
-              onChange={(e) => setActiveMonths(e.target.value)}
             />
           </div>
         </div>
@@ -125,8 +99,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="text"
               className={styles.input}
-              value={quotationNo}
-              onChange={(e) => setQuotationNo(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
@@ -146,8 +118,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="date"
               className={styles.input}
-              value={quotationDate}
-              onChange={(e) => setQuotationDate(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
@@ -176,8 +146,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="text"
               className={styles.input}
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
         </div>
@@ -197,8 +165,6 @@ const AddQuotationDocument = ({ onBack }) => {
             <input
               type="text"
               className={styles.input}
-              value={bank}
-              onChange={(e) => setBank(e.target.value)}
             />
           </div>
         </div>

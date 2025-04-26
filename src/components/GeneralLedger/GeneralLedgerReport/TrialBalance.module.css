@@ -1,0 +1,251 @@
+body {
+  background-color: #f6fafd;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 48px;
+  font-family: "Inter", sans-serif;
+  width: 80%;
+  margin-top: 80px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+  margin: 0;
+}
+
+.filterCard {
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #fff;
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 200px;
+}
+
+.inputLabel {
+  font-size: 14px;
+  color: #363565;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.requiredMark {
+  color: #cf2129;
+  margin-left: 2px;
+}
+
+.selectField {
+  position: relative;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  color: #000;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 12px;
+}
+
+.dateField {
+  position: relative;
+  border-radius: 4px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  width: 95%;
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 12px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  vertical-align: middle;
+  margin-top: 25px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #4318d1;
+  background-color: #eee7fe;
+  border: none;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+}
+
+.searchButton {
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4318d1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableContainer {
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  margin-bottom: 16px;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  text-align: right;
+  color: #363565;
+  font-size: 14px;
+}
+
+.tableBody {
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableCell {
+  flex: 1;
+  text-align: right;
+  color: #363565;
+  font-size: 14px;
+}
+
+.tableSummary {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.tableSummaryCell {
+  flex: 1;
+  text-align: right;
+  color: #363565;
+  font-size: 14px;
+}
+
+.pagination {
+  padding: 16px 24px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .filterRow {
+    flex-direction: column;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .filterCard {
+    padding: 16px;
+  }
+
+  .filterRow {
+    gap: 16px;
+  }
+
+  .tableHeader,
+  .tableRow,
+  .tableSummary {
+    padding: 12px 16px;
+  }
+
+  .tableHeaderCell,
+  .tableCell,
+  .tableSummaryCell {
+    font-size: 12px;
+  }
+
+  .pagination {
+    padding: 12px 16px;
+  }
+
+  .actionButtons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .actionButton,
+  .searchButton {
+    flex: 1;
+  }
+}

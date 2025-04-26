@@ -20,7 +20,7 @@ function ModuleSelection(props) {
     <section className={styles.moduleSelection}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <img src={logo} className={styles.logo} />
+          <img alt="logo" src={logo} className={styles.logo} />
           <h1 className={styles.title}>Select Module</h1>
           <p className={styles.subtitle}>
             Choose the module you want to access

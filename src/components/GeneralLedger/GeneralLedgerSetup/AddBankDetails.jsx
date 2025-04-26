@@ -1,28 +1,5 @@
 import React from "react";
 import styles from "./AddBankDetails.module.css";
-// Sample data for the table
-const bankDetails = [
-  {
-    id: 1,
-    glCode: "1001",
-    subCode: "SUB-A",
-    branchName: "Main Branch",
-    iban: "AE123456789",
-    type: "Savings",
-    contactPerson: "John Smith",
-    email: "john@example.com",
-  },
-  {
-    id: 2,
-    glCode: "1001",
-    subCode: "SUB-A",
-    branchName: "Main Branch",
-    iban: "AE123456789",
-    type: "Savings",
-    contactPerson: "John Smith",
-    email: "john@example.com",
-  },
-];
 
 const AddBankDetails = ({ onCancel }) => {
   const EditIcon = () => (

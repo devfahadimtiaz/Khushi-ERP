@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import styles from "./AddPayment.module.css";
 
 const AddPayment = ({ onBack }) => {
-  const [reference, setReference] = useState("Refx");
   const [paymentNumber, setPaymentNumber] = useState("");
   const [voucherNumber, setVoucherNumber] = useState("");
   const [paymentDate, setPaymentDate] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("Select Method");
-  const [financialYear, setFinancialYear] = useState("Select Year");
-  const [month, setMonth] = useState("Select Month");
-  const [currency, setCurrency] = useState("Select Currency");
+
+
   const [accountCode, setAccountCode] = useState("");
   const [subCode, setSubCode] = useState("");
   const [enteredBy, setEnteredBy] = useState("");
@@ -20,14 +17,11 @@ const AddPayment = ({ onBack }) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log({
-      reference,
+
       paymentNumber,
       voucherNumber,
       paymentDate,
-      paymentMethod,
-      financialYear,
-      month,
-      currency,
+
       accountCode,
       subCode,
       enteredBy,

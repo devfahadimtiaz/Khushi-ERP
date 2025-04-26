@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./AddVehicleSale.module.css";
-import CameraPopup from "../Componenet/CameraPopup";
 import BuyerDetails from "./BuyerDetails";
 import NomineeDetails from "./NomineeDetails";
 import GuarantorDetails from "./GuarantorDetails";
@@ -50,7 +49,6 @@ const AddVehicleSale = () => {
     capturedImage: "",
   });
 
-  const [showCameraPopup, setShowCameraPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./PurchaseReturnRequest.module.css";
 import TableComponenet from "../../../Resources/Tables/TableComponent";
-import AddPurchaseReturnRequest from "./AddPurchaseReturnRequest";
 
 const TableHeader = [
   { label: "No", key: "no" },

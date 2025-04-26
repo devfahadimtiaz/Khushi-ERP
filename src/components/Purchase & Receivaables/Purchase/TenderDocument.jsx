@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from "./QuotationDocument.module.css";
-import AddQuotationDocument from "./AddQuotationDocument"
 
 const sampleData = [
   {

@@ -4,8 +4,6 @@ import PaymentSuccessPopup from "./PaymentSuccessPopup";
 
 function AddPayment({ receipt, onCancel }) {
   const [paymentAmount, setPaymentAmount] = useState("");
-  const [paymentType, setPaymentType] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("");
   const [paymentDate, setPaymentDate] = useState("");
   const [referenceNumber, setReferenceNumber] = useState("");
   const [notes, setNotes] = useState("");
@@ -16,8 +14,6 @@ function AddPayment({ receipt, onCancel }) {
     // Process payment submission logic here
     console.log({
       paymentAmount,
-      paymentType,
-      paymentMethod,
       paymentDate,
       referenceNumber,
       notes,
@@ -39,7 +35,6 @@ function AddPayment({ receipt, onCancel }) {
           paymentAmount={paymentAmount}
           referenceNumber={referenceNumber}
           paymentDate={paymentDate}
-          paymentMethod={paymentMethod}
         />
       )}
       <div className={styles.rectangle}>

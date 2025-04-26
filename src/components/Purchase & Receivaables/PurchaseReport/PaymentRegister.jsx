@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import styles from "./PaymentRegister.module.css";
 import TableComponenet from "../../../Resources/Tables/TableComponent";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';

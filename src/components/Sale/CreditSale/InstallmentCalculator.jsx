@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./InstallmentCalculator.module.css";
-import CameraPopup from "../Componenet/CameraPopup";
+
 
 const InstallmentCalculator = () => {
   const sampleData = [
@@ -51,7 +51,6 @@ const InstallmentCalculator = () => {
     documents: "",
     capturedImage: "",
   });
-  const [showCameraPopup, setShowCameraPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,11 +60,6 @@ const InstallmentCalculator = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-  };
   return (
     <>
       <div className={styles.formSection}>

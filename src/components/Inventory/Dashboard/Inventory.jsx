@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Inventory.module.css";
-import logo from "../../../uploads/KM-LOGO.png";
 import LogoSlider from "./LogoSlider";
 import StockOverview from "../../StockOverview";
 import Tabels from "../../../Resources/Tables/Tabel";
 import FilterSystem from "./FilterSystem";
-import AddStock from "../InventoryManagement/AddStock";
 
 
 
 function Inventory({ onBack, onNavigateToAddStock }) {
-  const [showAddStock, setShowAddStock] = useState(false);
 
   const makerHeaders=["Sr","Make","Model","Year","Stock","Price","Status"]
   const makeData=[["1","Toyota","Crown","2021","Active","Price","Inv Comit"],["2","Toyota","Crown","2021","Active","Price","Inv Comit"],["3","Toyota","Crown","2021","Active","Price","Inv Comit"]]
@@ -26,7 +23,7 @@ function Inventory({ onBack, onNavigateToAddStock }) {
         <div className={styles.topActions}>
           <div className={styles.searchBox}>
             <div className={styles.searchText}>Search by maker or model...</div>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/35e7907c3f1b8461ec1d8d277f576e35f9e96b6e?placeholderIfAbsent=true" className={styles.searchIcon} />
+            <img alt="search" src="https://cdn.builder.io/api/v1/image/assets/TEMP/35e7907c3f1b8461ec1d8d277f576e35f9e96b6e?placeholderIfAbsent=true" className={styles.searchIcon} />
           </div>
           <button
                    className={styles.addButton}

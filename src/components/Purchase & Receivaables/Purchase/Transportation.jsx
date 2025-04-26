@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Transportation.module.css";
 import TableComponenet from "../../../Resources/Tables/TableComponent";
-import AddPurchaseOrder from "./AddPurchaseOrder";
 
 const TableHeader = [
   { label: "No", key: "no" },

@@ -3,7 +3,6 @@ import styles from "./ExpenseTracker.module.css";
 
 function ExpenseTracker() {
   const [expenses, setExpenses] = useState([]);
-  const [expenseType, setExpenseType] = useState("Purchase");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
   const [notes, setNotes] = useState("");
@@ -12,7 +11,6 @@ function ExpenseTracker() {
     if (!amount || !date) return;
 
     const newExpense = {
-      type: expenseType,
       amount: parseFloat(amount),
       date,
       notes,
@@ -41,7 +39,6 @@ function ExpenseTracker() {
             <div className={styles.formGroup}>
               <div className={styles.label}>Expense Type</div>
               <div className={styles.selectWrapper}>
-                <div className={styles.select}>{expenseType}</div>
                 <div className={styles.selectArrow}>
                   <svg
                     width="10"

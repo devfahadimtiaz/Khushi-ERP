@@ -1,0 +1,220 @@
+.container {
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+  background-color: #f8fdfc;
+  width: 100%;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #3b3b3b;
+}
+
+.title {
+  font-size: 24px;
+  color: #3b3b3b;
+}
+
+.addButton {
+  background-color: #5c3bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.overviewCard {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 320px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color:#4318D1 ;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  color: #fff;
+  background-color:#4318D1 ;
+  padding:20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.cardTitles{
+  font-size: 18px;
+ color: #fff;
+
+}
+
+.select {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.expenseName{
+  text-align: left;
+}
+.categoryDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.orangeDot {
+  background-color: #ff8c00;
+}
+
+.greenDot {
+  background-color: #32cd32;
+}
+
+.blueDot {
+  background-color: #1e90ff;
+}
+
+.yellowDot {
+  background-color: #ffd700;
+}
+
+.grayDot {
+  background-color: #a9a9a9;
+}
+
+.expensesCard {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.expensesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  color: #3b3b3b;
+}
+
+.headerCell {
+  font-size: 24px;
+  color: #3b3b3b;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.statusCompleted {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #e0ffe0;
+  color: #008000;
+}
+
+.statusPending {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #fffacd;
+  color: #ff8c00;
+}
+
+.statusRejected {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #ffe0e0;
+  color: #ff0000;
+}
+
+@media (max-width: 991px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+
+  .overviewCard {
+    width: 100%;
+  }
+
+  .expensesCard {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .addButton {
+    margin-top: 10px;
+  }
+
+  .contentWrapper {
+    gap: 10px;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

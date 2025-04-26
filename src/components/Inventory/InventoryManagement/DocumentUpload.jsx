@@ -115,7 +115,7 @@ function DocumentUpload() {
       <div className={styles.documentsGrid}>
         {documents.map((doc) => (
           <div key={doc.id} className={styles.documentCard}>
-            <img src={pdfIcon} className={styles.pdfIcon}/>
+            <img alt="pic" src={pdfIcon} className={styles.pdfIcon}/>
             <div className={styles.documentName}>{doc.name}</div>
             <div className={styles.documentActions}>
               <button
@@ -123,12 +123,12 @@ function DocumentUpload() {
                 onClick={() => handleViewDocument(doc.id)}
                 aria-label="View document"
               >
-                <img src={view} className={styles.viewIcon} />
+                <img alt="view" src={view} className={styles.viewIcon} />
               </button>
               <button
                 className={styles.actionButton}
                 aria-label="Delete document"
-              ><img src={download} className={styles.viewIcon} />
+              ><img alt="download" src={download} className={styles.viewIcon} />
                
               </button>
             </div>

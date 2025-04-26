@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./DutyCalculator.module.css";
 
 const DutyCalculator = ({ onBack }) => {
-  const [selectedCountry, setSelectedCountry] = useState("Kenya");
   const [vehiclePrice, setVehiclePrice] = useState("");
   const [engineSize, setEngineSize] = useState("");
   const [vehicleAge, setVehicleAge] = useState("");
@@ -15,14 +14,12 @@ const DutyCalculator = ({ onBack }) => {
     hybridRebate: 0,
     totalCost: 0,
   });
-  const [hasCalculated, setHasCalculated] = useState(false);
 
   const handleCalculate = () => {
     // This is a simplified calculation logic
     // In a real application, this would be more complex based on actual duty rules
     const basePrice = parseFloat(vehiclePrice) || 0;
     const engine = parseFloat(engineSize) || 0;
-    const age = parseFloat(vehicleAge) || 0;
 
     // Sample calculation logic (would be replaced with actual formulas)
     const freight = basePrice * 0.1;
@@ -42,7 +39,6 @@ const DutyCalculator = ({ onBack }) => {
       totalCost: total.toFixed(2),
     });
 
-    setHasCalculated(true);
   };
 
   return (
@@ -53,7 +49,7 @@ const DutyCalculator = ({ onBack }) => {
           <div className={styles.formGroup}>
             <label className={styles.inputLabel}>Select Country</label>
             <div className={styles.countrySelector}>
-              <span>{selectedCountry}</span>
+
               <div className={styles.dropdownArrow}>
                 <svg
                   width="10"

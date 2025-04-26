@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import NavToggle from "./components/Navbar/NavToggle";
 import Dashboard from "./components/Dashboard";
+import SubsidiaryGeneralLedger from "./components/GeneralLedger/GeneralLedgerReport/SubsidiaryGeneralLedger";
+import TrialBalance from "./components/GeneralLedger/GeneralLedgerReport/TrialBalance";
 import AddGarage from "./components/Inventory/GarageManagement/AddGarage";
 import GarageList from "./components/Inventory/GarageManagement/GarageList";
 import ModuleSelection from "./components/ModuleSelection";
@@ -71,7 +73,7 @@ import ChartOfAccountsSetup from "./components/GeneralLedger/GeneralLedgerSetup/
 import CurrencyManagement from "./components/GeneralLedger/GeneralLedgerSetup/CurrencyManagement";
 import SubsidiaryLedger from "./components/GeneralLedger/GeneralLedgerSetup/SubsidiaryLedger";
 import VoucherSetup from "./components/GeneralLedger/GeneralLedgerSetup/VoucherSetup";
-import SubsidiaryFileSetup from "./components/GeneralLedger/GeneralLedgerSetup/SubsidiaryFileSetup"
+import SubsidiaryFileSetup from "./components/GeneralLedger/GeneralLedgerSetup/SubsidiaryFileSetup";
 import BankDetails from "./components/GeneralLedger/GeneralLedgerSetup/BankDetails";
 import CashAccountDetails from "./components/GeneralLedger/GeneralLedgerSetup/CashAccountDetails";
 import CreditAccountDetails from "./components/GeneralLedger/GeneralLedgerSetup/CreditAccountDetails";
@@ -79,6 +81,15 @@ import FinancialYearList from "./components/GeneralLedger/GeneralLedgerTransecti
 import OpeningBalance from "./components/GeneralLedger/GeneralLedgerTransection/OpeningBalance";
 import OpeningBalanceVouchers from "./components/GeneralLedger/GeneralLedgerTransection/OpeningBalanceVouchers";
 import InternalCashTransfer from "./components/GeneralLedger/GeneralLedgerTransection/InternalCashTransfer";
+import AccountListingReport from "./components/GeneralLedger/GeneralLedgerReport/AccountListingReport";
+import SearchingVoucher from "./components/GeneralLedger/GeneralLedgerReport/SearchingVoucher";
+import GeneralLedger from "./components/GeneralLedger/GeneralLedgerReport/GeneralLedgerReport";
+import SubsidiaryGeneralLedgerReport from "./components/GeneralLedger/GeneralLedgerReport/SubsidiaryGeneralLedger";
+import ProfitAndLossStatement from "./components/GeneralLedger/GeneralLedgerReport/ProfitAndLossStatement";
+import BalanceSheet from "./components/GeneralLedger/GeneralLedgerReport/BalanceSheet";
+import BrandAssets from "./components/Branding/BrandAssets";
+import ExpenseManagement from "./components/Purchase & Receivaables/Expense/ExpenseManagement";
+import ExpenseSheet from "./components/Purchase & Receivaables/Expense/RecentExpensesTable";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -114,13 +125,6 @@ function App() {
   const navigateToDutyCalculator = () => {
     setCurrentView("duty-calculator");
   };
-
-
-
-
-
-
-
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -303,25 +307,45 @@ function App() {
       case "currencyManagement":
         return <CurrencyManagement onBack={navigateToDashboard} />;
       case "subsidiaryLedger":
-        return <SubsidiaryLedger onBack={navigateToDashboard}/>
+        return <SubsidiaryLedger onBack={navigateToDashboard} />;
       case "voucherSetup":
-        return <VoucherSetup onBack={navigateToDashboard}/>
+        return <VoucherSetup onBack={navigateToDashboard} />;
       case "subsidiaryFileSetup":
-        return <SubsidiaryFileSetup onBack={navigateToDashboard}/>
+        return <SubsidiaryFileSetup onBack={navigateToDashboard} />;
       case "bankDetails":
-        return <BankDetails onBack={navigateToDashboard}/>
+        return <BankDetails onBack={navigateToDashboard} />;
       case "cashAccountDetails":
-        return <CashAccountDetails onBack={navigateToDashboard}/>
+        return <CashAccountDetails onBack={navigateToDashboard} />;
       case "creditAccountDetails":
-        return <CreditAccountDetails onBack={navigateToDashboard}/>
+        return <CreditAccountDetails onBack={navigateToDashboard} />;
       case "financialYearList":
-        return <FinancialYearList onBack={navigateToDashboard}/>
+        return <FinancialYearList onBack={navigateToDashboard} />;
       case "openingBalance":
-        return <OpeningBalance onBack={navigateToDashboard}/>
+        return <OpeningBalance onBack={navigateToDashboard} />;
       case "openingBalanceVouchers":
-        return <OpeningBalanceVouchers onBack={navigateToDashboard}/>
+        return <OpeningBalanceVouchers onBack={navigateToDashboard} />;
       case "internalCashTransfer":
-        return <InternalCashTransfer onBack={navigateToDashboard}/>
+        return <InternalCashTransfer onBack={navigateToDashboard} />;
+      case "accountListingReport":
+        return <AccountListingReport onBack={navigateToDashboard} />;
+      case "searchingVoucher":
+        return <SearchingVoucher onBack={navigateToDashboard} />;
+      case "generalLedgerReport":
+        return <GeneralLedger onBack={navigateToDashboard} />;
+      case "subsidiaryGeneralLedgerReport":
+        return <SubsidiaryGeneralLedger onBack={navigateToDashboard} />;
+      case "trialBalance":
+        return <TrialBalance onBack={navigateToDashboard} />;
+      case "profitandLossStatement":
+        return <ProfitAndLossStatement onBack={navigateToDashboard} />;
+      case "balanceSheet":
+        return <BalanceSheet onBack={navigateToDashboard} />;
+      case "branding":
+        return <BrandAssets/>
+      case "expenseManagement":
+        return <ExpenseManagement/>
+      case "expenseSheet":
+        return <ExpenseSheet/>
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

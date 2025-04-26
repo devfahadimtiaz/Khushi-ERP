@@ -45,9 +45,6 @@ const TableData = [
 const OpeningBalance = ({ onBack }) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
 
-  const handleAddNew = () => {
-    setShowCreateForm(true);
-  };
 
   const handleCancelCreate = () => {
     setShowCreateForm(false);

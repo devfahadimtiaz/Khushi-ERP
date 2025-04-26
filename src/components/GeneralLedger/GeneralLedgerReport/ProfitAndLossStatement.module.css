@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+.container {
+  max-width: 1272px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 48px;
+  margin-top: 80px;
+  font-family: "Inter", sans-serif;
+  background-color: #f6fafd;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #092c4c;
+  margin-bottom: 24px;
+}
+
+.filterCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #fff;
+}
+
+.reportCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 200px;
+}
+
+.inputLabel {
+  display: block;
+  font-size: 14px;
+  color: #363565;
+  margin-bottom: 8px;
+}
+
+.requiredMark {
+  color: #cf2129;
+}
+
+.selectField {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.selectField {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+}
+.selectDateField{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 92%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  height: 22px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.placeholderText {
+  color: #cf2129;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 20px;
+  margin-top: 22px;
+}
+
+.resetButton,
+.printButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #4318d1;
+  background-color: #eee7fe;
+  border: none;
+}
+
+.resetButton svg,
+.printButton svg {
+  margin-right: 4px;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4318d1;
+  border: none;
+}
+
+.reportSection {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #363565;
+  margin-bottom: 16px;
+}
+
+.reportRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.reportLabel,
+.reportValue {
+  font-size: 14px;
+  color: #363565;
+}
+
+.reportTotal {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.reportSummary {
+  border-top: 2px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summaryLabel,
+.summaryValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #363565;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .filterRow {
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    min-width: 100%;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .filterCard,
+  .reportCard {
+    padding: 16px;
+  }
+
+  .filterRow {
+    gap: 16px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resetButton,
+  .printButton,
+  .searchButton {
+    width: 100%;
+  }
+}

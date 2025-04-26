@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./BillOfLadingExportDeclaration.module.css";
-import alertIcon from "../../uploads/icons/alert-icon.svg";
 import NavigationTabs from "./Component/NavigationTabs"
 
 const sampleData = [

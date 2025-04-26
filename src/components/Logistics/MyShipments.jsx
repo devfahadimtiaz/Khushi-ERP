@@ -43,34 +43,6 @@ const sampleData = [
 ];
 function MyShipments({ onBackTodashboard, navigateTo }) {
   // Sample shipment data
-  const shipments = [
-    {
-      id: 1,
-      details: "Toyota Camry 2023",
-      portFrom: "Yokohama",
-      portTo: "Dubai",
-      destination: "USA",
-      units: "2",
-      etd: "2024-02-15",
-      eta: "2024-03-01",
-      bookingNo: "BK123456",
-      vesselNo: "VS789",
-      status: "In Transit",
-    },
-    {
-      id: 2,
-      details: "Honda Civic 2024",
-      portFrom: "Tokyo",
-      portTo: "Singapore",
-      destination: "Australia",
-      units: "1",
-      etd: "2024-02-20",
-      eta: "2024-03-10",
-      bookingNo: "BK789012",
-      vesselNo: "VS456",
-      status: "Scheduled",
-    },
-  ];
 
   return (
     <div className={styles.container}>

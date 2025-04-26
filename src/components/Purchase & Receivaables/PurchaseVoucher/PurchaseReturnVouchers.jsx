@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./PurchaseReturnVouchers.module.css";
 import TableComponenetVoucher from "../../../Resources/Tables/TableComponentVoucher";
 

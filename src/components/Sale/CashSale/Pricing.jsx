@@ -1,37 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Pricing.module.css";
-import CameraPopup from "../Componenet/CameraPopup";
 
 const Pricing = () => {
-  const sampleData = [
-    {
-      srNo: "1",
-      installmentNo: "Installment 1",
-      dueDate: "April 1, 2025",
-      motorVehicleAmount: "10000",
-      insuranceAmount: "200",
-      trackerAmount: "100",
-      total: "10300",
-    },
-    {
-      srNo: "2",
-      installmentNo: "Installment 2",
-      dueDate: "May 1, 2025",
-      motorVehicleAmount: "10000",
-      insuranceAmount: "200",
-      trackerAmount: "100",
-      total: "10300",
-    },
-    {
-      srNo: "3",
-      installmentNo: "Installment 3",
-      dueDate: "June 1, 2025",
-      motorVehicleAmount: "10000",
-      insuranceAmount: "200",
-      trackerAmount: "100",
-      total: "10300",
-    },
-  ];
   const [formData, setFormData] = useState({
     // Buyer details
     firstName: "",
@@ -51,7 +21,7 @@ const Pricing = () => {
     documents: "",
     capturedImage: "",
   });
-  const [showCameraPopup, setShowCameraPopup] = useState(false);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,11 +31,6 @@ const Pricing = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-  };
   return (
     <>
       <div className={styles.formSection}>

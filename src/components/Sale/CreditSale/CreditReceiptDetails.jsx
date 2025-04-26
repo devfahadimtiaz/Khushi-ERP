@@ -23,7 +23,7 @@ const [selectedReceipt, setSelectedReceipt] = useState("");
   };
  
 
-  if (selectedReceipt=="addPayment") {
+  if (selectedReceipt==="addPayment") {
     return (
       <AddPayment onBack={onCancel}/>
     );

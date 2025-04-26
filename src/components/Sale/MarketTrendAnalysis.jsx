@@ -149,7 +149,7 @@ const MarketTrendAnalysis = () => {
               </div>
               <div className={styles.priceTrendCard}>
                 <div className={styles.cardTitle}>Price Trend Analysis</div>
-                <img src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/0561941da90c6afd8b838a59e03df85561b3d581?placeholderIfAbsent=true" className={styles.chartImage} />
+                <img alt="img" src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/0561941da90c6afd8b838a59e03df85561b3d581?placeholderIfAbsent=true" className={styles.chartImage} />
               </div>
             </div>
           </div>

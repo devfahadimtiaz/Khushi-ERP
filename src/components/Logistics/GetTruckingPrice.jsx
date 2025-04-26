@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./GetTruckingPrice.module.css";
-import AllVehicles from "./AllVehicles";
 import CreateTruckingOrder from "./CreateTruckingOrder";
 import ViewTruckingOrders from "./ViewTruckingOrders";
 import NavigationTabs from "./Component/NavigationTabs";
