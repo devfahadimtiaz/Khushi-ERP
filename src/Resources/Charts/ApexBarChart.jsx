@@ -10,6 +10,9 @@ const ApexChart = () => {
       },
     ],
     options: {
+      colors: [
+        "#4318D1"
+      ],
       chart: {
         height: 350,
         type: "bar",
@@ -18,7 +21,9 @@ const ApexChart = () => {
         bar: {
           borderRadius: 10,
           dataLabels: {
-            position: "center",// top, center, bottom
+            position: "center",
+            
+            // top, center, bottom
           },
         },
       },
@@ -30,7 +35,7 @@ const ApexChart = () => {
         offsetY: 0,
         style: {
           fontSize: "12px",
-          colors: ["#304758"],
+          colors: ["#fff"],
         },
       },
 
@@ -60,8 +65,8 @@ const ApexChart = () => {
           fill: {
             type: "gradient",
             gradient: {
-              colorFrom: "#D8E3F0",
-              colorTo: "#BED1E6",
+              colorFrom: "#4318D1",
+              colorTo: "#4318D1",
               stops: [0, 100],
               opacityFrom: 0.4,
               opacityTo: 0.5,
@@ -92,7 +97,7 @@ const ApexChart = () => {
         offsetY: 430,
         align: "center",
         style: {
-          color: "#444",
+          color: "#4318D1",
         },
       },
     },

@@ -50,23 +50,15 @@ function SalesOverview({ isOpen, onClose }) {
                   <div className={styles.cardTitle}>Recent Sales</div>
                   <div className={styles.sortContainer}>
                     <span>Sort by:</span>
-                    <div className={styles.sortSelector}>
-                      <span>Most Recent</span>
-                      <div>
-                        <svg
-                          width="9"
-                          height="9"
-                          viewBox="0 0 9 9"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.625 3.75L4.5 5.625L6.375 3.75H2.625Z"
-                            fill="#979699"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
+                   
+               
+                    <select className={styles.periodSelector}>
+                <option>This Month</option>
+                <option>Last Month</option>
+                <option>Quatarly</option>
+                <option>Yearly</option>
+              </select>
+                    
                   </div>
                 </div>
 
@@ -213,23 +205,14 @@ function SalesOverview({ isOpen, onClose }) {
                 </div>
               </div>
               <div className={styles.sectionActions}>
-                <div className={styles.periodFilter}>
-                  <span>Last 6 Months</span>
-                  <div>
-                    <svg
-                      width="9"
-                      height="9"
-                      viewBox="0 0 9 9"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.625 3.75L4.5 5.625L6.375 3.75H2.625Z"
-                        fill="#979699"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
+              <select className={styles.periodSelector}>
+                <option>This Month</option>
+                <option>Last Month</option>
+                <option>6 Month</option>
+                <option>Quatarly</option>
+                <option>Yearly</option>
+              </select>
+                
                 <div className={styles.downloadButton}>Download Report</div>
               </div>
             </div>
@@ -256,39 +239,19 @@ function SalesOverview({ isOpen, onClose }) {
                     <div className={styles.statLargeValue}>104,700</div>
                   </div>
                 </div>
-
-                <div className={styles.trendSection}>
-                  <div className={styles.trendTitle}>Monthly Sales Trend</div>
-                  <div className={styles.trendBrands}>
-                    <span>Land Rovers</span>
-                    <br />
-                    <span>Toyota</span>
-                  </div>
-                </div>
               </div>
 
               <div className={styles.transactionsCard}>
                 <div className={styles.cardHeader}>
-                  <div className={styles.cardTitle}>Recent Transactions</div>
+                  <div className={styles.cardTitle}>Due Payments</div>
                   <div className={styles.sortContainer}>
                     <span>Sort by:</span>
-                    <div className={styles.sortSelector}>
-                      <span>Most Recent</span>
-                      <div>
-                        <svg
-                          width="9"
-                          height="9"
-                          viewBox="0 0 9 9"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.625 3.75L4.5 5.625L6.375 3.75H2.625Z"
-                            fill="#979699"
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
+                    <select className={styles.periodSelector}>
+                <option>This Month</option>
+                <option>Last Month</option>
+                <option>Quatarly</option>
+                <option>Yearly</option>
+              </select>
                   </div>
                 </div>
 
@@ -296,9 +259,10 @@ function SalesOverview({ isOpen, onClose }) {
                   <div className={styles.transactionsHeader}>
                     <div>Date</div>
                     <div>Customer</div>
-                    <div>Variant</div>
+                    <div>Stock Code</div>
                     <div>Location</div>
                     <div>Price</div>
+                    <div>Action</div>
                   </div>
                 </div>
               </div>

@@ -43,7 +43,7 @@
 }
 
 .title {
-  color: #363565;
+  color: #4318D1;
   text-align: center;
   margin-top: 24px;
   font-family:
@@ -53,7 +53,7 @@
     Helvetica,
     sans-serif;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .subtitle {
@@ -114,9 +114,9 @@
   border-radius: 12px;
   flex-direction: column;
   flex-grow: 1;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
-  padding: 40px 10px 40px 10px;
+  padding: 50px 10px 50px 10px;
   font-family:
     Inter,
     -apple-system,
@@ -259,7 +259,7 @@
 .continueButton {
   color: #fff;
   text-align: center;
-  background-color: #2371e2;
+  background-color: #4318D1;
   opacity: 50%;
   border-radius: 8px;
   border: none;

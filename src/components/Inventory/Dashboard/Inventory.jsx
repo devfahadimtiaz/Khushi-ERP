@@ -22,7 +22,7 @@ function Inventory({ onBack, onNavigateToAddStock }) {
       <div className={styles.contentWrapper}>
         <div className={styles.topActions}>
           <div className={styles.searchBox}>
-            <div className={styles.searchText}>Search by maker or model...</div>
+            <input type="text" placeholder="Search by maker or model..." className={styles.searchText}/>
             <img alt="search" src="https://cdn.builder.io/api/v1/image/assets/TEMP/35e7907c3f1b8461ec1d8d277f576e35f9e96b6e?placeholderIfAbsent=true" className={styles.searchIcon} />
           </div>
           <button
@@ -38,13 +38,9 @@ function Inventory({ onBack, onNavigateToAddStock }) {
         </div>
         <div className={styles.viewSection}>
           <div className={styles.viewControls}>
-            
-            <div className={styles.viewAllContainer}>
               <div className={styles.viewAllImage}>
                 <LogoSlider/>
               </div>
-              <button className={styles.viewAllText}>View All Inventory</button>
-            </div>
           </div>
           <div className={styles.statsGrid}>
             <div className={styles.statsColumn}>
@@ -116,7 +112,6 @@ function Inventory({ onBack, onNavigateToAddStock }) {
             <div className={styles.tableFilter}>
               <div className={styles.filterDropdown}>
                 <div>All Makers</div>
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f8dccfdecc122af481de197ec5bec0d29f7f7b5?placeholderIfAbsent=true" className={styles.dropdownArrow} />
                 
               </div>
               

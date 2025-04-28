@@ -11,6 +11,9 @@ const ApexColumnChart = ({name}) => {
       
     ],
     options: {
+      colors: [
+        "#4318D1"
+      ],
       chart: {
         type: "bar",
         height: 250,
@@ -65,7 +68,7 @@ const ApexColumnChart = ({name}) => {
         options={state.options}
         series={state.series}
         type="bar"
-        height={200}
+        height={230}
       />
     </div>
   );

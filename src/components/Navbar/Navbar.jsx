@@ -107,18 +107,32 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Inventory",
       subItems: [
         { id: "inventory-dashboard", label: "Inventory Dashboard" },
+        { id: "inventorydetails", label: "Inventory", 
+          subItems:[
+            { id: "stock", label: "Inventory List View" },
+            { id: "inventory-grid", label: "Inventory Grid View" },
+            { id: "add-stock", label: "Add Stock" },
+            { id: "parking-zone-management", label: "Parking Zone Management" },
+
+        ],
+       },
         { id: "garage", label: "Garage List" },
-        { id: "stock", label: "Inventory List View" },
-        { id: "inventory-grid", label: "Inventory Grid View" },
-        { id: "add-stock", label: "Add Stock" },
-        { id: "vehicle-transfer", label: "Vehicle Transfer" },
-        { id: "incoming-vehicle-transfers", label: "Incoming Vehicle" },
-        { id: "parking-zone-management", label: "Parking Zone Management" },
-        { id: "vehicleRepairDetails", label: "Vehicle Repair Details" },
-        { id: "repairTaskManagement", label: "Repair Task Management" },
-        { id: "voucherManagement", label: "Repair Voucher Management" },
-        { id: "roadTestForm", label: "Road Test Form" },
-        { id: "roadTestRecord", label: "Road Test Record" },
+
+        { id: "vehicle-transfer", label: "Vehicle Transfer", subItems:[
+          { id: "vehicle-transfer", label: "Vehicle Transfer To" },
+          { id: "incoming-vehicle-transfers", label: "Incoming Vehicle" },
+        ], },
+  
+        { id: "vehicleRepairDetails", label: "Vehicle Repair Details", subItems:[
+          { id: "vehicleRepairDetails", label: "Vehicle Repair Details"},
+          { id: "repairTaskManagement", label: "Repair Task Management" },
+          { id: "voucherManagement", label: "Repair Voucher Management" },
+        ], },
+        { id: "roadTest", label: "Road Test", subItems:[
+          { id: "roadTestForm", label: "Road Test Form" },
+          { id: "roadTestRecord", label: "Road Test Record" },
+        ] },
+ 
       ],
     },
     {
@@ -140,13 +154,19 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Sales",
       subItems: [
         { id: "salesDashboard", label: "Sales Dashboard" },
-        { id: "cashSaleList", label: "Cash Sale List" },
-        { id: "addSale", label: "Add Cash Sale" },
-        { id: "creditSaleList", label: "Credit Sale List" },
-        { id: "creditSale", label: "Add Credit Sale" },
-        { id: "commission", label: "Commission" },
-        { id: "gatePass", label: "Gate Pass" },
-        { id: "gatePassRecord", label: "Gate Pass Record" },
+        { id: "saleTransection", label: "Sales Transection", subItems:[
+          { id: "cashSaleList", label: "Cash Sale List" },
+          { id: "addSale", label: "Add Cash Sale" },
+          { id: "creditSaleList", label: "Credit Sale List" },
+          { id: "creditSale", label: "Add Credit Sale" },
+        ] },
+        
+        { id: "commission", label: "Commissions" },
+        { id: "gatePass", label: "Gate Pass", subItems:[
+          { id: "gatePass", label: "Gate Pass Form" },
+          { id: "gatePassRecord", label: "Gate Pass Record" },
+        ] },
+   
         { id: "marketTrend", label: "Market Trend Analysis" },
       ],
     },
@@ -256,7 +276,17 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         </svg>
       ),
       label: "Logistics",
-      subItems: [{ id: "shipping-dashboard", label: "Dashboard" }],
+      subItems: [
+        { id: "shipping-dashboard", label: "Dashboard" },
+        { id: "wayToYard", label: "Way To Yard" },
+        { id: "inYard", label: "In Yard" },
+        { id: "loadPlaning", label: "Load Plaining" },
+        { id: "arriving", label: "Arriving" },
+        { id: "shipped", label: "Shipped" },
+        { id: "vehicleLoaded", label: "Vehicle Loaded" },
+      ],
+
+
     },
     {
       id: "auction",

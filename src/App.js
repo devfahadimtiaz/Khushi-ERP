@@ -84,12 +84,17 @@ import InternalCashTransfer from "./components/GeneralLedger/GeneralLedgerTranse
 import AccountListingReport from "./components/GeneralLedger/GeneralLedgerReport/AccountListingReport";
 import SearchingVoucher from "./components/GeneralLedger/GeneralLedgerReport/SearchingVoucher";
 import GeneralLedger from "./components/GeneralLedger/GeneralLedgerReport/GeneralLedgerReport";
-import SubsidiaryGeneralLedgerReport from "./components/GeneralLedger/GeneralLedgerReport/SubsidiaryGeneralLedger";
 import ProfitAndLossStatement from "./components/GeneralLedger/GeneralLedgerReport/ProfitAndLossStatement";
 import BalanceSheet from "./components/GeneralLedger/GeneralLedgerReport/BalanceSheet";
 import BrandAssets from "./components/Branding/BrandAssets";
 import ExpenseManagement from "./components/Purchase & Receivaables/Expense/ExpenseManagement";
 import ExpenseSheet from "./components/Purchase & Receivaables/Expense/RecentExpensesTable";
+import OnWayToYard from "./components/Logistics/OnWayToYard";
+import InYard from "./components/Logistics/VehiclesInYard";
+import LoadingPlanning from "./components/Logistics/LoadingPlanning";
+import Arriving from "./components/Logistics/VehicleArrived";
+import Shipped from "./components/Logistics/Shipped";
+import VehiclesLoaded from "./components/Logistics/VehiclesLoaded";
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -125,7 +130,9 @@ function App() {
   const navigateToDutyCalculator = () => {
     setCurrentView("duty-calculator");
   };
-
+  const navigateToLogisticsDashBoard = () => {
+    setCurrentView("shipping-dashboard");
+  };
   const toggleNav = () => {
     setNavOpen(!navOpen);
   };
@@ -341,11 +348,23 @@ function App() {
       case "balanceSheet":
         return <BalanceSheet onBack={navigateToDashboard} />;
       case "branding":
-        return <BrandAssets/>
+        return <BrandAssets />;
       case "expenseManagement":
-        return <ExpenseManagement/>
+        return <ExpenseManagement />;
       case "expenseSheet":
-        return <ExpenseSheet/>
+        return <ExpenseSheet />;
+      case "wayToYard":
+        return <OnWayToYard onBack={navigateToLogisticsDashBoard} />;
+      case "inYard":
+        return <InYard onBack={navigateToLogisticsDashBoard} />;
+      case "loadPlaning":
+        return <LoadingPlanning onBack={navigateToLogisticsDashBoard} />;
+      case "arriving":
+        return <Arriving onBack={navigateToLogisticsDashBoard} />;
+      case "shipped":
+        return <Shipped onBack={navigateToLogisticsDashBoard} />;
+      case "vehicleLoaded":
+        return <VehiclesLoaded onBack={navigateToLogisticsDashBoard} />;
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

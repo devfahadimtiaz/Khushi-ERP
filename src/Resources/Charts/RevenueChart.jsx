@@ -5,9 +5,6 @@ import { CanvasJSChart } from "canvasjs-react-charts";
 const RevenueChart = () => {
   const options = {
     animationEnabled: true,
-    title: {
-      text: "Quick Customer Overview"
-    },
     axisY: {
       title: "Number of Customers",
       
@@ -18,7 +15,7 @@ const RevenueChart = () => {
     },
     data: [{
       type: "splineArea",
-      color: "#0090FF",
+      color: "#4318D1",
       markerSize: 5,
       yValueFormatString: "#,##0.##",
       dataPoints: [

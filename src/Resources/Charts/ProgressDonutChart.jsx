@@ -5,6 +5,9 @@ const ProgressDonutChart = ({ percentage, color }) => {
   const chartData = {
     series: [percentage],
     options: {
+      colors: [
+        "#4318D1"
+      ],
       chart: {
         type: "radialBar",
         offsetY: -10,
@@ -29,7 +32,7 @@ const ProgressDonutChart = ({ percentage, color }) => {
             value: {
               show: true,
               fontSize: "22px",
-              color: "#111",
+              color: "#4318D1",
               formatter: (val) => `${val}%`
             }
           }

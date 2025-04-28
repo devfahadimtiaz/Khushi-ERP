@@ -51,7 +51,7 @@
   border: 1px solid rgba(229, 231, 235, 1);
   align-self: stretch;
   display: flex;
-  padding: 10px 14px;
+  vertical-align: middle;
   align-items: center;
   gap: 40px;
   color: rgba(0, 0, 0, 1);
@@ -60,6 +60,8 @@
 
 .searchText {
   flex-basis: auto;
+  border: none;
+  padding: 10px 14px;
 }
 
 .searchIcon {
@@ -69,6 +71,9 @@
   width: 20px;
   align-self: flex-start;
   flex-shrink: 0;
+  margin-top: 7px;
+  margin-right: 5px;
+ 
 }
 
 .addVehicleBtn {
@@ -98,9 +103,8 @@
 }
 
 .viewSection {
-  display: flex;
   margin-top: 12px;
-  width: 1140px;
+  width: 100%;
   flex-direction: column;
   align-items: flex-end;
 }
@@ -114,8 +118,8 @@
 .viewControls {
   align-self: flex-start;
   display: flex;
-  width: 600px;
-  max-width: 100%;
+
+
   align-items: stretch;
   gap: 54px;
   font-family:
@@ -179,8 +183,8 @@
   object-position: center;
   width: fit-content;
   border-radius: 15px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-  background-color: white;
+
+
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 0;

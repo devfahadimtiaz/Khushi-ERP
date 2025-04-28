@@ -23,6 +23,9 @@ const ApexAreaChart = () => {
       },
     ],
     options: {
+      colors: [
+        "#4318D1"
+      ],
       chart: {
         type: "area",
         height: 350,
@@ -35,10 +38,6 @@ const ApexAreaChart = () => {
       },
       stroke: {
         curve: "straight",
-      },
-      title: {
-        text: "Revenue Overview",
-        align: "left",
       },
       labels: seriesData.monthDataSeries1.dates,
       xaxis: {
@@ -59,7 +58,7 @@ const ApexAreaChart = () => {
         options={state.options}
         series={state.series}
         type="area"
-        height={300}
+        height={250}
       />
     </div>
   );

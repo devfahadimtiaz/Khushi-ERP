@@ -65,7 +65,7 @@ const sampleData = [
   },
 ];
 
-function OnWayToYard({ onBack }) {
+function OnWayToYard({ onBack, onBacked }) {
   return (
     <>
       <link

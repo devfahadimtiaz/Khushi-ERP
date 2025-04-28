@@ -48,7 +48,7 @@
   align-items: stretch;
   font-size: 14px;
   line-height: 27px;
-  flex-grow: 2;
+  flex-grow: 3;
   flex-shrink: 1;
   align-self: center;
   width: 100%;
@@ -101,7 +101,7 @@
 }
 
 .ctaContainer {
-  border-radius: 29px;
+  border-radius:4px;
   display: flex;
   padding: 4px 0;
   flex-direction: column;
@@ -120,18 +120,21 @@
   alignItems: 'center';
   flex-grow: 1;
   flex-shrink: 1;
-  width: 60px;
+  width: 80px;
   margin-top: 23px;
 }
 
 .ctaButton {
   z-index: 10;
-  border-radius: 29px;
-  background-color: rgba(35, 113, 226, 1);
+  border-radius:4px;
+  background-color: #4318D1;
   padding: 10px 5px;
   text-align: center;
   alignItems: 'center';
   cursor: pointer;
+}
+.ctaButton:hover{
+  opacity: 80%;
 }
 
 @media (max-width: 991px) {

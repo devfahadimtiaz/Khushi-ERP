@@ -219,11 +219,13 @@ function Dashboard({ onBack }) {
           <div className={styles.analyticsRow}>
             {/* Sale Overview Chart*/}
             <div className={styles.analyticsCard}>
-              <ApexColumnChart name="Sale Overview" />
+            <div className={styles.analyticsTitle}>Sale Overview</div>
+              <ApexColumnChart name="" />
             </div>
 
             {/* Revenue Overview Chart*/}
             <div className={styles.analyticsCard}>
+            <div className={styles.analyticsTitle}>Revenue Overview</div>
               <ApexAreaChart />
             </div>
 
@@ -257,7 +259,7 @@ function Dashboard({ onBack }) {
         {/* Tables Section */}
         <div className={styles.tablesSection}>
           <div className={styles.tablesRow}>
-            <div className={styles.ordersTable}>
+            <div className={styles.ordersTables}>
               <div className={styles.tableTitle}>Recent Orders</div>
               <SixByFourTable
                 row="4"
@@ -269,7 +271,7 @@ function Dashboard({ onBack }) {
 
             <div className={styles.ordersTable}>
               <div className={styles.horizental}>
-                <div className={styles.tableTitle}>Top Selling Cars</div>
+                <div className={styles.tableTitles}>Top Selling Cars</div>
                 <select className={styles.dropdown}>
                   <option className={styles.dropDownOptions} value="model">
                     Model
@@ -293,6 +295,7 @@ function Dashboard({ onBack }) {
                 column="6"
                 headers={topHeaders}
                 data={topData}
+             
               />
             </div>
           </div>
@@ -350,7 +353,7 @@ function Dashboard({ onBack }) {
           <div className={styles.financialRow}>
             <div className={styles.financialCard}>
               <div className={styles.financialContent}>
-                <ProgressDonutChart percentage="90" color="#1AD598" />
+                <ProgressDonutChart percentage="90" color="#4318D1" />
 
                 <div className={styles.financialInfo}>
                   <div className={styles.financialBadge}>
@@ -404,12 +407,13 @@ function Dashboard({ onBack }) {
         {/* Customer Overview Section */}
         <div className={styles.customerSection}>
           <div style={{ width: "100%", height: "100%" }}>
+          <h1 className="text-xl font-bold text-center mt-4">Quick Customer Overview</h1>
             <RevenueChart />
           </div>
         </div>
         <div className={styles.UnitSoldSection}>
           <div className={styles.unitSoldHeader}>
-          <h1 className="text-2xl font-bold text-center mt-4">Units Solds</h1>
+          <h1 className="text-xl font-bold text-center mt-4">Units Solds</h1>
           <select className={styles.dropdownUnit}>
                   <option className={styles.dropDownOptions} value="model">
                     Model

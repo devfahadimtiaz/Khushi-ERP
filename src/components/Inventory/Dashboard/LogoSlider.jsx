@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import styles from './LogoSlider.module.css';
 import logo from "../../../uploads/KM-LOGO.png";
 import oceanlogo from "../../../uploads/ocean.png";
+import Mombasa from "../../../uploads/Stock Photos/Mombasa.png"
+import Tanzania from "../../../uploads/Stock Photos/Tanzania.png"
+import Uganda from "../../../uploads/Stock Photos/Uganda.png"
+import Express from "../../../uploads/Stock Photos/Express.png"
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const logos = [
-  `${logo}`,
-  `${logo}`,
-  `${logo}`,
-  `${logo}`,
+  `${Mombasa}`,
+  `${Tanzania}`,
+  `${Uganda}`,
+  `${Express}`,
 ];
 
 function LogoSlider() {
