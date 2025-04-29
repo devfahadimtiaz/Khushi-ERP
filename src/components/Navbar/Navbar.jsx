@@ -5,6 +5,7 @@ import pic from "../../uploads/Pic.png";
 import { ReactComponent as BookIcon } from "../../uploads/icons/book.svg";
 import { ReactComponent as PurchaseIcon } from "../../uploads/icons/purchase.svg";
 import { ReactComponent as LedgerIcon } from "../../uploads/icons/ledger.svg";
+import {ReactComponent as QuotationIcon} from "../../uploads/icons/quotation.svg"
 function Navbar({ isOpen, onClose, onNavigate }) {
   const [expandedMenus, setExpandedMenus] = useState({});
 
@@ -329,6 +330,15 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         </svg>
       ),
       label: "Branding",
+    },
+    {
+      id: "quotations",
+      icon: <QuotationIcon style={{ width: "22px", height: "22px" }} />,
+      label: "Quotation",
+      subItems: [
+        { id: "quotationForm", label: "Quotations Form" },
+        { id: "quotation", label: "Quotation" },
+      ],
     },
     {
       id: "userDetails",

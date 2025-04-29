@@ -1,0 +1,170 @@
+body{
+  background-color: #fff;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+.container{
+  width: 60%;
+  margin:auto;
+  padding-top: 150px;
+  padding-bottom: 50px;
+  height: 1375px;
+}
+.logo{
+  width: 35%;
+  margin-left: -17px;
+}
+.headerContent{
+  display: flex;
+  padding-top: 30px;
+  justify-content: space-between;
+}
+.title{
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 20px;
+}
+.rightHeader{
+  text-align: right;
+}
+.billingDetails{
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.titleFrom{
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 5px;
+}
+.titleSales{
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 8px;
+}
+.VahicleDiscription{
+  background-image: url('../../uploads/QoutationBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+
+  padding-top: 80px;
+  margin-top: 50px;
+  overflow: hidden;
+
+}
+.discription{
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 5px;
+}
+
+.table{
+  margin-top: 30px;
+  width: 100%;
+  display: table;
+  
+}
+.tableHeader{
+  display: flex;
+  
+
+}
+.tableHeading{
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 15px;
+  flex:1;
+
+  text-align: center;
+  
+}
+.tableBody{
+ 
+  gap: 30px;
+ 
+}
+.tableRow{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+.tableData{
+  flex: 1;
+  color:#9E9E9E;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 5px;
+  
+}
+.vehicleImages{
+ display: grid;
+ margin: auto;
+  margin-top: 100px;
+  gap: 15px;
+
+ 
+
+}
+.imageRows{
+  display: flex;
+  gap: 15px;
+  overflow: auto;
+}
+.imgs{
+  width: 358px;
+  hieght:358px;
+  border-radius: 20px;
+  overflow: auto;
+}
+
+.footer {
+  
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  color: white;
+  padding: 10px;
+  z-index: 1000; /* Make sure it stays on top of other elements */
+
+  padding-bottom: 20px;
+}
+.footerRow{
+    display: flex;
+    justify-content: space-between;
+}
+.footerRows{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.nextButton{
+  background-color: #4318D1;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  color: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.prevButton{
+  background-color: #9E9E9E;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  color: #fff;
+  margin-top: 10px;
+  cursor: pointer
+}

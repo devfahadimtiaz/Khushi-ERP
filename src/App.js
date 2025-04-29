@@ -95,6 +95,9 @@ import LoadingPlanning from "./components/Logistics/LoadingPlanning";
 import Arriving from "./components/Logistics/VehicleArrived";
 import Shipped from "./components/Logistics/Shipped";
 import VehiclesLoaded from "./components/Logistics/VehiclesLoaded";
+import QuotationTemplate from "./components/Quotation/QuotationTemplate";
+import InputScreenForPerformaQuotation from "./components/Quotation/InputScreenForPerformaQuotation"
+
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [currentView, setCurrentView] = useState("moduleSelection");
@@ -365,6 +368,10 @@ function App() {
         return <Shipped onBack={navigateToLogisticsDashBoard} />;
       case "vehicleLoaded":
         return <VehiclesLoaded onBack={navigateToLogisticsDashBoard} />;
+      case "quotation":
+        return <QuotationTemplate onBack={navigateToDashboard}/>
+      case "quotationForm":
+        return <InputScreenForPerformaQuotation onBack={navigateToDashboard}/>
       default:
         return <Dashboard onBack={navigateToSignIn} />;
     }

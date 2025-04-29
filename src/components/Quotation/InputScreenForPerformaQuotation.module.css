@@ -1,0 +1,806 @@
+body{
+  background-color: rgba(255, 255, 255, 1);
+}
+.container {
+ width: 80%;
+ margin: auto;
+ padding-top: 80px;
+  overflow: hidden;
+  padding-bottom: 50px;
+}
+
+
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.headerSection {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: rgba(158, 158, 158, 1);
+}
+
+.formTitle {
+  font-size: 30px;
+
+}
+
+.fromLabel {
+  font-size: 11px;
+  align-self: start;
+  margin-top: 86px;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.referenceWrapper {
+  align-self: end;
+  width: 250px;
+  max-width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+  font-size: 13px;
+}
+
+.refLabel {
+  color: rgba(158, 158, 158, 1);
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+.refInput {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  color: rgba(153, 153, 153, 1);
+}
+
+.dateWrapper {
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 7px;
+  font-size: 12px;
+  color: rgba(158, 158, 158, 1);
+  white-space: nowrap;
+
+}
+
+.dateLabel {
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+.dateInput {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  width: 192px;
+  flex-shrink: 0;
+  height: 32px;
+}
+
+.toLabel {
+  color: rgba(158, 158, 158, 1);
+  font-size: 11px;
+  align-self: start;
+  margin-top: 29px;
+}
+
+.contactSection {
+  display: flex;
+  margin-top: 26px;
+  align-items: stretch;
+  gap: 32px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 10px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.contactInfoSection {
+  display: flex;
+  margin-top: 16px;
+  align-items: stretch;
+  gap: 32px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 10px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.inputField {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.vehicleDescriptionSection {
+  display: flex;
+  margin-top: 61px;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+.vehicleDescriptionSections{
+  display: flex;
+  margin-top: 20px;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.makeModelSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.sectionLabel {
+  font-size: 18px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  margin-top: 26px;
+}
+
+.inputBox {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  align-self: stretch;
+  display: flex;
+  margin-top: 8px;
+  flex-shrink: 0;
+  height: 33px;
+}
+
+.modelYearSection {
+  align-self: end;
+  display: flex;
+ 
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 8px;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.engineColorLabels {
+  display: flex;
+  margin-top: 24px;
+  width: 470px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 8px;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+
+.engineColorInputs {
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wideInputBox {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  width: 425px;
+  flex-shrink: 0;
+  max-width: 100%;
+  height: 33px;
+}
+
+.transmissionMileageSection {
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 8px;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.halfWidthSection {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.interiorSeatingLabels {
+  display: flex;
+  margin-top: 24px;
+  width: 514px;
+  max-width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 8px;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.interiorSeatingInputs {
+  display: flex;
+  margin-top: 8px;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.imageGallerySection {
+  margin-top: 56px;
+}
+
+.imageRow {
+  gap: 20px;
+  display: flex;
+}
+
+.imageColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 33%;
+  margin-left: 0;
+}
+
+
+
+.imageUploadContainer {
+  border-radius: 4px;
+  background-color: rgba(249, 249, 249, 1);
+  border-color: rgba(158, 158, 158, 1);
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+
+.uploadPlaceholder {
+
+  height:200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.uploadButton {
+  position: relative;
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  padding-left: 43px;
+  padding-right: 43px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.displayImage {
+  aspect-ratio: 1.18;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.costBreakdownTitle {
+  color: rgba(158, 158, 158, 1);
+  font-size: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 700;
+  align-self: start;
+  margin-top: 56px;
+}
+
+.costBreakdownContainer {
+  border-radius: 4px;
+  border-color: rgba(158, 158, 158, 1);
+
+  display: flex;
+  margin-top: 24px;
+
+  padding: 1px 1px 1px 1px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.costBreakdownContent {
+ 
+  
+  padding: 16px;
+}
+
+.costRow {
+  gap: 20px;
+  display: flex;
+}
+
+.costLabelColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 20%;
+  margin-left: 0;
+}
+
+.costLabel {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  margin-top: 33px;
+  border: 1px solid rgba(153, 153, 153, 1);
+  padding: 10px 20px 10px 20px ;
+ 
+}
+
+.costLabel:first-child {
+  margin-top: 0;
+}
+
+.costValueColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 82%;
+  margin-left: 20px;
+  width: 100%;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  
+  
+}
+
+.costValueRow {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 33px;
+  border: 1px solid rgba(153, 153, 153, 1);
+}
+
+.costValueRow:first-child {
+  margin-top: 0;
+}
+
+.costValue {
+  color: rgba(153, 153, 153, 1);
+  border: none;
+  width:85%;
+  padding: 15px 20px 15px 20px ; ;
+}
+
+.currencyLabel {
+  color: rgba(158, 158, 158, 1);
+  margin-top: 12px;
+  margin-right: 10px;
+}
+
+.totalRow {
+  background-color: rgba(249, 249, 249, 1);
+  display: flex;
+  margin-top: 17px;
+ 
+  padding: 16px 80px 16px 16px;
+  align-items: stretch;
+  gap: 40px 100px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.totalLabel {
+  flex-grow: 1;
+}
+
+.totalValueContainer {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.totalCurrency {
+  flex-grow: 1;
+}
+
+.addCustomCostButton {
+  border-radius: 4px;
+  background-color: rgba(67, 24, 209, 1);
+  align-self: start;
+  margin-top: 32px;
+  padding: 12px 24px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.footerSection {
+  display: flex;
+  margin-top: 56px;
+  align-items: stretch;
+  gap: 20px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 10px;
+  color: rgba(158, 158, 158, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contactInfo {
+  white-space: nowrap;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .contentWrapper {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+  }
+
+  .formContainer {
+    max-width: 100%;
+  }
+
+  .headerSection {
+    max-width: 100%;
+  }
+
+  .fromLabel {
+    margin-top: 40px;
+  }
+
+  .referenceWrapper {
+    margin-right: 2px;
+  }
+
+  .refInput {
+    padding-right: 20px;
+  }
+
+  .dateWrapper {
+    white-space: initial;
+  }
+
+  .contactSection {
+    max-width: 100%;
+  }
+
+  .contactInfoSection {
+    max-width: 100%;
+  }
+
+  .inputField {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .vehicleDescriptionSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .makeModelSection {
+    max-width: 100%;
+  }
+
+  .inputBox {
+    max-width: 100%;
+  }
+
+  .modelYearSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .engineColorLabels {
+    white-space: initial;
+  }
+
+  .transmissionMileageSection {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .halfWidthSection {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .imageGallerySection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .imageRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .imageColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .imageColumn:not(:first-child) {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .imageUploadBox {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+  }
+
+  .uploadButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .costBreakdownTitle {
+    margin-top: 40px;
+  }
+
+  .costBreakdownContainer {
+    max-width: 100%;
+  }
+
+  .costRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .costLabelColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .costValueColumn {
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%;
+    margin-top: 40px;
+    white-space: initial;
+  }
+
+  .costValueRow {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .totalRow {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .totalValueContainer {
+    white-space: initial;
+  }
+
+  .addCustomCostButton {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footerSection {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+.uploadBox {
+  width: 400px;
+  height: 250px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: border 0.3s, background-color 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upload-box.dragover {
+  border-color: #007bff;
+  background-color: #e9f5ff;
+}
+
+.preview {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+.imagetext{
+  color: #000;
+}
