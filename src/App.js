@@ -368,8 +368,6 @@ function App() {
         return <Shipped onBack={navigateToLogisticsDashBoard} />;
       case "vehicleLoaded":
         return <VehiclesLoaded onBack={navigateToLogisticsDashBoard} />;
-      case "quotation":
-        return <QuotationTemplate onBack={navigateToDashboard}/>
       case "quotationForm":
         return <InputScreenForPerformaQuotation onBack={navigateToDashboard}/>
       default:

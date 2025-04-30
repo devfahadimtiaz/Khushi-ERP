@@ -1,15 +1,17 @@
 
 body {
-    background-color: #fff;
+    background-color: #f6fafd;
     overflow: hidden;
     overflow-y: hidden;
   }
   .container {
+    background-color: #fff;
+    padding: 40px;
     width: 60%;
     margin: auto;
     padding-top: 120px;
     padding-bottom: 50px;
-    height: 1150px;
+    height: 1200px;
   }
   .Headings{
     color: #9e9e9e;

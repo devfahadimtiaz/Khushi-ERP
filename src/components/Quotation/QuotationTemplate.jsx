@@ -5,7 +5,7 @@ import img1 from "../../uploads/Quotation/img1.png";
 import img2 from "../../uploads/Quotation/img2.png";
 import CostBreakDown from "./CostBreakDown";
 
-const QuotationTemplate = () => {
+const QuotationTemplate = ({ data, total }) => {
   const [showCostBreakDown, setShowCostBreakDown] = useState(false);
   const handelNextButton = () => {
     setShowCostBreakDown(true);
@@ -14,7 +14,7 @@ const QuotationTemplate = () => {
     setShowCostBreakDown(false);
   };
   if (showCostBreakDown) {
-    return <CostBreakDown onBack={handelBack} />;
+    return <CostBreakDown onBack={handelBack} data={data} total={total} />;
   }
   return (
     <div className={styles.container}>
@@ -27,20 +27,24 @@ const QuotationTemplate = () => {
           <h1 className={styles.title}>PROFORMA QUOTATION</h1>
         </div>
         <div className={styles.rightHeader}>
-          <h1 className={styles.title}>REF: KMK 90213</h1>
-          <h1 className={styles.title}>28/04/2025</h1>
+          <h1 className={styles.title}>REF: {data.refs} {data.ref}</h1>
+          <h1 className={styles.title}>{data.date}</h1>
         </div>
       </div>
       <div className={styles.billingDetails}>
         <div className={styles.leftbillingDetails}>
           <h1 className={styles.titleFrom}>FROM</h1>
-          <h1 className={styles.titleSales}>Sale Rep: Khurram Iqbal</h1>
-          <h1 className={styles.titleSales}>Contact: +254 705 000001</h1>
+          <h1 className={styles.titleSales}>Sale Rep: {data.salesRepName}</h1>
+          <h1 className={styles.titleSales}>
+            Contact: {data.phone}
+          </h1>
         </div>
         <div className={styles.rightbillingDetails}>
           <h1 className={styles.titleFrom}>TO</h1>
-          <h1 className={styles.titleSales}>Name: Lambelt moltete </h1>
-          <h1 className={styles.titleSales}>Contact: +254 746543419</h1>
+          <h1 className={styles.titleSales}>Name: {data.customerName} </h1>
+          <h1 className={styles.titleSales}>
+            Contact: {data.customerContactNumber}
+          </h1>
         </div>
       </div>
       <div className={styles.VahicleDiscription}>
@@ -61,52 +65,90 @@ const QuotationTemplate = () => {
             </thead>
             <tbody className={styles.tableBody}>
               <tr className={styles.tableRow}>
-                <td className={styles.tableData}>Lexus LM 500h</td>
-                <td className={styles.tableData}>2025</td>
-                <td className={styles.tableData}>2.4L</td>
-                <td className={styles.tableData}>Black</td>
-                <td className={styles.tableData}>Automatic</td>
-                <td className={styles.tableData}>7 km</td>
-                <td className={styles.tableData}>Beige</td>
-                <td className={styles.tableData}>6</td>
+                <td className={styles.tableData}>{data.make}</td>
+                <td className={styles.tableData}>{data.year}</td>
+                <td className={styles.tableData}>{data.engine}</td>
+                <td className={styles.tableData}>{data.color}</td>
+                <td className={styles.tableData}>{data.transmission}</td>
+                <td className={styles.tableData}>{data.milage}</td>
+                <td className={styles.tableData}>{data.interior}</td>
+                <td className={styles.tableData}>{data.seats}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className={styles.vehicleImages}>
           <div className={styles.imageRows}>
-            <img alt="img1" src={img1} className={styles.imgs} />
-            <img alt="img1" src={img1} className={styles.imgs} />
-            <img alt="img1" src={img1} className={styles.imgs} />
+            {data.img1 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img1)}
+                className={styles.imgs}
+              />
+            )}
+            {data.img2 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img2)}
+                className={styles.imgs}
+              />
+            )}
+            {data.img3 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img3)}
+                className={styles.imgs}
+              />
+            )}
           </div>
           <div className={styles.imageRows}>
-            <img alt="img1" src={img2} className={styles.imgs} />
-            <img alt="img1" src={img2} className={styles.imgs} />
-            <img alt="img1" src={img2} className={styles.imgs} />
+            {data.img4 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img4)}
+                className={styles.imgs}
+              />
+            )}
+            {data.img5 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img5)}
+                className={styles.imgs}
+              />
+            )}
+            {data.img6 && (
+              <img
+                alt="img1"
+                src={URL.createObjectURL(data.img6)}
+                className={styles.imgs}
+              />
+            )}
           </div>
         </div>
         <div className={styles.footer}>
-        <div className={styles.footerRow}>
-          <div className={styles.Footercolumn}>
-            <h1 className={styles.titleFrom}>Contact</h1>
-            <h1 className={styles.titleSales}>+254 705 000001</h1>
+          <div className={styles.footerRow}>
+            <div className={styles.Footercolumn}>
+              <h1 className={styles.titleFrom}>Contact</h1>
+              <h1 className={styles.titleSales}>{data.phone}</h1>
+            </div>
+            <div className={styles.Footercolumn}>
+              <h1 className={styles.titleFrom}>Email</h1>
+              <h1 className={styles.titleSales}>{data.email}</h1>
+            </div>
+            <div className={styles.Footercolumn}>
+              <h1 className={styles.titleFrom}>Website</h1>
+              <h1 className={styles.titleSales}>{data.website}</h1>
+            </div>
           </div>
-          <div className={styles.Footercolumn}>
-            <h1 className={styles.titleFrom}>Email</h1>
-            <h1 className={styles.titleSales}>sales.Kenya@khushimotors.com</h1>
-          </div>
-          <div className={styles.Footercolumn}>
-            <h1 className={styles.titleFrom}>Website</h1>
-            <h1 className={styles.titleSales}>khushimotors.com/express</h1>
+          <div className={styles.footerRows}>
+            <button className={styles.prevButton} disabled>
+              Prev
+            </button>
+            <button className={styles.nextButton} onClick={handelNextButton}>
+              Next
+            </button>
           </div>
         </div>
-        <div className={styles.footerRows}>
-          <button className={styles.prevButton} disabled>
-            Prev
-          </button>
-          <button className={styles.nextButton} onClick={handelNextButton}>Next</button>
-        </div>
-      </div>
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
+body{
+  background-color: #f6fafd;
+}
 .moduleSelection {
-  background-color: #fff;
-  overflow: hidden;
+  background-color: #f6fafd;
+  height: 100vh;
+ 
 }
 
 .container {

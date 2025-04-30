@@ -337,7 +337,6 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       label: "Quotation",
       subItems: [
         { id: "quotationForm", label: "Quotations Form" },
-        { id: "quotation", label: "Quotation" },
       ],
     },
     {
