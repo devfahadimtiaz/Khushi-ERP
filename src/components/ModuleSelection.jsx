@@ -27,7 +27,7 @@ function ModuleSelection(props) {
           </p>
           <div className={styles.cardsContainer}>
             <div className={styles.cardsGrid}>
-              <div className={styles.cardColumn}>
+              <button className={styles.cardColumn} onClick={props.onContinue}>
                 <ModuleCard
                   id="Automotive"
                   imageSrc={auto}
@@ -37,7 +37,7 @@ function ModuleSelection(props) {
                   style={{ border: `1px solid ${borderColor}` }} // Dynamic border color
                   className={styles.automotiveCard} // Apply your custom styles
                 />
-              </div>
+              </button>
               <div className={styles.cardColumn}>
                 <ModuleCard
                   imageSrc={crm}
@@ -54,11 +54,16 @@ function ModuleSelection(props) {
                   className={styles.projectCard}
                 />
               </div>
+              <button className={styles.cardColumn} onClick={() => window.location.href = 'http://localhost:3001/'}>
+                <ModuleCard
+                  imageSrc={project}
+                  title="Property Management"
+                  description="Track and manage projects, tasks, and team collaboration"
+                  className={styles.projectCard}
+                />
+              </button>
             </div>
           </div>
-          <button className={styles.continueButton} onClick={props.onContinue}>
-            Continue to Login
-          </button>
         </div>
       </div>
     </section>

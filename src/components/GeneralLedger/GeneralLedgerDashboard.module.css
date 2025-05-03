@@ -1,18 +1,10 @@
-body{
-  background-color: rgba(246, 250, 253, 1);
-}
+
 .container {
-  width: 80%;
+  width: 100%;
+  max-width: 80%;
   margin: auto;
-  margin-top: 80px;
+  padding-top: 80px;
   background-color: rgba(246, 250, 253, 1);
-}
-
-
-
-.content {
-
- 
 }
 
 .header {

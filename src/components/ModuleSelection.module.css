@@ -27,7 +27,7 @@ body{
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1224px;
+  max-width: 90%;
   display: flex;
 }
 
@@ -103,6 +103,8 @@ body{
   flex-direction: column;
   width: 35%;
   line-height: normal;
+  border: none;
+  background-color: #fff;
 
 }
 
@@ -184,6 +186,9 @@ body{
   .cardColumn:nth-child(2) {
     margin-left: 0;
   }
+}
+.cardColumn:nth-child(4) {
+  margin-left: 20px;
 }
 
 .crmCard {

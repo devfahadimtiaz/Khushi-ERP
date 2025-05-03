@@ -3,6 +3,7 @@
   min-height: 100vh;
   position: relative;
   width: 100%;
+  background-color: #f6fafd;
 }
 
 .main-content {
