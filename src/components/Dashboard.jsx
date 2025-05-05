@@ -208,9 +208,8 @@ function Dashboard({ onBack }) {
             </div>
 
             <div className={styles.chartColumn}>
-              <div className="App">
+             
                 <DoughnutChart />
-              </div>
             </div>
           </div>
         </div>

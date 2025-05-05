@@ -54,7 +54,7 @@ function ModuleSelection(props) {
                   className={styles.projectCard}
                 />
               </div>
-              <button className={styles.cardColumn} onClick={() => window.location.href = 'http://localhost:3001/'}>
+              <button className={styles.cardColumn} onClick={() => window.location.href = 'https://arsh-premium-properties.vercel.app/'}>
                 <ModuleCard
                   imageSrc={project}
                   title="Property Management"

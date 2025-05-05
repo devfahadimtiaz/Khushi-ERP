@@ -6,8 +6,8 @@
   padding-top: 78px;
   padding-bottom: 78px;
   flex-direction: column;
-  overflow: hidden;
-  align-items: stretch;
+
+
 }
 
 .dashboardContent {
@@ -101,6 +101,7 @@
   line-height: normal;
   width: 23%;
   margin-left: 20px;
+  overflow: hidden;
 }
 
 .filterBox {
@@ -172,7 +173,7 @@
   flex-direction: column;
   overflow: hidden;
   align-items: stretch;
-  white-space: nowrap;
+ 
   justify-content: center;
 }
 
@@ -234,7 +235,7 @@
 
 /* Analytics Cards Section */
 .analyticsSection {
-  margin-top: -401px;
+ margin-top: 40px;
   margin-left: 10px;
   width: 100%;
 }
