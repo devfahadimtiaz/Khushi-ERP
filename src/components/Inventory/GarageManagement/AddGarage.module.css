@@ -89,6 +89,10 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+.logoPreview{
+  width: 200px;
+  height: 80px;
+}
 
 .rowFields {
   display: flex;

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styles from "./AddGarage.module.css";
 
-const AddGarage = ({onClose}) => {
+const AddGarage = ({ onClose }) => {
   const [formData, setFormData] = useState({
     companyName: "",
     companyLogo: null,
     country: "",
     currency: "",
     companyId: "",
-    description: "",
+    address: "",
   });
 
   const handleInputChange = (e) => {
@@ -26,10 +26,42 @@ const AddGarage = ({onClose}) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add API call or state management here
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.companyName); // ✅ name
+    formDataToSend.append("logo", formData.companyLogo); // ✅ logo
+    formDataToSend.append("country", formData.country); // ✅ country
+    formDataToSend.append("currency", formData.currency); // ✅ currency
+    formDataToSend.append("company_id", formData.companyId); // ✅ company_id
+    formDataToSend.append("address", formData.address);
+
+    try {
+      const response = await fetch("http://localhost:8081/AddGarage", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      if (!response.ok) {
+        // Check if the response is not OK (e.g., status code 404 or 500)
+        const text = await response.text();
+        console.error("Server responded with: ", text);
+        alert("Server error: " + text);
+        return;
+      }
+
+      const result = await response.json();
+      if (result.message === "Garage added successfully") {
+        alert("Garage added successfully!");
+        handleCancel(); // Clear form
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred while submitting the form.");
+    }
   };
 
   const handleCancel = () => {
@@ -40,7 +72,7 @@ const AddGarage = ({onClose}) => {
       country: "",
       currency: "",
       companyId: "",
-      description: "",
+      address: "",
     });
   };
 
@@ -73,6 +105,13 @@ const AddGarage = ({onClose}) => {
                 className={styles.fileInput}
               />
             </label>
+            {formData.companyLogo && (
+              <img
+                src={URL.createObjectURL(formData.companyLogo)}
+                alt="Preview"
+                className={styles.logoPreview}
+              />
+            )}
           </div>
 
           <div className={styles.rowFields}>
@@ -82,7 +121,7 @@ const AddGarage = ({onClose}) => {
                 value={formData.country}
                 onChange={handleInputChange}
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Country
                 </option>
                 <option value="pakistan">Pakistan</option>
@@ -126,14 +165,14 @@ const AddGarage = ({onClose}) => {
             />
           </div>
 
-          <div className={styles.textareaField}>
-            <textarea
-              name="description"
-              placeholder="Description or additional notes"
-              value={formData.description}
+          <div className={styles.inputField}>
+            <input
+              type="text"
+              name="address" // ✅ lowercase 'a' to match your state and FormData
+              placeholder="Address"
+              value={formData.address}
               onChange={handleInputChange}
-              rows={4}
-            ></textarea>
+            />
           </div>
 
           <div className={styles.actionButtons}>

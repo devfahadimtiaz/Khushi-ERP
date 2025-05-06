@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./PurchaseOrderList.module.css";
 
-function InputDesign() {
+function PurchaseOrderList() {
   return (
     <div className={styles.container}>
       <div className={styles.purchaseOrderList}>
@@ -48,4 +48,4 @@ function InputDesign() {
   );
 }
 
-export default InputDesign;
+export default PurchaseOrderList;

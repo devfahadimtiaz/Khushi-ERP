@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../uploads/KM-LOGO.png";
 import pic from "../../uploads/Pic.png";
 import { ReactComponent as BookIcon } from "../../uploads/icons/book.svg";
 import { ReactComponent as PurchaseIcon } from "../../uploads/icons/purchase.svg";
 import { ReactComponent as LedgerIcon } from "../../uploads/icons/ledger.svg";
-import {ReactComponent as QuotationIcon} from "../../uploads/icons/quotation.svg"
-function Navbar({ isOpen, onClose, onNavigate }) {
+import { ReactComponent as QuotationIcon } from "../../uploads/icons/quotation.svg";
+
+function Navbar({ isOpen, onClose }) {
   const [expandedMenus, setExpandedMenus] = useState({});
+  const navigate = useNavigate();
 
   const toggleSubmenu = (menuId) => {
     setExpandedMenus((prev) => ({
@@ -35,56 +38,131 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         </svg>
       ),
       label: "Main Dashboard",
+      route: "/dashboard",
     },
     {
       id: "generalLedger",
       icon: <LedgerIcon style={{ width: "22px", height: "22px" }} />,
       label: "General Ledger",
       subItems: [
-        { id: "GLDashboard", label: "Dashboard" },
+        { id: "GLDashboard", label: "Dashboard", route: "/GLDashboard" },
         {
           id: "GLSetup",
           label: "GL Setup",
           subItems: [
-            { id: "showRoomManager", label: "Showromm Manager" },
-            { id: "costAndProfit", label: "Cost And Profit Center" },
-            { id: "chartOfAccounts", label: "Chart Of Accounts" },
-            { id: "currencyManagement", label: "Currency Management" },
-            { id: "subsidiaryLedger", label: "Subsidiary Ledger" },
-            { id: "voucherSetup", label: "Voucher Setup" },
-            { id: "subsidiaryFileSetup", label: "Subsidiary File Setup" },
-            { id: "bankDetails", label: "Bank Details" },
-            { id: "cashAccountDetails", label: "Cash Account Details" },
-            { id: "creditAccountDetails", label: "Credit Account Details" },
+            {
+              id: "showRoomManager",
+              label: "Showroom Manager",
+              route: "/ShowRoomManager",
+            },
+            {
+              id: "costAndProfit",
+              label: "Cost And Profit Center",
+              route: "/CostAndProfit",
+            },
+            {
+              id: "chartOfAccounts",
+              label: "Chart Of Accounts",
+              route: "/ChartOfAccountsSetup",
+            },
+            {
+              id: "currencyManagement",
+              label: "Currency Management",
+              route: "/CurrencyManagement",
+            },
+            {
+              id: "subsidiaryLedger",
+              label: "Subsidiary Ledger",
+              route: "/SubsidiaryLedger",
+            },
+            {
+              id: "voucherSetup",
+              label: "Voucher Setup",
+              route: "/VoucherSetup",
+            },
+            {
+              id: "subsidiaryFileSetup",
+              label: "Subsidiary File Setup",
+              route: "/SubsidiaryFileSetup",
+            },
+            { id: "bankDetails", label: "Bank Details", route: "/BankDetails" },
+            {
+              id: "cashAccountDetails",
+              label: "Cash Account Details",
+              route: "/CashAccountDetails",
+            },
+            {
+              id: "creditAccountDetails",
+              label: "Credit Account Details",
+              route: "/CreditAccountDetails",
+            },
           ],
         },
         {
           id: "GLTransection",
           label: "GL Transection",
           subItems: [
-            { id: "financialYearList", label: "Financial Year List" },
-            { id: "openingBalance", label: "Opening Balance" },
-            { id: "openingBalanceVouchers", label: "Opening Balance Vouchers" },
-            { id: "internalCashTransfer", label: "Internal Cash Transfer" },
+            {
+              id: "financialYearList",
+              label: "Financial Year List",
+              route: "/FinancialYearList",
+            },
+            {
+              id: "openingBalance",
+              label: "Opening Balance",
+              route: "/OpeningBalance",
+            },
+            {
+              id: "openingBalanceVouchers",
+              label: "Opening Balance Vouchers",
+              route: "/OpeningBalanceVouchers",
+            },
+            {
+              id: "internalCashTransfer",
+              label: "Internal Cash Transfer",
+              route: "/InternalCashTransfer",
+            },
           ],
         },
         {
           id: "glreport",
           label: "GL Report",
           subItems: [
-            { id: "accountListingReport", label: "Account Listing Report" },
-            { id: "searchingVoucher", label: "Searching Voucher" },
-            { id: "generalLedgerReport", label: "General Ledger" },
+            {
+              id: "accountListingReport",
+              label: "Account Listing Report",
+              route: "/AccountListingReport",
+            },
+            {
+              id: "searchingVoucher",
+              label: "Searching Voucher",
+              route: "/SearchingVoucher",
+            },
+            {
+              id: "generalLedgerReport",
+              label: "General Ledger",
+              route: "/GeneralLedger",
+            },
             {
               id: "subsidiaryGeneralLedgerReport",
               label: "Subsidiary General Ledger",
+              route: "/SubsidiaryGeneralLedger",
             },
-            { id: "trialBalance", label: "Trial Balance" },
+            {
+              id: "trialBalance",
+              label: "Trial Balance",
+              route: "/TrialBalance",
+            },
             {
               id: "profitandLossStatement",
               label: "Profit and Loss Statement",
+              route: "/ProfitAndLossStatement",
             },
-            { id: "balanceSheet", label: "Balance Sheet" },
+            {
+              id: "balanceSheet",
+              label: "Balance Sheet",
+              route: "/BalanceSheet",
+            },
           ],
         },
       ],
@@ -107,33 +185,85 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Inventory",
       subItems: [
-        { id: "inventory-dashboard", label: "Inventory Dashboard" },
-        { id: "inventorydetails", label: "Inventory", 
-          subItems:[
-            { id: "stock", label: "Inventory List View" },
-            { id: "inventory-grid", label: "Inventory Grid View" },
-            { id: "add-stock", label: "Add Stock" },
-            { id: "parking-zone-management", label: "Parking Zone Management" },
+        {
+          id: "inventory-dashboard",
+          label: "Inventory Dashboard",
+          route: "/InventoryDashboard",
+        },
+        {
+          id: "inventorydetails",
+          label: "Inventory",
+          subItems: [
+            { id: "stock", label: "Inventory List View", route: "/Stock" },
+            {
+              id: "inventory-grid",
+              label: "Inventory Grid View",
+              route: "/InventoryGridView",
+            },
+            { id: "add-stock", label: "Add Stock", route: "/AddStock" },
+            {
+              id: "parking-zone-management",
+              label: "Parking Zone Management",
+              route: "/ParkingZoneManagement",
+            },
+          ],
+        },
+        { id: "garage", label: "Garage List", route: "/GarageList" },
 
-        ],
-       },
-        { id: "garage", label: "Garage List" },
+        {
+          id: "vehicle-transfer",
+          label: "Vehicle Transfer",
+          subItems: [
+            {
+              id: "vehicle-transfer",
+              label: "Vehicle Transfer To",
+              route: "/VehicleTransferManagement",
+            },
+            {
+              id: "incoming-vehicle-transfers",
+              label: "Incoming Vehicle",
+              route: "/IncomingVehicleTransfers",
+            },
+          ],
+        },
 
-        { id: "vehicle-transfer", label: "Vehicle Transfer", subItems:[
-          { id: "vehicle-transfer", label: "Vehicle Transfer To" },
-          { id: "incoming-vehicle-transfers", label: "Incoming Vehicle" },
-        ], },
-  
-        { id: "vehicleRepairDetails", label: "Vehicle Repair Details", subItems:[
-          { id: "vehicleRepairDetails", label: "Vehicle Repair Details"},
-          { id: "repairTaskManagement", label: "Repair Task Management" },
-          { id: "voucherManagement", label: "Repair Voucher Management" },
-        ], },
-        { id: "roadTest", label: "Road Test", subItems:[
-          { id: "roadTestForm", label: "Road Test Form" },
-          { id: "roadTestRecord", label: "Road Test Record" },
-        ] },
- 
+        {
+          id: "vehicleRepairDetails",
+          label: "Vehicle Repair Details",
+          subItems: [
+            {
+              id: "vehicleRepairDetails",
+              label: "Vehicle Repair Details",
+              route: "/VehicleRepairDetails",
+            },
+            {
+              id: "repairTaskManagement",
+              label: "Repair Task Management",
+              route: "/RepairTasksManagement",
+            },
+            {
+              id: "voucherManagement",
+              label: "Repair Voucher Management",
+              route: "/VoucherManagement",
+            },
+          ],
+        },
+        {
+          id: "roadTest",
+          label: "Road Test",
+          subItems: [
+            {
+              id: "roadTestForm",
+              label: "Road Test Form",
+              route: "/RoadTestform",
+            },
+            {
+              id: "roadTestRecord",
+              label: "Road Test Record",
+              route: "/RoadTestRecords",
+            },
+          ],
+        },
       ],
     },
     {
@@ -154,21 +284,53 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Sales",
       subItems: [
-        { id: "salesDashboard", label: "Sales Dashboard" },
-        { id: "saleTransection", label: "Sales Transection", subItems:[
-          { id: "cashSaleList", label: "Cash Sale List" },
-          { id: "addSale", label: "Add Cash Sale" },
-          { id: "creditSaleList", label: "Credit Sale List" },
-          { id: "creditSale", label: "Add Credit Sale" },
-        ] },
-        
-        { id: "commission", label: "Commissions" },
-        { id: "gatePass", label: "Gate Pass", subItems:[
-          { id: "gatePass", label: "Gate Pass Form" },
-          { id: "gatePassRecord", label: "Gate Pass Record" },
-        ] },
-   
-        { id: "marketTrend", label: "Market Trend Analysis" },
+        {
+          id: "salesDashboard",
+          label: "Sales Dashboard",
+          route: "/SaleDashboard",
+        },
+        {
+          id: "saleTransection",
+          label: "Sales Transection",
+          subItems: [
+            {
+              id: "cashSaleList",
+              label: "Cash Sale List",
+              route: "/CashSaleList",
+            },
+            { id: "addSale", label: "Add Cash Sale", route: "/AddCashSale" },
+            {
+              id: "creditSaleList",
+              label: "Credit Sale List",
+              route: "/CreditSaleList",
+            },
+            {
+              id: "creditSale",
+              label: "Add Credit Sale",
+              route: "/AddCreditSale",
+            },
+          ],
+        },
+
+        { id: "commission", label: "Commissions", route: "/CommissionList" },
+        {
+          id: "gatePass",
+          label: "Gate Pass",
+          subItems: [
+            { id: "gatePass", label: "Gate Pass Form", route: "/GatePass" },
+            {
+              id: "gatePassRecord",
+              label: "Gate Pass Record",
+              route: "/GatePassRecord",
+            },
+          ],
+        },
+
+        {
+          id: "marketTrend",
+          label: "Market Trend Analysis",
+          route: "/MarketTrend",
+        },
       ],
     },
     {
@@ -176,79 +338,170 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       icon: <PurchaseIcon style={{ width: "22px", height: "22px" }} />,
       label: "Purchase & Expenditure",
       subItems: [
-        { id: "purchaseDashboard", label: "Purchased Dashboard" },
+        {
+          id: "purchaseDashboard",
+          label: "Purchased Dashboard",
+          route: "/PurchaseDB",
+        },
         {
           id: "purchase",
           label: "Purchase ",
           subItems: [
-            { id: "purchaseRequisition", label: "Purchase Requisition" },
-            { id: "quotationDocument", label: "Quotation Document" },
-            { id: "tenderDocument", label: "Tender Document" },
-            { id: "comparativeStatement", label: "Comparative Statement" },
-            { id: "purchasedOrder", label: "Purchased Order" },
+            {
+              id: "purchaseRequisition",
+              label: "Purchase Requisition",
+              route: "/PurchaseRequisition",
+            },
+            {
+              id: "quotationDocument",
+              label: "Quotation Document",
+              route: "/QoutationDocuments",
+            },
+            {
+              id: "tenderDocument",
+              label: "Tender Document",
+              route: "/TenderDocument",
+            },
+            {
+              id: "comparativeStatement",
+              label: "Comparative Statement",
+              route: "/ComparativeStatement",
+            },
+            {
+              id: "purchasedOrder",
+              label: "Purchased Order",
+              route: "/PurchaseOrder",
+            },
             {
               id: "generateGoodReceivedNote",
               label: "Generate Good Received Note",
+              route: "/GenerateGoodRecieveNotes",
             },
-            { id: "payment", label: "Payment" },
-            { id: "transportation", label: "Transportation" },
+            { id: "payment", label: "Payment", route: "/Payment" },
+            {
+              id: "transportation",
+              label: "Transportation",
+              route: "/Transportation",
+            },
           ],
         },
         {
           id: "expense",
           label: "Expense ",
           subItems: [
-            { id: "expenseManagement", label: "Expense Management" },
-            { id: "expenseSheet", label: "Expense Sheet" },
-
+            {
+              id: "expenseManagement",
+              label: "Expense Management",
+              route: "/ExpenseManagement",
+            },
+            {
+              id: "expenseSheet",
+              label: "Expense Sheet",
+              route: "/ExpenseSheet",
+            },
           ],
         },
         {
           id: "purchaseReturn",
           label: "Purchase Return",
           subItems: [
-            { id: "purchaseRetunRequest", label: "Purchase Retun Request" },
-            { id: "purchaseDispatched", label: "Purchase Dispatched Note" },
-            { id: "purchaseReturn", label: "Purchase Return Note" },
+            {
+              id: "purchaseRetunRequest",
+              label: "Purchase Retun Request",
+              route: "/PurchaseRetunRequest",
+            },
+            {
+              id: "purchaseDispatched",
+              label: "Purchase Dispatched Note",
+              route: "/PurchaseDispatchNote",
+            },
+            {
+              id: "purchaseReturn",
+              label: "Purchase Return Note",
+              route: "/PurchaseReturnNote",
+            },
           ],
         },
         {
           id: "purchaseIntegrartion",
           label: "Purchase Integration",
           subItems: [
-            { id: "payableConfiguration", label: "Payable Configuration" },
+            {
+              id: "payableConfiguration",
+              label: "Payable Configuration",
+              route: "/PayableConfiguration",
+            },
           ],
         },
         {
           id: "purchaseVoucher",
           label: "Purchase Vouchers",
           subItems: [
-            { id: "purchaseReturnVoucher", label: "Purchase Return Voucher" },
+            {
+              id: "purchaseReturnVoucher",
+              label: "Purchase Return Voucher",
+              route: "/PurchasedReturnVoucher",
+            },
             {
               id: "purchasePayableReturnVoucher",
               label: "Purchase & Payable Return Voucher",
+              route: "/PurchasePayableReturnVoucher",
             },
-            { id: "paymentVouchers", label: "Payment Vouchers" },
-            { id: "advanceReturnVoucher", label: "Advance Return Voucher" },
+            {
+              id: "paymentVouchers",
+              label: "Payment Vouchers",
+              route: "/PaymentVouchers",
+            },
+            {
+              id: "advanceReturnVoucher",
+              label: "Advance Return Voucher",
+              route: "/AdvanceReturnVoucher",
+            },
           ],
         },
         {
           id: "purchaseReport",
           label: "Purchase Report",
           subItems: [
-            { id: "purchaseOrderReport", label: "Purchase Order Report" },
+            {
+              id: "purchaseOrderReport",
+              label: "Purchase Order Report",
+              route: "/PurchaseOrderList",
+            },
             {
               id: "purchaseShowRoomWise",
               label: "Purchase Showroom Wise Report",
+              route: "/PurchaseShowroomWise",
             },
-            { id: "paymentRegister", label: "Payment Register Report" },
-            { id: "payableAgingReport", label: "Payable Aging Report" },
-            { id: "pendingPOItem", label: "Pending PO Items" },
-            { id: "supplierContactList", label: "Supplier Contact List" },
-            { id: "unpaidSupplierBills", label: "Unpaid Supplier Bill" },
+            {
+              id: "paymentRegister",
+              label: "Payment Register Report",
+              route: "/PaymentRegisterReport",
+            },
+            {
+              id: "payableAgingReport",
+              label: "Payable Aging Report",
+              route: "/PayableAgingReport",
+            },
+            {
+              id: "pendingPOItem",
+              label: "Pending PO Items",
+              route: "/PendingPOReport",
+            },
+            {
+              id: "supplierContactList",
+              label: "Supplier Contact List",
+              route: "/SupplierContactList",
+            },
+            {
+              id: "unpaidSupplierBills",
+              label: "Unpaid Supplier Bill",
+              route: "/UnpaidSupplierBills",
+            },
             {
               id: "supplierWiseBillReports",
               label: "Supplier Wise Bill Report",
+              route: "/SupplierWiseBillReports",
             },
           ],
         },
@@ -258,7 +511,13 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       id: "logbook",
       icon: <BookIcon style={{ width: "22px", height: "22px" }} />,
       label: "Log Book",
-      subItems: [{ id: "vehicleLogBook", label: "Vehicle Log Book" }],
+      subItems: [
+        {
+          id: "vehicleLogBook",
+          label: "Vehicle Log Book",
+          route: "/LogBookTransfer",
+        },
+      ],
     },
     {
       id: "logistics",
@@ -278,16 +537,26 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Logistics",
       subItems: [
-        { id: "shipping-dashboard", label: "Dashboard" },
-        { id: "wayToYard", label: "Way To Yard" },
-        { id: "inYard", label: "In Yard" },
-        { id: "loadPlaning", label: "Load Plaining" },
-        { id: "arriving", label: "Arriving" },
-        { id: "shipped", label: "Shipped" },
-        { id: "vehicleLoaded", label: "Vehicle Loaded" },
+        {
+          id: "shipping-dashboard",
+          label: "Dashboard",
+          route: "/ShippingDashboard",
+        },
+        { id: "wayToYard", label: "Way To Yard", route: "/OnWayToYard" },
+        { id: "inYard", label: "In Yard", route: "/InYard" },
+        {
+          id: "loadPlaning",
+          label: "Load Plaining",
+          route: "/LoadingPlanning",
+        },
+        { id: "arriving", label: "Arriving", route: "/Arriving" },
+        { id: "shipped", label: "Shipped", route: "/Shipped" },
+        {
+          id: "vehicleLoaded",
+          label: "Vehicle Loaded",
+          route: "/VehiclesLoaded",
+        },
       ],
-
-
     },
     {
       id: "auction",
@@ -307,10 +576,22 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ),
       label: "Auction Access",
       subItems: [
-        { id: "auction-house", label: "Auction House" },
-        { id: "auction-grid", label: "Auction Grid View" },
-        { id: "price-checker", label: "Price Checker" },
-        { id: "duty-calculator", label: "Duty Calculator" },
+        { id: "auction-house", label: "Auction House", route: "/AuctionHouse" },
+        {
+          id: "auction-grid",
+          label: "Auction Grid View",
+          route: "/AuctionGridView",
+        },
+        {
+          id: "price-checker",
+          label: "Price Checker",
+          route: "/AuctionPriceChecker",
+        },
+        {
+          id: "duty-calculator",
+          label: "Duty Calculator",
+          route: "/DutyCalculator",
+        },
       ],
     },
     {
@@ -330,14 +611,13 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         </svg>
       ),
       label: "Branding",
+      route: "/BrandAssets",
     },
     {
       id: "quotations",
       icon: <QuotationIcon style={{ width: "22px", height: "22px" }} />,
       label: "Quotation",
-      subItems: [
-        { id: "quotationForm", label: "Quotations Form" },
-      ],
+      route: "/InputScreenForPerformaQuotation",
     },
     {
       id: "userDetails",
@@ -363,7 +643,8 @@ function Navbar({ isOpen, onClose, onNavigate }) {
       ],
     },
   ];
-  const renderMenuItems = (items, parentId = null) => {
+
+  const renderMenuItems = (items) => {
     return items.map((item) => {
       const hasSubItems = item.subItems && item.subItems.length > 0;
       return (
@@ -371,8 +652,9 @@ function Navbar({ isOpen, onClose, onNavigate }) {
           <div
             className={styles.navItem}
             onClick={() => {
-              if (!hasSubItems && onNavigate) {
-                onNavigate(item.id);
+              if (!hasSubItems && item.route) {
+                navigate(item.route);
+                onClose(); 
               } else {
                 toggleSubmenu(item.id);
               }
@@ -398,7 +680,7 @@ function Navbar({ isOpen, onClose, onNavigate }) {
 
           {hasSubItems && expandedMenus[item.id] && (
             <div className={`${styles.submenu} ${styles.expanded}`}>
-              {renderMenuItems(item.subItems, item.id)}
+              {renderMenuItems(item.subItems)}
             </div>
           )}
         </div>
@@ -416,7 +698,6 @@ function Navbar({ isOpen, onClose, onNavigate }) {
         <div className={styles.logoSection}>
           <div className={styles.logoContainer}>
             <img alt="pic" src={pic} />
-            <rect width="32" height="32" rx="10" fill="#3B82F6" />
           </div>
           <div className={styles.companyInfo}>
             <div className={styles.companyName}>Mr Tamor</div>

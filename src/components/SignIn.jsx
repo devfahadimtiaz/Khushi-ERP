@@ -1,14 +1,38 @@
-"use client";
 import React, { useState } from "react";
 import styles from "./SignIn.module.css";
 import InputField from "./InputField";
 import logo from "../uploads/KM-LOGO.png";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function SignIn({ onBack, onSignIn }) {
+function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const values = {
+    email: email,
+    password: password,
+  };
+  const handleLogin = (event) => {
+    // Navigate to the dashboard after login
+    event.preventDefault(); // Prevent the default form submission behavior
+    axios
+      .post("http://localhost:8081/SignIn", values)
+      .then((res) => {
+        if (res.data.message === "Login successful") {
+          navigate("/Dashboard");
+        }
+        else{
+          alert("Invalid email or password");
+
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,12 +44,6 @@ function SignIn({ onBack, onSignIn }) {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-  };
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log({ email, password, rememberMe });
   };
 
   return (
@@ -90,7 +108,7 @@ function SignIn({ onBack, onSignIn }) {
             </div>
             <div className={styles.forgotPassword}>Forgot Password</div>
           </div>
-          <button type="submit" className={styles.loginButton} onClick={onSignIn}>
+          <button type="submit" className={styles.loginButton}>
             Login
           </button>
         </form>

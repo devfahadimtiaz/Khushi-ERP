@@ -7,13 +7,19 @@ import { useState } from "react";
 import auto from "../uploads/icons/auto.png";
 import crm from "../uploads/icons/crm.png";
 import project from "../uploads/icons/project.png";
+import { useNavigate } from "react-router-dom";
 
-function ModuleSelection(props) {
+
+function ModuleSelection({onContinue}) {
   const [borderColor, setBorderColor] = useState("gray"); // Default border color
-
+  const navigate = useNavigate();
   const handleBorderColor = () => {
     // Toggle between two colors, you can customize this logic
     setBorderColor(borderColor === "gray" ? "blue" : "gray");
+  };
+  const handleContinue = () => {
+    // Navigate to the desired route
+    navigate("/SignIn"); // Replace "/dashboard" with the desired route
   };
 
   return (
@@ -27,7 +33,7 @@ function ModuleSelection(props) {
           </p>
           <div className={styles.cardsContainer}>
             <div className={styles.cardsGrid}>
-              <button className={styles.cardColumn} onClick={props.onContinue}>
+              <button className={styles.cardColumn} onClick={handleContinue}>
                 <ModuleCard
                   id="Automotive"
                   imageSrc={auto}
@@ -54,7 +60,7 @@ function ModuleSelection(props) {
                   className={styles.projectCard}
                 />
               </div>
-              <button className={styles.cardColumn} onClick={() => window.location.href = 'https://arsh-premium-properties.vercel.app/'}>
+              <button className={styles.cardColumn} onClick={() => window.location.href = 'http://localhost:3001/'}>
                 <ModuleCard
                   imageSrc={project}
                   title="Property Management"

@@ -1,11 +1,12 @@
 .dashboardContainer {
   background-color: #f6fafd;
 
-  overflow-x: auto;
+
   display: flex;
   padding-top: 78px;
   padding-bottom: 78px;
   flex-direction: column;
+  width: 100%;
 
 
 }

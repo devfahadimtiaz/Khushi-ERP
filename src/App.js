@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import NavToggle from "./components/Navbar/NavToggle";
@@ -96,300 +97,147 @@ import Arriving from "./components/Logistics/VehicleArrived";
 import Shipped from "./components/Logistics/Shipped";
 import VehiclesLoaded from "./components/Logistics/VehiclesLoaded";
 import QuotationTemplate from "./components/Quotation/QuotationTemplate";
-import InputScreenForPerformaQuotation from "./components/Quotation/InputScreenForPerformaQuotation"
+import InputScreenForPerformaQuotation from "./components/Quotation/InputScreenForPerformaQuotation";
+
+
 
 function App() {
-  const [navOpen, setNavOpen] = useState(false);
-  const [currentView, setCurrentView] = useState("moduleSelection");
+  const [data, setData] = useState([]);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
-  const navigateToSignIn = () => {
-    setCurrentView("signIn");
-  };
+  useEffect(() => {
+    fetch("http://localhost:8081/users")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log(err));
+  }, []);
 
-  const navigateToModuleSelection = () => {
-    setCurrentView("moduleSelection");
+  const toggleNavbar = () => {
+    setIsNavbarOpen((prev) => !prev); // Toggle Navbar visibility
   };
+  return (
+    <Router>
+      <AppContent data={data} isNavbarOpen={isNavbarOpen} toggleNavbar={toggleNavbar} />
+    </Router>
+  );
+}
 
-  const navigateToDashboard = () => {
-    setCurrentView("dashboard");
-  };
-  const navigateToInventoryListVies = () => {
-    setCurrentView("stock");
-  };
+function AppContent({data, isNavbarOpen, toggleNavbar }) {
+  const location = useLocation(); // Now inside the Router context
 
-  const navigateToInventoryGridView = () => {
-    setCurrentView("inventory-grid");
-  };
-
-  const navigateToInventoryAddStock = () => {
-    setCurrentView("add-stock");
-  };
-  const navigateToAddGarage = () => {
-    setCurrentView("add-garage");
-  };
-  const navigateToAuctionListView = () => {
-    setCurrentView("price-checker");
-  };
-  const navigateToDutyCalculator = () => {
-    setCurrentView("duty-calculator");
-  };
-  const navigateToLogisticsDashBoard = () => {
-    setCurrentView("shipping-dashboard");
-  };
-  const toggleNav = () => {
-    setNavOpen(!navOpen);
-  };
-
-  const handleNavigation = (viewId) => {
-    setCurrentView(viewId);
-    setNavOpen(false);
-  };
-
-  const renderView = () => {
-    switch (currentView) {
-      case "add-garage":
-        return <AddGarage onBack={navigateToDashboard} />;
-      case "garage":
-        return (
-          <GarageList
-            onBack={navigateToDashboard}
-            onAddGarage={navigateToAddGarage}
-          />
-        );
-      case "dashboard":
-        return <Dashboard onBack={navigateToSignIn} />;
-      case "inventory-dashboard":
-        return (
-          <Inventory
-            onBack={navigateToDashboard}
-            onNavigateToAddStock={navigateToInventoryAddStock}
-          />
-        );
-      case "stock":
-        return (
-          <InventoryListView
-            onBack={navigateToDashboard}
-            onNavigateToGridView={navigateToInventoryGridView}
-          />
-        );
-      case "inventory-grid":
-        return (
-          <InventoryGridView
-            onBack={navigateToDashboard}
-            onNaigateToListView={navigateToInventoryListVies}
-          />
-        );
-      case "signIn":
-        return (
-          <SignIn
-            onBack={navigateToModuleSelection}
-            onSignIn={navigateToDashboard}
-          />
-        );
-      case "add-stock":
-        return <AddStock onBack={navigateToDashboard} />;
-      case "vehicle-transfer":
-        return <VehicleTransferManagement onBack={navigateToDashboard} />;
-      case "moduleSelection":
-        return <ModuleSelection onContinue={navigateToSignIn} />;
-      case "incoming-vehicle-transfers":
-        return <IncomingVehicleTransfers onBack={navigateToDashboard} />;
-      case "parking-zone-management":
-        return <ParkingZoneManagement onBack={navigateToDashboard} />;
-      case "auction-grid":
-        return (
-          <AuctionGridView
-            onBack={navigateToDashboard}
-            onListView={navigateToAuctionListView}
-            onDutyCalculator={navigateToDutyCalculator}
-          />
-        );
-      case "auction-house":
-        return <AuctionHouse onBack={navigateToDashboard} />;
-      case "price-checker":
-        return <AuctionPriceChecker onBack={navigateToDashboard} />;
-      case "duty-calculator":
-        return <DutyCalculator onBack={navigateToDashboard} />;
-      case "shipping-dashboard":
-        return <LogisticsDashboard onBack={navigateToDashboard} />;
-      case "addSale":
-        return <CashSale onBack={navigateToDashboard} />;
-      case "bill-of-lading":
-        return (
-          <BillOfLadingExportDeclaration
-            onBackTodashboard={navigateToDashboard}
-          />
-        );
-      case "cashSaleList":
-        return <CashSaleList onBack={navigateToDashboard} />;
-      case "creditSale":
-        return <CreditSale onBack={navigateToDashboard} />;
-      case "creditSaleList":
-        return <CreditSaleList onBack={navigateToDashboard} />;
-      case "addPayment":
-        return <AddPayment onCancel={navigateToDashboard} />;
-      case "salesDashboard":
-        return <SaleDashboard onBack={navigateToDashboard} />;
-      case "marketTrend":
-        return <MarketTrend onBack={navigateToDashboard} />;
-      case "vehicleRepairDetails":
-        return <VehicleRepairDetails onBack={navigateToDashboard} />;
-      case "repairTaskManagement":
-        return <RepairTasksManagement onBack={navigateToDashboard} />;
-      case "voucherManagement":
-        return <VoucherManagement onBack={navigateToDashboard} />;
-      case "roadTestForm":
-        return <RoadTestform onBack={navigateToDashboard} />;
-      case "roadTestRecord":
-        return <RoadTestRecords />;
-      case "gatePass":
-        return <GatePass onBack={navigateToDashboard} />;
-      case "gatePassRecord":
-        return <GatePassRecords onBack={navigateToDashboard} />;
-      case "createopeningbalance":
-        return <CreateOpeningBalance onBack={navigateToDashboard} />;
-      case "GLDashboard":
-        return <GeneralLedgerDashboard onBack={navigateToDashboard} />;
-      case "showroomsManagement":
-        return <ShowroomsManagement onBack={navigateToDashboard} />;
-      case "salesTransections":
-        return <SalesTransections onBack={navigateToDashboard} />;
-      case "vehicleLogBook":
-        return <LogBookTransfer onBack={navigateToDashboard} />;
-      case "commission":
-        return <CommissionList onBack={navigateToDashboard} />;
-      case "purchaseDashboard":
-        return <PurchaseDB onBack={navigateToDashboard} />;
-      case "purchaseRequisition":
-        return <PurchaseRequisition onBack={navigateToDashboard} />;
-      case "quotationDocument":
-        return <QoutationDocuments onBack={navigateToDashboard} />;
-      case "tenderDocument":
-        return <TenderDocument onBack={navigateToDashboard} />;
-      case "comparativeStatement":
-        return <ComparativeStatement onBack={navigateToDashboard} />;
-      case "purchasedOrder":
-        return <PurchaseOrder onBack={navigateToDashboard} />;
-      case "generateGoodReceivedNote":
-        return <GenerateGoodRecieveNotes onBack={navigateToDashboard} />;
-      case "payment":
-        return <Payment onBack={navigateToDashboard} />;
-      case "transportation":
-        return <Transportation onBack={navigateToDashboard} />;
-      case "purchaseRetunRequest":
-        return <PurchaseRetunRequest onBack={navigateToDashboard} />;
-      case "purchaseDispatched":
-        return <PurchaseDispatchNote onBack={navigateToDashboard} />;
-      case "purchaseReturn":
-        return <PurchaseReturnNote onBack={navigateToDashboard} />;
-      case "payableConfiguration":
-        return <PayableConfiguration onBack={navigateToDashboard} />;
-      case "purchaseReturnVoucher":
-        return <PurchasedReturnVoucher onBack={navigateToDashboard} />;
-      case "purchasePayableReturnVoucher":
-        return <PurchasePayableReturnVoucher onBack={navigateToDashboard} />;
-      case "paymentVouchers":
-        return <PaymentVouchers onBack={navigateToDashboard} />;
-      case "advanceReturnVoucher":
-        return <AdvanceReturnVoucher onBack={navigateToDashboard} />;
-      case "purchaseOrderReport":
-        return <PurchaseOrderList onBack={navigateToDashboard} />;
-      case "purchaseShowRoomWise":
-        return <PurchaseShowroomWise onBack={navigateToDashboard} />;
-      case "paymentRegister":
-        return <PaymentRegisterReport onBack={navigateToDashboard} />;
-      case "payableAgingReport":
-        return <PayableAgingReport onBack={navigateToDashboard} />;
-      case "pendingPOItem":
-        return <PendingPOReport onBack={navigateToDashboard} />;
-      case "supplierContactList":
-        return <SupplierContactList onBack={navigateToDashboard} />;
-      case "unpaidSupplierBills":
-        return <UnpaidSupplierBills onBack={navigateToDashboard} />;
-      case "supplierWiseBillReports":
-        return <SupplierWiseBillReports onBack={navigateToDashboard} />;
-      case "showRoomManager":
-        return <ShowRoomManager onBack={navigateToDashboard} />;
-      case "costAndProfit":
-        return <CostAndProfit onBack={navigateToDashboard} />;
-      case "chartOfAccounts":
-        return <ChartOfAccountsSetup onBack={navigateToDashboard} />;
-      case "currencyManagement":
-        return <CurrencyManagement onBack={navigateToDashboard} />;
-      case "subsidiaryLedger":
-        return <SubsidiaryLedger onBack={navigateToDashboard} />;
-      case "voucherSetup":
-        return <VoucherSetup onBack={navigateToDashboard} />;
-      case "subsidiaryFileSetup":
-        return <SubsidiaryFileSetup onBack={navigateToDashboard} />;
-      case "bankDetails":
-        return <BankDetails onBack={navigateToDashboard} />;
-      case "cashAccountDetails":
-        return <CashAccountDetails onBack={navigateToDashboard} />;
-      case "creditAccountDetails":
-        return <CreditAccountDetails onBack={navigateToDashboard} />;
-      case "financialYearList":
-        return <FinancialYearList onBack={navigateToDashboard} />;
-      case "openingBalance":
-        return <OpeningBalance onBack={navigateToDashboard} />;
-      case "openingBalanceVouchers":
-        return <OpeningBalanceVouchers onBack={navigateToDashboard} />;
-      case "internalCashTransfer":
-        return <InternalCashTransfer onBack={navigateToDashboard} />;
-      case "accountListingReport":
-        return <AccountListingReport onBack={navigateToDashboard} />;
-      case "searchingVoucher":
-        return <SearchingVoucher onBack={navigateToDashboard} />;
-      case "generalLedgerReport":
-        return <GeneralLedger onBack={navigateToDashboard} />;
-      case "subsidiaryGeneralLedgerReport":
-        return <SubsidiaryGeneralLedger onBack={navigateToDashboard} />;
-      case "trialBalance":
-        return <TrialBalance onBack={navigateToDashboard} />;
-      case "profitandLossStatement":
-        return <ProfitAndLossStatement onBack={navigateToDashboard} />;
-      case "balanceSheet":
-        return <BalanceSheet onBack={navigateToDashboard} />;
-      case "branding":
-        return <BrandAssets />;
-      case "expenseManagement":
-        return <ExpenseManagement />;
-      case "expenseSheet":
-        return <ExpenseSheet />;
-      case "wayToYard":
-        return <OnWayToYard onBack={navigateToLogisticsDashBoard} />;
-      case "inYard":
-        return <InYard onBack={navigateToLogisticsDashBoard} />;
-      case "loadPlaning":
-        return <LoadingPlanning onBack={navigateToLogisticsDashBoard} />;
-      case "arriving":
-        return <Arriving onBack={navigateToLogisticsDashBoard} />;
-      case "shipped":
-        return <Shipped onBack={navigateToLogisticsDashBoard} />;
-      case "vehicleLoaded":
-        return <VehiclesLoaded onBack={navigateToLogisticsDashBoard} />;
-      case "quotationForm":
-        return <InputScreenForPerformaQuotation onBack={navigateToDashboard}/>
-      default:
-        return <Dashboard onBack={navigateToSignIn} />;
-    }
-  };
+  // Define routes where the Navbar should be hidden
+  const hideNavbarRoutes = ["/SignIn", "/ModuleSelection"];
 
   return (
     <div className="App">
-      {/* Hide nav only on moduleSelection and signIn screens */}
-      {currentView !== "moduleSelection" && currentView !== "signIn" && (
+       {/* Conditionally render NavToggle and Navbar */}
+       {!hideNavbarRoutes.includes(location.pathname) && (
         <>
-          <NavToggle onClick={toggleNav} />
-          <Navbar
-            isOpen={navOpen}
-            onClose={() => setNavOpen(false)}
-            onNavigate={handleNavigation}
-          />
+          <NavToggle onClick={toggleNavbar} />
+          <Navbar isOpen={isNavbarOpen} onClose={toggleNavbar} />
         </>
       )}
+      <Routes>
+        <Route path="/" element={<Navigate to="/ModuleSelection" />} />
+        <Route path="/ModuleSelection" element={<ModuleSelection />} />
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/AddGarage" element={<AddGarage />} />
+        <Route path="/GarageList" element={<GarageList data={data} />} />
+        <Route path="/InventoryDashboard" element={<Inventory />} />
+        <Route path="/Stock" element={<InventoryListView />} />
+        <Route path="/InventoryGridView" element={<InventoryGridView />} />
+        <Route path="/AddStock" element={<AddStock />} />
+        <Route path="/AuctionGridView" element={<AuctionGridView />} />
+        <Route path="/AuctionPriceChecker" element={<AuctionPriceChecker />} />
+        <Route path="/DutyCalculator" element={<DutyCalculator />} />
+        <Route path="/ShippingDashboard" element={<LogisticsDashboard />} />
+        <Route path="/AddCashSale" element={<CashSale />} />
+        <Route path="/CashSaleList" element={<CashSaleList />} />
+        <Route path="/AddCreditSale" element={<CreditSale />} />
+        <Route path="/CreditSaleList" element={<CreditSaleList />} />
+        <Route path="/AddPayment" element={<AddPayment />} />
+        <Route path="/SaleDashboard" element={<SaleDashboard />} />
+        <Route path="/MarketTrend" element={<MarketTrend />} />
+        <Route path="/VehicleRepairDetails" element={<VehicleRepairDetails />} />
+        <Route path="/RepairTasksManagement" element={<RepairTasksManagement />} />
+        <Route path="/VoucherManagement" element={<VoucherManagement />} />
+        <Route path="/RoadTestform" element={<RoadTestform />} />
+        <Route path="/RoadTestRecords" element={<RoadTestRecords />} />
+        <Route path="/GatePass" element={<GatePass />} />
+        <Route path="/GatePassRecord" element={<GatePassRecords />} />
+        <Route path="/Createopeningbalance" element={<CreateOpeningBalance />} />
+        <Route path="/GLDashboard" element={<GeneralLedgerDashboard />} />
+        <Route path="/SubsidiaryGeneralLedger" element={<SubsidiaryGeneralLedger/>} />
+        <Route path="/TrialBalance" element={<TrialBalance/>} />
+        <Route path="/VehicleTransferManagement" element={<VehicleTransferManagement/>} />
+        <Route path="/IncomingVehicleTransfers" element={<IncomingVehicleTransfers/>} />
+        <Route path="/ShowroomsManagement" element={<ShowroomsManagement/>} />
+        <Route path="/ParkingZoneManagement" element={<ParkingZoneManagement/>} />
+        <Route path="/AuctionHouse" element={<AuctionHouse/>} />
+        <Route path="/BillOfLadingExportDeclaration" element={<BillOfLadingExportDeclaration/>} />
+        <Route path="/SalesTransections" element={<SalesTransections/>} />
+        <Route path="/LogBookTransfer" element={<LogBookTransfer/>} />
+        <Route path="/CommissionList" element={<CommissionList/>} />
+        <Route path="/PurchaseDB" element={<PurchaseDB/>} />
+        <Route path="/PurchaseRequisition" element={<PurchaseRequisition/>} />
+        <Route path="/QoutationDocuments" element={<QoutationDocuments/>} />
+        <Route path="/TenderDocument" element={<TenderDocument/>} />
+        <Route path="/ComparativeStatement" element={<ComparativeStatement/>} />
+        <Route path="/PurchaseOrder" element={<PurchaseOrder/>} />
+        <Route path="/GenerateGoodRecieveNotes" element={<GenerateGoodRecieveNotes/>} />
+        <Route path="/Payment" element={<Payment/>} />
+        <Route path="/Transportation" element={<Transportation/>} />
+        <Route path="/PurchaseRetunRequest" element={<PurchaseRetunRequest/>} />
+        <Route path="/PurchaseDispatchNote" element={<PurchaseDispatchNote/>} />
+        <Route path="/PayableConfiguration" element={<PayableConfiguration/>} />
+        <Route path="/PurchasedReturnVoucher" element={<PurchasedReturnVoucher/>} />
+        <Route path="/PurchasePayableReturnVoucher" element={<PurchasePayableReturnVoucher/>} />
+        <Route path="/PaymentVouchers" element={<PaymentVouchers/>} />
+        <Route path="/AdvanceReturnVoucher" element={<AdvanceReturnVoucher/>} />
+        <Route path="/PurchaseOrderList" element={<PurchaseOrderList/>} />
+        <Route path="/PurchaseShowroomWise" element={<PurchaseShowroomWise/>} />
+        <Route path="/PaymentRegisterReport" element={<PaymentRegisterReport/>} />
+        <Route path="/PayableAgingReport" element={<PayableAgingReport/>} />
+        <Route path="/PurchaseReturnNote" element={<PurchaseReturnNote/>} />
+        <Route path="/PendingPOReport" element={<PendingPOReport/>} />
+        <Route path="/SupplierContactList" element={<SupplierContactList/>} />
+        <Route path="/UnpaidSupplierBills" element={<UnpaidSupplierBills/>} />
+        <Route path="/SupplierWiseBillReports" element={<SupplierWiseBillReports/>} />
+        <Route path="/ShowRoomManager" element={<ShowRoomManager/>} />
+        <Route path="/CostAndProfit" element={<CostAndProfit/>} />
+        <Route path="/ChartOfAccountsSetup" element={<ChartOfAccountsSetup/>} />
+        <Route path="/CurrencyManagement" element={<CurrencyManagement/>} />
+        <Route path="/SubsidiaryLedger" element={<SubsidiaryLedger/>} />
+        <Route path="/VoucherSetup" element={<VoucherSetup/>} />
+        <Route path="/SubsidiaryFileSetup" element={<SubsidiaryFileSetup/>} />
+        <Route path="/BankDetails" element={<BankDetails/>} />
+        <Route path="/CashAccountDetails" element={<CashAccountDetails/>} />
+        <Route path="/CreditAccountDetails" element={<CreditAccountDetails/>} />
+        <Route path="/FinancialYearList" element={<FinancialYearList/>} />
+        <Route path="/OpeningBalance" element={<OpeningBalance/>} />
+        <Route path="/OpeningBalanceVouchers" element={<OpeningBalanceVouchers/>} />
+        <Route path="/InternalCashTransfer" element={<InternalCashTransfer/>} />
+        <Route path="/AccountListingReport" element={<AccountListingReport/>} />
+        <Route path="/SearchingVoucher" element={<SearchingVoucher/>} />
+        <Route path="/GeneralLedger" element={<GeneralLedger/>} />
+        <Route path="/ProfitAndLossStatement" element={<ProfitAndLossStatement/>} />
+        <Route path="/BalanceSheet" element={<BalanceSheet/>} />
+        <Route path="/BrandAssets" element={<BrandAssets/>} />
+        <Route path="/ExpenseManagement" element={<ExpenseManagement/>} />
+        <Route path="/ExpenseSheet" element={<ExpenseSheet/>} />
+        <Route path="/OnWayToYard" element={<OnWayToYard/>} />
+        <Route path="/InYard" element={<InYard/>} />
+        <Route path="/LoadingPlanning" element={<LoadingPlanning/>} />
+        <Route path="/Arriving" element={<Arriving/>} />
+        <Route path="/Shipped" element={<Shipped/>} />
+        <Route path="/VehiclesLoaded" element={<VehiclesLoaded/>} />
+        <Route path="/QuotationTemplate" element={<QuotationTemplate/>} />
+        <Route path="/InputScreenForPerformaQuotation" element={<InputScreenForPerformaQuotation/>} />
 
-      <main className="main-content">{renderView()}</main>
+        
+
+      </Routes>
     </div>
   );
 }
