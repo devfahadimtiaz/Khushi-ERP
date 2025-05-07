@@ -1,77 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./AddGarage.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const AddGarage = ({ onClose }) => {
+const AddGarage = ({ onBack, data }) => {
   const [formData, setFormData] = useState({
     companyName: "",
     companyLogo: null,
     country: "",
     currency: "",
-    companyId: "",
     address: "",
   });
 
+  useEffect(() => {
+    if (data) {
+      setFormData({
+        companyName: data.name || "",
+        companyLogo: null,
+        country: data.country || "",
+        currency: data.currency || "",
+        address: data.address || "",
+      });
+    }
+  }, [data]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const handleFileUpload = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       companyLogo: e.target.files[0],
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.companyName); // ✅ name
-    formDataToSend.append("logo", formData.companyLogo); // ✅ logo
-    formDataToSend.append("country", formData.country); // ✅ country
-    formDataToSend.append("currency", formData.currency); // ✅ currency
-    formDataToSend.append("company_id", formData.companyId); // ✅ company_id
+    formDataToSend.append("name", formData.companyName);
+    formDataToSend.append("logo", formData.companyLogo);
+    formDataToSend.append("country", formData.country);
+    formDataToSend.append("currency", formData.currency);
     formDataToSend.append("address", formData.address);
 
+    const isEdit = Boolean(data && data.id);
+    const url = isEdit
+      ? `http://localhost:8081/garage/${data.id}`
+      : "http://localhost:8081/AddGarage";
+    const method = isEdit ? "PUT" : "POST";
+
     try {
-      const response = await fetch("http://localhost:8081/AddGarage", {
-        method: "POST",
+      const response = await fetch(url, {
+        method,
         body: formDataToSend,
       });
 
+      const result = await response.json();
+      console.log(result);
+
       if (!response.ok) {
-        // Check if the response is not OK (e.g., status code 404 or 500)
-        const text = await response.text();
-        console.error("Server responded with: ", text);
-        alert("Server error: " + text);
+        toast.error(result.message || "An unexpected error occurred");
         return;
       }
 
-      const result = await response.json();
-      if (result.message === "Garage added successfully") {
-        alert("Garage added successfully!");
-        handleCancel(); // Clear form
+      if (result.message === "Garage added successfully" || result.message === "Garage updated successfully") {
+        toast.success(result.message);
+        window.location.reload(true);
+        handleCancel(); // Reset form
+        onBack();       // Go back
+  
       } else {
-        alert("Error: " + result.message);
+        toast.error("Unexpected response: " + result.message);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form.");
+      toast.error("Network or server error occurred.");
     }
   };
 
   const handleCancel = () => {
-    // Navigate back or clear form
     setFormData({
       companyName: "",
       companyLogo: null,
       country: "",
       currency: "",
-      companyId: "",
       address: "",
     });
   };
@@ -79,7 +97,9 @@ const AddGarage = ({ onClose }) => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <h1 className={styles.title}>Add Garage or Division</h1>
+        <h1 className={styles.title}>
+          {data ? "Edit Garage or Division" : "Add Garage or Division"}
+        </h1>
 
         <form onSubmit={handleSubmit}>
           <div className={styles.inputField}>
@@ -105,13 +125,19 @@ const AddGarage = ({ onClose }) => {
                 className={styles.fileInput}
               />
             </label>
-            {formData.companyLogo && (
+            {formData.companyLogo ? (
               <img
                 src={URL.createObjectURL(formData.companyLogo)}
                 alt="Preview"
                 className={styles.logoPreview}
               />
-            )}
+            ) : data?.logo ? (
+              <img
+                src={`http://localhost:8081/uploads/${data.logo}`}
+                alt="Existing Logo"
+                className={styles.logoPreview}
+              />
+            ) : null}
           </div>
 
           <div className={styles.rowFields}>
@@ -124,11 +150,11 @@ const AddGarage = ({ onClose }) => {
                 <option value="" disabled>
                   Country
                 </option>
-                <option value="pakistan">Pakistan</option>
-                <option value="japan">Japan</option>
-                <option value="kenya">Kenya</option>
-                <option value="uganda">Uganda</option>
-                <option value="tanzania">Tanzania</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Japan">Japan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Tanzania">Tanzania</option>
               </select>
             </div>
 
@@ -138,14 +164,14 @@ const AddGarage = ({ onClose }) => {
                 value={formData.currency}
                 onChange={handleInputChange}
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Currency
                 </option>
-                <option value="pkr">PKR</option>
-                <option value="yen">Yen</option>
-                <option value="ksh">KHS</option>
-                <option value="tzs">TZS</option>
-                <option value="ugs">UGS</option>
+                <option value="PKR">PKR</option>
+                <option value="Yen">Yen</option>
+                <option value="KHS">KHS</option>
+                <option value="TZS">TZS</option>
+                <option value="UGS">UGS</option>
               </select>
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/494c29d3c93b1e33a516b6d208d638fbd43cc416?placeholderIfAbsent=true"
@@ -158,17 +184,7 @@ const AddGarage = ({ onClose }) => {
           <div className={styles.inputField}>
             <input
               type="text"
-              name="companyId"
-              placeholder="Company ID"
-              value={formData.companyId}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className={styles.inputField}>
-            <input
-              type="text"
-              name="address" // ✅ lowercase 'a' to match your state and FormData
+              name="address"
               placeholder="Address"
               value={formData.address}
               onChange={handleInputChange}
@@ -179,16 +195,17 @@ const AddGarage = ({ onClose }) => {
             <button
               type="button"
               className={styles.cancelButton}
-              onClick={onClose}
+              onClick={onBack}
             >
               Cancel
             </button>
             <button type="submit" className={styles.saveButton}>
-              Save Changes
+              {data ? "Update Garage" : "Save Changes"}
             </button>
           </div>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

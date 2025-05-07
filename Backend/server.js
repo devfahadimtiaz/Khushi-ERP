@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./routes/authRoutes');// Import SignIn routes
 const garageRoutes = require('./routes/garage'); // Import garage routes
+const inventoryRoutes = require('./routes/inventoryRoutes'); // Import inventory routes
 
 const app = express();
 app.use(cors());
@@ -27,7 +28,9 @@ db.connect((err) => {
 // Use auth routes
 app.use('/', authRoutes(db));
 app.use('/', garageRoutes(db));
+app.use('/', inventoryRoutes(db)); // Use inventory routes
 app.use('/uploads', express.static('uploads'));
+// Use inventory routes
 
 app.listen(8081, () => {
   console.log("Server is running on port 8081");

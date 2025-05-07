@@ -1,95 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./GarageList.module.css";
 import TableComponenet from "../../../Resources/Tables/TableComponent";
 import AddGarage from "./AddGarage";
 import ConfirmDeletePopup from "../../../Resources/Popups/ConfirmDeletePopup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function GarageList({ onBack, onAddGarage }) {
-  const [viewData, setViewData] = useState(null);
-  const [editData, setEditData] = useState(false);
+  const [editData, setEditData] = useState(null);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
-  const handleView = (row) => setViewData(row);
-  const handleEdit = (row) => setEditData(true);
-  const handleDelete = (row) => {
-    // your delete logic here
-    console.log("Delete this row:", row);
+  const [garage, setGarage] = useState([]);
+  
+  const handleEdit = (row) => {setEditData(row);
+    setShowAddGarage(true); // Show the AddGarage component when editing
   };
+  const [showAddGarage, setShowAddGarage] = useState(false);
+  const handleAddGarage = () => {
+    setShowAddGarage(true);
+  }
+  const handleBack = () => {
+    setShowAddGarage(false);
+    setEditData(null); // Reset edit data when going back
+  };
+
+
+  useEffect(()=>{
+    const fetchGarageList = async () => {
+      try {
+        const response = await fetch("http://localhost:8081/GarageList");
+        const data = await response.json();
+        setGarage(data);
+
+      } catch (error) {
+        console.error("Error fetching garage list:", error);
+      }
+    }
+    fetchGarageList();
+  }, []);
+
+
+
   const handleDeleteClick = (row) => {
     setSelectedRow(row);
     setIsDeletePopupOpen(true);
   };
 
-  const handleConfirmDelete = () => {
-    // your actual delete logic here (e.g., API call)
-    console.log("Deleting row:", selectedRow);
+  const handleConfirmDelete = async () => {
+    if (!selectedRow || !selectedRow.id) {
+      toast.error("No showroom selected to delete.");
+      return;
+    }
 
-    // after deletion
-    setIsDeletePopupOpen(false);
-    setSelectedRow(null);
+    try {
+      const response = await fetch(`http://localhost:8081/garage/${selectedRow.id}`, {
+        method: "DELETE",
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        toast.error(result.message || "Error occurred while deleting the garage");
+        return;
+      }
+
+      // Update the state to remove the deleted showroom from the list
+      setGarage((prevGarage) =>
+        prevGarage.filter((garage) => garage.id !== selectedRow.id)
+      );
+
+      toast.success("Garage deleted successfully");
+      window.location.reload(true);
+      setIsDeletePopupOpen(false); // Close the delete popup
+      setSelectedRow(null); // Reset selected row
+    } catch (error) {
+      console.error("Error deleting the showroom:", error);
+      toast.error("An error occurred while deleting the showroom.");
+    }
   };
   const handleCancelDelete = () => {
     setIsDeletePopupOpen(false);
     setSelectedRow(null);
   };
   const TableHeader = [
-    { label: "No", key: "no" },
-    { label: "Company Name", key: "companyName" },
+    { label: "No", key: "id" },
+    { label: "Company Name", key: "name" },
     { label: "Country", key: "country" },
-    { label: "City", key: "city" },
-    { label: "Garage Name", key: "garageName" },
+    { label: "Address", key: "address" },
+    { label: "Currency", key: "currency" },
   ];
-  const Tabledata = [
-    {
-      id: 1,
-      no: "01",
-      companyName: "Khushi Motors",
-      country: "Kenya",
-      city: "Mombasa",
-      garageName: "Khushi Motors Mombasa ",
-    },
-    {
-      id: 2,
-      no: "02",
-      companyName: "Khushi Motors",
-      country: "Kenya",
-      city: "Nairobi",
-      garageName: "Khushi Motors Nairobi ",
-    },
-    {
-      id: 3,
-      no: "03",
-      companyName: "Khushi Motors",
-      country: "Kenya",
-      city: "Mombasa",
-      garageName: "Khushi Motors Mombasa Commercial ",
-    },
-    {
-      id: 4,
-      no: "04",
-      companyName: "Khushi Motors",
-      country: "Tanzania",
-      city: "Dar es Salam",
-      garageName: "Khushi Motors Tanzania ",
-    },
-    {
-      id: 5,
-      no: "05",
-      companyName: "Khushi Motors",
-      country: "Uganda",
-      city: "Kampala",
-      garageName: "Khushi Motors Uganda ",
-    },
-    {
-      id: 6,
-      no: "06",
-      companyName: "Khushi Motors",
-      country: "Pakistan",
-      city: "Gujranwala",
-      garageName: "Khushi Motors Pakistan ",
-    },
-  ];
-  if (editData) {
-    return <AddGarage data={editData} onClose={() => setEditData(false)} />;
+  if(showAddGarage) {
+    return <AddGarage data={editData} onBack={handleBack} />;
   }
   return (
     <>
@@ -97,7 +97,7 @@ function GarageList({ onBack, onAddGarage }) {
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.title}>Garage List</div>
-            <button className={styles.addButton} onClick={onAddGarage}>
+            <button className={styles.addButton} onClick={handleAddGarage}>
               <span className={styles.buttonText}>Add New</span>
               <div>
                 <svg
@@ -120,20 +120,21 @@ function GarageList({ onBack, onAddGarage }) {
             </button>
           </div>
           <TableComponenet
-            data={Tabledata}
+            data={garage}
             HeadData={TableHeader}
             onEdit={handleEdit}
             onDelete={handleDeleteClick}
           />
           <ConfirmDeletePopup
-            isOpen={isDeletePopupOpen}
-            onClose={handleCancelDelete}
-            onConfirm={handleConfirmDelete}
-            title="Delete Garage"
-            message="Are you sure you want to delete this garage?"
+          isOpen={isDeletePopupOpen}
+          onClose={handleCancelDelete}
+          onConfirm={handleConfirmDelete}
+          title="Delete Garage"
+          message="Are you sure you want to delete this garage?"
           />
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }
