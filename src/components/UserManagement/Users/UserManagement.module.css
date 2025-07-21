@@ -1,0 +1,431 @@
+/* Container */
+.container {
+  width: 90%;
+  
+  margin: auto;
+  margin-top: 80px;
+  background: #f8fafc;
+  position: relative;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+/* Header */
+
+
+.title {
+  color: #111827;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  margin: 0;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* Main Content */
+.mainContent {
+  
+  top: 72px;
+  left: 32px;
+ 
+  height: calc(874px - 72px);
+  padding-top: 32px;
+}
+
+/* Tabs Container */
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.tabsHeader {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  height: 39px;
+  border-radius: 4px;
+  border: none;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22.5px;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.activeTab {
+  background: #4318d1;
+  color: #fff;
+}
+
+.tab:not(.activeTab) {
+  background: #f3f4f6;
+  color: #000;
+}
+
+.addNewUserBtn {
+  width: 128px;
+  height: 37px;
+  border-radius: 4px;
+  background: #4318d1;
+  border: none;
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Controls Section */
+.controlsSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  width: 300px;
+  height: 40px;
+}
+
+.searchField {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  padding: 0 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  color: #111827;
+}
+
+.searchField::placeholder {
+  color: #999;
+}
+
+.roleFilter {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.filterText {
+  color: #000;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.exportBtn {
+  width: 99px;
+  height: 37px;
+  border-radius: 4px;
+  background: #eee7fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.exportText {
+  color: #4318d1;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+/* Table Container */
+.tableContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Table Header */
+.tableHeader {
+  height: 43px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: 200fr 200fr 140px 120px 120px 150px 120px;
+  align-items: center;
+  padding: 0 24px;
+  gap: 24px;
+}
+
+.headerCell {
+  color: #6b7280;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Table Body */
+.tableBody {
+  background: #fff;
+}
+
+.tableRow {
+  height: 75px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: 200fr 200fr 140px 120px 120px 150px 120px;
+  align-items: center;
+  padding: 0 24px;
+  gap: 24px;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+/* User Cell */
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.userName {
+  color: #111827;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.userEmail {
+  color: #6b7280;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+/* Role Cell */
+.roleCell {
+  display: flex;
+  align-items: center;
+}
+
+.roleBadge {
+  height: 23px;
+  border-radius: 12px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.adminBadge {
+  background: #eee7fe;
+  color: #4318d1;
+}
+
+.salesBadge {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.technicianBadge {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Status Cell */
+.statusCell {
+  display: flex;
+  align-items: center;
+}
+
+.statusBadge {
+  height: 23px;
+  border-radius: 12px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.activeBadge {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.inactiveBadge {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Last Login Cell */
+.lastLoginCell {
+  color: #6b7280;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+/* Permissions Cell */
+.permissionsCell {
+  display: flex;
+  align-items: center;
+}
+
+.viewPermissionsBtn {
+  background: none;
+  border: none;
+  color: #4318d1;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Actions Cell */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editBtn {
+  background: none;
+  border: none;
+  color: #4318d1;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+}

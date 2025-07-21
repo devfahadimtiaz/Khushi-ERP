@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./RegistrationCertificatePopup.module.css";
 import uploadIcon from "../../uploads/uploads-svgrepo-com.svg";
 
-const RegistrationCertificatePopup = ({ onClose }) => {
+const RegistrationCertificatePopup = ({ onClose,setFile }) => {
   const [files, setFiles] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -37,7 +37,7 @@ const RegistrationCertificatePopup = ({ onClose }) => {
 
   const handleUpload = () => {
     // Here you would implement the actual file upload logic
-    console.log("Files to upload:", files);
+    setFile(files)
     // After successful upload, close the popup
     onClose();
   };

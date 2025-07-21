@@ -25,13 +25,19 @@
   .slide {
     min-width: 100%;
     height: 100%;
-    display: flex;
+   margin-top: 40px;
     align-items: center;
     justify-content: center;
   }
+  .showroomName{
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
   
   .logoImg {
-    max-width: 100%;
+    max-width: 40%;
     max-height: 50%;
     object-fit: contain;
   }

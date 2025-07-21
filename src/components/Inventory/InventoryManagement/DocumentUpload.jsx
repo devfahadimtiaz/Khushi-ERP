@@ -1,57 +1,122 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./DocumentUpload.module.css";
-import pdfIcon from "../../../uploads/icons/pdf.svg";
-import view from "../../../uploads/icons/view.svg";
-import download from "../../../uploads/icons/download.svg";
-function DocumentUpload() {
-  const [documents, setDocuments] = useState([
-    { id: 1, name: "C24-0001 Export Certificate" },
-    { id: 2, name: "C24-0001 Export Certificate" },
-    { id: 3, name: "C24-0001 Export Certificate" },
-    { id: 4, name: "C24-0001 Export Certificate" },
-    { id: 5, name: "C24-0001 Export Certificate" },
-    { id: 6, name: "C24-0001 Export Certificate" },
-  ]);
-
+import pdfIcon from "../../../assets/uploads/icons/pdf.svg";
+import view from "../../../assets/uploads/icons/view.svg";
+import download from "../../../assets/uploads/icons/download.svg";
+const API_URL = process.env.REACT_APP_API_URL;
+const API_IMAGE = process.env.REACT_APP_API_IMAGE;
+function DocumentUpload({
+  docFiles,
+  setDocsFile,
+  existingDocs,
+  setExistingDocs,
+  vehicleId,
+}) {
   const fileInputRef = useRef(null);
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    e.stopPropagation();
   };
+  useEffect(() => {
+    if (existingDocs?.length) {
+      const formattedExistingDocs = existingDocs.map((doc) => ({
+        id: doc.id,
+        url: `${API_IMAGE}${doc.url}`,
+        type: doc.type || "", // You can extract from name if needed
+        name: doc.url.split("/").pop(),
+      }));
 
+      setDocsFile((prev) => [...formattedExistingDocs, ...prev]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [existingDocs]);
+
+  const allowedTypes = ["application/pdf", "application/vnd.ms-excel"];
   const handleDrop = (e) => {
     e.preventDefault();
-    e.stopPropagation();
-
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      handleFiles(e.dataTransfer.files);
-    }
+    const validFiles = Array.from(e.dataTransfer.files).filter((file) =>
+      allowedTypes.includes(file.type)
+    );
+    const newDocs = validFiles.map((file) => ({
+      file,
+      type: "",
+    }));
+    setDocsFile([...docFiles, ...newDocs]);
   };
 
   const handleFileInputChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      handleFiles(e.target.files);
+    if (e.target.files) {
+      const newDocs = Array.from(e.target.files).map((file) => ({
+        file,
+        type: "", // empty initially
+      }));
+      setDocsFile([...docFiles, ...newDocs]);
     }
-  };
-
-  const handleFiles = (files) => {
-    const newDocuments = Array.from(files).map((file, index) => ({
-      id: documents.length + index + 1,
-      name: file.name,
-      file: file,
-    }));
-
-    setDocuments([...documents, ...newDocuments]);
   };
 
   const handleBrowseClick = () => {
     fileInputRef.current.click();
   };
+  const handleViewDocument = (index) => {
+    const file = docFiles[index];
+    const fileURL = URL.createObjectURL(file);
 
-  const handleViewDocument = (id) => {
-    // View document functionality would go here
-    console.log(`Viewing document ${id}`);
+    const newWindow = window.open();
+    if (newWindow) {
+      newWindow.document.write(`
+      <iframe 
+        src="${fileURL}" 
+        width="100%" 
+        height="100%" 
+        style="border:none;">
+      </iframe>
+    `);
+      newWindow.document.title = file.name;
+    } else {
+      alert("Popup blocked. Please allow popups for this site.");
+    }
+  };
+
+  const handleDeleteDocs = (index) => {
+    const updatedDocs = [...docFiles];
+    updatedDocs.splice(index, 1);
+    setDocsFile(updatedDocs);
+  };
+
+  useEffect(() => {
+    const urls = docFiles
+      .filter((doc) => doc?.file instanceof Blob)
+      .map((doc) => URL.createObjectURL(doc.file));
+
+    return () => {
+      urls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [docFiles]);
+
+  const handleDeleteExistingDoc = async (docId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this document?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      const response = await fetch(`${API_URL}/documents/${docId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete document.");
+      }
+
+      const updatedDocs = existingDocs.filter((doc) => doc.id !== docId);
+      setDocsFile([...docFiles]); // this line is fine but technically not needed here
+      if (typeof setExistingDocs === "function") {
+        setExistingDocs(updatedDocs);
+      }
+    } catch (error) {
+      console.error("Error deleting document:", error);
+      alert("An error occurred while deleting the document.");
+    }
   };
 
   return (
@@ -105,6 +170,7 @@ function DocumentUpload() {
           <input
             type="file"
             ref={fileInputRef}
+            accept="application/pdf,application/vnd.ms-excel"
             onChange={handleFileInputChange}
             multiple
             style={{ display: "none" }}
@@ -113,27 +179,92 @@ function DocumentUpload() {
       </div>
 
       <div className={styles.documentsGrid}>
-        {documents.map((doc) => (
-          <div key={doc.id} className={styles.documentCard}>
-            <img alt="pic" src={pdfIcon} className={styles.pdfIcon}/>
-            <div className={styles.documentName}>{doc.name}</div>
-            <div className={styles.documentActions}>
-              <button
-                className={styles.actionButton}
-                onClick={() => handleViewDocument(doc.id)}
-                aria-label="View document"
+        {docFiles.map((doc, index) => {
+          const isExisting = !!doc.url && !doc.file;
+
+          const fileUrl = isExisting
+            ? doc.url
+            : doc?.file instanceof Blob
+            ? URL.createObjectURL(doc.file)
+            : "";
+
+          return (
+            <div key={index} className={styles.documentCard}>
+              <img alt="document" src={pdfIcon} className={styles.pdfIcon} />
+              <div className={styles.documentName}>
+                {doc.name || doc.file?.name || "Unnamed Document"}
+              </div>
+
+              <select
+                value={doc.type}
+                onChange={(e) => {
+                  const updatedDocs = [...docFiles];
+                  updatedDocs[index].type = e.target.value;
+                  setDocsFile(updatedDocs);
+                }}
+                className={styles.selectDropdown}
               >
-                <img alt="view" src={view} className={styles.viewIcon} />
-              </button>
-              <button
-                className={styles.actionButton}
-                aria-label="Delete document"
-              ><img alt="download" src={download} className={styles.viewIcon} />
-               
-              </button>
+                <option value="">Select Document Type</option>
+                <option value="Auction Sheet">Auction Sheet</option>
+                <option value="GD">GD</option>
+                <option value="BL">BL</option>
+                <option value="BL-Surrender">BL-Surrender</option>
+                <option value="ImportDeclaration-Invoice">
+                  Import-Declaration-Invoice
+                </option>
+                <option value="ExportCertificateCancle-Registration">
+                  Export-Certificate-Cancle-Registration
+                </option>
+                <option value="ExportCertificaten">Export-Certificaten</option>
+                <option value="Ocean Trading Invoice">
+                  Ocean Trading Invoice
+                </option>
+                <option value="Ownership">Ownership Document</option>
+                <option value="KEBS-Certifications">KEBS-Certifications</option>
+                <option value="KRA-Payment-Slips">KRA-Payment-Slips</option>
+                <option value="Insurance">Insurance</option>
+              </select>
+
+              <div className={styles.documentActions}>
+                <a
+                  href={fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionButton}
+                >
+                  <img alt="view" src={view} className={styles.viewIcon} />
+                </a>
+
+                <a
+                  href={fileUrl}
+                  download={doc.name || doc.file?.name}
+                  className={styles.actionButton}
+                >
+                  <img
+                    alt="download"
+                    src={download}
+                    className={styles.viewIcon}
+                  />
+                </a>
+
+                <button
+                  className={styles.actionButton}
+                  onClick={() => {
+                    const updatedDocs = [...docFiles];
+                    if (doc.id) {
+                      // Existing doc, delete from server
+                      handleDeleteExistingDoc(doc.id);
+                    }
+                    updatedDocs.splice(index, 1);
+                    setDocsFile(updatedDocs);
+                  }}
+                >
+                  X
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

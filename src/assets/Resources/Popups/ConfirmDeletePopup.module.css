@@ -1,0 +1,102 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  margin: auto;
+}
+
+.container {
+  max-width: 390px;
+  width: 100%;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  padding: 20px;
+  margin: auto;
+}
+
+.popup {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.message {
+  margin-top: 16px;
+}
+
+.buttonContainer {
+  align-self: stretch;
+  display: flex;
+  margin-top: 24px;
+  align-items: stretch;
+  gap: 12px;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.deleteButton {
+  border-radius: 4px;
+  background-color: rgba(239, 68, 68, 1);
+  padding: 12px 70px;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.cancelButton {
+  border-radius: 4px;
+  background-color: rgba(100, 116, 139, 1);
+  padding: 12px 70px;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .popup {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .buttonContainer {
+    max-width: 100%;
+    white-space: initial;
+  }
+
+  .deleteButton,
+  .cancelButton {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+}

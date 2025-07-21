@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./RoadTestForm.module.css";
-
-function RoadTestForm() {
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+const API_URL = process.env.REACT_APP_API_URL
+function RoadTestForm({data, onBack, message}) {
+  const [vehicle, setVehicle] = useState([]);
   const [formData, setFormData] = useState({
+    vehicleId: "",
     name: "",
     city: "",
     state: "",
     address: "",
-    drivingLicense: "",
+    license: "",
     contact: "",
     make: "",
     model: "",
@@ -16,6 +20,33 @@ function RoadTestForm() {
     salesPerson: "",
     vehicleCheckout: false,
   });
+useEffect(()=>{
+  if(data){
+    setFormData({
+      vehicleId: data.vehicle_id,
+      name: data.name,
+      city: data.city,
+      state: data.state,
+      address: data.address,
+      license: data.driving_license_no,
+      contact: data.contact,
+      salesPerson: data.sales_person,
+      vehicleCheckout: data.vehicle_checkout,
+    })
+  }
+},[data])
+  const fetchVehicle = async () => {
+    try {
+      const res = await fetch(`${API_URL}/vehicleInStock`);
+      const data = await res.json();
+      setVehicle(data);
+    } catch (error) {
+      console.log("Error in Backend");
+    }
+  };
+  useEffect(() => {
+    fetchVehicle();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -24,18 +55,97 @@ function RoadTestForm() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+  const handleVehicleChange = (e) => {
+    const selectedVehicleId = e.target.value;
+    const selectedVehicle = vehicle.find(
+      (v) => v.id === parseInt(selectedVehicleId)
+    );
 
-  const handleSubmit = (e) => {
+    if (selectedVehicle) {
+      setFormData((prevState) => ({
+        ...prevState,
+        vehicleId: selectedVehicleId,
+        make: selectedVehicle.make,
+        model: selectedVehicle.model,
+        color: selectedVehicle.exterior_color,
+        stockNo: selectedVehicle.stock_no, // Assuming your DB has stock_no
+      }));
+    } else {
+      // Reset if none selected
+      setFormData((prevState) => ({
+        ...prevState,
+        vehicleId: "",
+        make: "",
+        model: "",
+        color: "",
+        stockNo: "",
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
+    const isEdit = Boolean(data && data.id);
+    const url = isEdit? `${API_URL}/editRoadtest/${data.id}`: `${API_URL}/addRoadTestForm`
+    const method = isEdit ? "PUT": "POST";
+
+    try {
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          city: formData.city,
+          state: formData.state,
+          address: formData.address,
+          license: formData.license, // ✅ matches your backend field: license
+          contact: formData.contact,
+          salesPerson: formData.salesPerson,
+          vehicleCheckout: formData.vehicleCheckout, // ✅ allow frontend to control true/false
+          vehicleId: formData.vehicleId,
+        }),
+      });
+
+      const data = await response.json();
+      if(!response.ok){
+        toast.error(data.message|| "AN Unexpected Error Occurred");
+        return;
+      }
+      if(data.message === "Road test Data Added"|| data.message ==="Road Test Updated Successfully"){
+        message(data.message)
+         onBack();
+          setFormData({
+          vehicleId: "",
+          name: "",
+          city: "",
+          state: "",
+          address: "",
+          license: "",
+          contact: "",
+          make: "",
+          model: "",
+          color: "",
+          stockNo: "",
+          salesPerson: "",
+          vehicleCheckout: false,
+        });
+      }
+   else {
+        alert("Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error: " + error.message);
+    }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
         <form className={styles.formCard} onSubmit={handleSubmit}>
-          <h2 className={styles.formTitle}>Road Test Form</h2>
+          <h2 className={styles.formTitle}>{data? "Edit Road Test Form":"Road Test Form"}</h2>
 
           <div className={styles.formRow}>
             <div className={styles.formColumn}>
@@ -92,10 +202,10 @@ function RoadTestForm() {
               <label className={styles.inputLabel}>Driving License No</label>
               <input
                 type="text"
-                name="drivingLicense"
+                name="license"
                 placeholder="Enter license number"
                 className={styles.inputField}
-                value={formData.drivingLicense}
+                value={formData.license}
                 onChange={handleChange}
               />
             </div>
@@ -113,18 +223,34 @@ function RoadTestForm() {
           </div>
 
           <div className={styles.carDetailsSection}>
+            <h3 className={styles.sectionTitle}>Car Details</h3>
+            <select
+              className={styles.selectField}
+              name="vehicleId"
+              value={formData.vehicleId}
+              onChange={handleVehicleChange}
+            >
+              <option value="">Select Vehicle</option>
+              {vehicle.map((row) => (
+                <option key={row.id} value={row.id}>
+                  {row.make} {row.model} {row.stock_no}
+                </option>
+              ))}
+            </select>
             <div className={styles.twoColumnGrid}>
               <div className={styles.leftColumn}>
-                <h3 className={styles.sectionTitle}>Car Details</h3>
-                <label className={styles.inputLabel}>Make</label>
-                <input
-                  type="text"
-                  name="make"
-                  placeholder="Enter make"
-                  className={styles.inputField}
-                  value={formData.make}
-                  onChange={handleChange}
-                />
+                <div className={styles.modelSection}>
+                  <label className={styles.inputLabel}>Make</label>
+                  <input
+                    type="text"
+                    name="make"
+                    placeholder="Enter make"
+                    className={styles.inputField}
+                    value={formData.make}
+                    onChange={handleChange}
+                    disabled
+                  />
+                </div>
               </div>
               <div className={styles.rightColumn}>
                 <div className={styles.modelSection}>
@@ -136,6 +262,7 @@ function RoadTestForm() {
                     className={styles.inputField}
                     value={formData.model}
                     onChange={handleChange}
+                    disabled
                   />
                 </div>
               </div>
@@ -152,6 +279,7 @@ function RoadTestForm() {
                 className={styles.inputField}
                 value={formData.color}
                 onChange={handleChange}
+                disabled
               />
             </div>
             <div className={styles.formColumn}>
@@ -163,6 +291,7 @@ function RoadTestForm() {
                 className={styles.inputField}
                 value={formData.stockNo}
                 onChange={handleChange}
+                disabled
               />
             </div>
           </div>
@@ -200,10 +329,11 @@ function RoadTestForm() {
           </div>
 
           <button type="submit" className={styles.submitButton}>
-            Submit Road Test Form
+            {data? "Edit":"Submit"} Road Test Form
           </button>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

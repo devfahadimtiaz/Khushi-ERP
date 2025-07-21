@@ -37,7 +37,11 @@ body{
   color: #374151;
   margin-bottom: 4px;
 }
-
+.actionButton{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .inputField {
   color: #999;
   font-size: 14px;
@@ -141,8 +145,6 @@ body{
 }
 .tableHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: left;
   padding: 16px;
   border-radius: 12px 12px 0 0;
   border: 1px solid #e7eaf3;
@@ -150,17 +152,9 @@ body{
   box-shadow: 0px 4px 6px rgba(42, 53, 71, 0.1);
   background-color: #fff;
   margin-top: 20px;
-   width: 100%;
-   gap:30px;
+  
 }
-.tableHeaderCellCustomer{
-  font-size: 14px;
-  font-weight: 600;
-  color: #64748b;
-  flex: 1;
-  text-align: left;
-  margin-left: 40px;
-}
+
 .tableHeaderCell {
   font-size: 14px;
   font-weight: 600;
@@ -169,13 +163,8 @@ body{
   text-align: left;
 }
 
-.tableRow,
-.tableRowAlt {
+.tableRow {
   display: flex;
-  padding: 17px 24px;
-  align-items: stretch;
-  width: 100%;
-  gap: 20px;
   font-family:
     Roboto,
     -apple-system,
@@ -185,36 +174,7 @@ body{
   font-size: 14px;
   color: rgba(9, 44, 76, 1);
   font-weight: 400;
-  justify-content: space-between;
-}
-
-.tableRow {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.tableRowAlt {
-  background-color: rgba(248, 249, 250, 1);
-}
-
-.rowFirstGroup {
-  display: flex;
-  align-items: stretch;
-  gap: 40px 71px;
-}
-
-.rowSecondGroup {
-  display: flex;
-  align-items: stretch;
-  gap: 40px 78px;
-  text-align: right;
-}
-
-.textRight {
-  text-align: right;
-}
-
-.profitText {
-  color: rgba(26, 213, 152, 1);
+  
 }
 
 .tableCell {
@@ -229,22 +189,19 @@ body{
   color: #4318d1;
   cursor: pointer;
   text-decoration: underline;
+text-align: left;
 }
-.tableCellProfit{
-  font-size: 14px;
-  color: #1AD598;
-  flex: 1;
-  text-align: left;
-}
+
 .tableContainer{
+  display: table;
   width: 100%;
   margin: auto;
   padding-bottom: 20px;
 }
 .tableRow {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  
+ 
   padding: 16px;
   gap:0px;
   border-left: 1px solid #e7eaf3;

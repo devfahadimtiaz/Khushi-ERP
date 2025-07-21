@@ -1,0 +1,26 @@
+/* DropdownMenu.module.css */
+.dropdownMenu {
+  position: absolute;
+  top: 10px; /* or use 100% if dropdown is directly below */
+  right: 0;
+  z-index: 9999; /* must be above table and scroll containers */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 6px 0;
+  min-width: 60px;
+}
+
+.menuItem {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.menuItem:hover {
+  background-color: #f1f1f1;
+}
+.dropdownMenu {
+  transition: opacity 0.2s ease;
+}

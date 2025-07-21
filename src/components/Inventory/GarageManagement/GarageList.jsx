@@ -5,6 +5,7 @@ import AddGarage from "./AddGarage";
 import ConfirmDeletePopup from "../../../Resources/Popups/ConfirmDeletePopup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const API_URL = process.env.REACT_APP_API_URL;
 function GarageList({ onBack, onAddGarage }) {
   const [editData, setEditData] = useState(null);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
@@ -27,7 +28,7 @@ function GarageList({ onBack, onAddGarage }) {
   useEffect(()=>{
     const fetchGarageList = async () => {
       try {
-        const response = await fetch("http://localhost:8081/GarageList");
+        const response = await fetch(`${API_URL}/GarageList`);
         const data = await response.json();
         setGarage(data);
 

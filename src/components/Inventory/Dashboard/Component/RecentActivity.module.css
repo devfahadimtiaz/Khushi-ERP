@@ -1,0 +1,135 @@
+.card {
+    width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+}
+
+.select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  font-size: 14px;
+}
+
+.activityList {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  gap: 12px;
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconGreen { color: #16a34a; }
+.iconBlue { color: #2563eb; }
+.iconOrange { color: #ea580c; }
+.iconGray { color: #6b7280; }
+
+.activityContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activityTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.badge {
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.badgeGreen { background-color: #d1fae5; color: #065f46; }
+.badgeBlue { background-color: #dbeafe; color: #1e40af; }
+.badgeOrange { background-color: #ffedd5; color: #9a3412; }
+.badgeGray { background-color: #f3f4f6; color: #374151; }
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.time {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.clockIcon {
+  margin-right: 4px;
+}
+
+.pagination {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pageButton {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.activePage {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}

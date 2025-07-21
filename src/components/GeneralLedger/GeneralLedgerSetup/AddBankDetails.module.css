@@ -14,7 +14,7 @@
 .header {
   display: flex;
   align-items: stretch;
-  gap: 20px;
+  gap: 10px;
   font-family:
     Inter,
     -apple-system,
@@ -64,19 +64,18 @@
 }
  
 .contentPanel {
+  display: flex;
+  gap: 30px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-  margin-top: 32px;
-  margin-bottom: 26px;
 
-  padding: 24px;
-  padding-bottom: 41px;
+
+ padding: 5px;
 }
 
 .filterHeader {
   display: flex;
-  width: 640px;
+  
   max-width: 100%;
   align-items: stretch;
   gap: 20px;
@@ -99,10 +98,11 @@
 
 .filterControls {
   display: flex;
+  flex-direction: column;
   margin-top: 8px;
   width: 100%;
   align-items: stretch;
-  gap: 24px;
+  gap: 5px;
   font-family:
     Inter,
     -apple-system,
@@ -120,7 +120,7 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: 40px;
+  gap: 20px;
   color: rgba(153, 153, 153, 1);
 
   flex: 1;
@@ -296,7 +296,7 @@
 }
 
 .createButton {
-  width: 94px;
+ 
   height: 42px;
   border-radius: 4px;
   font-size: 14px;

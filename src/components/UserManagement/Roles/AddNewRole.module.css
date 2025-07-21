@@ -1,0 +1,580 @@
+/* Container */
+.container {
+  width: 90%;
+  margin: auto;
+  padding-top: 80px;
+  background: #f8fafc;
+  position: relative;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* Form */
+.form {
+  padding: 0 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Section */
+.section {
+  
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  
+}
+
+.sectionHeader {
+  padding: 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sectionTitle {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  margin: 0 0 8px 0;
+}
+
+.sectionDescription {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0;
+}
+
+/* Form Elements */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 32px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.input {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  background: #fff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4318d1;
+}
+
+.input::placeholder {
+  color: #000;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select.disabled {
+  background: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 81px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  background: #fff;
+  resize: vertical;
+
+  width: calc(100% - 64px);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #4318d1;
+}
+
+/* Permissions */
+.permissionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 32px;
+}
+
+.permissionCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.permissionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.permissionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.permissionTitle {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  margin: 0;
+}
+
+.permissionCategory {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.permissionDescription {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+  margin-left: 28px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  margin: 2px 0 0 0;
+}
+
+.checkbox:checked {
+  background: #4318d1;
+  border-color: #4318d1;
+}
+
+.checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Summary Card */
+.summaryCard {
+  margin: 0 32px 32px 32px;
+  padding: 20px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.summaryIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.summaryLabel {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.summaryText {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0;
+}
+
+/* Users List */
+.usersList {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  background: #4318d1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInitial {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userName {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  margin: 0;
+}
+
+.userEmail {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+}
+
+/* Checkbox Group */
+.checkboxGroup {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkboxLarge {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  margin: 2px 0 0 0;
+  flex-shrink: 0;
+}
+
+.checkboxLarge:checked {
+  background: #4318d1;
+  border-color: #4318d1;
+}
+
+.checkboxLarge:checked::after {
+  content: "✓";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.checkboxContent {
+  flex: 1;
+}
+
+.checkboxTitle {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.checkboxDescription {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  width: 1136px;
+  height: 88px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 0 0 8px 8px;
+  margin-top: -8px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.footerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.requiredText {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.footerActions {
+  display: flex;
+  gap: 12px;
+}
+
+.cancelButton {
+  width: 80px;
+  height: 39px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #f9fafb;
+}
+
+.draftButton {
+  width: 122px;
+  height: 39px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.draftButton:hover {
+  background: #e5e7eb;
+}
+
+.createButton {
+  width: 125px;
+  height: 37px;
+  border: none;
+  border-radius: 4px;
+  background: #4318d1;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.createButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.createButton:hover:not(:disabled) {
+  background: #3612b8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1300px) {
+  .container {
+    width: 100%;
+    max-width: 1271px;
+  }
+
+  .form {
+    padding: 0 20px;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .permissionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .backText {
+    display: none;
+  }
+
+  .form {
+    padding: 0 16px;
+  }
+
+  .sectionHeader {
+    padding: 16px;
+  }
+
+  .formGrid {
+    padding: 16px;
+  }
+
+  .permissionsGrid {
+    padding: 16px;
+  }
+
+  .usersList {
+    padding: 16px;
+  }
+
+  .checkboxGroup {
+    padding: 16px;
+  }
+
+  .textarea {
+    margin: 0 16px 16px 16px;
+    width: calc(100% - 32px);
+  }
+
+  .summaryCard {
+    margin: 0 16px 16px 16px;
+  }
+
+  .footerActions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .footer {
+    height: auto;
+  }
+}

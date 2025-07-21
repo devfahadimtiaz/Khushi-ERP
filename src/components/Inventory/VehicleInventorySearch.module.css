@@ -1,0 +1,333 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.header {
+  
+  padding-left: 20px;
+  height: 72px;
+  border-width: 1px;
+  border-color: #e5e7eb;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+  margin-left: 80px;
+}
+
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.notificationIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.mainContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.searchForm {
+ 
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-bottom: 36px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputLabel {
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.textInput {
+
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #999;
+}
+
+.priceRangeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.priceRangeControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceRangeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 580px;
+}
+
+.priceRangeLabel {
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.priceValue {
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.priceRangeSlider {
+  width: 100%;
+  height: 4px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+.searchButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.searchButton {
+  width: 160px;
+  height: 40px;
+  background-color: #4318d1;
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  border: none;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #3614b0;
+}
+
+.resultsContainer {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  min-height: 474px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.initialState,
+.noResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  text-align: center;
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.vehicleCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.vehicleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.vehicleImageContainer {
+  height: 250px;
+  overflow: hidden;
+
+}
+
+.vehicleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicleDetails {
+  padding: 16px;
+}
+
+.vehicleTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.vehiclePrice {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4318d1;
+  margin-bottom: 12px;
+}
+.showroomFilters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background-color: #fff;
+}
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectField {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  padding: 0 12px;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1H1L5 9L9 1Z' stroke='black'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+}
+
+.selectField:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 24, 209, 0.2);
+}
+
+.selectField option {
+  color: #000;
+  background-color: #fff;
+}
+
+.selectField:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.checkboxLabel {
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+}
+.vehicleSpecs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.vehicleSpec {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.specLabel {
+  font-weight: 600;
+  color: #475569;
+}
+
+.viewDetailsButton {
+  width: 100%;
+  padding: 8px 0;
+  background-color: transparent;
+  border: 1px solid #4318d1;
+  border-radius: 4px;
+  color: #4318d1;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.viewDetailsButton:hover {
+  background-color: #4318d1;
+  color: #fff;
+}

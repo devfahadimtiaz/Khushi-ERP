@@ -1,0 +1,83 @@
+import React from "react";
+import styles from "./RepairingVoucher.module.css";
+import logo from "../../../assets/KM-LOGO.png";
+function repairingVoucher({ data }) {
+     function printDocument() {
+    window.print();
+  }
+    const getCurrentDate = () => {
+  const today = new Date();
+  return today.toISOString().split('T')[0]; // "YYYY-MM-DD"
+};
+  return (
+    <div className={styles.container}>
+          <button onClick={printDocument} className="print">
+          Print
+        </button>
+      <div className={styles.logoContainer}>
+        <img src={logo} alt={logo} className={styles.logo} />
+      </div>
+
+      <div className={styles.header}>
+        <div className={styles.headerTitle}>REPAIRING VOUCHER</div>
+      </div>
+      <div className={styles.details}>
+        <div className={styles.text}>Date: </div>
+        <div className={styles.dateText}>
+          <div> {getCurrentDate()}</div>
+          <hr className={styles.line} />
+        </div>
+        <div className={styles.text}>Acc No: </div>
+        <div className={styles.accText}>
+          <div>{data.accountNo} </div>
+          <hr className={styles.accLine} />
+        </div>
+      </div>
+      <div className={styles.details}>
+        <div className={styles.text}>Voucher No: </div>
+        <div className={styles.voucherText}>
+          <div> {data.vaucherNo}</div>
+          <hr className={styles.line} />
+        </div>
+        <div className={styles.text}>Reference: </div>
+        <div className={styles.refrenceText}>
+          <div>{data.refrenceNo}</div>
+          <hr className={styles.accLine} />
+        </div>
+      </div>
+      <div className={styles.tableHeader}>
+            <div className={styles.headText}>Item</div>
+            <div className={styles.headText}>Details</div>
+            <div className={styles.headText}>Amount</div>
+      </div>
+      <table className={styles.table}>
+       <tbody className={styles.tableBody}>
+{data?.issue?.map((item, index) => (
+  <tr className={styles.tableRow} key={index}>
+    <td className={styles.tabledata}>{item.item}</td>
+    <td className={styles.tabledata}>{item.details}</td>
+    <td className={styles.tabledata}>{item.amount}</td>
+  </tr>
+))}
+</tbody>
+      </table>
+      <div className={styles.totalContainer}>
+        <div className={styles.amountWord}>
+            <div className={styles.amount}>AMOUNT IN WORDS</div>
+            <div className={styles.word}></div>
+        </div>
+        <div className={styles.totalAmount}>
+            <div className={styles.total}>TOTAL</div>
+            <div className={styles.totalAmount}>{data.totalexpense}</div>
+        </div>
+      </div>
+      <div className={styles.footer}>
+            <div className={styles.footerText}>Prepaid By</div>
+            <div className={styles.footerText}>Checked By</div>
+            <div className={styles.footerText}>Approved By</div>
+      </div>
+    </div>
+  );
+}
+
+export default repairingVoucher;

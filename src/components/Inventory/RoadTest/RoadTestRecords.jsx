@@ -1,295 +1,138 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./RoadTestRecords.module.css";
+import TableComponent from "../../../assets/Resources/Tables/TableComponent";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import ConfirmDeletePopup from "../../../assets/Resources/Popups/ConfirmDeletePopup";
+import RoadTestForm from "./RoadTestForm";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function RoadTestRecords() {
+  const [editData, setEditData] = useState(null);
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+  const [isViewPopupOpen, setIsViewPopupOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedRoadTest, setSelectedRoadTest] = useState(null);
+  const [showRoadForm, setShowRoadForm] = useState(false);
+  const [roadTest, setRoadTest] = useState([]);
+
+  const handleEdit = (row) => {
+    setEditData(row);
+    console.log(row)
+    setShowRoadForm(true); // Show the AddGarage component when editing
+  };
+  const handleEditMessage = (message)=>{
+  toast.success(message|| "Road Test Data Added Successfully");
+  }
+  
+  const handleBack = () => {
+    setShowRoadForm(false);
+    setEditData(null);
+    fetchRoadTest(); // Re-fetch updated data
+  };
+
+  const fetchRoadTest = async () => {
+    try {
+      const res = await fetch(`${API_URL}/getRoadTest`);
+      const data = await res.json();
+      setRoadTest(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchRoadTest();
+  }, []);
+  const handleCancelDelete = () => {
+    setIsDeletePopupOpen(false);
+    setSelectedRow(null);
+  };
+  const handleDeleteClick = (row) => {
+    setSelectedRow(row);
+    setIsDeletePopupOpen(true);
+  };
+  const handleConfirmDelete = async () => {
+    if (!selectedRow || !selectedRow.id) {
+      toast.error("Please select a row to delete");
+      return;
+    }
+    try {
+      const response = await fetch(
+        `${API_URL}/deleteRoadTest/${selectedRow.id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      const result = await response.json();
+      if (!response.ok) {
+        toast.error(result.message);
+        return;
+      }
+      setRoadTest((prev) =>
+        prev.filter((roadTest) => roadTest.id !== selectedRow.id)
+      );
+
+      toast.success("Deleted Successfully");
+      setIsDeletePopupOpen(false);
+      setSelectedRow(null);
+    } catch (error) {
+      toast.error("An Error Occure while deleting");
+    }
+  };
+  const handleView = (row) => {
+    setSelectedRoadTest(row);
+    setIsViewPopupOpen(true);
+  };
+
+  const handleCloseViewPopup = () => {
+    setIsViewPopupOpen(false);
+    setSelectedRoadTest(null);
+  };
+  const TableHeader = [
+    { label: "No", key: "id" },
+    { label: "Name", key: "name" },
+    { label: "License No.", key: "driving_license_no" },
+
+    { label: "Address", key: "address" },
+    { label: "City", key: "city" },
+    { label: "State", key: "state" },
+    { label: "Sales Person", key: "sales_person" },
+  ];
+  if(showRoadForm){
+    return(
+      <RoadTestForm data ={editData} onBack={handleBack} message={handleEditMessage}/>
+    )
+  }
+
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <span className={styles.title}>Road Test Records</span>
-        <button className={styles.exportButton}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 9.16675V14.1667L10 11.6667L12.5 14.1667V9.16675" stroke="#344054" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M10 3.33325V11.6666" stroke="#344054" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M16.6673 17.5H3.33398" stroke="#344054" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>`,
-            }}
+    <>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <span className={styles.title}>Road Test Records</span>
+
+        </div>
+        {roadTest.length === 0 ? (
+          <div className={styles.noData}>No garages available.</div>
+        ) : (
+          <TableComponent
+            data={roadTest}
+            HeadData={TableHeader}
+            onView={handleView}
+            onEdit={handleEdit}
+            onDelete={handleDeleteClick}
           />
-          <span>Export PDF</span>
-        </button>
-        <select className={styles.statusFilter}>
-          <option>All Status</option>
-          <option>In Progress</option>
-          <option>Complete</option>
-        </select>
-      </div>
-
-      <div className={styles.searchBar}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M17.5 17.5L13.875 13.875" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>`,
-          }}
+        )}
+        <ConfirmDeletePopup
+          isOpen={isDeletePopupOpen}
+          onClose={handleCancelDelete}
+          onConfirm={handleConfirmDelete}
+          title="Delete Road Test"
+          message="Are you sure you want to delete this record?"
         />
-        <span>Search records...</span>
+
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
-
-      <div className={styles.tableContainer}>
-        <div className={styles.tableHeader}>
-          <div className={styles.headerCell}>
-            <span>Date</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6L8 10L12 6" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Driver Name</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.75 6.125L7.5 9.875L11.25 6.125" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Car Details</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6L8 10L12 6" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Stock No</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.75 6.125L7.5 9.875L11.25 6.125" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Authorized By</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Time Out</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6L8 10L12 6" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>
-            <span>Time In</span>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6L8 10L12 6" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-          <div className={styles.headerCell}>Status</div>
-          <div className={styles.headerCell}>Actions</div>
-        </div>
-
-        {/* Row 1 */}
-        <div className={styles.tableRow}>
-          <div className={styles.cell}>2024-01-15</div>
-          <div className={styles.driverCell}>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.profileImg} />
-            <span>Emma Wilson</span>
-          </div>
-          <div className={styles.cell}>BMW 330i - XYZ789</div>
-          <div className={styles.cell}>STK-2024-002</div>
-          <div className={styles.cell}>David Miller</div>
-          <div className={styles.cell}>2024-01-15 11:00</div>
-          <div className={styles.cell}>-</div>
-          <div className={styles.statusCell}>
-            <span className={styles.inProgressStatus}>In Progress</span>
-          </div>
-          <div className={styles.actionsCell}>
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 4.37C3.75 4.37 1.25 10 1.25 10C1.25 10 3.75 15.63 10 15.63C16.25 15.63 18.75 10 18.75 10C18.75 10 16.25 4.37 10 4.37Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.25 3.75L4.375 11.25V15H8.125L15.625 7.5M11.25 3.75L13.125 1.875L16.875 5.625L15 7.5L11.25 3.75Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.875 4.375L3.125 4.37501M8.125 8.125V13.125M11.875 8.125V13.125M15.625 4.375V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H5C4.83424 16.875 4.67527 16.8092 4.55806 16.6919C4.44085 16.5747 4.375 16.4158 4.375 16.25V4.375" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Row 2 */}
-        <div className={styles.tableRow}>
-          <div className={styles.cell}>2024-01-15</div>
-          <div className={styles.driverCell}>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.profileImg} />
-            <span>Michael Chen</span>
-          </div>
-          <div className={styles.cell}>Toyota Camry - ABC123</div>
-          <div className={styles.cell}>STK-2024-001</div>
-          <div className={styles.cell}>Sarah Johnson</div>
-          <div className={styles.cell}>2024-01-15 09:00</div>
-          <div className={styles.cell}>2024-01-15 10:30</div>
-          <div className={styles.statusCell}>
-            <span className={styles.completedStatus}>Completed</span>
-          </div>
-          <div className={styles.actionsCell}>
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 4.37C3.75 4.37 1.25 10 1.25 10C1.25 10 3.75 15.63 10 15.63C16.25 15.63 18.75 10 18.75 10C18.75 10 16.25 4.37 10 4.37Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.25 3.75L4.375 11.25V15H8.125L15.625 7.5M11.25 3.75L13.125 1.875L16.875 5.625L15 7.5L11.25 3.75Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.875 4.375L3.125 4.37501M8.125 8.125V13.125M11.875 8.125V13.125M15.625 4.375V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H5C4.83424 16.875 4.67527 16.8092 4.55806 16.6919C4.44085 16.5747 4.375 16.4158 4.375 16.25V4.375" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Row 3 */}
-        <div className={styles.tableRow}>
-          <div className={styles.cell}>2024-01-14</div>
-          <div className={styles.driverCell}>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.profileImg} />
-            <span>Sophie Brown</span>
-          </div>
-          <div className={styles.cell}>Mercedes C200 - GHI789</div>
-          <div className={styles.cell}>STK-2024-004</div>
-          <div className={styles.cell}>Robert Wilson</div>
-          <div className={styles.cell}>2024-01-14 16:00</div>
-          <div className={styles.cell}>2024-01-14 17:30</div>
-          <div className={styles.statusCell}>
-            <span className={styles.completedStatus}>Completed</span>
-          </div>
-          <div className={styles.actionsCell}>
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 4.37C3.75 4.37 1.25 10 1.25 10C1.25 10 3.75 15.63 10 15.63C16.25 15.63 18.75 10 18.75 10C18.75 10 16.25 4.37 10 4.37Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.25 3.75L4.375 11.25V15H8.125L15.625 7.5M11.25 3.75L13.125 1.875L16.875 5.625L15 7.5L11.25 3.75Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.875 4.375L3.125 4.37501M8.125 8.125V13.125M11.875 8.125V13.125M15.625 4.375V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H5C4.83424 16.875 4.67527 16.8092 4.55806 16.6919C4.44085 16.5747 4.375 16.4158 4.375 16.25V4.375" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Row 4 */}
-        <div className={styles.tableRow}>
-          <div className={styles.cell}>2024-01-14</div>
-          <div className={styles.driverCell}>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true" alt="" className={styles.profileImg} />
-            <span>James Smith</span>
-          </div>
-          <div className={styles.cell}>Honda Civic - DEF456</div>
-          <div className={styles.cell}>STK-2024-003</div>
-          <div className={styles.cell}>Lisa Anderson</div>
-          <div className={styles.cell}>2024-01-14 14:00</div>
-          <div className={styles.cell}>2024-01-14 15:15</div>
-          <div className={styles.statusCell}>
-            <span className={styles.completedStatus}>Completed</span>
-          </div>
-          <div className={styles.actionsCell}>
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 4.37C3.75 4.37 1.25 10 1.25 10C1.25 10 3.75 15.63 10 15.63C16.25 15.63 18.75 10 18.75 10C18.75 10 16.25 4.37 10 4.37Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.25 3.75L4.375 11.25V15H8.125L15.625 7.5M11.25 3.75L13.125 1.875L16.875 5.625L15 7.5L11.25 3.75Z" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-            <div
-              className={styles.actionIcon}
-              dangerouslySetInnerHTML={{
-                __html: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.875 4.375L3.125 4.37501M8.125 8.125V13.125M11.875 8.125V13.125M15.625 4.375V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H5C4.83424 16.875 4.67527 16.8092 4.55806 16.6919C4.44085 16.5747 4.375 16.4158 4.375 16.25V4.375" stroke="#344054" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>`,
-              }}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

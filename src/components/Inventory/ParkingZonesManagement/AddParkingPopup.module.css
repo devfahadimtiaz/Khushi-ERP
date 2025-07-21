@@ -59,7 +59,7 @@
 }
 
 .selectContainer {
-  user-select: container;
+
   width: 95%;
   height: 48px;
   border-radius: 4px;
@@ -73,7 +73,6 @@
 }
 
 .selectText {
-  user-select: text;
   color: #000;
   font-family: "Poppins", sans-serif;
   font-size: 14px;

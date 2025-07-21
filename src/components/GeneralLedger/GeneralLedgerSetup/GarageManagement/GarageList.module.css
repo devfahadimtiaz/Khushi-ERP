@@ -1,0 +1,262 @@
+.garageList{
+  width: 100%;
+  background-color: #f8f9fd;
+}
+.container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  padding-top: 80px;
+  min-height: 100vh;
+  
+  font-family: Inter, sans-serif;
+  
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: #14142a;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #3A36DB;
+  
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+.buttonText {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.tableContainer {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(9, 161, 218, 0.1);
+  
+  
+}
+
+.tableHeader {
+  background-color: #e3edfb;
+  border-radius: 8px;
+  padding: 16px;
+  display: grid;
+
+  align-items: center;
+  gap:40px
+}
+
+.headerCell {
+  color: #14142a;
+  font-size: 16px;
+  font-weight: 400;
+  
+}
+
+.headerCellAction{
+  color: #14142a;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 65px;
+}
+
+.tableRow {
+  padding: 16px;
+  border-width: 1px;
+  border-color: #f7f7fc;
+  display: grid;
+  grid-template-columns: 60px 200px 120px 80px 120px 200px 100px;
+  align-items: center;
+  gap:40px
+}
+
+.rowCell {
+  color: #4e4b66;
+  font-size: 16px;
+
+}
+
+.companyCell {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.companyLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+
+}
+
+.companyName {
+  color: #4e4b66;
+  font-size: 16px;
+}
+
+.flagCell {
+  display: flex;
+  margin-left: 20px;
+}
+
+.flagImage {
+  width: 45px;
+  height: 34px;
+}
+
+.actionCell {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.paginationButtonDisabled {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #c4c4ca;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: not-allowed;
+}
+
+.paginationButtonActive {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #2371e2;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.paginationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #d9dbe9;
+  color: #a0a3bd;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.paginationButtonNav {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #d9dbe9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+.hover-menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger-icon {
+  padding: 8px;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.trigger-icon:hover {
+  background-color: #e5e7eb;
+}
+
+.hover-icons {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 0px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.icon-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.edit-icon {
+  color: #3b82f6;
+}
+
+.edit-icon:hover {
+  color: #2563eb;
+}
+
+.delete-icon {
+  color: #ef4444;
+}
+
+.delete-icon:hover {
+  color: #dc2626;
+}
+
+
+@media (max-width: 991px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 60px 1fr 120px 80px 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 60px 1fr 80px;
+  }
+
+  .flagCell {
+    display: none;
+  }
+}
+
+

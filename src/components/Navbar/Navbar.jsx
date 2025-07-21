@@ -53,7 +53,7 @@ function Navbar({ isOpen, onClose }) {
             {
               id: "showRoomManager",
               label: "Showroom Manager",
-              route: "/ShowRoomManager",
+              route: "/GarageManagement",
             },
             {
               id: "costAndProfit",
@@ -183,12 +183,18 @@ function Navbar({ isOpen, onClose }) {
           ></path>
         </svg>
       ),
+
       label: "Inventory",
       subItems: [
         {
           id: "inventory-dashboard",
           label: "Inventory Dashboard",
           route: "/InventoryDashboard",
+        },
+        {
+          id: "searchVehicle",
+          label: "Search Vehicle",
+          route: "/searchVehicle",
         },
         {
           id: "inventorydetails",
@@ -201,6 +207,11 @@ function Navbar({ isOpen, onClose }) {
               route: "/InventoryGridView",
             },
             { id: "add-stock", label: "Add Stock", route: "/AddStock" },
+     {/*      {
+              id: "zone-setup",
+              label: "Zone Setup",
+              route: "/ShowroomZoneSetup",
+            },*/}  ,
             {
               id: "parking-zone-management",
               label: "Parking Zone Management",
@@ -208,15 +219,19 @@ function Navbar({ isOpen, onClose }) {
             },
           ],
         },
-        { id: "garage", label: "Garage List", route: "/GarageList" },
 
         {
           id: "vehicle-transfer",
           label: "Vehicle Transfer",
           subItems: [
             {
-              id: "vehicle-transfer",
+              id: "vehicle-transfer-to",
               label: "Vehicle Transfer To",
+              route: "/VehicleTransferTo",
+            },
+            {
+              id: "vehicle-transfer",
+              label: "Vehicle Transfer Management",
               route: "/VehicleTransferManagement",
             },
             {
@@ -294,20 +309,19 @@ function Navbar({ isOpen, onClose }) {
           label: "Sales Transection",
           subItems: [
             {
+              id: "saledeed",
+              label: "Sale Deed",
+              route: "/AddSaleDeed",
+            },
+            {
               id: "cashSaleList",
               label: "Cash Sale List",
               route: "/CashSaleList",
             },
-            { id: "addSale", label: "Add Cash Sale", route: "/AddCashSale" },
             {
               id: "creditSaleList",
               label: "Credit Sale List",
               route: "/CreditSaleList",
-            },
-            {
-              id: "creditSale",
-              label: "Add Credit Sale",
-              route: "/AddCreditSale",
             },
           ],
         },
@@ -654,7 +668,7 @@ function Navbar({ isOpen, onClose }) {
             onClick={() => {
               if (!hasSubItems && item.route) {
                 navigate(item.route);
-                onClose(); 
+                onClose();
               } else {
                 toggleSubmenu(item.id);
               }

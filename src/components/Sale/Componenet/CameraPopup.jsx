@@ -19,6 +19,7 @@ const CameraPopup = ({ onClose, onCapture }) => {
       onClose();
     }
   }, [webcamRef, onCapture, onClose]);
+  
 
   return (
     <div className={styles.overlay}>

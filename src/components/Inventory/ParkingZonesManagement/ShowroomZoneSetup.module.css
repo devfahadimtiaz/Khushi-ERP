@@ -1,0 +1,322 @@
+.container {
+  width: 90%;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+    margin: auto;
+}
+
+
+@media (max-width: 991px) {
+  .mainWrapper {
+    max-width: 100%;
+  }
+}
+
+.contentWrapper {
+  background-color: rgba(246, 250, 253, 1);
+  display: flex;
+
+  padding: 32px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .contentWrapper {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 24px;
+  color: rgba(9, 44, 76, 1);
+  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .header {
+    max-width: 100%;
+  }
+}
+
+.title {
+  margin: auto 0;
+}
+
+.profileImage {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 50px;
+  border-radius: 33554400px;
+  flex-shrink: 0;
+}
+
+.showroomCard {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  display: flex;
+  margin-top: 32px;
+ 
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .showroomCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+.showroomTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 24px;
+  font-weight: 700;
+  align-self: start;
+}
+
+.showroomDropdown {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  display: flex;
+  margin-top: 24px;
+  padding: 15px 7px 15px 16px;
+  align-items: stretch;
+  gap: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .showroomDropdown {
+    max-width: 100%;
+  }
+}
+
+.dropdownText {
+  flex: 1;
+}
+
+.dropdownArrow {
+  aspect-ratio: 1.11;
+  object-fit: contain;
+  object-position: center;
+  width: 10px;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+
+.zonesCard {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  display: flex;
+  margin-top: 24px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .zonesCard {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+.zonesTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 24px;
+  font-weight: 700;
+  align-self: start;
+}
+
+.zonesInput {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  margin-top: 24px;
+  padding: 15px 16px;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  .zonesInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+}
+
+.configurationTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 24px;
+  font-weight: 700;
+  align-self: start;
+  margin-top: 24px;
+}
+
+.zoneCard {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  display: flex;
+  margin-top: 24px;
+  padding: 24px 24px 40px;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 16px;
+}
+
+.zoneCard:first-of-type {
+  margin-top: 24px;
+}
+
+.zoneCard:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+@media (max-width: 991px) {
+  .zoneCard {
+    max-width: 100%;
+    padding: 20px 20px 40px;
+  }
+}
+
+.zoneTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 20px;
+  font-weight: 700;
+  align-self: start;
+}
+
+.zoneLinesLabel {
+  color: rgba(54, 53, 101, 1);
+  font-weight: 500;
+  align-self: start;
+  margin-top: 16px;
+}
+
+.zoneLinesInput {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  margin-top: 8px;
+  padding: 15px 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  .zoneLinesInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+}
+
+.parkingSlotsTitle {
+  color: rgba(54, 53, 101, 1);
+  font-size: 18px;
+  font-weight: 600;
+  align-self: start;
+  margin-top: 16px;
+}
+
+.parkingSlotContainer {
+  border-radius: 4px;
+  border: 1px solid rgba(234, 238, 244, 1);
+  display: flex;
+  margin-top: 16px;
+  padding: 17px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .parkingSlotContainer {
+    max-width: 100%;
+  }
+}
+
+.slotLabel {
+  color: rgba(54, 53, 101, 1);
+  font-weight: 500;
+  align-self: start;
+}
+
+.slotInput {
+  border-radius: 4px;
+  background-color: rgba(217, 217, 217, 1);
+  margin-top: 8px;
+  padding: 15px 16px;
+  color: rgba(153, 153, 153, 1);
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  .slotInput {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+}
+
+.resetButton {
+  border-radius: 2px;
+  background-color: rgba(207, 33, 41, 1);
+  align-self: end;
+  margin-top: 32px;
+  margin-right: 32px;
+  padding: 12px 23px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.saveButton{
+ border-radius: 2px;
+  background-color: #4318D1;
+  align-self: end;
+  margin-top: 32px;
+  margin-right: 32px;
+  padding: 12px 23px;
+  font-size: 18px;
+  color: #fff ;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .resetButton {
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: initial;
+  }
+}

@@ -7,7 +7,7 @@ const router = express.Router();
 // Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Ensure 'uploads' folder exists
+    cb(null, 'uploads/BranchLogo'); // Ensure 'uploads' folder exists
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -16,80 +16,78 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-
-
 module.exports = (db) => {
+
   // POST /AddGarage
-  router.post('/AddGarage', upload.single('logo'), (req, res) => {
-    const { name, country,  currency, address } = req.body;
+  router.post('/AddGarage', upload.single('logo'), async (req, res) => {
+    const { name, country, currency, address, phone, email } = req.body;
     const logo = req.file ? req.file.filename : null;
 
     const sql = `
-      INSERT INTO showroom (name, country, currency, logo, address)
-      VALUES (?, ?, ?, ?, ?)
+      INSERT INTO showroom (name, country, currency, logo, address, phone_number, email)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
 
-    db.query(sql, [name, country, currency, logo, address], (err, result) => {
-      if (err) return res.status(500).json({ message: "Insert failed", error: err });
+    try {
+      const [result] = await db.query(sql, [name, country, currency, logo, address, phone, email]);
       return res.json({ message: "Garage added successfully", insertId: result.insertId });
-    });
+    } catch (err) {
+      return res.status(500).json({ message: "Insert failed", error: err });
+    }
   });
-  router.get('/GarageList', (req,res)=>{
-  const sql ='SELECT * FROM showroom';
-  db.query(sql,(err,result)=>{
-    if(err) return res.status(500).json({message:"Error fetching garages",error:err});
-    return res.json(result);
-  })
-})
 
-// PUT /garage/:id (edit with or without new logo)
-// Add 'upload.single' middleware for logo upload
-router.put('/garage/:id', upload.single('logo'), (req, res) => {
-  const { id } = req.params;
-  const { name, country, currency, address } = req.body;
-  const logo = req.file ? req.file.filename : null;
+  // GET /GarageList
+  router.get('/GarageList', async (req, res) => {
+    const sql = 'SELECT * FROM showroom';
+    try {
+      const [result] = await db.query(sql);
+      return res.json(result);
+    } catch (err) {
+      return res.status(500).json({ message: "Error fetching garages", error: err });
+    }
+  });
 
-  // If a new logo is uploaded, include it in the update
-  const sql = logo
-    ? `UPDATE showroom SET name = ?, country = ?,  currency = ?, address = ?, logo = ? WHERE id = ?`
-    : `UPDATE showroom SET name = ?, country = ?,  currency = ?, address = ? WHERE id = ?`;
+  // PUT /garage/:id
+  router.put('/garage/:id', upload.single('logo'), async (req, res) => {
+    const { id } = req.params;
+    const { name, country, currency, address, phone, email } = req.body;
+    const logo = req.file ? req.file.filename : null;
 
-  const values = logo
-    ? [name, country, currency, address, logo, id]
-    : [name, country,  currency, address, id];
+    const sql = logo
+      ? `UPDATE showroom SET name = ?, country = ?, currency = ?, address = ?, logo = ?, phone_number=?, email=? WHERE id = ?`
+      : `UPDATE showroom SET name = ?, country = ?, currency = ?, address = ?, phone_number=?, email=? WHERE id = ?`;
 
-  db.query(sql, values, (err, result) => {
-    if (err) {
+    const values = logo
+      ? [name, country, currency, address, logo, phone, email, id]
+      : [name, country, currency, address, phone, email, id];
+
+    try {
+      const [result] = await db.query(sql, values);
+      res.json({ message: 'Garage updated successfully' });
+    } catch (err) {
       console.error("SQL Error: ", err);
       return res.status(500).json({ message: 'Update failed', error: err });
     }
-    res.json({ message: 'Garage updated successfully' });
   });
-});
 
-// DELETE /garage/:id (delete a garage by id)
-router.delete('/garage/:id', (req, res) => {
-  const { id } = req.params;
+  // DELETE /garage/:id
+  router.delete('/garage/:id', async (req, res) => {
+    const { id } = req.params;
+    const sql = `DELETE FROM showroom WHERE id = ?`;
 
-  // Delete the showroom with the given id
-  const sql = `DELETE FROM showroom WHERE id = ?`;
+    try {
+      const [result] = await db.query(sql, [id]);
 
-  db.query(sql, [id], (err, result) => {
-    if (err) {
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: 'Garage not found' });
+      }
+
+      res.json({ message: 'Garage deleted successfully' });
+    } catch (err) {
       console.error("SQL Error: ", err);
       return res.status(500).json({ message: 'Delete failed', error: err });
     }
-
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'Garage not found' });
-    }
-
-    res.json({ message: 'Garage deleted successfully' });
   });
-});
-
-
-
 
   return router;
 };

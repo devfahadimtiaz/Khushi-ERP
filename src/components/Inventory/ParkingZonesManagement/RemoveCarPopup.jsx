@@ -1,74 +1,97 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RemoveCarPopup.module.css";
+import axios from "axios";
 
-const RemoveCarPopup = ({ isOpen, onClose, onConfirm, selectedCar = null }) => {
+const API_URL = process.env.REACT_APP_API_URL;
+
+const RemoveCarPopup = ({ isOpen, onClose, onDelete ,garageId }) => {
   // State for dropdown visibility
-  const [carDropdownOpen, setCarDropdownOpen] = useState(false);
+  const [parkedCars, setParkedCars] = useState([]);
+  const [selectedParkedCar, setSelectedParkedCar] = useState("");
+  const [selectedslot, setSelectedSlot] = useState("");
+  const [vehicleId, setVehicleId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  //Fetch Park Cars Cars
+  const fetchParkedCars = async () => {
+    try {
+      const response = await fetch(`${API_URL}/getParkedVehicle/${garageId}`);
+      const data = await response.json();
+      setParkedCars(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    if (garageId) fetchParkedCars();
+  }, [garageId]);
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedParkedCar("");
+      setSelectedSlot("");
+      setVehicleId("");
+      fetchParkedCars();
+    }
+  }, [isOpen, garageId]);
 
   // Sample parked cars data (in a real app, this would come from props or API)
-  const [parkedCars, setParkedCars] = useState([
-    {
-      id: 1,
-      name: "Toyota Camry",
-      stockNo: "TC-001",
-      zone: "A1",
-      spaceNumber: "3",
-    },
-    {
-      id: 2,
-      name: "Honda Civic",
-      stockNo: "HC-002",
-      zone: "B2",
-      spaceNumber: "7",
-    },
-    { id: 3, name: "BMW X5", stockNo: "BX-003", zone: "A", spaceNumber: "12" },
-    {
-      id: 4,
-      name: "Mercedes C-Class",
-      stockNo: "MC-004",
-      zone: "C3",
-      spaceNumber: "5",
-    },
-    {
-      id: 5,
-      name: "Ford Ranger",
-      stockNo: "FR-005",
-      zone: "D4",
-      spaceNumber: "9",
-    },
-  ]);
 
   // State for selected car
-  const [selectedParkedCar, setSelectedParkedCar] = useState(
-    selectedCar || parkedCars[0],
-  );
 
   // Update selected car if prop changes
-  useEffect(() => {
-    if (selectedCar) {
-      setSelectedParkedCar(selectedCar);
-    }
-  }, [selectedCar]);
 
-  const handleCarSelect = (car) => {
-    setSelectedParkedCar(car);
-    setCarDropdownOpen(false);
+  const handleCarSelect = (selectedSlotId) => {
+    setSelectedParkedCar(selectedSlotId);
+    const selectedCarObj = parkedCars.find(
+      (car) => car.slot_id == selectedSlotId
+    );
+    if (selectedCarObj) {
+      setSelectedSlot(selectedCarObj.slot_number);
+      setVehicleId(selectedCarObj.vehicle_id);
+    } else {
+      setSelectedSlot(""); // Clear if not found
+    }
   };
 
   const handleCancel = () => {
     onClose();
   };
 
-  const handleConfirm = () => {
-    onConfirm(selectedParkedCar);
-    onClose();
+
+  const handleConfirm = async () => {
+    try {
+      if (!vehicleId || !selectedParkedCar) {
+        console.error("Please select a car first");
+        return;
+      }
+
+      setIsLoading(true); // start loading
+
+      const response = await fetch(
+        `${API_URL}/UpdateVehicleZone/${selectedParkedCar}`
+      );
+      if (!response.ok) throw new Error("Failed to update vehicle zone");
+
+      const deleteResponse = await axios.put(
+        `${API_URL}/deleteParkedVehicle/${vehicleId}`
+      );
+      if (deleteResponse.status !== 200)
+        throw new Error("Failed to delete vehicle");
+      onDelete()
+      onClose();
+    } catch (error) {
+      console.error(error);
+      console.error(error.message || "An unexpected error occurred");
+    } finally {
+      setIsLoading(false); // stop loading
+      fetchParkedCars();
+    }
   };
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (!event.target.closest(`.${styles.carSelector}`)) {
-        setCarDropdownOpen(false);
       }
     };
 
@@ -87,47 +110,32 @@ const RemoveCarPopup = ({ isOpen, onClose, onConfirm, selectedCar = null }) => {
 
         <div className={styles.formLabel}>Select Car</div>
 
-        <div
-          className={styles.carSelector}
-          onClick={() => setCarDropdownOpen(!carDropdownOpen)}
+        <select
+          className={styles.selectContainer}
+          onChange={(e) => handleCarSelect(e.target.value)}
         >
-          <div className={styles.carName}>
-            {selectedParkedCar ? selectedParkedCar.name : "Select a car"}
-          </div>
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/77083a9bfea64911913755107158b29f/8f8dccfdecc122af481de197ec5bec0d29f7f7b5?placeholderIfAbsent=true"
-            className={styles.dropdownIcon}
-            alt="Dropdown icon"
-          />
-          {carDropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              {parkedCars.map((car) => (
-                <div
-                  key={car.id}
-                  className={styles.dropdownItem}
-                  onClick={() => handleCarSelect(car)}
-                >
-                  {car.name} ({car.stockNo})
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+          <option value="" className={styles.dropdownItem}>
+            Select Car
+          </option>
+          {parkedCars.map((car) => (
+            <option
+              key={car.slot_id}
+              className={styles.dropdownItem}
+              value={car.slot_id}
+            >
+              {car.stock_no} - {car.make} {car.model} {car.year}
+            </option>
+          ))}
+        </select>
 
         <div className={styles.sectionTitle}>Parking Details</div>
 
         <div className={styles.parkingDetailsContainer}>
           <div className={styles.detailLabels}>
-            <div className={styles.detailLabel}>Zone:</div>
             <div className={styles.detailLabel}>Space Number:</div>
           </div>
           <div className={styles.detailValues}>
-            <div className={styles.detailValue}>
-              {selectedParkedCar ? selectedParkedCar.zone : ""}
-            </div>
-            <div className={styles.detailValue}>
-              {selectedParkedCar ? selectedParkedCar.spaceNumber : ""}
-            </div>
+            <div className={styles.detailValue}>{selectedslot}</div>
           </div>
         </div>
 
@@ -135,8 +143,12 @@ const RemoveCarPopup = ({ isOpen, onClose, onConfirm, selectedCar = null }) => {
           <button className={styles.cancelButton} onClick={handleCancel}>
             Cancel
           </button>
-          <button className={styles.confirmButton} onClick={handleConfirm}>
-            Confirm Remove
+          <button
+            className={styles.confirmButton}
+            onClick={handleConfirm}
+            disabled={!selectedParkedCar || isLoading}
+          >
+            {isLoading ? "Removing..." : "Confirm Remove"}
           </button>
         </div>
       </div>

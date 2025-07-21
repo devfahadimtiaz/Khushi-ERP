@@ -1,13 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./VehicleTransferPopup.module.css";
+import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
-const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
+const VehicleTransferPopup = ({ isOpen, onClose, vehicleData, message, fetchVehicle }) => {
   const [formData, setFormData] = useState({
+    originShowroom: "",
+    vehicleId:"",
     targetShowroom: "",
     location: "",
-    transferDate: "",
-    notes: "",
+    status:"Pending",
+    logisticsCompany: "",
+    deliveryDate: "",
   });
+  const [garage, SetGarage] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  //Fetch Showroom
+  const fetchShowroom = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/GarageList`);
+      const data = response.data;
+      SetGarage(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchShowroom();
+  }, []);
+
+
+  useEffect(() => {
+    if (vehicleData) {
+      console.log("Vehicle Data : ", vehicleData)
+      setFormData((prev) => ({
+        ...prev,
+        originShowroom: vehicleData.currentShowroom || "",
+        vehicleId: vehicleData.id || "",
+        targetShowroom: vehicleData.showroom_id|| ""
+      }));
+    }
+  }, [vehicleData]);
 
   if (!isOpen) return null;
 
@@ -19,11 +53,39 @@ const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Transfer data:", { vehicle: vehicleData, ...formData });
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!formData.targetShowroom || !formData.location || !formData.deliveryDate || !formData.logisticsCompany) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+  if (isSubmitting) return;
+  setIsSubmitting(true);
+  try {
+    const response = await axios.post(`${API_URL}/insertTransfer`, formData);
+    StatusChange(formData.vehicleId);
+    message("Transfer A Vehicle Is Created");
+    fetchVehicle()
     onClose();
-  };
+  } catch (error) {
+    console.log(error);
+    alert(error.response?.data?.message || "Error in Transferring Vehicle");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+const StatusChange= async(vehicleId)=>{
+  try{
+    await axios.put(`${API_URL}/UpdateVehicleStatueTransferInProcess/${vehicleId}`)
+
+  }
+  catch(error)
+  {
+    console.log("Error in Backend", error)
+  }
+}
+
+
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -58,13 +120,13 @@ const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
             <div className={styles.infoColumn}>
               <div className={styles.infoLabel}>Vehicle</div>
               <div className={styles.infoValue}>
-                {vehicleData?.name || "Toyota Camry"}
+                {vehicleData?.make || "Toyota Camry"} {vehicleData?.model} {vehicleData?.year}
               </div>
             </div>
             <div className={styles.infoColumn}>
               <div className={styles.infoLabel}>VIN</div>
               <div className={styles.infoValue}>
-                {vehicleData?.vin || "ABC123XYZ"}
+                {vehicleData?.vin_no || "ABC123XYZ"}
               </div>
             </div>
           </div>
@@ -72,13 +134,13 @@ const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
             <div className={styles.infoColumn}>
               <div className={styles.infoLabel}>Color</div>
               <div className={styles.infoValue}>
-                {vehicleData?.color || "Pearl White"}
+                {vehicleData?.exterior_color || "Pearl White"}
               </div>
             </div>
             <div className={styles.infoColumn}>
               <div className={styles.infoLabel}>Price</div>
               <div className={styles.infoValue}>
-                {vehicleData?.price || "$35,000"}
+                {vehicleData?.total_price_after_expense || "$35,000"}
               </div>
             </div>
           </div>
@@ -87,20 +149,28 @@ const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <div className={styles.formLabel}>Target Showroom</div>
+            {vehicleData.showroomname === "Ocean Trading" &&(
             <select
               className={styles.inputField}
               name="targetShowroom"
-              value={formData.targetShowroom}
+              value={formData.targetShowroom || ""}
               onChange={handleChange}
               required
             >
               <option value="" disabled>
                 Select Showroom
               </option>
-              <option value="main">Main Branch</option>
-              <option value="ocean">Ocean Trading</option>
-              <option value="tanzania">Tanzania</option>
+              {garage.filter((s)=> s.id === vehicleData.showroom_id)
+              .map(
+                (row, index) =>
+                  vehicleData.currentShowroom !== row.id && (
+                    <option key={index} value={row.id}>
+                      {row.name}
+                    </option>
+                  )
+              )}
             </select>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -108,43 +178,59 @@ const VehicleTransferPopup = ({ isOpen, onClose, vehicleData }) => {
             <select
               className={styles.inputField}
               name="location"
-              value={formData.location}
+              value={formData.location|| ""}
               onChange={handleChange}
               required
             >
               <option value="" disabled>
                 Select Location
               </option>
-              <option value="nairobi">Nairobi</option>
-              <option value="mombasa">Mombasa</option>
-              <option value="dar">Dar es Salaam</option>
+              {garage
+                .filter((item) => item.id == formData.targetShowroom)
+                .map((item) => (
+                  <option key={item.id} value={item.address}>
+                    {item.address}
+                  </option>
+                ))}
             </select>
           </div>
 
           <div className={styles.formGroup}>
-            <div className={styles.formLabel}>Expected Transfer Date</div>
+            <div className={styles.formLabel}>Expected Delivery Date</div>
             <input
               type="date"
               className={styles.inputField}
-              name="transferDate"
-              value={formData.transferDate}
+              name="deliveryDate"
+              value={formData.deliveryDate}
               onChange={handleChange}
               required
             />
           </div>
 
           <div className={styles.formGroup}>
-            <div className={styles.formLabel}>Transfer Notes</div>
-            <textarea
-              className={styles.textareaField}
-              name="notes"
-              value={formData.notes}
+            <div className={styles.formLabel}>Logistics Company</div>
+            <select
+              className={styles.inputField}
+              name="logisticsCompany"
+              value={formData.logisticsCompany}
               onChange={handleChange}
-              placeholder="Enter any additional notes here..."
-            />
+              required
+            >
+              <option value="" disabled>
+                Select Logistics Company
+              </option>
+              <option value="Auto Logistics Company" >
+                Auto Logistics Company
+              </option>
+              <option value="Logistics Company 2" >
+                Logistics Company 2
+              </option>
+            </select>
           </div>
+          
 
           <div className={styles.buttonContainer}>
+            
             <button
               type="button"
               className={styles.cancelButton}

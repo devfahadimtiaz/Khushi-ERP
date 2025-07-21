@@ -73,28 +73,27 @@
 }
 
 .selectContainer {
-  user-select: none;
-  position: relative;
+  width: 95%;
+  height: 48px;
   border-radius: 4px;
-  height: 51px;
   display: flex;
   align-items: center;
-  background-color: #f6fafd;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
   cursor: pointer;
+  background-color: #f6fafd;
 }
 
 .selectText {
-  padding: 0 16px;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
   color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 .dropdownIcon {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 8px;
+  height: 20px;
 }
 
 .dropdownMenu {
@@ -112,9 +111,9 @@
 }
 
 .dropdownItem {
-  padding: 10px 16px;
+  padding: 10px 12px;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #000;
   cursor: pointer;
   transition: background-color 0.2s;

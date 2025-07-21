@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./GeneralLedgerDashboard.module.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const GeneralLedgerDashboard = ({ onBack }) => {
   return (
@@ -87,7 +90,9 @@ const GeneralLedgerDashboard = ({ onBack }) => {
                   </div>
 
                   <div className={styles.accountsColumn}>
-                    <button className={styles.addAccountBtn}>Add Account</button>
+                    <button className={styles.addAccountBtn}>
+                      Add Account
+                    </button>
                     <div className={styles.totalAmount}>$2,500,000.00</div>
                   </div>
                 </div>

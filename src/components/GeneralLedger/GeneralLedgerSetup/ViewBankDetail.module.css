@@ -1,0 +1,339 @@
+/* Overlay and container styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: transparent;
+}
+
+.popup {
+
+  min-height: 100vh;
+  background-color: #f8f9fd;
+  font-family: Inter, sans-serif;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+/* Page header styles */
+
+
+/* Main content card */
+.contentCard {
+ 
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(9, 161, 218, 0.1);
+  margin: 0 24px;
+}
+
+/* Header section with logo and garage info */
+.headerSection {
+
+  height: 129px;
+  background-color: #e3edfb;
+  border-width: 1px;
+  border-color: #f7f7fc;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.garageLogo {
+  width: 547px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.garageName {
+  color: #14142a;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+.locationInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.countryText,
+.currencyText {
+  color: #4e4b66;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background-color: #d9dbe9;
+}
+
+/* Content body styles */
+.contentBody {
+  padding: 32px;
+}
+
+.sectionsContainer {
+  display: flex;
+  gap: 32px;
+}
+
+.sectionColumn {
+  flex: 1;
+}
+
+.infoSection {
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #e3edfb;
+  background-color: #f8f9fd;
+  padding: 24px;
+}
+
+.sectionTitle {
+  color: #14142a;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  color: #4e4b66;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+}
+
+.fieldValue {
+  color: #14142a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  height: 50px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: #d9dbe9;
+  background-color: #fff;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* Footer styles */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.backButton {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  width: 125px;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #4318d1;
+  box-shadow: 0px 0px 0px 0px rgba(67, 24, 209, 0);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  background-color: #3b15b8;
+}
+
+.lastUpdated {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lastUpdatedLabel {
+  color: #4e4b66;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.lastUpdatedDate {
+  color: #14142a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .pageTitle {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 28px;
+  }
+
+  .pageHeader {
+    padding: 20px;
+  }
+
+  .contentCard {
+    margin: 0 20px;
+  }
+
+  .headerSection {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .garageLogo {
+    width: 400px;
+    height: 60px;
+  }
+
+  .garageName {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .sectionsContainer {
+    gap: 24px;
+    flex-direction: column;
+  }
+
+  .contentBody {
+    padding: 24px;
+  }
+
+  .infoSection {
+    padding: 20px;
+  }
+
+  .footer {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageTitle {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 24px;
+  }
+
+  .pageHeader {
+    padding: 16px;
+  }
+
+  .contentCard {
+    margin: 0 16px;
+  }
+
+  .headerSection {
+    padding: 16px;
+  }
+
+  .garageLogo {
+    width: 100%;
+    height: 50px;
+  }
+
+  .garageName {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .locationInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .countryText,
+  .currencyText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .contentBody {
+    padding: 16px;
+  }
+
+  .infoSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+
+  .fieldValue {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .backButton {
+    width: 100%;
+  }
+}

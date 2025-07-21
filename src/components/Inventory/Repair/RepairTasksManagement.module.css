@@ -22,12 +22,17 @@
   color: #092c4c;
 }
 
-.actionButtons {
+.actionbtn {
   display: flex;
   align-items: center;
   gap: 16px;
+  border: none;
+  background-color: #fff;
 }
-
+.actionButtons{
+  display: flex;
+  gap: 8px;
+}
 .actionButton {
   display: flex;
   align-items: center;
@@ -87,6 +92,14 @@
   font-size: 14px;
   font-weight: 600;
   color: #667085;
+  text-align: center;
+}
+.tableHeaderCellAction{
+flex: 2;
+  font-size: 14px;
+  font-weight: 600;
+  color: #667085;
+  text-align: center;
 }
 
 .tableRow {
@@ -97,6 +110,7 @@
 }
 
 .tableCell {
+  text-align: center;
   flex: 1;
   font-size: 14px;
   color: #1d2939;
@@ -150,7 +164,7 @@
 }
 
 .actionsCell {
-  flex: 1;
+  flex: 2;
   display: flex;
   align-items: center;
   gap: 8px;

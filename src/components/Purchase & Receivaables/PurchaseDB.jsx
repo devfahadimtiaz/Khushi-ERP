@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./PurchaseDB.module.css";
 import PurchaseIcon from "../../uploads/icons/purchasedOrder.png"
 import GrnStatus from "../../uploads/icons/GRNstatus.png"
@@ -6,8 +6,14 @@ import InternalDemand from "../../uploads/icons/InternalDemand.png"
 import VendorPayments from "../../uploads/icons/VendorPayments.png"
 import Uparrow from "../../uploads/icons/uparrow.png"
 import tick from "../../uploads/icons/tick.png"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+ 
 const PurchaseDB = () => {
+ 
   return (
     <div className={styles.purchaseDB}>
       <div className={styles.container}>

@@ -1,166 +1,122 @@
 import React, { useState, useEffect } from "react";
 import styles from "./EditParkingPopup.module.css";
 
-const EditParkingPopup = ({ onClose, onSave, parkingData }) => {
+const API_URL = process.env.REACT_APP_API_URL;
+
+const EditParkingPopup = ({ onClose, onSave, garageId }) => {
   // State for selected values
-  const [selectedCar, setSelectedCar] = useState(parkingData?.car || null);
-  const [selectedZone, setSelectedZone] = useState(parkingData?.zone || null);
-  const [location, setLocation] = useState(parkingData?.location || "");
-  const [selectedRow, setSelectedRow] = useState(parkingData?.row || null);
-  const [selectedColumn, setSelectedColumn] = useState(
-    parkingData?.column || null,
-  );
-  const [status, setStatus] = useState(parkingData?.status || "Available");
-  const [notes, setNotes] = useState(parkingData?.notes || "");
+  const [selectedCar, setSelectedCar] = useState("");
+  const [selectedVehicleId, setSelectedVehicleId] = useState("");
+  const [selectedZone, setSelectedZone] = useState("");
+  const [location, setLocation] = useState("");
+  const [selectedRow, setSelectedRow] = useState("");
+  const [selectedColumn, setSelectedColumn] = useState("");
 
+  const [parkedCars, setParkedCars] = useState([]);
+  const [zones, setZones] = useState([]);
+  const [lines, setLines] = useState([]);
+  const [slots, setSlots] = useState([]);
+  // Fetch Cars
   // State for dropdown visibility
-  const [carDropdownOpen, setCarDropdownOpen] = useState(false);
-  const [zoneDropdownOpen, setZoneDropdownOpen] = useState(false);
-  const [rowDropdownOpen, setRowDropdownOpen] = useState(false);
-  const [columnDropdownOpen, setColumnDropdownOpen] = useState(false);
-  const [statusDropdownOpen, setStatusDropdownOpen] = useState(false);
-
-  // Sample car data
-  const cars = [
-    { id: 1, name: "Toyota Land Cruiser", stockNo: "TLC-001" },
-    { id: 2, name: "Honda Civic", stockNo: "HC-002" },
-    { id: 3, name: "BMW X5", stockNo: "BMW-003" },
-    { id: 4, name: "Mercedes Benz C-Class", stockNo: "MB-004" },
-    { id: 5, name: "Ford Ranger", stockNo: "FR-005" },
-    { id: 6, name: "Nissan Patrol", stockNo: "NP-006" },
-    { id: 7, name: "Lexus LX570", stockNo: "LX-007" },
-  ];
-
-  // Zone configurations
-  const zoneConfigurations = {
-    A: {
-      rows: 14,
-      columns: 5,
-      columnLabels: ["A1", "A2", "A3", "A4", "A5"],
-    },
-    B: {
-      rows: 10,
-      columns: 6,
-      columnLabels: ["B1", "B2", "B3", "B4", "B5", "B6"],
-    },
-    C: {
-      rows: 12,
-      columns: 4,
-      columnLabels: ["C1", "C2", "C3", "C4"],
-    },
-    D: {
-      rows: 8,
-      columns: 8,
-      columnLabels: ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
-    },
-    E: {
-      rows: 6,
-      columns: 10,
-      columnLabels: [
-        "E1",
-        "E2",
-        "E3",
-        "E4",
-        "E5",
-        "E6",
-        "E7",
-        "E8",
-        "E9",
-        "E10",
-      ],
-    },
+  //Fetch Cars
+  const fetchParkedCars = async () => {
+    try {
+      const response = await fetch(`${API_URL}/getParkedVehicle/${garageId}`);
+      const data = await response.json();
+      setParkedCars(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+  useEffect(() => {
+    fetchParkedCars();
+  }, []);
+  useEffect(() => {
+    fetch(`${API_URL}/getZone/${garageId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setZones(data);
+      });
+  }, [garageId]);
+  useEffect(() => {
+    if (selectedZone) {
+      fetch(`${API_URL}/getLineNumbers/${selectedZone}`)
+        .then((res) => res.json())
+        .then((data) => setLines(data))
+        .catch((err) => console.error(err));
+    }
+  }, [selectedZone]);
 
-  // Status options
-  const statusOptions = ["Available", "Occupied", "Reserved", "Maintenance"];
-
-  // Available zones
-  const zones = Object.keys(zoneConfigurations);
-
-  // Generate row numbers based on selected zone
-  const getRowNumbers = () => {
-    if (!selectedZone) return [];
-    const rowCount = zoneConfigurations[selectedZone].rows;
-    return Array.from({ length: rowCount }, (_, i) => i + 1);
-  };
-
-  // Get column labels based on selected zone
-  const getColumnLabels = () => {
-    if (!selectedZone) return [];
-    return zoneConfigurations[selectedZone].columnLabels;
-  };
+  useEffect(() => {
+    if (selectedRow) {
+      fetch(`${API_URL}/getSlotNumber/${selectedRow}`)
+        .then((res) => res.json())
+        .then((data) => setSlots(data))
+        .catch((error) => console.error(error));
+    }
+  }, [selectedRow]);
 
   // Handle car selection
-  const handleCarSelect = (car) => {
-    setSelectedCar(car);
-    setCarDropdownOpen(false);
-  };
-
-  // Handle zone selection
-  const handleZoneSelect = (zone) => {
-    setSelectedZone(zone);
-    setSelectedRow(null); // Reset row when zone changes
-    setSelectedColumn(null); // Reset column when zone changes
-    setZoneDropdownOpen(false);
+  const handleCarSelect = (slotId) => {
+    const selectedCar = parkedCars.find((car) => car.slot_id == slotId);
+    setLocation(selectedCar.slot_number);
+    setSelectedCar(selectedCar.slot_id);
+    setSelectedVehicleId(selectedCar.vehicle_id);
   };
 
   // Handle row selection
-  const handleRowSelect = (row) => {
-    setSelectedRow(row);
-    setRowDropdownOpen(false);
+  const handleZoneSelect = (e) => {
+    const { value } = e.target;
+    setSelectedZone(value);
+  };
+
+  // Handle row selection
+  const handleRowSelect = (e) => {
+    const { value } = e.target;
+    setSelectedRow(value);
   };
 
   // Handle column selection
-  const handleColumnSelect = (column) => {
-    setSelectedColumn(column);
-    setColumnDropdownOpen(false);
+  const handleColumnSelect = (e) => {
+    const { value } = e.target;
+    setSelectedColumn(value);
   };
-
-  // Handle status selection
-  const handleStatusSelect = (status) => {
-    setStatus(status);
-    setStatusDropdownOpen(false);
-  };
-
-  // Close all dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(`.${styles.selectContainer}`)) {
-        setCarDropdownOpen(false);
-        setZoneDropdownOpen(false);
-        setRowDropdownOpen(false);
-        setColumnDropdownOpen(false);
-        setStatusDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   // Handle save button click
-  const handleSave = () => {
-    if (!selectedCar || !selectedZone || !selectedRow || !selectedColumn) {
-      alert("Please fill in all required fields");
+  const handleSave = async () => {
+  try {
+    if (!selectedVehicleId || !selectedColumn) {
+      alert("Please select a vehicle and a slot before saving.");
       return;
     }
 
-    // Create parking data object
-    const updatedParkingData = {
-      car: selectedCar,
-      zone: selectedZone,
-      location,
-      row: selectedRow,
-      column: selectedColumn,
-      status,
-      notes,
-    };
+    // 1️⃣ First: Make previous parking slot vacant
+    const response = await fetch(`${API_URL}/UpdateVehicleZone/${selectedCar}`);
+    if (!response.ok) throw new Error("Failed to update previous parking zone");
 
-    // Call the onSave function with the parking data
-    onSave(updatedParkingData);
-  };
+    // 2️⃣ Second: Assign vehicle to new selected slot
+    const updateParkingZone = await fetch(`${API_URL}/updateVehicleToNewSlot`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        vehicleId: selectedVehicleId,
+        slotId: selectedColumn, // ✅ FIXED HERE
+      }),
+    });
+
+    if (!updateParkingZone.ok) throw new Error("Failed to assign vehicle to new slot");
+
+    const data = await updateParkingZone.json();
+    onSave(); // 👈 optionally call parent’s onSave()
+    onClose();
+  } catch (error) {
+    console.error(error);
+    alert("Error: " + error.message);
+  }
+};
+
 
   return (
     <div className={styles.overlay}>
@@ -176,91 +132,57 @@ const EditParkingPopup = ({ onClose, onSave, parkingData }) => {
           {/* Car Selection */}
           <div className={styles.formGroup}>
             <div className={styles.formLabel}>Select Car</div>
-            <div
+            <select
               className={styles.selectContainer}
-              onClick={() => setCarDropdownOpen(!carDropdownOpen)}
+              onChange={(e) => handleCarSelect(e.target.value)}
             >
-              <div className={styles.selectText}>
-                {selectedCar
-                  ? `${selectedCar.name} (${selectedCar.stockNo})`
-                  : "Select a car"}
-              </div>
-              <div className={styles.dropdownIcon}>
-                <svg
-                  width="10"
-                  height="11"
-                  viewBox="0 0 10 11"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              <option value="" className={styles.dropdownItem}>
+                Select Car
+              </option>
+              {parkedCars.map((car) => (
+                <option
+                  key={car.slot_id}
+                  className={styles.dropdownItem}
+                  value={car.slot_id}
                 >
-                  <path d="M9 1H1L5 9L9 1Z" stroke="black"></path>
-                </svg>
-              </div>
-              {carDropdownOpen && (
-                <div className={styles.dropdownMenu}>
-                  {cars.map((car) => (
-                    <div
-                      key={car.id}
-                      className={styles.dropdownItem}
-                      onClick={() => handleCarSelect(car)}
-                    >
-                      {car.name} ({car.stockNo})
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                  {car.stock_no} - {car.make} {car.model} {car.year}
+                </option>
+              ))}
+            </select>
           </div>
-
           {/* Zone and Location Row */}
           <div className={styles.formRow}>
-            {/* Zone Selection */}
-            <div className={styles.formGroup}>
-              <div className={styles.formLabel}>Select Zone</div>
-              <div
-                className={styles.selectContainer}
-                onClick={() => setZoneDropdownOpen(!zoneDropdownOpen)}
-              >
-                <div className={styles.selectText}>
-                  {selectedZone ? `Zone ${selectedZone}` : "Select a zone"}
-                </div>
-                <div className={styles.dropdownIcon}>
-                  <svg
-                    width="10"
-                    height="11"
-                    viewBox="0 0 10 11"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M9 1H1L5 9L9 1Z" stroke="black"></path>
-                  </svg>
-                </div>
-                {zoneDropdownOpen && (
-                  <div className={styles.dropdownMenu}>
-                    {zones.map((zone) => (
-                      <div
-                        key={zone}
-                        className={styles.dropdownItem}
-                        onClick={() => handleZoneSelect(zone)}
-                      >
-                        Zone {zone}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
             {/* Location Input */}
             <div className={styles.formGroup}>
               <div className={styles.formLabel}>Location</div>
               <input
                 type="text"
-                placeholder="Enter location"
+                placeholder="Location is "
                 className={styles.inputField}
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                disabled
               />
+            </div>
+            {/* Zone Selection */}
+            <div className={styles.formGroup}>
+              <div className={styles.formLabel}>Select Zone</div>
+              <select
+                className={styles.selectContainer}
+                onChange={(e) => handleZoneSelect(e)}
+              >
+                <option className={styles.dropdownItem} value="">
+                  Select Zone
+                </option>
+                {zones.map((zone) => (
+                  <option
+                    key={zone.id}
+                    value={zone.id}
+                    className={styles.dropdownItem}
+                  >
+                    {zone.name}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -268,128 +190,47 @@ const EditParkingPopup = ({ onClose, onSave, parkingData }) => {
           <div className={styles.formRow}>
             {/* Row Selection */}
             <div className={styles.formGroup}>
-              <div className={styles.formLabel}>Select Row</div>
-              <div
+              <div className={styles.formLabel}>Select Line No.</div>
+              <select
                 className={styles.selectContainer}
-                onClick={() =>
-                  selectedZone && setRowDropdownOpen(!rowDropdownOpen)
-                }
+                onChange={(e) => handleRowSelect(e)}
               >
-                <div className={styles.selectText}>
-                  {selectedRow ? `Row ${selectedRow}` : "Select a row"}
-                </div>
-                <div className={styles.dropdownIcon}>
-                  <svg
-                    width="10"
-                    height="11"
-                    viewBox="0 0 10 11"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <option className={styles.dropdownItem} value="">
+                  Select Line
+                </option>
+                {lines.map((line) => (
+                  <option
+                    key={line.id}
+                    value={line.id}
+                    className={styles.dropdownItem}
                   >
-                    <path d="M9 1H1L5 9L9 1Z" stroke="black"></path>
-                  </svg>
-                </div>
-                {rowDropdownOpen && (
-                  <div className={styles.dropdownMenu}>
-                    {getRowNumbers().map((row) => (
-                      <div
-                        key={row}
-                        className={styles.dropdownItem}
-                        onClick={() => handleRowSelect(row)}
-                      >
-                        Row {row}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                    {line.line_number}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Column Selection */}
             <div className={styles.formGroup}>
-              <div className={styles.formLabel}>Select Column</div>
-              <div
+              <div className={styles.formLabel}>Select SLot No</div>
+              <select
                 className={styles.selectContainer}
-                onClick={() =>
-                  selectedZone && setColumnDropdownOpen(!columnDropdownOpen)
-                }
+                onChange={(e) => handleColumnSelect(e)}
               >
-                <div className={styles.selectText}>
-                  {selectedColumn
-                    ? `Column ${selectedColumn}`
-                    : "Select a column"}
-                </div>
-                <div className={styles.dropdownIcon}>
-                  <svg
-                    width="10"
-                    height="11"
-                    viewBox="0 0 10 11"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <option className={styles.dropdownItem} value="">
+                  Select Slot
+                </option>
+                {slots.map((slot) => (
+                  <option
+                    key={slot.id}
+                    value={slot.id}
+                    className={styles.dropdownItem}
                   >
-                    <path d="M9 1H1L5 9L9 1Z" stroke="black"></path>
-                  </svg>
-                </div>
-                {columnDropdownOpen && (
-                  <div className={styles.dropdownMenu}>
-                    {getColumnLabels().map((column) => (
-                      <div
-                        key={column}
-                        className={styles.dropdownItem}
-                        onClick={() => handleColumnSelect(column)}
-                      >
-                        Column {column}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                    {slot.slot_number}
+                  </option>
+                ))}
+              </select>
             </div>
-          </div>
-
-          {/* Status Selection */}
-          <div className={styles.formGroup}>
-            <div className={styles.formLabel}>Status</div>
-            <div
-              className={styles.selectContainer}
-              onClick={() => setStatusDropdownOpen(!statusDropdownOpen)}
-            >
-              <div className={styles.selectText}>{status}</div>
-              <div className={styles.dropdownIcon}>
-                <svg
-                  width="10"
-                  height="11"
-                  viewBox="0 0 10 11"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9 1H1L5 9L9 1Z" stroke="black"></path>
-                </svg>
-              </div>
-              {statusDropdownOpen && (
-                <div className={styles.dropdownMenu}>
-                  {statusOptions.map((statusOption) => (
-                    <div
-                      key={statusOption}
-                      className={styles.dropdownItem}
-                      onClick={() => handleStatusSelect(statusOption)}
-                    >
-                      {statusOption}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Notes Textarea */}
-          <div className={styles.formGroup}>
-            <div className={styles.formLabel}>Notes</div>
-            <textarea
-              className={styles.textareaField}
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-            />
           </div>
 
           {/* Action Buttons */}
@@ -397,7 +238,7 @@ const EditParkingPopup = ({ onClose, onSave, parkingData }) => {
             <button className={styles.cancelButton} onClick={onClose}>
               Cancel
             </button>
-            <button className={styles.saveButton} onClick={handleSave}>
+            <button className={styles.saveButton} onClick={() => handleSave()}>
               Save Changes
             </button>
           </div>

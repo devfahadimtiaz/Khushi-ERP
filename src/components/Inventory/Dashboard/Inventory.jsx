@@ -1,135 +1,343 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Inventory.module.css";
+
+import {
+  Car,
+  Package,
+  TrendingUp,
+  DollarSign,
+  Bell,
+  Search,
+  Plus,
+} from "lucide-react";
 import LogoSlider from "./LogoSlider";
-import StockOverview from "../../StockOverview";
-import Tabels from "../../../Resources/Tables/Tabel";
+import StockOverview from "./StockOverview";
 import FilterSystem from "./FilterSystem";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import StatsCard from "./Component/StatsCard";
+import VehicleTable from "./Component/VehicleTable";
+import RecentActivity from "./Component/RecentActivity";
+const API_URL = process.env.REACT_APP_API_URL;
+const Inventory = ({ onBack, onNavigateToAddStock }) => {
+  const [showroomdata, setShowroomData] = useState([]);
+  const navigate = useNavigate();
+  const [selectedShowroom, setSelectedShowroom] = useState(null);
+  const [recentActivities, setRecentActivities] = useState([]);
+  const [totalCars, setTotalCars] = useState();
+  const [stock, setStock] = useState();
+  const [showroomName, setShowroomName] = useState();
+  const [soldStock, setSoldStock] = useState();
+  const [totalValues, setTotalValues] = useState({});
+  const [make, setMake] = useState([]);
+  const [selectedMake, setSelectedMake] = useState("All Makers");
+  const [makeData, setMakeData] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState("All Status");
+  const [userInfo, setUserInfo] = useState([]);
+
+    //fetch User Session
+ const fetchUserInfo = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/dashboard`, {
+        withCredentials: true,
+      });
+      const data = response.data;
+      if (data.valid) {
+        setUserInfo(data);
+        console.log(data)
+      } else {
+        console.log("User is not logged in");
+      }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  };
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
+
+  useEffect(()=>{
+    if(userInfo){
+      setSelectedShowroom(userInfo.showroom)
+    }
+  },[userInfo])
+
+  //Formate Amount into SHort formate
+  function formatAmount(num) {
+    if (num >= 1e9) return (num / 1e9).toFixed(2) + "B";
+    if (num >= 1e6) return (num / 1e6).toFixed(2) + "M";
+    if (num >= 1e3) return (num / 1e3).toFixed(2) + "K";
+    return num;
+  }
+
+  const fetchShowroom = async () => {
+    try {
+      const response = await fetch(`${API_URL}/showroomLogo`);
+      const data = await response.json();
+      setShowroomData(data);
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleRecentActivities();
+      handleVehicles();
+    }
+  }, [selectedShowroom]);
+
+  //Fetch InStock
+  const handleInStock = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/inStock/${selectedShowroom}`
+      );
+      const data = response.data;
+      setStock(data);
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleInStock();
+    }
+  }, [selectedShowroom]);
+  const handleView = (row)=>{
+    navigate(`/VehicleDetails/${row.id}`)
+  }
+
+  //fetch Instock
+  const handleSold = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/sold/${selectedShowroom}`);
+      const data = response.data;
+      setSoldStock(data);
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleSold();
+    }
+  }, [selectedShowroom]);
+
+  //Fetech Recent ACtivities
+  const handleRecentActivities = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/recentActivity/${selectedShowroom}`
+      );
+      setRecentActivities(response.data);
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+
+  //Fetch Showrrom name
+  const handleShowroomName = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/showroomName/${selectedShowroom}`
+      );
+      setShowroomName(response.data);
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleShowroomName();
+      handleTotalValue();
+    }
+  }, [selectedShowroom]);
+
+  //fetch Total Value
+  const handleTotalValue = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/totalvalue/${selectedShowroom}`
+      );
+      if (Array.isArray(response.data) && response.data.length > 0) {
+        setTotalValues(response.data[0]); // 👈 Set the first item of the array
+      } else {
+        setTotalValues({ totalValue: 0, currency: "" }); // fallback
+      }
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleTotalValue();
+    }
+  }, [selectedShowroom]);
+
+  //handleSelect Showrroom
+  const handleSelectedShowroom = (showroomId) => {
+    setSelectedShowroom(showroomId);
+  };
+
+  useEffect(() => {
+    fetchShowroom();
+  }, []);
+
+  const handleAddSTock = () => {
+    navigate("/AddStock");
+  };
+  const handleTotalCars = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/totalvehicles/${selectedShowroom}`
+      );
+      const data = response.data;
+      setTotalCars(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    if (selectedShowroom) {
+      handleTotalCars();
+    }
+  }, [selectedShowroom]);
+
+  //fetch Make
+  const handleMake = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/distinctMake`);
+      const data = response.data;
+      setMake(data);
+    } catch {
+      console.log("Error fetching data");
+    }
+  };
+  useEffect(() => {
+    handleMake();
+  }, []);
+
+  //Get Vehcicles
+  const handleVehicles = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/ShowroomWiseVehicle/${selectedShowroom}`
+      );
+      setMakeData(response.data);
+    } catch {
+      console.log("Error fetching data");
+    }
+  };
+
+  const makerHeaders = [
+    "Sr",
+    "make",
+    "Model",
+    "Year",
+    "Stock",
+    "Price",
+    "Status",
+  ];
 
 
 
-function Inventory({ onBack, onNavigateToAddStock }) {
 
-  const makerHeaders=["Sr","Make","Model","Year","Stock","Price","Status"]
-  const makeData=[["1","Toyota","Crown","2021","Active","Price","Inv Comit"],["2","Toyota","Crown","2021","Active","Price","Inv Comit"],["3","Toyota","Crown","2021","Active","Price","Inv Comit"]]
-
-  const statusHeader=["Sr", "Cameraman","Make/Model","Year","Stock","Upload","Status"]
-  const statusData=[["1","camera","Toyota","2021","Active","10m Ago","Approved"],["2","Rahul","Toyota","2021","Active","10m Ago","Approved"],["3","Rahul","Toyota","2021","Active","10m Ago","Approved"],["4","Rahul","Toyota","2021","Active","10m Ago","Approved"]]
-  
-  const [openPopup,setOpenPopup] = useState(false)
-  
+  const filteredMakeData =
+    selectedMake === "All Makers"
+      ? makeData
+      : makeData.filter((item) => item.make === selectedMake);
+  const tableData = filteredMakeData.map((item, index) => ({
+    sr: index + 1,
+    id:item.id,
+    make: item.make,
+    model: item.model,
+    year: item.year,
+    stock: item.stock_no,
+    price: item.total_price_after_expense,
+    status: item.status,
+  }));
+  const filterStatusData =
+    selectedStatus === "All Status"
+      ? makeData
+      : makeData.filter((item) => item.status === selectedStatus);
+  const StatusTable = filterStatusData.map((item, index) => [
+    index + 1,
+    item.make,
+    item.model,
+    item.year,
+    item.updated_at,
+    item.status,
+  ]);
   return (
     <div className={styles.inventoryContainer}>
-      <div className={styles.contentWrapper}>
-        <div className={styles.topActions}>
-          <div className={styles.searchBox}>
-            <input type="text" placeholder="Search by maker or model..." className={styles.searchText}/>
-            <img alt="search" src="https://cdn.builder.io/api/v1/image/assets/TEMP/35e7907c3f1b8461ec1d8d277f576e35f9e96b6e?placeholderIfAbsent=true" className={styles.searchIcon} />
+      <div className={styles.topActions}>
+        <button className={styles.addButton} onClick={() => handleAddSTock()}>
+          Add Vehicle
+        </button>
+       
+      </div>
+      <div className={styles.viewSection}>
+        <div className={styles.viewControls}>
+          <div className={styles.viewAllImage}>
+            <LogoSlider
+              data={showroomdata}
+              handleShowroomId={handleSelectedShowroom}
+              selectedShowroom={selectedShowroom}
+            />
           </div>
-          <button
-                   className={styles.addButton}
-                   onClick={onNavigateToAddStock}
-                 >
-                   Add Vehicle
-          </button>
-          <button className={styles.filtersBtn} onClick={()=> setOpenPopup(true)}>Filters</button>
-          <FilterSystem isOpen={openPopup}
-            onClose={()=> setOpenPopup(false)}
+        </div>
+        <div className={styles.statsCards}>
+          <StatsCard
+            title="Total Vehicles"
+            value={totalCars}
+            icon={Car}
+            trend={{ value: 8.2, isPositive: true }}
+            color="blue"
+          />
+          <StatsCard
+            title="In Stock"
+            value={stock}
+            icon={Package}
+            trend={{ value: 2.4, isPositive: true }}
+            color="green"
+          />
+          <StatsCard
+            title="Sold"
+            value={soldStock}
+            icon={TrendingUp}
+            trend={{ value: 12.5, isPositive: true }}
+            color="purple"
+          />
+          <StatsCard
+            title="Total Value"
+            value={formatAmount(totalValues?.totalValue || 0)}
+            currency={totalValues?.currency || ""}
+            icon={DollarSign}
+            trend={{ value: 4.1, isPositive: true }}
+            color="orange"
           />
         </div>
-        <div className={styles.viewSection}>
-          <div className={styles.viewControls}>
-              <div className={styles.viewAllImage}>
-                <LogoSlider/>
-              </div>
+        <div className={styles.statsGrid}>
+          <div className={styles.statsColumn}>
+            <StockOverview showroomId={selectedShowroom} />
           </div>
-          <div className={styles.statsGrid}>
-            <div className={styles.statsColumn}>
-              <StockOverview/>
-            </div>
-            <div className={styles.statsColumnRecent}>
-              <div className={styles.recentActivityCard}>
-                <div className={styles.cardHeader}>
-                  <div className={styles.cardTitle}>Recent Activity</div>
-                  <div className={styles.viewAllLink}>View All</div>
-                </div>
-                <div className={styles.activityItem}>
-                  <div className={styles.activityDetails}>
-                    
-                    <div className={styles.activityInfo}>
-                      <div className={styles.activityTitle}>Toyota Camry</div>
-                      <div className={styles.activitySubtitle}>Stock: 12</div>
-                    </div>
-                    
-                  </div>
-                  <div className={styles.inStockStatus}>In Stock</div>
-                </div>
-                
-                <div className={styles.activityItem}>
-                  <div className={styles.activityDetails}>
-                    
-                    <div className={styles.activityInfo}>
-                      <div className={styles.activityTitle}>Honda Civic</div>
-                      <div className={styles.activitySubtitle}>Stock: 3</div>
-                    </div>
-                  </div>
-                  <div className={styles.lowStockStatus}>Low Stock</div>
-                </div>
-                <div className={styles.activityItem}>
-                  <div className={styles.activityDetails}>
-                    
-                    <div className={styles.activityInfo}>
-                      <div className={styles.activityTitle}>BMW X5</div>
-                      <div className={styles.activitySubtitle}>Stock: 8</div>
-                      
-                    </div>
-                  </div>
-                  <div className={styles.inStockStatus}>In Stock</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.companyTitle}>Khushi Motors Kenya</div>
-          <div className={styles.companySubtitle}>Statistics</div>
-          <div className={styles.statsCards}>
-            <div className={styles.statsCard}>
-              <div className={styles.statsCardLabel}>Total Vehicles</div>
-              <div className={styles.statsCardValue}>2</div>
-            </div>
-            <div className={styles.statsCard}>
-              <div className={styles.statsCardLabel}>Low Stock</div>
-              <div className={styles.statsCardValueRed}>1</div>
-            </div>
-            <div className={styles.statsCard}>
-              <div className={styles.statsCardLabel}>Out of Stock</div>
-              <div className={styles.statsCardValueBlue}>0</div>
-            </div>
-            <div className={styles.statsCard}>
-              <div className={styles.statsCardLabel}>Total Value</div>
-              <div className={styles.statsCardValueGreen}>$408,285</div>
-            </div>
-          </div>
-          <div className={styles.inventoryTable}>
-            <div className={styles.tableFilter}>
-              <div className={styles.filterDropdown}>
-                <div>All Makers</div>
-                
-              </div>
-              
-              </div>
-              <Tabels row='7' column='5' data={makeData} headers={makerHeaders}/>
 
+          <div className={styles.recentActivityCard}>
+            <RecentActivity activities={recentActivities} />
           </div>
-          <div className={styles.inventoryTable}>
-            <div className={styles.statusTableHeader}>
-              <div>Cars By Status</div>
-              <Tabels row="7" column="5" data={statusData} headers={statusHeader}/>
-            </div>
-            
-          </div>
+        </div>
+
+        <div className={styles.inventoryTable}>
+          <VehicleTable
+            data={tableData}
+            currency={totalValues.currency}
+            headings={makerHeaders}
+            onView={(row) => handleView(row)}
+          />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Inventory;

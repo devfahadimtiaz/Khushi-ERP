@@ -1,0 +1,462 @@
+import React, { useState, useEffect } from "react";
+import styles from "./InventoryGridView.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
+const API_Image = process.env.REACT_APP_API_IMAGE;
+const InventoryGridView = ({ onBack }) => {
+  const [selectedShowrooms, setSelectedShowrooms] = useState([]);
+  const [carData, setCarData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); // NEW
+  const [sortBy, setSortBy] = useState(null); // NEW
+  const [sortOrder, setSortOrder] = useState("asc"); // NEW
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/InventoryGridView`)
+      .then((res) => setCarData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    let result = [...carData];
+
+    // Filter by showroom
+    if (selectedShowrooms.length > 0) {
+      result = result.filter((car) =>
+        selectedShowrooms.includes(car.showroom_id)
+      );
+    }
+
+    // Sort logic
+    if (sortBy) {
+      result.sort((a, b) => {
+        const valA = a[sortBy];
+        const valB = b[sortBy];
+
+        if (typeof valA === "string") {
+          return sortOrder === "asc"
+            ? valA.localeCompare(valB)
+            : valB.localeCompare(valA);
+        }
+
+        return sortOrder === "asc" ? valA - valB : valB - valA;
+      });
+    }
+
+    setFilteredData(result);
+  }, [carData, selectedShowrooms, sortBy, sortOrder]); // NEW
+
+  const toggleShowroom = (id) => {
+    if (selectedShowrooms.includes(id)) {
+      setSelectedShowrooms(
+        selectedShowrooms.filter((showroomId) => showroomId !== id)
+      );
+    } else {
+      setSelectedShowrooms([...selectedShowrooms, id]);
+    }
+  };
+
+  const toggleSort = (field) => {
+    if (sortBy === field) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortBy(field);
+      setSortOrder("asc");
+    }
+  };
+
+  const handleLastUpdate = (carId) => {
+    console.log(`Last update for car ID: ${carId}`);
+  };
+
+  const navigateToListView = () => {
+    navigate("/Stock");
+  };
+
+  const showrooms = [
+    { id: 1, name: "Khushi Motors Kenya" },
+    { id: 2, name: "Khushi Motors Express" },
+    { id: 3, name: "Khushi Motors UG" },
+    { id: 4, name: "Khushi Motors TZ" },
+  ];
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.header}>
+          <div className={styles.title}>Inventory/Garage/Inventory Grid</div>
+          <div className={styles.actions}>
+            <button className={styles.btnGray} onClick={navigateToListView}>
+              <span>List View</span>
+            </button>
+          </div>
+        </div>
+
+        {/* FILTER BUTTONS */}
+        <div className={styles.filterButtons}>
+          <button
+            className={styles.filterBtn}
+            onClick={() => toggleSort("model_year")}
+          >
+            <span>Sort By Model Year</span>
+          </button>
+          <button
+            className={styles.filterBtn}
+            onClick={() => toggleSort("grade")}
+          >
+            <span>Sort by Grade</span>
+          </button>
+          <button
+            className={styles.filterBtn}
+            onClick={() => toggleSort("showroom_id")}
+          >
+            <span>Sort by Showroom</span>
+          </button>
+          <button
+            className={styles.filterBtn}
+            onClick={() => toggleSort("odo")}
+          >
+            <span>Sort by ODO</span>
+          </button>
+        </div>
+
+        {/* SHOWROOM FILTER */}
+        <div className={styles.showroomFilters}>
+          {showrooms.map((showroom) => (
+            <div key={showroom.id} className={styles.checkboxGroup}>
+              <input
+                type="checkbox"
+                id={`showroom-${showroom.id}`}
+                checked={selectedShowrooms.includes(showroom.id)}
+                onChange={() => toggleShowroom(showroom.id)}
+                className={styles.checkbox}
+              />
+              <label
+                htmlFor={`showroom-${showroom.id}`}
+                className={styles.checkboxLabel}
+              >
+                {showroom.name}
+              </label>
+            </div>
+          ))}
+        </div>
+
+        {/* CAR GRID */}
+        <div className={styles.carGrid}>
+          {filteredData.map((car) => (
+            <div key={car.id} className={styles.carCard}>
+              <img
+                src={`${API_Image}${
+                  car.images[0] || "/uploads/placeholder.jpg"
+                }`}
+                alt={car.name}
+                className={styles.carMainImage}
+              />
+              <div className={styles.carDetails}>
+                <div className={styles.carName}>
+                  {car.make} {car.model} {car.year}
+                </div>
+                <div className={styles.stockInfo}>
+                  <div className={styles.stockLabel}>Stock no:</div>
+                  <div className={styles.stockValue}>{car.stock_no}</div>
+                </div>
+                <div className={styles.priceTag}>
+                  {car.total_price_after_expense}
+                </div>
+                <div className={styles.thumbnailGrid}>
+                  {car.images.slice(0, 8).map((image, index) => (
+                    <img
+                      key={index}
+                      src={`${API_Image}${image}`}
+                      alt=""
+                      className={styles.thumbnail}
+                    />
+                  ))}
+                </div>
+                <button
+                  className={styles.updateButton}
+                  onClick={() => handleLastUpdate(car.id)}
+                >
+                  {car.updated_at}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InventoryGridView;
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f6fafd;
+  padding: 24px;
+  padding-top: 100px;
+  font-family: "Poppins", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1340px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btnsold{
+  height: 41px;
+  padding: 0 16px;
+  background-color: #1AD598;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btnGray {
+  height: 41px;
+  padding: 0 16px;
+  background-color: #d9e1e7;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnGray:hover {
+  opacity: 0.9;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eaeef4;
+  overflow: hidden;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  height: 40px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 36px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1ad598;
+  border: none;
+}
+
+.filterBtn:hover {
+  opacity: 0.9;
+}
+
+.showroomFilters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.checkboxLabel {
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.carGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.carCard {
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
+.carMainImage {
+  width: 100%;
+  height: 504px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.carName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stockInfo {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.stockLabel,
+.stockValue {
+  color: #000;
+  font-size: 16px;
+}
+
+.priceTag {
+  width: 123px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailGrid {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.thumbnail {
+  width: 102px;
+  height: 102px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.updateButton {
+  height: 59px;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #1ad598;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updateButton:hover {
+  opacity: 0.9;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .filterButtons {
+    flex-wrap: wrap;
+  }
+
+  .carGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .showroomFilters {
+    flex-direction: column;
+  }
+
+  .carGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnailGrid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

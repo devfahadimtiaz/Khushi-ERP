@@ -1,41 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SignIn.module.css";
 import InputField from "./InputField";
 import logo from "../uploads/KM-LOGO.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function SignIn() {
-  const [email, setEmail] = useState("");
+ const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const values = {
-    email: email,
+    username: username,
     password: password,
   };
-  const handleLogin = (event) => {
-    // Navigate to the dashboard after login
-    event.preventDefault(); // Prevent the default form submission behavior
-    axios
-      .post("http://localhost:8081/SignIn", values)
-      .then((res) => {
-        if (res.data.message === "Login successful") {
-          navigate("/Dashboard");
-        }
-        else{
-          alert("Invalid email or password");
 
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/dashboard`)
+      .then((res) => {
+        if (res.data.valid) {
+          navigate("/dashboard");
+        } else {
+          navigate("/SignIn");
         }
       })
       .catch((err) => {
         console.log(err);
       });
+  },[]);
+  const handleLogin = (event) => {
+    // Navigate to the dashboard after login
+    event.preventDefault();
+    axios.post(`${API_URL}/signIn`, values).then((res) => {
+      if (res.data.message === "Login Success") {
+        console.log("Login Success");
+        navigate("/dashboard");
+      } else {
+        alert("Invalid email or password");
+      }
+    });
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -46,7 +57,7 @@ function SignIn() {
     setShowPassword(!showPassword);
   };
 
-  return (
+  return ( 
     <div className={styles.signInContainer}>
       <div className={styles.leftPanel}>
         <div className={styles.welcomeTitle}>Let's sign you in</div>
@@ -55,27 +66,19 @@ function SignIn() {
           <br />
           Manage you teams effectively.
         </div>
-        <div className={styles.testimonialCard}>
-          Employee Recruitment process was never easier. Hire new employees
-          seamlessly.
-        </div>
-        <div className={styles.dotIndicators}>
-          <div className={styles.dotInactive} />
-          <div className={styles.dotActive} />
-          <div className={styles.dotInactive} />
-        </div>
+       
       </div>
       <div className={styles.rightPanel}>
         <img src={logo} alt="Khushi Media Logo" className={styles.logo} />
         <form onSubmit={handleLogin}>
           <div className={styles.inputWrapper}>
             <InputField
-              label="Email"
-              type="email"
-              placeholder="Enter email here"
-              value={email}
+              label="Username"
+              type="text"
+              placeholder="Enter username here"
+              value={username}
               onChange={handleEmailChange}
-              iconType="email"
+              iconType="username"
             />
           </div>
           <div className={styles.inputWrapper}>

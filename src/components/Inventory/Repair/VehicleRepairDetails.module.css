@@ -242,3 +242,131 @@
     max-width: 100%;
   }
 }
+
+.tableHeader {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #e6f4f9;
+  justify-content: space-between;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+  font-weight: 700;
+}
+
+.tableHeaderItem {
+  flex: 1;
+}
+
+.tableHeaderItem:nth-child(2) {
+  text-align: center;
+}
+
+.tableHeaderItem:last-child {
+  text-align: right;
+}
+
+.itemRow {
+  display: flex;
+  margin-top: 16px;
+  margin-left: 32px;
+  margin-right: 32px;
+  gap: 11px;
+  justify-content: space-between;
+}
+
+.itemInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.remarksInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.amountInput {
+  border-radius: 8px;
+  background-color: #f6fafd;
+  border: 1px solid #eaeef4;
+  height: 50px;
+
+  padding: 0 14px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+}
+
+.addItemButton {
+  color: #4318d1;
+  font-size: 16px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 16px;
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+.totalContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  margin-right: 32px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  color: #092c4c;
+  font-weight: 700;
+  gap: 2px;
+}
+
+.totalLabel {
+  margin-right: 4px;
+}

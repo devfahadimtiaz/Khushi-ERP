@@ -1,0 +1,178 @@
+.container {
+  min-height: 100vh;
+  background-color: #f6fafd;
+  margin: auto;
+  
+}
+.width{
+  width: 90%;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.header {
+  height: 93px;
+  border-bottom: 1px solid #eaeef4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.title {
+  color: #092c4c;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.addButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  cursor: pointer;
+  background-color: #2371e2;
+  border: none;
+    color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+
+
+.plusIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+}
+
+
+@media (max-width: 991px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .addButton {
+    width: 100%;
+  }
+
+  .tableContainer {
+    margin: 16px;
+    overflow-x: auto;
+  }
+
+  .tableHeader,
+  .tableRow {
+    min-width: 800px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .tableContainer {
+    margin: 8px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    padding: 16px;
+  }
+}
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.tableHeader {
+  display: flex;
+
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #e7eaf3;
+  border-bottom: none;
+  box-shadow: 0 4px 6px rgba(42, 53, 71, 0.1);
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.tableHeaderCell {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  
+}
+
+.tableRow {
+  display: flex;
+
+  padding: 16px;
+  border-left: 1px solid #e7eaf3;
+  border-right: 1px solid #e7eaf3;
+  border-bottom: 1px solid #e7eaf3;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tableRow:last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+.tableCell {
+  flex: 1;
+  font-size: 14px;
+  color: #2a3547;
+  text-align: center;
+}
+.tableActionCell {
+  flex: 2;
+  font-size: 14px;
+  color: #2a3547;
+  text-align: center;
+}
+
+.tableButton {
+  background-color: transparent;
+  border: none;
+  color: #4318d1;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+  padding: 0;
+  font-size: 14px;
+}
+
+.backButton {
+  background-color: transparent;
+  border: none;
+  color: #4318d1;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+}
+

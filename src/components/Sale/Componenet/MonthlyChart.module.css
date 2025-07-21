@@ -1,0 +1,23 @@
+.chartContainer {
+  height: 16rem; /* Equivalent to h-64 */
+}
+
+.tooltip {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.tooltipLabel {
+  color: #1e293b;
+}
+
+.xAxis, .yAxis {
+  font-size: 12px;
+  stroke: #64748b;
+}
+
+.grid {
+  stroke: #f0f0f0;
+  stroke-dasharray: 3 3;
+}

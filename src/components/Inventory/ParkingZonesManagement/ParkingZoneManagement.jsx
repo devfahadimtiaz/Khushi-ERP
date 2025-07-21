@@ -5,6 +5,10 @@ import EditParkingPopup from "./EditParkingPopup";
 import CarTransferPopup from "./CarTransferPopup";
 import RemoveCarPopup from "./RemoveCarPopup";
 import EditZonePopup from "./EditZonePopup";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const ParkingZoneManagement = ({ onBack }) => {
   const [showAddPopup, setShowAddPopup] = useState(false);
@@ -12,83 +16,137 @@ const ParkingZoneManagement = ({ onBack }) => {
   const [showTransferPopup, setShowTransferPopup] = useState(false);
   const [showRemovePopup, setShowRemovePopup] = useState(false);
   const [showEditZonePopup, setShowEditZonePopup] = useState(false);
-  const [activeZone, setActiveZone] = useState("A");
+  const [activeZone, setActiveZone] = useState();
   const [searchStockNo, setSearchStockNo] = useState("");
-  const [searchName, setSearchName] = useState("");
-  const [currentParkingData, setCurrentParkingData] = useState(null);
-  const [selectedParkingSpace, setSelectedParkingSpace] = useState(null);
+  const [searchLocation, setSearchLocatoion] = useState("Search By Stock Number");
+  const [phrases, setPhrases] = useState([]);
+  const [selectedGarageId, setSelectedGarageId] = useState(null);
+  const [zone, setZone] = useState([]);
+  const [line, setLine] = useState([]);
+  const [userInfo, setUserInfo] = useState()
+    const fetchUserInfo = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/dashboard`, {
+        withCredentials: true,
+      });
+      const data = response.data;
+      if (data.valid) {
+        setUserInfo(data);
+      } else {
+        console.log("User is not logged in");
+      }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  };
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
+  useEffect(() => {
+    if (userInfo && userInfo.showroom) {
+      setSelectedGarageId([parseInt(userInfo.showroom)]);
+    } else {
+      setSelectedGarageId([]); // fallback
+    }
+  }, [userInfo]);
 
-  // Zone-specific configurations
-  const zoneConfigurations = {
-    A: {
-      rows: 14,
-      columns: 5,
-      columnLabels: ["A1", "A2", "A3", "A4", "A5"],
-      spaces: Array(14)
-        .fill()
-        .map(() => Array(5).fill("Empty Space")),
-    },
-    B: {
-      rows: 10,
-      columns: 6,
-      columnLabels: ["B1", "B2", "B3", "B4", "B5", "B6"],
-      spaces: Array(10)
-        .fill()
-        .map(() => Array(6).fill("Empty Space")),
-    },
-    C: {
-      rows: 12,
-      columns: 4,
-      columnLabels: ["C1", "C2", "C3", "C4"],
-      spaces: Array(12)
-        .fill()
-        .map(() => Array(4).fill("Empty Space")),
-    },
-    D: {
-      rows: 8,
-      columns: 8,
-      columnLabels: ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
-      spaces: Array(8)
-        .fill()
-        .map(() => Array(8).fill("Empty Space")),
-    },
-    E: {
-      rows: 6,
-      columns: 10,
-      columnLabels: [
-        "E1",
-        "E2",
-        "E3",
-        "E4",
-        "E5",
-        "E6",
-        "E7",
-        "E8",
-        "E9",
-        "E10",
-      ],
-      spaces: Array(6)
-        .fill()
-        .map(() => Array(10).fill("Empty Space")),
-    },
+  const fetchGarage = async () => {
+    try {
+      const response = await fetch(`${API_URL}/GarageList`);
+      const data = await response.json();
+
+      setPhrases(data);
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchGarage();
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API_URL}/getZone/${selectedGarageId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setZone(data);
+      });
+  }, [selectedGarageId]);
+
+  useEffect(() => {
+    fetch(`${API_URL}/getLineNumber/${activeZone}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setLine(data);
+      });
+  }, [activeZone]);
+
+  // SLider of WOrds
+  useEffect(() => {
+  if (phrases.length > 0 && userInfo?.showroom) {
+    const userShowroomId = parseInt(userInfo.showroom);
+    const matchedIndex = phrases.findIndex((p) => p.id === userShowroomId);
+
+    if (matchedIndex !== -1) {
+      setIndex(matchedIndex);
+      setSelectedGarageId(userShowroomId);
+    } else {
+      // fallback: default to first phrase
+      setIndex(0);
+      setSelectedGarageId(phrases[0].id);
+    }
+  }
+}, [phrases, userInfo]);
+
+  const [index, setIndex] = useState(0);
+  const handlePrev = () => {
+    setIndex((prevIndex) => {
+      const newIndex = prevIndex === 0 ? phrases.length - 1 : prevIndex - 1;
+      setSelectedGarageId(phrases[newIndex]?.id);
+      return newIndex;
+    });
+  };
+
+  const handleNext = () => {
+    setIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % phrases.length;
+      setSelectedGarageId(phrases[newIndex]?.id);
+      return newIndex;
+    });
   };
 
   // Update current parking data when active zone changes
-  useEffect(() => {
-    setCurrentParkingData(zoneConfigurations[activeZone]);
-  }, [activeZone]);
 
-  const handleZoneChange = (zone) => {
-    setActiveZone(zone);
+  const handleZoneChange = (zoneId) => {
+    setActiveZone(zoneId);
   };
 
-  const handleSearch = () => {
-    console.log("Searching for:", { searchStockNo, searchName });
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`${API_URL}/getParkedVehicleByStockNo`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          stockNo: searchStockNo,
+          garageId: selectedGarageId,
+        }),
+      });
+      if (!response.ok) {
+        console.log("Error in Backend");
+      }
+      const data = await response.json();
+
+      const slot = data.slot;
+      setSearchLocatoion(slot.slot_number);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleClear = () => {
     setSearchStockNo("");
-    setSearchName("");
+    setSearchLocatoion("");
   };
 
   const handleAddCar = () => {
@@ -103,32 +161,27 @@ const ParkingZoneManagement = ({ onBack }) => {
     setShowEditZonePopup(false);
   };
 
-  const handleSaveParking = (parkingData) => {
-    console.log("Saving parking data:", parkingData);
+  const handleSaveParking = () => {
+    toast.success("Saving parking data:");
     // Here you would typically update your state or make an API call
     setShowAddPopup(false);
   };
 
-  const handleSaveEditedParking = (parkingData) => {
-    console.log("Saving edited parking data:", parkingData);
+  const handleSaveEditedParking = () => {
+    toast.success("Saving edited parking data:");
     // Here you would typically update your state or make an API call
     setShowEditPopup(false);
   };
+  const handleRemoveParking = () => {
+    toast.success("Car is Removed from parking Slot");
+    setShowRemovePopup(false);
+  };
+  const handleTransferParking = () => {
+    toast.success("Cars Swap Successfully");
+    setShowRemovePopup(false);
+  };
 
   const handleEditZone = () => {
-    // For demo purposes, we'll create some sample data
-    // In a real app, you would select the actual parking space to edit
-    const sampleParkingData = {
-      car: { id: 1, name: "Toyota Land Cruiser", stockNo: "TLC-001" },
-      zone: activeZone,
-      location: `${activeZone}2-12`,
-      row: 12,
-      column: `${activeZone}2`,
-      status: "Available",
-      notes: "Sample notes for this parking space",
-    };
-
-    setSelectedParkingSpace(sampleParkingData);
     setShowEditPopup(true);
   };
 
@@ -136,36 +189,8 @@ const ParkingZoneManagement = ({ onBack }) => {
     setShowTransferPopup(true);
   };
 
-  const handleCarTransfer = (transferData) => {
-    console.log("Transferring car:", transferData);
-    // Here you would typically update your state or make an API call
-  };
-
   const handleRemoveCar = () => {
-    // For demo purposes, we'll create some sample data for the car to be removed
-    // In a real app, you would select the actual car to remove
-    const sampleCarData = {
-      id: 2,
-      name: "Toyota Land Cruiser",
-      stockNo: "TLC-002",
-      zone: "B",
-      spaceNumber: "4",
-    };
-
-    setSelectedParkingSpace({
-      car: sampleCarData,
-      zone: sampleCarData.zone,
-      location: `${sampleCarData.zone}-${sampleCarData.spaceNumber}`,
-    });
-
     setShowRemovePopup(true);
-  };
-
-  const handleConfirmRemove = (carDetails) => {
-    console.log("Confirmed removing car:", carDetails);
-    // Here you would typically update your state or make an API call
-    // For example, remove the car from the parking space in your data structure
-    // and update the UI to show the space as available
   };
 
   return (
@@ -174,28 +199,30 @@ const ParkingZoneManagement = ({ onBack }) => {
         <AddParkingPopup
           onClose={handleClosePopup}
           onSave={handleSaveParking}
+          garageId={selectedGarageId}
         />
       )}
       {showEditPopup && (
         <EditParkingPopup
           onClose={handleClosePopup}
           onSave={handleSaveEditedParking}
-          parkingData={selectedParkingSpace}
+          garageId={selectedGarageId}
         />
       )}
       {showTransferPopup && (
         <CarTransferPopup
           isOpen={showTransferPopup}
           onClose={handleClosePopup}
-          onTransfer={handleCarTransfer}
+          onTransfer={handleTransferParking}
+          garageId={selectedGarageId}
         />
       )}
       {showRemovePopup && (
         <RemoveCarPopup
           isOpen={showRemovePopup}
           onClose={handleClosePopup}
-          onConfirm={handleConfirmRemove}
-          selectedCar={selectedParkingSpace?.car}
+          onDelete={handleRemoveParking}
+          garageId={selectedGarageId}
         />
       )}
       {showEditZonePopup && (
@@ -203,14 +230,32 @@ const ParkingZoneManagement = ({ onBack }) => {
       )}
       <div className={styles.marginContainer}>
         <div className={styles.header}>
-          <div className={styles.title}>Khushi Motors Mombasa</div>
+          <div className={styles.sliderContainer}>
+            {phrases.length > 0 ? (
+              <>
+                <div className={styles.title}>{phrases[index].name}</div>
+                {userInfo ? "":
+                <div className={styles.navButtons}>
+                  
+                  <button onClick={handlePrev} className={styles.navButton}>
+                    Prev
+                  </button>
+                  <button onClick={handleNext} className={styles.navButton}>
+                    Next
+                  </button>
+                </div>}
+              </>
+            ) : (
+              <div>Loading...</div>
+            )}
+          </div>
           <div className={styles.actionButtons}>
-            <button
+            {/*  <button
               className={styles.editZoneButton}
               onClick={() => setShowEditZonePopup(true)}
             >
               Edit Zones
-            </button>
+            </button>*/}
             <button className={styles.addButton} onClick={handleAddCar}>
               Add
             </button>
@@ -221,7 +266,7 @@ const ParkingZoneManagement = ({ onBack }) => {
               className={styles.transferButton}
               onClick={handleTransferCar}
             >
-              Transfer
+              Swap
             </button>
             <button className={styles.removeButton} onClick={handleRemoveCar}>
               Remove
@@ -234,19 +279,9 @@ const ParkingZoneManagement = ({ onBack }) => {
             type="text"
             className={styles.searchBox}
             placeholder="Search by Stock no"
+            value={searchStockNo}
+            onChange={(e) => setSearchStockNo(e.target.value)}
           />
-          <input
-            type="text"
-            className={styles.searchBox}
-            placeholder="Search by Car Name"
-          />
-        </div>
-
-        <div className={styles.locationInfo}>
-          <div className={styles.locationLabel}>Location of Car:</div>
-          <div className={styles.searchBox} placeholder="Search by Car Name">
-            A2-12
-          </div>
         </div>
         <div className={styles.searchActions}>
           <button className={styles.searchButton} onClick={handleSearch}>
@@ -256,73 +291,96 @@ const ParkingZoneManagement = ({ onBack }) => {
             Clear
           </button>
         </div>
-        <div className={styles.zoneButtons}>
-          <button
-            className={`${styles.zoneButton} ${activeZone === "A" ? styles.activeZone : ""}`}
-            onClick={() => handleZoneChange("A")}
-          >
-            Zone (A)
-          </button>
-          <button
-            className={`${styles.zoneButton} ${activeZone === "B" ? styles.activeZone : ""}`}
-            onClick={() => handleZoneChange("B")}
-          >
-            Zone (B)
-          </button>
-          <button
-            className={`${styles.zoneButton} ${activeZone === "C" ? styles.activeZone : ""}`}
-            onClick={() => handleZoneChange("C")}
-          >
-            Zone (C)
-          </button>
-          <button
-            className={`${styles.zoneButton} ${activeZone === "D" ? styles.activeZone : ""}`}
-            onClick={() => handleZoneChange("D")}
-          >
-            Zone (D)
-          </button>
-          <button
-            className={`${styles.zoneButton} ${activeZone === "E" ? styles.activeZone : ""}`}
-            onClick={() => handleZoneChange("E")}
-          >
-            Zone (E)
-          </button>
+        <div className={styles.locationInfo}>
+          <div className={styles.locationLabel}>Location of Car:</div>
+          <input
+            type="text"
+            className={styles.searchBox}
+            value={searchLocation}
+            disabled
+          />
         </div>
-        
+
+        <div className={styles.zoneButtons}>
+          {zone.map((active) => (
+            <button
+              key={active.id}
+              className={`${styles.zoneButton} ${
+                activeZone === active.id ? styles.activeZone : ""
+              }`}
+              onClick={() => handleZoneChange(active.id)}
+            >
+              {active.name}
+            </button>
+          ))}
+        </div>
 
         <div className={styles.parkingGrid}>
-          {currentParkingData && (
+          {Array.isArray(line) && line.length > 0 ? (
             <>
+              {/* Column Headers (Line Numbers) */}
               <div className={styles.gridRow}>
                 <div className={styles.gridCell}></div>
-                {currentParkingData.columnLabels.map((label, index) => (
-                  <div
-                    key={`header-${index}`}
-                    className={styles.gridHeaderCell}
-                  >
-                    {label}
+                {line.map((l) => (
+                  <div key={`header-${l.id}`} className={styles.gridHeaderCell}>
+                    {l.line_number}
                   </div>
                 ))}
               </div>
 
-              {Array.from({ length: currentParkingData.rows }).map(
-                (_, rowIndex) => (
-                  <div key={`row-${rowIndex}`} className={styles.gridRow}>
-                    <div className={styles.gridRowHeader}>{rowIndex + 1}</div>
-                    {Array.from({ length: currentParkingData.columns }).map(
-                      (_, colIndex) => (
+              {/* Calculate the maximum number of slots across all lines */}
+              {(() => {
+                const maxSlots = Math.max(...line.map((l) => l.slots.length));
+
+                return Array.from({ length: maxSlots }).map((_, slotIndex) => (
+                  <div key={`row-${slotIndex}`} className={styles.gridRow}>
+                    <div className={styles.gridRowHeader}>{slotIndex + 1}</div>
+
+                    {line.map((l) => {
+                      const cell = l.slots[slotIndex];
+                      return (
                         <div
-                          key={`cell-${rowIndex}-${colIndex}`}
-                          className={styles.gridCell}
+                          key={`cell-${l.id}-${slotIndex}`}
+                          className={`${styles.gridCell} ${
+                            cell?.is_occupied
+                              ? styles.occupiedSlot
+                              : styles.emptySlot
+                          }`}
                         >
-                          {currentParkingData.spaces[rowIndex][colIndex]}
+                          {cell ? (
+                            <>
+                              {cell.vehicle_id ? (
+                                <>
+                                  {cell.vehicle_id && (
+                                    <>
+                                      <div className={styles.grid}>
+                                        <div>({cell.slot_number})</div>
+                                        <div>{cell.stock_no}</div>
+                                      </div>
+                                    </>
+                                  )}
+                                </>
+                              ) : (
+                                <>
+                                  <div className={styles.grid}>
+                                    <div>({cell.slot_number})</div>
+                                    <div>Empty Space</div>
+                                  </div>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <div className={styles.emptyCell}>--</div> // Empty placeholder if no slot
+                          )}
                         </div>
-                      ),
-                    )}
+                      );
+                    })}
                   </div>
-                ),
-              )}
+                ));
+              })()}
             </>
+          ) : (
+            <div>Select Zone</div>
           )}
         </div>
 
@@ -336,9 +394,8 @@ const ParkingZoneManagement = ({ onBack }) => {
             <div className={styles.legendText}>Allocated Space</div>
           </div>
         </div>
-
-        
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

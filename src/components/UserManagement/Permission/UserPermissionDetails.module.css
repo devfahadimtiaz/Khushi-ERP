@@ -1,0 +1,418 @@
+/* Container */
+.container {
+  width: 90%;
+  height: auto;
+  min-height: 1231px;
+  margin: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  position: relative;
+}
+
+/* User Profile Section */
+.userProfile {
+  padding: 26px 25px 24px 25px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.userName {
+  color: #1e293b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+
+.userEmail {
+  color: #64748b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.roleBadge {
+  width: 83px;
+  height: 28px;
+  border-radius: 14px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.roleText {
+  color: #64748b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* Module Permissions Section */
+.modulePermissions {
+  padding: 24px 25px;
+}
+
+.sectionTitle {
+  color: #1e293b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0 0 24px 0;
+}
+
+/* Modules List */
+.modulesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Module Section */
+.moduleSection {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.moduleHeader {
+  height: 65px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  gap: 12px;
+}
+
+.moduleIconContainer {
+  width: 32px;
+  height: 32px;
+  background: #4318d1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.moduleIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.moduleIcon path {
+  fill: white;
+}
+
+.moduleTitle {
+  color: #1e293b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  flex: 1;
+}
+
+.moduleControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.allLabel {
+  color: #64748b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.expandButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.expandButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.chevronIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Module Content */
+.moduleContent {
+  background: #fff;
+}
+
+.subModuleHeader {
+  height: 49px;
+  background: #fff;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+}
+
+.subModuleHeaderText {
+  color: #64748b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  flex: 1;
+}
+
+.permissionHeaders {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+.permissionHeader {
+  color: #64748b;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  width: 70px;
+}
+
+/* Sub Modules List */
+.subModulesList {
+  background: #fff;
+}
+
+.subModuleRow {
+  height: 49px;
+  border-bottom: 1px solid #f8fafc;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  gap: 12px;
+}
+
+.subModuleRow:last-child {
+  border-bottom: none;
+}
+
+.subModuleIndicator {
+  width: 24px;
+  height: 24px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.subModuleDot {
+  width: 8px;
+  height: 8px;
+  background: #64748b;
+  border-radius: 50%;
+}
+
+.subModuleName {
+  color: #374151;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  flex: 1;
+}
+
+.permissionCheckboxes {
+  display: flex;
+  gap: 145px;
+  
+  align-items: center;
+}
+
+/* Checkbox Styles */
+.checkboxContainer {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #666;
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.checkbox:checked {
+  background: #39f;
+  border-color: #39f;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark svg {
+  width: 8px;
+  height: 6px;
+}
+.saveBtn{
+  background-color: #39f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.saveButtonContainer{
+  margin: 20px;
+  
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+    max-width: 886px;
+  }
+
+  .permissionHeaders {
+    gap: 60px;
+  }
+
+  .permissionCheckboxes {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .userProfile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .moduleHeader {
+    padding: 0 12px;
+  }
+
+  .subModuleRow {
+    padding: 0 12px;
+  }
+
+  .subModuleHeader {
+    padding: 0 12px;
+  }
+
+  .permissionHeaders {
+    gap: 40px;
+  }
+
+  .permissionCheckboxes {
+    gap: 40px;
+  }
+
+  .permissionHeader {
+    width: 35px;
+    font-size: 14px;
+  }
+}

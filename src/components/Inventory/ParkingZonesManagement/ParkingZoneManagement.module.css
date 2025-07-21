@@ -7,9 +7,10 @@
   padding: 20px;
   font-family: "Poppins", sans-serif;
   background-color: #f6fafd;
+   width: 90%;
 }
 .marginContainer{
-  width: 1240px;
+ 
   margin: auto;
   padding-top: 100px;
 }
@@ -27,8 +28,10 @@
 }
 
 .actionButtons {
+  width: 60%;
   display: flex;
   gap: 10px;
+  
 }
 
 .addButton,
@@ -135,7 +138,7 @@
 .gridRowHeader,
 .gridCell {
   border: 1px solid #000;
-  padding: 15px;
+
   text-align: center;
   width: 225px;
   height: 30px;
@@ -204,7 +207,15 @@
 .clearButton {
   background-color: #cf2129;
 }
+.emptySlot {
+  background-color: #2dc8a8;
+  
+}
 
+.occupiedSlot {
+  background-color: #CF2129;
+  color: #fff;
+}
 @media (max-width: 991px) {
   .searchContainer {
     flex-direction: column;
@@ -230,4 +241,51 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+.sliderContainer {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  transition: opacity 0.5s ease;
+}
+
+.navButtons {
+  margin-top: 10px;
+}
+
+.navButton {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.gridRow {
+  display: flex;
+}
+
+.gridCell,
+.gridHeaderCell,
+.gridRowHeader {
+  border: 1px solid #ccc;
+height: 50px;
+  min-width: 50px;
+  text-align: center;
+}
+.emptyCell {
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  text-align: center;
+  align-content: center;
 }

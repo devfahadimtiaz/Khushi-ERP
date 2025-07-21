@@ -1,10 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./MediaUpload.module.css";
-import main from "../../../uploads/Stock Photos/main.png"
 
-const MediaUploadNew = () => {
-  const [videoFiles, setVideoFiles] = useState([]);
-  const [photoFiles, setPhotoFiles] = useState([]);
+const MediaUploadNew = ({
+  videoFiles,
+  setVideoFiles,
+  photoFiles,
+  setPhotoFiles,
+  existingPhotos,
+  existingVideos,
+}) => {
+  const [videoPreviews, setVideoPreviews] = useState([]);
+  const [photoPreviews, setPhotoPreviews] = useState([]);
+
+  // Corrects mime types for video blobs with incorrect or missing types
+  const patchMimeType = (blob, filename) => {
+    let type = blob.type;
+    const ext = filename.split(".").pop().toLowerCase();
+
+    if (
+      !type ||
+      type === "application/octet-stream" ||
+      type === "application/mp4"
+    ) {
+      if (ext === "mp4") return "video/mp4";
+      if (ext === "webm") return "video/webm";
+      if (ext === "mov") return "video/quicktime";
+    }
+
+    return type;
+  };
+
+  useEffect(() => {
+    const fetchAndStoreExistingMedia = async () => {
+      const fetchFilesFromUrls = async (urls, type = "image") => {
+        return await Promise.all(
+          urls.map(async (url, index) => {
+            try {
+              const response = await fetch(url);
+              const blob = await response.blob();
+
+              const extension = url.split(".").pop().toLowerCase();
+              const correctedType =
+                type === "video" ? patchMimeType(blob, url) : blob.type;
+
+              const name = `${type}-existing-${index}.${extension}`;
+              return new File([blob], name, { type: correctedType });
+            } catch (err) {
+              console.error(`Failed to fetch ${type} from ${url}`, err);
+              return null;
+            }
+          })
+        ).then((results) => results.filter(Boolean)); // Remove nulls
+      };
+
+      if (existingPhotos?.length) {
+        const photoURLs = existingPhotos.map((photo) => photo.fullUrl);
+        const photoFilesFromServer = await fetchFilesFromUrls(
+          photoURLs,
+          "photo"
+        );
+
+        setPhotoFiles((prev) => {
+          const existingNames = new Set(prev.map((file) => file.name));
+          const newUniqueFiles = photoFilesFromServer.filter(
+            (file) => !existingNames.has(file.name)
+          );
+          return [...prev, ...newUniqueFiles];
+        });
+      }
+
+      if (existingVideos?.length) {
+        const videoURLs = existingVideos.map((video) => video.fullUrl);
+        const videoFilesFromServer = await fetchFilesFromUrls(
+          videoURLs,
+          "video"
+        );
+
+        setVideoFiles((prev) => {
+          const existingNames = new Set(prev.map((file) => file.name));
+          const newUniqueFiles = videoFilesFromServer.filter(
+            (file) => !existingNames.has(file.name)
+          );
+          return [...prev, ...newUniqueFiles];
+        });
+      }
+    };
+
+    fetchAndStoreExistingMedia();
+  }, [existingPhotos, existingVideos]);
 
   const handleVideoUpload = (e) => {
     if (e.target.files) {
@@ -18,9 +101,7 @@ const MediaUploadNew = () => {
     }
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
+  const handleDragOver = (e) => e.preventDefault();
 
   const handleVideoDrop = (e) => {
     e.preventDefault();
@@ -36,6 +117,35 @@ const MediaUploadNew = () => {
     }
   };
 
+  const handleDeletePhoto = (index) => {
+    const updated = [...photoFiles];
+    updated.splice(index, 1);
+    setPhotoFiles(updated);
+  };
+
+  const handleDeleteVideo = (index) => {
+    const updated = [...videoFiles];
+    updated.splice(index, 1);
+    setVideoFiles(updated);
+  };
+
+  useEffect(() => {
+    const videoPreviewURLs = videoFiles.map((file) =>
+      URL.createObjectURL(file)
+    );
+    const photoPreviewURLs = photoFiles.map((file) =>
+      URL.createObjectURL(file)
+    );
+
+    setVideoPreviews(videoPreviewURLs);
+    setPhotoPreviews(photoPreviewURLs);
+
+    return () => {
+      videoPreviewURLs.forEach((url) => URL.revokeObjectURL(url));
+      photoPreviewURLs.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [videoFiles, photoFiles]);
+
   return (
     <>
       <link
@@ -43,6 +153,7 @@ const MediaUploadNew = () => {
         rel="stylesheet"
       />
       <div className={styles.container}>
+        {/* === Video Upload === */}
         <div className={styles.uploadRow}>
           <div className={styles.uploadCard}>
             <div className={styles.cardHeader}>
@@ -60,11 +171,51 @@ const MediaUploadNew = () => {
                 id="videoInput"
                 type="file"
                 accept="video/*"
+                multiple
                 onChange={handleVideoUpload}
                 style={{ display: "none" }}
               />
             </div>
           </div>
+
+          <div className={styles.uploadCard}>
+            <div className={styles.mediaColumn}>
+              <div className={styles.sectionTitle}>Uploaded Videos</div>
+              <div className={styles.displaySection}>
+                {videoPreviews.length === 0 && videoFiles.length === 0 ? (
+                  <div className={styles.emptyState}>
+                    No videos uploaded yet
+                  </div>
+                ) : (
+                  videoPreviews.map((url, index) => (
+                    <div
+                      key={`new-video-${index}`}
+                      className={styles.thumbnail}
+                    >
+                      <video
+                        src={url}
+                        controls
+                        className={styles.thumbnailVideo}
+                      />
+                      <a href={url} download className={styles.downloadBadge}>
+                        Download
+                      </a>
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => handleDeleteVideo(index)}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* === Photo Upload === */}
+        <div className={styles.uploadRow}>
           <div className={styles.uploadCard}>
             <div className={styles.cardHeader}>
               <i className="ti ti-photo" />
@@ -87,87 +238,42 @@ const MediaUploadNew = () => {
               />
             </div>
           </div>
-        </div>
-        <div className={styles.contentSection}>
-          <div className={styles.sectionTitle}>Uploaded Videos</div>
-          <div className={styles.emptyState}>No videos uploaded yet</div>
-          <div className={styles.sectionTitle}>Uploaded Photos</div>
-          <div className={styles.emptyState}>No photos uploaded yet</div>
-          <div className={styles.uploadRow}>
-                    <div className={styles.previewColumn}>
-                      <div className={styles.previewContainer}>
-                        <img src={main} alt="Preview" className={styles.previewImage} />
-                        <button className={styles.downloadBadge}>Download</button>
-                      </div>
-                      <div className={styles.thumbnailRow}>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc509ea21fad8ae8e5b402e5dc464410caa9a729"
-                            alt="Thumbnail 1"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a727226754028216e820faba90fc920998067e46"
-                            alt="Thumbnail 2"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0edecec29c6168dc2ea1217cc25f21ecd9e587cc"
-                            alt="Thumbnail 3"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/caa7d5e6684a4da249fc2f06ce7a7bf52a3ef48a"
-                            alt="Thumbnail 4"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.previewColumn}>
-                      <div className={styles.previewContainer}>
-                        <img src={main} alt="Preview" className={styles.previewImage} />
-                        <button className={styles.downloadBadge}>Download</button>
-                      </div>
-                      <div className={styles.thumbnailRow}>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc509ea21fad8ae8e5b402e5dc464410caa9a729"
-                            alt="Thumbnail 1"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a727226754028216e820faba90fc920998067e46"
-                            alt="Thumbnail 2"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0edecec29c6168dc2ea1217cc25f21ecd9e587cc"
-                            alt="Thumbnail 3"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                        <div className={styles.thumbnail}>
-                          <img
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/caa7d5e6684a4da249fc2f06ce7a7bf52a3ef48a"
-                            alt="Thumbnail 4"
-                            className={styles.thumbnailImage}
-                          />
-                        </div>
-                      </div>
-                    </div>
+
+          <div className={styles.uploadCard}>
+            <div className={styles.mediaColumn}>
+              <div className={styles.sectionTitle}>Uploaded Photos</div>
+              <div className={styles.displaySection}>
+                {photoPreviews.length === 0 && photoFiles.length === 0 ? (
+                  <div className={styles.emptyState}>
+                    No photos uploaded yet
                   </div>
-         </div>
+                ) : (
+                  photoPreviews.map((url, index) => (
+                    <div
+                      key={`new-photo-${index}`}
+                      className={styles.thumbnail}
+                    >
+                      <img
+                        src={url}
+                        alt={`Photo ${index + 1}`}
+                        className={styles.thumbnailImage}
+                      />
+                      <a href={url} download className={styles.downloadBadge}>
+                        Download
+                      </a>
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => handleDeletePhoto(index)}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

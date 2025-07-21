@@ -1,6 +1,4 @@
-body{
-  background-color: #f6fafd;
-}
+
 .moduleSelection {
   background-color: #f6fafd;
   height: 100vh;
@@ -8,7 +6,7 @@ body{
 }
 
 .container {
-  background-color: #f6fafd;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -104,7 +102,7 @@ body{
   width: 35%;
   line-height: normal;
   border: none;
-  background-color: #fff;
+  
 
 }
 

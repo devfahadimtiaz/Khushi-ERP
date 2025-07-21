@@ -164,7 +164,7 @@ const CarFilterForm = () => {
                 Make
               </label>
               <div className={styles.selectWrapper}>
-                <select
+<select
                   id="make"
                   name="make"
                   className={styles.selectField}
@@ -173,9 +173,9 @@ const CarFilterForm = () => {
                 >
                   <option value="">Select Make</option>
                   {carMakes.map((make, index) => (
-                    <option key={index} value={make}>
+                    <op                tion key={index} value={make}>
                       {make}
-                    </option>
+                    </op>
                   ))}
                 </select>
               </div>

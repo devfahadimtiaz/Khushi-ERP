@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: screen;
+  background-color: #f6fafd;
+  padding: 32px;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1120px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerTitle {
+  color: #092c4c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  font-family: "Inter", sans-serif;
+}
+
+.headerReference {
+  color: #7e92a2;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: "Inter", sans-serif;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.totalSalesButton {
+  height: 37px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbfcfe;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.downloadButton {
+  height: 37px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4318d1;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  color: #092c4c;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  color: #7e92a2;
+  font-size: 14px;
+}
+
+.detailValue {
+  color: #092c4c;
+  font-size: 16px;
+}
+
+.paymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.totalAmount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.totalLabel {
+  color: #7e92a2;
+  font-size: 14px;
+}
+
+.totalValue {
+  color: #092c4c;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.paymentTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.headerCell {
+  color: #7e92a2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.paymentType {
+  color: #092c4c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.paymentAmount {
+  color: #363565;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .container {
+    padding: 24px;
+  }
+
+  .contentWrapper {
+    padding: 20px;
+  }
+
+  .detailsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px;
+  }
+
+  .contentWrapper {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .headerActions {
+    width: 100%;
+  }
+
+  .detailsGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

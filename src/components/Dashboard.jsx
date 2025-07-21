@@ -8,52 +8,28 @@ import khushiTanzania from "../uploads/tz.png";
 import ocean from "../uploads/ocean.png";
 import ot from "../uploads/ot.png";
 import DoughnutChart from "../Resources/Charts/DoughnutChart";
-import BarChart from "../Resources/Charts/BarChart";
-import DoughnutChartWithLabel from "../Resources/Charts/DoughnutChartWithLabel";
-import { CanvasJSChart } from "canvasjs-react-charts";
 import RevenueChart from "../Resources/Charts/RevenueChart";
-import BasicBarChart from "../Resources/Charts/BasicBarChart";
 import ApexChart from "../Resources/Charts/ApexBarChart";
 import ApexColumnChart from "../Resources/Charts/ApexColumnChart";
 import ApexAreaChart from "../Resources/Charts/ApexAreaChart";
 import SixByFourTable from "../Resources/Tables/Tabel";
 import ProgressDonutChart from "../Resources/Charts/ProgressDonutChart";
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Dashboard({ onBack }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpentype, setIsOpentype] = useState(false);
   const [isOpenstock, setIsOpenStock] = useState(false);
 
-  const [selectedBranch, setSelectedBranch] = useState("Select Branch");
-  const [selectedType, setSelectedType] = useState("Select Body Type");
-  const [selectedStock, setSelectedStock] = useState("Select Stock");
+
+
+
 
   const dropdownRef = useRef(null);
   const typeDropdownRef = useRef(null);
-  const stockDropdownRef = useRef(null);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-  const toggleDropdowntype = () => {
-    setIsOpentype(!isOpentype);
-  };
-  const toggleDropdownstock = () => {
-    setIsOpenStock(!isOpenstock);
-  };
-
-  const handleSelect = (branch) => {
-    setSelectedBranch(branch);
-    setIsOpen(false);
-  };
-  const handleSelecttype = (type) => {
-    setSelectedType(type);
-    setIsOpentype(false);
-  };
-  const handleSelectstock = (stock) => {
-    setSelectedStock(stock);
-    setIsOpenStock(false);
-  };
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {

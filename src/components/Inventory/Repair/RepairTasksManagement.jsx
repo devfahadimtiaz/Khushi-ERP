@@ -1,67 +1,114 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./RepairTasksManagement.module.css";
 import RepairVoucherPopup from "./RepairVoucherPopup";
+import axios from "axios";
+import RepairingVoucher from "./RepairingVoucher";
+import ViewRepairingVoucher from "./RepairVoucherDetails/ViewRepairingVoucher";
+import ConfirmDeletePopup from "../../../assets/Resources/Popups/ConfirmDeletePopup";
+import VehicleRepairDetails from "./VehicleRepairDetails";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const RepairTasksManagement = () => {
   const [showVoucherPopup, setShowVoucherPopup] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
+  const [reparingVehicle, setRepairingVehicle] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+  const [showRepairingVoucher, setShowRepairingVoucher] = useState(false);
+  const [voucherVehicleId, setVoucherVehicleId] = useState(null);
+  const [isViewRepairingVoucher, setIsViewRepairingVoucher] = useState(false);
+  const [voucherId, setVoucherId] = useState(null);
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+  const [vehicleRepairDetails, setVehicleRepairDetails] = useState(null);
+  const [editData, setEditData] = useState(null);
+  const [userInfo, setUserInfo] = useState();
+  const [selectedShowrooms, setSelectedShowrooms] = useState();
+  const fetchUserInfo = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/dashboard`, {
+        withCredentials: true,
+      });
+      const data = response.data;
+      if (data.valid) {
+        setUserInfo(data);
+      } else {
+        console.log("User is not logged in");
+      }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  };
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
+  useEffect(() => {
+    if (userInfo) {
+      setSelectedShowrooms(userInfo.showroom);
+    }
+  }, [userInfo]);
 
-  // Sample data for the repair tasks
-  const repairTasks = [
-    {
-      id: 1,
-      date: "2024-01-15",
-      staffName: "Michael Chen",
-      staffAvatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true",
-      vendorName: "AutoPro Services",
-      carName: "Toyota Camry",
-      stockNo: "STK-2024-001",
-      voucherNo: "RPR-2401-001",
-      status: "In Progress",
-      timeRequired: "3 days",
-    },
-    {
-      id: 2,
-      date: "2024-01-14",
-      staffName: "Sarah Johnson",
-      staffAvatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true",
-      vendorName: "Elite Repairs",
-      carName: "Honda Civic",
-      stockNo: "STK-2024-002",
-      voucherNo: "RPR-2401-002",
-      status: "Pending",
-      timeRequired: "5 days",
-    },
-    {
-      id: 3,
-      date: "2024-01-13",
-      staffName: "David Miller",
-      staffAvatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true",
-      vendorName: "QuickFix Pro",
-      carName: "Ford Mustang",
-      stockNo: "STK-2024-003",
-      voucherNo: "RPR-2401-003",
-      status: "Completed",
-      timeRequired: "2 days",
-    },
-    {
-      id: 4,
-      date: "2024-01-12",
-      staffName: "Emma Wilson",
-      staffAvatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/50aaa6fe9ba06a4fd909114ef5dddf79e5950597?placeholderIfAbsent=true",
-      vendorName: "Master Mechanics",
-      carName: "BMW 3 Series",
-      stockNo: "STK-2024-004",
-      voucherNo: "RPR-2401-004",
-      status: "In Progress",
-      timeRequired: "4 days",
-    },
-  ];
 
+
+  const filteredTasks = reparingVehicle.filter((task) => {
+    const query = searchQuery.toLowerCase();
+    const matchesSearch =
+      task.voucher_no?.toLowerCase().includes(query) ||
+      task.technician_name?.toLowerCase().includes(query) ||
+      `${task.make} ${task.model}`.toLowerCase().includes(query) ||
+      task.account_no?.toLowerCase().includes(query) ||
+      task.repair_status?.toLowerCase().includes(query);
+
+    const matchesStatus =
+      statusFilter === "" || task.repair_status === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/repairingbyshowrroom/${selectedShowrooms}`)
+      .then((res) => {
+        const dataWithIds = res.data.map((row, index) => ({
+          ...row,
+          id: row.gatepass_id || row.stock_no || index,
+        }));
+        setRepairingVehicle(dataWithIds);
+      })
+      .catch((err) => console.log(err));
+  }, [selectedShowrooms]);
+
+  const handleProcessClick = async (repairId) => {
+    setShowRepairingVoucher(false); // Clear previous voucher
+    const response = await fetch(
+      `${API_URL}/repairing/${repairId}`
+    );
+    const data = await response.json();
+
+    setSelectedTask({
+      ...data.repair,
+      issues: data.issues,
+    });
+    setShowVoucherPopup(true);
+  };
+  const handleVoucherSaved = (vehicleId) => {
+    setShowVoucherPopup(false);
+    setTimeout(() => {
+      setVoucherVehicleId(vehicleId);
+      setShowRepairingVoucher(true);
+    }, 200); // small delay to allow popup to close
+  };
+  const handleViewRepairingVoucher = (id) => {
+    setIsViewRepairingVoucher(true);
+    setVoucherId(id);
+  };
+
+  const handleEdit=(row)=>{
+    setEditData(row);
+    setVehicleRepairDetails(true);
+    
+  }
   // Function to render the status badge with appropriate styling
   const renderStatusBadge = (status) => {
     let statusClass = "";
@@ -85,6 +132,74 @@ const RepairTasksManagement = () => {
     );
   };
 
+  const handleDeleteClick = (row) => {
+    setSelectedRow(row);
+
+    setIsDeletePopupOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!selectedRow || !selectedRow.repair_id) {
+      toast.error("No Repair Task Selected to delete");
+      return;
+    }
+    try {
+      const response = await fetch(
+        `${API_URL}/deleteRepair/${selectedRow.repair_id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      const result = await response.json();
+      if (!response.ok) {
+        toast.error(result.message || "Error occue while deleting the Repair Task");
+        return;
+      }
+      setRepairingVehicle((prev) =>
+        prev.filter((bankDetails) => bankDetails.id !== selectedRow.id)
+      );
+      toast.success("Repair Task deleted successfully");
+      setIsDeletePopupOpen(false);
+      setSelectedRow(null);
+    } catch (error) {
+      console.error(error);
+      toast.error("An Error Occure while deleting the Repair Task");
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeletePopupOpen(false);
+    setSelectedRow(null);
+  };
+
+  const handleClose = () => {
+    setIsViewRepairingVoucher(false);
+  };
+  if (showRepairingVoucher) {
+    return (
+      <RepairingVoucher
+        vehicleId={voucherVehicleId}
+        voucherName="Petty Cash"
+        onClose={() => setShowRepairingVoucher(false)}
+      />
+    );
+  }
+  if (isViewRepairingVoucher) {
+    return <ViewRepairingVoucher voucherId={voucherId} onBack={handleClose} />;
+  }
+  if(isDeletePopupOpen){
+    return <ConfirmDeletePopup isOpen={isDeletePopupOpen}
+          onClose={handleCancelDelete}
+          onConfirm={handleConfirmDelete}
+          title="Delete Recipt"
+          message="Are you sure you want to delete this recipt?"/> 
+  }
+  if(vehicleRepairDetails){
+    return <VehicleRepairDetails
+      onBack={() => setVehicleRepairDetails(false)}
+      voucherId={editData}
+    />;
+  }
   return (
     <>
       <link
@@ -129,11 +244,15 @@ const RepairTasksManagement = () => {
               </div>
               <div className={styles.buttonText}>Export PDF</div>
             </button>
-            <select className={styles.actionButton}>
-              <option className={styles.buttonText}>Status</option>
-              <option className={styles.buttonText}>In Progress</option>
-              <option className={styles.buttonText}>Pending</option>
-              <option className={styles.buttonText}>Complete</option>
+            <select
+              className={styles.actionButton}
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
+              <option value="">All Statuses</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
             </select>
           </div>
         </div>
@@ -166,39 +285,44 @@ const RepairTasksManagement = () => {
             type="text"
             className={styles.searchPlaceholder}
             placeholder="Search tasks..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
         <div className={styles.tableContainer}>
           <div className={styles.tableHeader}>
-            <div className={styles.tableHeaderCell}>Date</div>
-            <div className={styles.tableHeaderCell}>Staff Name</div>
-            <div className={styles.tableHeaderCell}>Vendor Name</div>
-            <div className={styles.tableHeaderCell}>Car Name</div>
-            <div className={styles.tableHeaderCell}>Stock No</div>
             <div className={styles.tableHeaderCell}>Voucher No</div>
+            <div className={styles.tableHeaderCell}>Date</div>
+            <div className={styles.tableHeaderCell}>Technician</div>
+            <div className={styles.tableHeaderCell}>Car Name</div>
+            <div className={styles.tableHeaderCell}>Account No</div>
+            <div className={styles.tableHeaderCell}>Reference</div>
             <div className={styles.tableHeaderCell}>Status</div>
             <div className={styles.tableHeaderCell}>Time Required</div>
-            <div className={styles.tableHeaderCell}>Actions</div>
+            <div className={styles.tableHeaderCellAction}>Actions</div>
           </div>
 
-          {repairTasks.map((task) => (
+          {filteredTasks.map((task) => (
             <div key={task.id} className={styles.tableRow}>
-              <div className={styles.tableCell}>{task.date}</div>
-              <div className={styles.staffCell}>
-                <img src={task.staffAvatar} alt="" className={styles.avatar} />
-                <span>{task.staffName}</span>
+              <div className={styles.tableCell}>{task.voucher_no}</div>
+              <div className={styles.tableCell}>{new Date(task.repair_date).toISOString().split("T")[0]}</div>
+              <div className={styles.tableCell}>{task.technician_name}</div>
+              <div className={styles.tableCell}>
+                {task.make} {task.model}
               </div>
-              <div className={styles.tableCell}>{task.vendorName}</div>
-              <div className={styles.tableCell}>{task.carName}</div>
-              <div className={styles.tableCell}>{task.stockNo}</div>
-              <div className={styles.tableCell}>{task.voucherNo}</div>
-              <div className={styles.statusCell}>
-                {renderStatusBadge(task.status)}
+              <div className={styles.tableCell}>{task.account_no}</div>
+              <div className={styles.tableCell}>{task.reference}</div>
+              <div className={styles.tableCell}>
+                {renderStatusBadge(task.repair_status)}
               </div>
-              <div className={styles.tableCell}>{task.timeRequired}</div>
+
+              <div className={styles.tableCell}>{task.time_required}</div>
               <div className={styles.actionsCell}>
                 <div className={styles.actionIcons}>
-                  <div>
+                  <button
+                    className={styles.actionbtn}
+                    onClick={() => handleViewRepairingVoucher(task.repair_id)}
+                  >
                     <svg
                       width="20"
                       height="20"
@@ -221,8 +345,8 @@ const RepairTasksManagement = () => {
                         strokeLinejoin="round"
                       ></path>
                     </svg>
-                  </div>
-                  <div>
+                  </button>
+                  <button className={styles.actionbtn} onClick={() => handleEdit(task.repair_id)}>
                     <svg
                       width="20"
                       height="20"
@@ -238,8 +362,8 @@ const RepairTasksManagement = () => {
                         strokeLinejoin="round"
                       ></path>
                     </svg>
-                  </div>
-                  <div>
+                  </button>
+                  <button className={styles.actionbtn} onClick={()=>handleDeleteClick(task)}>
                     <svg
                       width="20"
                       height="20"
@@ -276,28 +400,31 @@ const RepairTasksManagement = () => {
                         strokeLinejoin="round"
                       ></path>
                     </svg>
-                  </div>
+                  </button>
                 </div>
-                <button
-                  className={styles.doneButton}
-                  onClick={() => {
-                    setSelectedTask(task);
-                    setShowVoucherPopup(true);
-                  }}
-                >
-                  Done
-                </button>
+              
+                {task.repair_status === "Pending" && (
+                  <button
+                    className={styles.doneButton}
+                    onClick={() => handleProcessClick(task.repair_id)}
+                  >
+                    Process
+                  </button>
+                )}
               </div>
             </div>
           ))}
         </div>
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
-      {showVoucherPopup && (
+      {showVoucherPopup && !showRepairingVoucher && selectedTask && (
         <RepairVoucherPopup
           onClose={() => setShowVoucherPopup(false)}
           taskData={selectedTask}
+          onVoucherSaved={handleVoucherSaved}
         />
       )}
+      
     </>
   );
 };

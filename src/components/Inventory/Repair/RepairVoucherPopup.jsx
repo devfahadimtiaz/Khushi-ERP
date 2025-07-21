@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./RepairVoucherPopup.module.css";
+import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL
+const RepairVoucherPopup = ({ onClose, taskData, onVoucherSaved }) => {
+  const [items, setItems] = useState(
+    taskData?.issues?.map((issue) => ({
+      item: issue.item,
+      remarks: issue.details,
+      amount: issue.amount,
+    })) || [{ item: "", remarks: "", amount: "" }]
+  );
+  const [showRepairingVoucher, setShowRepairingVoucher] = useState(false);
 
-const RepairVoucherPopup = ({ onClose, taskData }) => {
-  const [items, setItems] = useState([{ item: "", remarks: "", amount: "" }]);
   const [formData, setFormData] = useState({
-    staffFullName: taskData?.staffName || "",
-    vendorName: taskData?.vendorName || "",
-    voucherNo: taskData?.voucherNo || "",
-    accountNo: "",
-    referenceNo: "",
+    vehicleId: taskData.id || "",
+    vendorName: taskData?.technician_name || "",
+    voucherNo: taskData?.voucher_no || "",
+    accountNo: taskData?.account_no || "",
+    referenceNo: taskData?.reference || "",
     prepaidBy: "",
     checkedBy: "",
     approvedBy: "",
+    repairid: taskData?.repair_id || "",
+    totalPaid: "",
+    remarks: "",
+    status: "Paid"
   });
 
   const handleInputChange = (e) => {
@@ -31,30 +44,61 @@ const RepairVoucherPopup = ({ onClose, taskData }) => {
   const addItem = () => {
     setItems([...items, { item: "", remarks: "", amount: "" }]);
   };
-
   const calculateTotal = () => {
     return items.reduce((total, item) => {
       const amount = parseFloat(item.amount) || 0;
       return total + amount;
     }, 0);
   };
+  useEffect(() => {
+    const total = calculateTotal();
+    setFormData((prev) => ({ ...prev, totalPaid: total }));
+  }, [items]);
+  const handleSaveVoucher = async (e) => {
+    e.preventDefault();
+     const vehicleID= formData.vehicleId
+    const total = calculateTotal();
 
-  const handleSaveVoucher = () => {
-    // Here you would typically save the data to your backend
-    console.log("Saving voucher:", {
+    const updatedFormData = {
       ...formData,
-      items,
-      total: calculateTotal(),
-    });
-    onClose();
-  };
+      totalPaid: total,
+    };
+    console.log(vehicleID)
 
+    try {
+      const res = await axios.post(
+        `${API_URL}/addPattyVoucher`,
+        {
+          ...updatedFormData,
+          items: items,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+       await fetch( `${API_URL}/updateVehicle/${vehicleID}`,{
+        method: 'PATCH',
+         headers:{
+        "Content-Type": "application/json",
+      },
+      })
+
+      console.log("Server Response:", res.data);
+      setShowRepairingVoucher(true); // Optional: still keep local state
+      onVoucherSaved(formData.vehicleId); // New prop to notify parent
+    } catch (err) {
+      console.error("Error saving voucher:", err.response?.data || err.message);
+    }
+  };
+  if (showRepairingVoucher) {
+    onClose(); // close the popup
+  }
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
         <div className={styles.popupCard}>
           <div className={styles.popupHeader}>
-            <div className={styles.title}>Repair Voucher</div>
+            <div className={styles.title}>Petty Cash Voucher</div>
             <div className={styles.closeButton} onClick={onClose}>
               ×
             </div>
@@ -62,17 +106,17 @@ const RepairVoucherPopup = ({ onClose, taskData }) => {
 
           <div className={styles.formRow}>
             <div className={styles.formColumn}>
-              <label className={styles.fieldLabel}>Staff Full Name</label>
+              <label className={styles.fieldLabel}>Reference No</label>
               <input
                 type="text"
                 className={styles.textInput}
-                name="staffFullName"
-                value={formData.staffFullName}
+                name="referenceNo"
+                value={formData.referenceNo}
                 onChange={handleInputChange}
               />
             </div>
             <div className={styles.formColumn}>
-              <label className={styles.fieldLabel}>Vendor Name</label>
+              <label className={styles.fieldLabel}>Technician Name</label>
               <input
                 type="text"
                 className={styles.textInput}
@@ -104,17 +148,6 @@ const RepairVoucherPopup = ({ onClose, taskData }) => {
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-
-          <div className={styles.fullWidthField}>
-            <label className={styles.fieldLabel}>Reference No</label>
-            <input
-              type="text"
-              className={styles.textInput}
-              name="referenceNo"
-              value={formData.referenceNo}
-              onChange={handleInputChange}
-            />
           </div>
 
           <div className={styles.tableHeader}>

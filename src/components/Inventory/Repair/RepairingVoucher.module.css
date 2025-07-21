@@ -1,0 +1,166 @@
+.container {
+  width: 100%;
+  max-width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+.logoContainer {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}
+.logo {
+  width: 40%;
+  margin: auto;
+}
+.header {
+  background-color: #cf2129;
+  padding: 5px;
+  margin-top: 10px;
+}
+.headerTitle {
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.details {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+.text {
+  font-weight: 600;
+}
+.dateText {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  gap: 0px;
+}
+.line {
+  width: 100%;
+  margin-top: 0px;
+}
+.accText {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  text-align: center;
+  gap: 0px;
+}
+.accLine {
+  width: 100%;
+  margin-top: 0px;
+}
+.voucherText{
+    display: flex;
+  flex-direction: column;
+  width: 250px;
+  text-align: center;
+  gap: 0px;
+}
+.refrenceText{
+     display: flex;
+  flex-direction: column;
+  width: 250px;
+  text-align: center;
+  gap: 0px;
+}
+.tableHeader{
+    display: flex;
+    background-color: #cf2129;
+    justify-content: space-between;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+     margin-top: 5px;
+}
+.headText{
+    text-align: center;
+    width: 33%;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+   
+}
+.table{
+    width: 100%;
+    padding: 0px;
+    margin-top: -2px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+.tableRow{
+    display: flex;
+    gap: 5px;
+}
+.tabledata{
+    width: 33%;
+    text-align: center;
+    border: 1px solid #000;    
+    height: 25px;
+    
+}
+.totalContainer{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #000;
+    border-collapse: collapse;
+    margin-top: -2px;
+    align-items: center;
+    padding: 5px;
+}
+.amountWord{
+    width: 60%;
+    display: flex;
+    gap: 20px;
+}
+.amount{
+    font-weight: 500;
+}
+.totalAmount{
+    width: 32%;
+    display: flex;
+    gap: 20px;
+}.total{
+    font-weight: 500;
+}
+.footer{
+     display: flex;
+    background-color: #cf2129;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 20px;
+        padding-bottom: 20px;
+    color: #fff;
+     margin-top: 0px;
+}
+.footerText{
+    
+    width: 33%;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+@media print {
+    .container{
+        width: 100%;
+        max-width: 95%;
+    }
+    .dateText{
+  width: 270px;
+    }
+    .accText{
+        width: 350px;
+    }
+    .voucherText{
+        width: 280px;
+    }
+    .refrenceText{
+        width: 270px;
+    }
+}

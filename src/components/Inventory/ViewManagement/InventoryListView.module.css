@@ -9,9 +9,8 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 1340px;
+  width: 90%;
   margin: auto;
-
 }
 
 .header {
@@ -47,7 +46,7 @@
   border: none;
   cursor: pointer;
 }
-.btnGreen:hover{
+.btnGreen:hover {
   opacity: 80%;
 }
 
@@ -63,7 +62,7 @@
   border: none;
   cursor: pointer;
 }
-.btnGray:hover{
+.btnGray:hover {
   opacity: 80%;
 }
 
@@ -79,7 +78,7 @@
   border: none;
   cursor: pointer;
 }
-.btnRed:hover{
+.btnRed:hover {
   opacity: 80%;
 }
 
@@ -88,39 +87,79 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  margin-top: 50px;
- 
+    overflow: visible;
+     position: relative;
+  margin-top: 10px;
+  z-index: 1;
+}
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #ccc;
+}
+
+.dropdownWrapper {
+  margin-left: 1rem;
+}
+
+.dropdown {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  margin-bottom: 20px;
+}
+
+.searchPlaceholder {
+  font-size: 16px;
+  width: 100%;
+  color: #999;
+  border: 1 px;
+  padding: 8px 16px;
 }
 
 .tableWrapper {
   overflow-x: auto;
+  position: relative; /* Required for dropdown positioning */
   width: 100%;
+  z-index: 0; /* lower z-index so dropdown can be above */
 }
 
 .table {
   width: 100%;
   min-width: 1200px;
   border-collapse: collapse;
+  border: 1px solid #e0e0e0; /* Light border for outer table */
 }
 
-.table th {
-  padding: 16px;
-  text-align: left;
-  color: #7e92a2;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  white-space: nowrap;
-}
-
+.table th,
 .table td {
-  padding: 16px;
-  color: #092c4c;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  white-space: nowrap;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* Add bottom border to each row */
+}
+td {
+  position: relative;
+  overflow: visible !important;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9f9; /* Soft highlight on hover */
+  transition: background-color 0.2s ease-in-out;
+}
+.table tbody tr:nth-child(even) {
+  background-color: #f6f8fa;
 }
 
 .checkboxContainer {
@@ -132,8 +171,7 @@
 .checkbox {
   width: 18px;
   height: 18px;
-  border-radius: 4px;
-  border: 1px solid #d9dbe9;
+  accent-color: #1ad598; /* modern browsers support accent-color */
 }
 
 .actionColumn {
@@ -141,40 +179,82 @@
 }
 
 .rowActions {
+  z-index: 1000;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 2px;
 }
 
-.editBtn {
-  padding: 8px;
+
+.viewBtn{
+    border: none;
+  color:#833beb;
+  cursor: pointer;
+}
+
+.editBtn{
+  border: none;
+  color:#2056e0;
+  cursor: pointer;
+}
+.deleteBtn{
+    border: none;
+  color:#d51818;
+  cursor: pointer;
+}
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+}
+.statusBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  
+  text-transform: capitalize;
+}
+
+.statusInStock {
   background-color: #1ad598;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  border: none;
-  cursor: pointer;
-}
-.editBtn:hover{
-  opacity: 80%;
+  color : #fff;
 }
 
-.deleteBtn {
-  padding: 8px;
+.statusSold {
   background-color: #d51818;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  border: none;
+  color:#fff;
+}
+
+.status-repairable {
+  background-color: #f59e0b; /* amber */
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.paginationButtons button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: #f3f4f6;
   cursor: pointer;
+  border-radius: 4px;
 }
-.deleteBtn:hover{
-  opacity: 80%;
+
+.paginationButtons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
+
 
 /* Media Queries */
 @media (max-width: 991px) {
@@ -198,3 +278,21 @@
     flex-wrap: wrap;
   }
 }
+.editWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 30px; /* adjust if needed */
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 6px 0;
+  min-width: 140px;
+}
+

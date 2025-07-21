@@ -1,255 +1,280 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-
-.container {
-  width: 100%;
+.wrapper {
   min-height: 100vh;
-  background-color: #f6fafd;
-  padding: 24px;
-  padding-top: 100px;
-  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f8fafc, #eff6ff);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1340px;
-  margin: auto;
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  gap: 1rem;
 }
 
-.title {
-  color: #092c4c;
-  font-size: 24px;
+.heading {
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 36px;
+  color: #1e293b;
 }
 
-.actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
+.subheading {
+  color: #475569;
 }
-.btnsold{
-  height: 41px;
-  padding: 0 16px;
-  background-color: #1AD598;
-  border-radius: 4px;
+
+.viewButtons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 20px;
+}
+
+.listButton {
+  transition: background 0.2s;
+}
+
+.gridButton {
+  background-color: #059669;
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
+}
+
+.filterSection {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searchWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInput {
+  padding-left: 2.5rem;
+  height: 3rem;
+  font-size: 1.125rem;
+}
+
+.sortButtons {
   display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.btnGray {
-  height: 41px;
-  padding: 0 16px;
-  background-color: #d9e1e7;
-  border-radius: 4px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.btnGray:hover {
-  opacity: 0.9;
+.sortButton {
+  transition: transform 0.15s;
 }
 
-.profileImage {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid #eaeef4;
-  overflow: hidden;
-}
-
-.profileImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.filterButtons {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-}
-
-.filterBtn {
-  height: 40px;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 36px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #1ad598;
-  border: none;
-}
-
-.filterBtn:hover {
-  opacity: 0.9;
+.sortButton:hover {
+  transform: scale(1.05);
 }
 
 .showroomFilters {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+}
+
+.filterTitle {
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.checkboxes {
+  display: flex;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-.checkboxGroup {
+.checkboxItem {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.checkbox {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #666;
-  border-radius: 2px;
-  background-color: #fff;
+  gap: 0.5rem;
 }
 
 .checkboxLabel {
-  color: #000;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.carGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.carCard {
-  border-radius: 10px;
-  padding: 24px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-}
-
-.carMainImage {
-  width: 100%;
-  height: 274px;
-  border-radius: 12px;
-  object-fit: cover;
-  margin-bottom: 16px;
-}
-
-.carName {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.stockInfo {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 16px;
-}
-
-.stockLabel,
-.stockValue {
-  color: #000;
-  font-size: 16px;
-}
-
-.priceTag {
-  width: 123px;
-  height: 50px;
-  border: 1px solid #000;
-  border-radius: 8px;
-  margin-bottom: 24px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.thumbnailGrid {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.thumbnail {
-  width: 102px;
-  height: 102px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.updateButton {
-  height: 59px;
-  width: 100%;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 18px;
   cursor: pointer;
-  background-color: #1ad598;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 0.875rem;
+  color: #334155;
+  transition: color 0.2s;
 }
 
-.updateButton:hover {
-  opacity: 0.9;
+.checkboxLabel:hover {
+  color: #059669;
 }
 
-/* Media Queries */
-@media (max-width: 991px) {
-  .filterButtons {
-    flex-wrap: wrap;
-  }
+.resultsCount {
+  margin-bottom: 1.5rem;
+  color: #475569;
+}
 
-  .carGrid {
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .actions {
-    width: 100%;
-    justify-content: space-between;
-  }
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
 
-  .showroomFilters {
-    flex-direction: column;
-  }
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
 
-  .carGrid {
-    grid-template-columns: 1fr;
-  }
+.cardImageWrapper {
+  position: relative;
+}
 
-  .thumbnailGrid {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.mainImage {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .mainImage {
+  transform: scale(1.05);
+}
+
+.badgeTopLeft,
+.badgeTopRight {
+  position: absolute;
+  top: 1rem;
+}
+
+.badgeTopLeft {
+  left: 1rem;
+}
+
+.badgeTopRight {
+  right: 1rem;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.carInfo {
+  margin-bottom: 1rem;
+}
+
+.carTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.stockNo {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.priceMileage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #059669;
+  font-weight: 700;
+}
+
+.mileage {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.thumbnail {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.viewButton {
+  width: 100%;
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.updatedDate {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.emptyIcon {
+  width: 4rem;
+  height: 4rem;
+  color: #cbd5e1;
+  margin: 0 auto 1rem;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.emptyMessage {
+  color: #64748b;
+  font-size: 0.875rem;
 }

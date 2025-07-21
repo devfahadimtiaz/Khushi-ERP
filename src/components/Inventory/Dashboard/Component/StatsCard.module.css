@@ -1,0 +1,121 @@
+.card {
+  background-color: white;
+  width: 25%;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  color: #4b5563; /* gray-600 */
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #111827; /* gray-900 */
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.trendValue {
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 500;
+}
+
+.trendPositive {
+  color: #16a34a; /* green-600 */
+}
+
+.trendNegative {
+  color: #dc2626; /* red-600 */
+}
+
+.trendLabel {
+  font-size: 0.75rem;
+  color: #6b7280; /* gray-500 */
+  margin-left: 0.25rem;
+}
+
+.iconWrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Color variants */
+.bgBlue {
+  background-color: #eff6ff; /* blue-50 */
+}
+
+.textBlue {
+  color: #2563eb; /* blue-600 */
+}
+
+.borderBlue {
+  border-color: #bfdbfe; /* blue-200 */
+}
+
+.bgGreen {
+  background-color: #ecfdf5; /* green-50 */
+}
+
+.textGreen {
+  color: #16a34a; /* green-600 */
+}
+
+.borderGreen {
+  border-color: #bbf7d0; /* green-200 */
+}
+
+.bgOrange {
+  background-color: #fff7ed; /* orange-50 */
+}
+
+.textOrange {
+  color: #ea580c; /* orange-600 */
+}
+
+.borderOrange {
+  border-color: #fed7aa; /* orange-200 */
+}
+
+.bgPurple {
+  background-color: #f5f3ff; /* purple-50 */
+}
+
+.textPurple {
+  color: #7c3aed; /* purple-600 */
+}
+
+.borderPurple {
+  border-color: #ddd6fe; /* purple-200 */
+}

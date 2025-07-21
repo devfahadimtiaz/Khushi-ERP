@@ -36,12 +36,7 @@
 .title {
   color: rgba(9, 44, 76, 1);
   font-size: 24px;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: 700;
   margin: 0;
 }
@@ -58,12 +53,7 @@
   margin-top: 40px;
   gap: 24px;
   flex-wrap: wrap;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
 }
 
@@ -78,6 +68,71 @@
   color: rgba(9, 44, 76, 1);
   font-weight: 700;
   margin-bottom: 8px;
+}
+.selectType {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem; /* spacing for custom radio */
+  font-size: 0.95rem;
+}
+
+.radioInput {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.customRadio {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #666;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+}
+
+.radioInput:checked + .customRadio {
+  background-color: #007bff; /* or your theme color */
+  border-color: #007bff;
+}
+
+.customRadio::after {
+  content: "";
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.radioInput:checked + .customRadio::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .inputField {
@@ -97,12 +152,7 @@
 .sectionTitle {
   color: rgba(0, 0, 0, 1);
   font-size: 25px;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: 700;
   margin: 64px 0 33px 0;
 }
@@ -129,12 +179,7 @@
 .fieldCode {
   color: rgba(54, 53, 101, 1);
   font-weight: 700;
-  font-family:
-    SF Pro Display,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: SF Pro Display, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   margin-right: 20px;
 }
@@ -142,12 +187,7 @@
 .fieldValue {
   color: rgba(153, 153, 153, 1);
   font-weight: 400;
-  font-family:
-    SF Pro Display,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: SF Pro Display, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   flex-grow: 1;
 }
@@ -166,28 +206,25 @@
   border: none;
   border-radius: 4px;
   padding: 12px 68px;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
   align-self: center;
+}
+.regitrationSection{
+  margin-top: 50px;
+}
+.checkboxSection{
+  display: flex;
+  gap: 50px;
 }
 
 .authorizationSection {
   display: flex;
   margin-top: 119px;
   gap: 20px;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 25px;
   color: rgba(0, 0, 0, 1);
   font-weight: 700;
@@ -215,12 +252,7 @@
 .signatureLabel {
   color: rgba(9, 44, 76, 1);
   font-weight: 700;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   margin-bottom: 8px;
 }
@@ -245,12 +277,7 @@
   border: none;
   border-radius: 8px;
   padding: 8px 29px;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
@@ -289,7 +316,7 @@
     padding-right: 20px;
   }
 }
- 
+
 .formGroup {
   flex: 1;
   margin-right: 20px;
